@@ -1,0 +1,23 @@
+.item-paper {
+    border: 2px solid #0b7dda;
+    width: 200px;
+    height: 40px;
+    background-color: #0b7dda;
+    margin-bottom: 10px;
+}
+
+.item-paper p a{
+    line-height: 40px;
+    color: white;
+    font-weight: 600;
+    margin-top: -3px;
+    margin-left: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    float:left;
+}
+
+.item-paper p a:hover
+{
+    color: red;
+}
