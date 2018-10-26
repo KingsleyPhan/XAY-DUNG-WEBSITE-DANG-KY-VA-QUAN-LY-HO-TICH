@@ -75,7 +75,7 @@
 										<p style="font-size: 18px;font-weight: bold">THÔNG TIN NGƯỜI NAM</p>
 									</div>
 									<div class="col-lg-6" style="text-align: right; height: 100%">
-										<input type="checkbox" class="form-check-input" id="exampleCheck1" style="bottom: 0px;" >
+										<input type="checkbox" class="form-check-input" id="nam_check_yeucau" style="bottom: 0px;" >
                                     	<label style="margin: auto">Là người yêu cầu</label>
 									</div>
                                 </div>
@@ -84,7 +84,8 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for=>Họ và Tên</label>
-                                                <input type="text" class="form-control" id="txtHoVaTen" onblur="validateTxtName()" >
+                                                <input type="text" class="form-control" id="nam_hovaten" name = "nam_hovaten" onblur="validateHoTen(nam_hovaten)" >
+												<p class="error" id="error_nam_hovaten"></p>
                                             </div>
                                         </div>
 										<div class="col-12 col-sm-6 col-md-4">
@@ -99,12 +100,14 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="date" name="date"
-                                                                    placeholder="Ngày/Tháng/Năm" type="text" />
+                                                                <input class="form-control" id="nam_ngaysinh" name="date"
+                                                                    placeholder="Ngày/Tháng/Năm" type="text" onBlur="validateNgaySinh(nam_ngaysinh)" onChange="validateNgaySinh(nam_ngaysinh)"/>
+																<input type="hidden" name="nam_ngaysinh"/>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+												<p class="error" id="error_nam_ngaysinh"></p>
                                             </div>
 										</div>
 									</div>
@@ -113,13 +116,13 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Số CMND</label>
-                                                <input type="text" class="form-control" id="txtCMND" onblur="validateTxtCMND()">
+                                                <input type="text" class="form-control" id="nam_CMND" name="nam_CMND" onblur="validateTxtCMND()">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Nơi cấp</label>
-                                                <input type="text" class="form-control" id="">
+                                                <input type="text" class="form-control" id="nam_CMND_noicap" name="nam_CMND_noicap">
                                             </div>
                                         </div>
 										
@@ -135,7 +138,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="date" name="date"
+                                                                <input class="form-control" id="nam_CMND_ngaycap" name="date"
                                                                     placeholder="Ngày/Tháng/Năm" type="text" />
                                                             </div>
                                                         </div>
@@ -148,7 +151,7 @@
 										<div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Dân tộc </label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nam_id_dantoc" name="nam_id_dantoc">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -156,7 +159,7 @@
 										<div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nam_id_quoctich" name="nam_id_quoctich">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -164,7 +167,7 @@
 										<div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Số lần kết hôn</label>
-                                                <input type="number" class="form-control" id="">
+                                                <input type="number" class="form-control" id="nam_solan" name="nam_solan">
                                             </div>
                                         </div>
 									</div>
@@ -179,7 +182,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nam_id_thanhpho" name="nam_id_thanhpho">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -187,7 +190,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nam_id_quan" name="nam_id_quan">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -195,7 +198,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nam_id_phuong" name="nam_id_phuong">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -203,7 +206,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="">Địa chỉ chi tiết</label>
-                                                <input type="text" class="form-control" id="">
+                                                <input type="text" class="form-control" id="nam_diachi" name="nam_diachi">
                                             </div>
                                         </div>
                                     </div>
@@ -219,7 +222,7 @@
 										<p style="font-size: 18px;font-weight: bold">THÔNG TIN NGƯỜI NỮ</p>
 									</div>
 									<div class="col-lg-6" style="text-align: right; height: 100%">
-										<input type="checkbox" class="form-check-input" id="exampleCheck1" style="bottom: 0px;" >
+										<input type="checkbox" class="form-check-input" id="nu_check_yeucau" style="bottom: 0px;" >
                                     	<label style="margin: auto">Là người yêu cầu</label>
 									</div>
                                 </div>
@@ -228,7 +231,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for=>Họ và Tên</label>
-                                                <input type="text" class="form-control" id="txtHoVaTen" onblur="validateTxtName()">
+                                                <input type="text" class="form-control" id="nu_HoVaTen" name = "nu_HoVaTen" onblur="validateTxtName()" >
                                             </div>
                                         </div>
 										<div class="col-12 col-sm-6 col-md-4">
@@ -243,7 +246,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="date" name="date"
+                                                                <input class="form-control" id="nu_ngaysinh" name="date"
                                                                     placeholder="Ngày/Tháng/Năm" type="text" />
                                                             </div>
                                                         </div>
@@ -257,13 +260,13 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Số CMND</label>
-                                                <input type="text" class="form-control" id="txtCMND" onblur="validateTxtCMND()">
+                                                <input type="text" class="form-control" id="nu_CMND" name="nu_CMND" onblur="validateTxtCMND()">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Nơi cấp</label>
-                                                <input type="text" class="form-control" id="">
+                                                <input type="text" class="form-control" id="nu_CMND_noicap" name="nu_CMND_noicap">
                                             </div>
                                         </div>
 										
@@ -279,7 +282,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="date" name="date"
+                                                                <input class="form-control" id="nu_CMND_ngaycap" name="date"
                                                                     placeholder="Ngày/Tháng/Năm" type="text" />
                                                             </div>
                                                         </div>
@@ -292,7 +295,7 @@
 										<div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Dân tộc </label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nu_id_dantoc" name="nu_id_dantoc">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -300,7 +303,7 @@
 										<div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nu_id_quoctich" name="nu_id_quoctich">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -308,7 +311,7 @@
 										<div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Số lần kết hôn</label>
-                                                <input type="number" class="form-control" id="">
+                                                <input type="number" class="form-control" id="nu_solan" name="nu_solan">
                                             </div>
                                         </div>
 									</div>
@@ -323,7 +326,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nu_id_thanhpho" name="nu_id_thanhpho">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -331,7 +334,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nu_id_quan" name="nu_id_quan">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -339,7 +342,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
-                                                <select class="form-control" id="sel1">
+                                                <select class="form-control" id="nu_id_phuong" name="nu_id_phuong">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -347,7 +350,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="">Địa chỉ chi tiết</label>
-                                                <input type="text" class="form-control" id="">
+                                                <input type="text" class="form-control" id="nu_diachi" name="nu_diachi">
                                             </div>
                                         </div>
                                     </div>
@@ -456,49 +459,7 @@
     <!-- End Footer-->
     <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
     <script src="../js/Header.js"></script>
-    <script>
-        function validateTxtName() {
-            var x = document.getElementById("txtHoVaTen").value;
-            if (x.length > 255) {
-                alert("Tên bạn không được quá dài");
-                return false;
-            }
-
-        }
-        function validateTxtCMND() {
-            var x = document.getElementById("txtCMND").value;
-            if (x.length > 12) {
-                alert("Số CMND không hợp lệ");
-                return false;
-            }
-
-        }
-    </script>
-	
-    <script>
-        $(document).ready(function () {
-            var date_input = $('input[name="date"]'); //our date input has the name "date"
-            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-            date_input.datepicker({
-                format: 'dd/mm/yyyy',
-                container: container,
-                todayHighlight: true,
-                autoclose: true,
-            })
-        })
-    </script>
-    <script>
-        $(document).ready(function () {
-            var date_input = $('input[name="date"]'); //our date input has the name "date"
-            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-            date_input.datepicker({
-                format: 'dd/mm/yyyy',
-                container: container,
-                todayHighlight: true,
-                autoclose: true,
-            })
-        })
-    </script>
+    <script src="../js/valiedateForm.js"></script>
 </body>
 
 </html>

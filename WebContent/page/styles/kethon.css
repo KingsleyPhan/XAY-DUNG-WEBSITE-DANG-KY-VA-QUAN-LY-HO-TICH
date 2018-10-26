@@ -6,3 +6,14 @@
 	font-weight: bold;
 	margin-top: 20px;
 }
+.error
+{
+	color: rgba(196,92,94,1.00);
+	margin: 5px 0px 0px 15px;
+	
+}
+.fild_error
+{
+	border-color:rgba(231,84,86,0.86) !important;
+	box-shadow: 2px 1px 5px rgba(231,84,86,0.86)!important;
+}
