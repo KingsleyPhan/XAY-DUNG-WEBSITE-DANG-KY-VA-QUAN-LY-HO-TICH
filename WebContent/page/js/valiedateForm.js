@@ -29,7 +29,7 @@
 			else
 				{
 					if (x.value.length > 2) {
-                		result = "* Tên bạn nhập dài hơn quy định";
+                		result = "* Nhập dài hơn quy định";
 					}
 				}
 			var id_error = "#error_" + id_HoVaTen.id;
@@ -43,8 +43,7 @@
 			return false;
         }
 
-		function validateNgaySinh(id_NgaySinh)
-		{
+		function validateNgaySinh(id_NgaySinh){
 			var x = id_NgaySinh;
 			var result = "";
 			var id_error = "#error_" + id_NgaySinh.id;
@@ -77,6 +76,9 @@
 			if(result == ""){
 				$(id_error).html(result);
 				RemoveClass(id_NgaySinh,"fild_error")
+				var input = "#input_" + id_NgaySinh.id;
+				var date = id_NgaySinh.value;
+				$(input).val(date);
 				return true;
 			}
 			else{
@@ -84,6 +86,145 @@
 				AddClass(id_NgaySinh,"fild_error");
 				return false;
 			}
+		}
+
+		function validateCMND(id_CMND) {
+            var x = id_CMND;
+			var result = "";
+			if(x.value == "")
+				{
+					result = "* Không được để trống";
+				}
+			else
+				{
+					if (x.value.length !== 9 && x.value.length !== 12) {
+                		result = "* Nhập sai định đạng";
+					}
+				}
+			var id_error = "#error_" + id_CMND.id;
+			$(id_error).html(result);
+			if(result == "")
+				{
+					RemoveClass(id_CMND,"fild_error")
+					return true;
+				}
+			AddClass(id_CMND,"fild_error");
+			return false;
+        }
+		
+		function validateRequired(id) {
+            var x = id;
+			var result = "";
+			if(x.value == ""){
+					result = "* Không được để trống";
+			}
+			else{
+					if (x.value.length > 255) {
+                		result = "* Nơi nhập dài hơn quy định";
+					}
+			}
+			var id_error = "#error_" + id.id;
+			$(id_error).html(result);
+			if(result == "")
+				{
+					RemoveClass(id,"fild_error")
+					return true;
+				}
+			AddClass(id,"fild_error");
+			return false;
+        }
+	
+		function validateNgayCap(id_NgayCap){
+			var x = id_NgayCap;
+			var result = "";
+			var id_error = "#error_" + id_NgayCap.id;
+			if(x.value == ""){
+					result = "* Không được để trống";
+			}
+			else{
+				var dateInput = id_NgayCap.value.split("/");
+				var dateCur = new Date();
+				
+				if(dateCur.getFullYear() - dateInput[2] < 0 ){
+					result = "* Nhập sai";
+				}
+				else{
+					if(dateCur.getFullYear() - dateInput[2] == 0 ){
+						var month = dateCur.getMonth()+1;
+						if(month < dateInput[1]){
+							result = "* Nhập sai";
+						}
+						else{
+							if(month == dateInput[1]){
+								if(dateCur.getDate() < dateInput[0]){
+									result = "* Nhập sai";
+								}
+							}
+						}
+					}
+				}
+			}
+			if(result == ""){
+				$(id_error).html(result);
+				RemoveClass(id_NgayCap,"fild_error")
+				var input = "#input_" + id_NgayCap.id;
+				var date = id_NgayCap.value;
+				$(input).val(date);
+				return true;
+			}
+			else{
+				$(id_error).html(result);
+				AddClass(id_NgayCap,"fild_error");
+				return false;
+			}
+		}
+	
+		function validateNumber(id){
+			var x = id;
+			var result = "";
+			if(x.value == ""){
+					result = "* Phải nhập số";
+			}
+			var id_error = "#error_" + id.id;
+			$(id_error).html(result);
+			if(result == "")
+				{
+					RemoveClass(id,"fild_error")
+					return true;
+				}
+			AddClass(id,"fild_error");
+			return false;
+		}
+
+		function validateSubmit(){
+			var result = validateHoTen(nam_hovaten);
+			result = validateNgaySinh(nam_ngaysinh) && result;
+			result = validateCMND(nam_CMND) && result;
+			result = validateRequired(nam_CMND_noicap)  && result;
+			result = validateNgayCap(nam_CMND_ngaycap) && result;
+			result = validateRequired(nam_id_dantoc) && result;
+			result = validateRequired(nam_id_quoctich) && result;
+			result = validateNumber(nam_solan) && result;
+			result = validateRequired(nam_id_thanhpho) && result;
+			result = validateRequired(nam_id_quan) && result;
+			result = validateRequired(nam_id_phuong) && result;
+			result = validateRequired(nam_diachi) && result;
+			result = validateHoTen(nu_hovaten);
+			result = validateNgaySinh(nu_ngaysinh) && result;
+			result = validateCMND(nu_CMND) && result;
+			result = validateRequired(nu_CMND_noicap)  && result;
+			result = validateNgayCap(nu_CMND_ngaycap) && result;
+			result = validateRequired(nu_id_dantoc) && result;
+			result = validateRequired(nu_id_quoctich) && result;
+			result = validateNumber(nu_solan) && result;
+			result = validateRequired(nu_id_thanhpho) && result;
+			result = validateRequired(nu_id_quan) && result;
+			result = validateRequired(nu_id_phuong) && result;
+			result = validateRequired(nu_diachi) && result;
+			if(result){
+				return true;
+			}
+			return false;
 		}
 
         $(document).ready(function () {
