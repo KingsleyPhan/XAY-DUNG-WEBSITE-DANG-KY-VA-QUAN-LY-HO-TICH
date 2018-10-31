@@ -5,12 +5,20 @@
     <title>HOTICH.NET</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+-->
+	
+	<link rel="stylesheet" href="../plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<script src="../plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script src="../plugins/jquery/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../plugins/font/montserrat.css">
 
     <!--content-->
     <link rel="stylesheet" type="text/css" href="..//styles/HAF.css">
@@ -45,19 +53,169 @@
                 <!-- Setup 2000px for test amnition-->
                 <!--conntent continute-->
 
-                <div class="row">
-                    <div class="col-sm-3 item-paper">
-                        <p><a href="#" >Hồ sơ chưa xử lý</a></p>
-                    </div>
-                    <div class="col-sm-3 item-paper ">
-                        <p><a href="#">Hồ sơ đã xử lý</a></p>
-                    </div>
-                    <div class="col-sm-3 item-paper">
-                        <p><a href="#">Hồ sơ đã từ chối</a></p>
-                    </div>
-                    <div class="col-sm-3  item-paper ">
-                        <p><a href="#">Thông báo</a></p>
-                    </div>
+                <div class="row manage-content">
+                    <div class="row tab-control">
+						<div class="tab-col">
+							<div class="tab-item">
+								<a href="#" class="tablinks">Hồ sơ</a>
+							</div>
+						</div>
+						<div class="tab-col">
+							<div class="tab-item">
+								<a href="#" class="tablinks">Hộ tịch</a>
+							</div>
+						</div>
+						<div class="tab-col">
+							<div class="tab-item">
+								<a href="#" class="tablinks">Thống kê</a>
+							</div>
+						</div>
+						<div class="tab-col">
+							<div class="tab-item">
+								<a href="#" class="tablinks">Người dùng</a>
+							</div>
+						</div>
+						<div class="tab-col">
+							<div class="tab-item">
+								<a href="#" class="tablinks">Hệ thống</a>
+							</div>
+						</div>
+						<div class="tab-col">
+							<div class="tab-item">
+								<a href="#" class="tablinks">Trợ giúp</a>
+							</div>
+						</div>
+						<div class="tab-col">
+							<div class="tab-item">
+								<a href="#" class="tablinks">Thông báo</a>
+							</div>
+						</div>
+					</div>
+					<div id="myBtnContainer" class="row container-type">
+						
+						<div class="btn active" onclick="filterSelection('all')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>Show all</p>		
+							</div>
+						</div>
+
+						<div class="btn" onclick="filterSelection('car')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>car</p>
+							</div>
+						</div>
+
+						<div class="btn" onclick="filterSelection('all')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>Show all</p>
+							</div>
+						</div>
+
+						<div class="btn" onclick="filterSelection('animals')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>animals</p>
+							</div>
+						</div>
+
+						<div class="btn" onclick="filterSelection('fruits')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>fruits</p>
+							</div>
+						</div>
+
+						<div class="btn" onclick="filterSelection('colors')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>colors</p>
+							</div>
+						</div>
+
+						<div class="btn" onclick="filterSelection('all')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>Show all</p>
+							</div>
+						</div>
+
+						<div class="btn" onclick="filterSelection('all')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>Show all</p>
+							</div>
+						</div>
+						
+						
+						<div class="btn" onclick="filterSelection('all')">
+							<div class="btn-content">
+								<div class="btn-img">
+									<img src="../image/126503.png" alt="No image">
+								</div>
+								<p>Show all</p>
+							</div>
+						</div>
+					</div>
+					<!--Table mau tự code -->
+					<div class="row container-table">          
+  						<table class="table">
+  						  	<thead>
+  						    	<tr style="display: table-row">
+  						      		<th>#</th>
+  						      		<th>Firstname</th>
+  						      		<th>Lastname</th>
+  						      		<th>Age</th>
+  						      		<th>City</th>
+  						      		<th>Country</th>
+  						    	</tr>
+  						  	</thead>
+  						  	<tbody>
+  						    	<tr class="filterDiv colors">
+  						      		<td>1</td>
+  						      		<td> colors</td>
+  						      		<td>Pitt</td>
+  						      		<td>35</td>
+  						      		<td>New York</td>
+  						      		<td>USA</td>
+  						    	</tr>
+								<tr class="filterDiv  animals">
+  						      		<td>1</td>
+  						      		<td> animals</td>
+  						      		<td>Pitt</td>
+  						      		<td>35</td>
+  						      		<td>New York</td>
+  						      		<td>USA</td>
+  						    	</tr>
+								<tr class="filterDiv fruits">
+  						      		<td>1</td>
+  						      		<td> fruits</td>
+  						      		<td>Pitt</td>
+  						      		<td>35</td>
+  						      		<td>New York</td>
+  						      		<td>USA</td>
+  						    	</tr>
+  						  	</tbody>
+  						</table>
+  					</div>
                 </div>
 
             </div>
@@ -90,6 +248,10 @@
     <!-- End Footer-->
     <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
     <script src="../js/Header.js"></script>
+	<script src="../js/manage.js">
+		
+</script>
+
 </body>
 
 </html>

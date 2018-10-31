@@ -1,31 +1,144 @@
-.item-paper {
-    border: 2px solid #0b7dda;
-    height: 40px;
-    background-color: #0b7dda;
-    float: left;
-    border-right-color: white;
-   
-   
+@import url(../../plugins/font/roboto.css);
+*{
+	font-family: 'Roboto Slab', serif;
 }
-.item-paper p
+.container
 {
-    text-align: center;
+	margin: 0;
+	width: 100%;
 }
-.item-paper p a {
-    line-height: 40px;
-    color: white;
-    font-weight: 600;
-    margin-top: -3px;
-    font-size: 2vw;
-    text-decoration: none;
+.header_location
+{
+	margin: 20px 100px 15px;
+}
+.manage-content
+{
+	margin: 10px;
+	border: #004f7e solid 2px;
+	width: auto;
+	height: 500px;
+}
+.tab-control
+{
+	margin: 0 15px;
+	border-bottom: #004f7e solid 3px;
+	width: auto;
+	padding: 4px 5% 0px;
+	height: 55px;
+	overflow: hidden;
+}
+.tab-col
+{
+	width: 14.2%;
+	float: left;
+}
+.tab-item
+{
+  	text-align: center;
+  	padding: 10px 0px;
+  	text-decoration: none;
+  	font-size: 17px;
+	background-color: #004f7e;
+	/*margin: 5px 8% 0px;*/
+	width: 130px;
+	height: 50px;
+	margin: 10px auto 0px;
+	transition: 0.3s;
+	
+}
+.tab-item:hover
+{
+	margin: -5px auto 0px;
+	height: 65px;
+	background-color:#008EFF;
+}
+.tablinks
+{
+	font-family: 'Roboto Slab', serif;
+  	color:white;
+}
+.tab-item:hover a
+{
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+}
+.tab-item a:visited, .tab-item a:focus, .tab-item a:hover
+{
+	color: white;
+	text-decoration: none;
+}
+/*Mới thêm*/
+.container-type{
+	margin: 10px 15px;
+	border: #004f7e solid 1px;
+	padding: 0px;
+}
+/* Style the buttons */
+.btn {
+	border: #004f7e solid 1px;
+	padding: 0px;
+  	background-color: #f1f1f1;
+  	cursor: pointer;
+	border-radius: 0px;
+	width: 100%;
+	width: 11.111%;
+	margin: 0px;
+	height: 100px;
+	float: left;
+}
+.btn-content
+{
+	  padding: 5px 10px;
+}
+.btn-content p
+{
+	font-size: 20px;
+	margin: 5px 0 0px;
+}
+.btn-img
+{
+	width: 100%;
+	height: 50px;
+}
+.btn-img img
+{
+	width: 50px;
+	height: 50px;
 }
 
-.item-paper p a:hover {
-    color: red;
+.btn:hover {
+  background-color: #ddd;
 }
 
-.menu {
-    width: 100%;
-    margin: auto;
-  
+.active {
+  background-color:#008EFF;
+  color: white;
 }
+
+.filterDiv {
+	display: none;
+}
+.show {
+  display: table-row!important;
+}
+
+.container-table
+{
+	margin: 0;
+	width: 100%;
+}
+
+th{
+	text-align: center;
+	width: 100px;
+	border: #004f7e solid 2px;
+}
+.filterDiv td
+{
+	text-align: center;
+	width: 100px;
+}
+
+
+
