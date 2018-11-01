@@ -5,14 +5,6 @@
     <title>HOTICH.NET</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
--->
 	
 	<link rel="stylesheet" href="../plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<script src="../plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -24,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="..//styles/HAF.css">
     <link rel="stylesheet" type="text/css" href="..//styles/manage.css">
     <!--header and footer-->
+	
 </head>
 
 <body>
@@ -91,127 +84,212 @@
 							</div>
 						</div>
 					</div>
-					<div id="myBtnContainer" class="row container-type">
+					<div id="myFilterContainer" class="row container-filter">
 						
-						<div class="btn active" onclick="filterSelection('all')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter active" onclick="filterSelection('all')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>Show all</p>		
+								<p>Tất cả</p>		
 							</div>
 						</div>
 
-						<div class="btn" onclick="filterSelection('car')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter" onclick="filterSelection('khaisinh')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>car</p>
+								<p>Khai sinh</p>
 							</div>
 						</div>
 
-						<div class="btn" onclick="filterSelection('all')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter" onclick="filterSelection('kethon')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>Show all</p>
+								<p>Kết hôn</p>
 							</div>
 						</div>
 
-						<div class="btn" onclick="filterSelection('animals')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter" onclick="filterSelection('chungtu')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>animals</p>
+								<p>Chứng tử</p>
 							</div>
 						</div>
 
-						<div class="btn" onclick="filterSelection('fruits')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter" onclick="filterSelection('giamho')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>fruits</p>
+								<p>Giám hộ</p>
 							</div>
 						</div>
 
-						<div class="btn" onclick="filterSelection('colors')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter" onclick="filterSelection('nhanquanhe')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>colors</p>
+								<p>Nhận quan hệ</p>
 							</div>
 						</div>
 
-						<div class="btn" onclick="filterSelection('all')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter" onclick="filterSelection('nhanconnuoi')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>Show all</p>
+								<p>Nhận con nuôi</p>
 							</div>
 						</div>
 
-						<div class="btn" onclick="filterSelection('all')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter" onclick="filterSelection('lyhon')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>Show all</p>
+								<p>Ly hôn</p>
 							</div>
 						</div>
 						
 						
-						<div class="btn" onclick="filterSelection('all')">
-							<div class="btn-content">
-								<div class="btn-img">
+						<div class="filter" onclick="filterSelection('bansao')">
+							<div class="filter-content">
+								<div class="filter-img">
 									<img src="../image/126503.png" alt="No image">
 								</div>
-								<p>Show all</p>
+								<p>Bản sao</p>
 							</div>
 						</div>
 					</div>
 					<!--Table mau tự code -->
 					<div class="row container-table">          
   						<table class="table">
-  						  	<thead>
+							<thead>
   						    	<tr style="display: table-row">
-  						      		<th>#</th>
-  						      		<th>Firstname</th>
-  						      		<th>Lastname</th>
-  						      		<th>Age</th>
-  						      		<th>City</th>
-  						      		<th>Country</th>
+  						      		<th class="col-id">STT</th>
+  						      		<th class="col-noidung">Nội dung hộ tịch</th>
+  						      		<th class="col-ma">Mã hồ sơ đăng kí</th>
+  						      		<th class="col-ngay">Ngày đăng kí</th>
+  						      		<th class="col-ngay">Ngày hết hạn xử lý</th>
+  						      		<th class="col-tacvu">Tác vụ</th>
   						    	</tr>
   						  	</thead>
+							
   						  	<tbody>
-  						    	<tr class="filterDiv colors">
-  						      		<td>1</td>
-  						      		<td> colors</td>
-  						      		<td>Pitt</td>
-  						      		<td>35</td>
-  						      		<td>New York</td>
-  						      		<td>USA</td>
+  						    	<tr class="filterDiv khaisinh">
+  						      		<td class="col-id">1</td>
+  						      		<td class="col-noidung">Giấy khai sinh</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
   						    	</tr>
-								<tr class="filterDiv  animals">
-  						      		<td>1</td>
-  						      		<td> animals</td>
-  						      		<td>Pitt</td>
-  						      		<td>35</td>
-  						      		<td>New York</td>
-  						      		<td>USA</td>
+								<tr class="filterDiv kethon">
+  						      		<td class="col-id">2</td>
+  						      		<td class="col-noidung">Giấy kết hôn</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
   						    	</tr>
-								<tr class="filterDiv fruits">
-  						      		<td>1</td>
-  						      		<td> fruits</td>
-  						      		<td>Pitt</td>
-  						      		<td>35</td>
-  						      		<td>New York</td>
-  						      		<td>USA</td>
+								<tr class="filterDiv nhanquanhe">
+  						      		<td class="col-id">3</td>
+  						      		<td class="col-noidung">Giấy nhận cha, mẹ, con</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
+  						    	</tr>
+								<tr class="filterDiv khaisinh">
+  						      		<td class="col-id">1</td>
+  						      		<td class="col-noidung">Giấy khai sinh</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
+  						    	</tr>
+								<tr class="filterDiv kethon">
+  						      		<td class="col-id">2</td>
+  						      		<td class="col-noidung">Giấy kết hôn</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
+  						    	</tr>
+								<tr class="filterDiv nhanquanhe">
+  						      		<td class="col-id">3</td>
+  						      		<td class="col-noidung">Giấy nhận cha, mẹ, con</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
+  						    	</tr>
+								<tr class="filterDiv khaisinh">
+  						      		<td class="col-id">1</td>
+  						      		<td class="col-noidung">Giấy khai sinh</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
+  						    	</tr>
+								<tr class="filterDiv kethon">
+  						      		<td class="col-id">2</td>
+  						      		<td class="col-noidung">Giấy kết hôn</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
+  						    	</tr>
+								<tr class="filterDiv nhanquanhe">
+  						      		<td class="col-id">3</td>
+  						      		<td class="col-noidung">Giấy nhận cha, mẹ, con</td>
+  						      		<td class="col-ma">NNNNNNNN</td>
+  						      		<td class="col-ngay">11/01/2018</td>
+  						      		<td class="col-ngay">13/01/2018</td>
+  						      		<td class="col-tacvu">
+										<div>
+											<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+										</div>
+									</td>
   						    	</tr>
   						  	</tbody>
   						</table>
@@ -248,9 +326,7 @@
     <!-- End Footer-->
     <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
     <script src="../js/Header.js"></script>
-	<script src="../js/manage.js">
-		
-</script>
+	<script src="../js/manage.js"></script>
 
 </body>
 

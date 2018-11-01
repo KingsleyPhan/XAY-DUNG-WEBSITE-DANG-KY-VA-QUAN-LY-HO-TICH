@@ -16,7 +16,7 @@
 	margin: 10px;
 	border: #004f7e solid 2px;
 	width: auto;
-	height: 500px;
+	height: auto;
 }
 .tab-control
 {
@@ -44,7 +44,7 @@
 	height: 50px;
 	margin: 10px auto 0px;
 	transition: 0.3s;
-	
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 .tab-item:hover
 {
@@ -69,14 +69,16 @@
 	text-decoration: none;
 }
 /*Mới thêm*/
-.container-type{
+.container-filter{
 	margin: 10px 15px;
 	border: #004f7e solid 1px;
 	padding: 0px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 /* Style the buttons */
-.btn {
-	border: #004f7e solid 1px;
+.filter {
+	border: #cfd5ea solid 1px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 	padding: 0px;
   	background-color: #f1f1f1;
   	cursor: pointer;
@@ -87,27 +89,29 @@
 	height: 100px;
 	float: left;
 }
-.btn-content
+.filter-content
 {
 	  padding: 5px 10px;
+	height: 100%;
 }
-.btn-content p
+.filter-content p
 {
-	font-size: 20px;
-	margin: 5px 0 0px;
+	font-size: 16px;
+	margin: 15px 0 0 0;
+	text-align: center;
 }
-.btn-img
+.filter-img
 {
 	width: 100%;
 	height: 50px;
 }
-.btn-img img
+.filter-img img
 {
 	width: 50px;
 	height: 50px;
 }
 
-.btn:hover {
+.filter:hover {
   background-color: #ddd;
 }
 
@@ -132,13 +136,46 @@
 th{
 	text-align: center;
 	width: 100px;
-	border: #004f7e solid 2px;
 }
 .filterDiv td
 {
-	text-align: center;
 	width: 100px;
+	line-height: 100%;
+	vertical-align: middle !important;
+	text-align: center;
 }
+
+.table thead{
+	background-color: #004f7e;
+	color: white;
+}
+
+.col-id{
+	width: 5%;
+}
+tbody tr:nth-child(even) {
+    background-color: #e9ebf5;
+}
+tbody tr:nth-child(odd) {
+    background-color: #cfd5ea;
+}
+td.col-noidung{
+	width: 35%;
+	text-align: left;
+}
+.col-ma{
+	width: 15%;
+}
+.col-ngay{
+	width: 15%;
+}
+.col-tacvu{
+	width: 15%;
+	text-align: center;
+}
+
+
+
 
 
 
