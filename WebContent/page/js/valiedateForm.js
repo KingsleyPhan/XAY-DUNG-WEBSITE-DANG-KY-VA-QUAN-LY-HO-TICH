@@ -178,7 +178,7 @@
 				return false;
 			}
 		}
-	
+		
 		function validateNumber(id){
 			var x = id;
 			var result = "";
@@ -196,7 +196,25 @@
 			return false;
 		}
 
-		function validateSubmit(){
+		function validateRadio(id_male, id_female){
+			var mal = id_male;
+			var fe = id_female;
+			var result = "";
+			if(mal.checked == false && fe.checked==false){
+					result = "* Chưa chọn giới tính cho trẻ";
+			}
+			var id_error = "#error_" + id_male.id;
+			$(id_error).html(result);
+			if(result == "")
+				{
+				
+					return true;
+				}
+		
+			return false;
+		}
+		
+		function validateSubmitKetHon(){
 			var result = validateHoTen(nam_hovaten);
 			result = validateNgaySinh(nam_ngaysinh) && result;
 			result = validateCMND(nam_CMND) && result;
@@ -221,6 +239,68 @@
 			result = validateRequired(nu_id_quan) && result;
 			result = validateRequired(nu_id_phuong) && result;
 			result = validateRequired(nu_diachi) && result;
+			
+			if(result){
+				return true;
+			}
+			return false;
+		}
+
+		function validateSubmitKhaiSinh(){
+			var result = validateHoTen(HoTenYeuCau);
+			 result = validateCMND(CMNDYeuCau) && result;
+			 result = validateRequired(NoiCapCMNDYeuCau) && result;
+			 result = validateNgayCap(NgayCapCMNDYeuCau) && result;
+			 result = validateRequired(NguoiYeuCau_QuanHe) && result;
+			 result = validateRequired(NguoiYeuCau_QuanHeKhac) && result;
+			 result = validateRequired(NguoiYeuCau_QuocTich) && result;
+			 result = validateRequired(NguoiYeuCau_Tinh) && result;
+			 result = validateRequired(NguoiYeuCau_Huyen) && result;
+			 result = validateRequired(NguoiYeuCau_Phuong) && result;
+			 result = validateRequired(NguoiYeuCau_DiaChi) && result;
+			
+
+			 result = validateHoTen(KhaiSinh_HoVaTen) && result;
+			 result = validateRadio(male, female) && result;
+			 result = validateNgayCap(KhaiSinh_ngaySinh) && result;
+			 result = validateRequired(KhaiSinh_danToc) && result;
+			 result = validateRequired(KhaiSinh_quocTich) && result;
+			 result = validateRequired(KhaiSinh_ThanhPho) && result;
+			 result = validateRequired(KhaiSinh_Quan) && result;
+			 result = validateRequired(KhaiSinh_Phuong) && result;
+			 result = validateRequired(KhaiSinh_DiaChi) && result;
+			 result = validateRequired(KhaiSinh_CSSinh) && result;
+			 result = validateRequired(KhaiSinh_QuocGiaSinh) && result;
+			 result = validateRequired(KhaiSinh_TPSinh) && result;
+			 result = validateRequired(KhaiSinh_QuanSinh) && result;
+			 result = validateRequired(KhaiSinh_PhuongSinh) && result;
+			 result = validateRequired(KhaiSinh_DiaChiSinh) && result;
+			 
+			 result = validateHoTen(Me_HoVaTen) && result;
+			 result = validateRequired(Me_ngaySinh) && result;
+			 result = validateCMND(Me_CMND) && result;
+			 result = validateRequired(Me_NoiCap) && result;
+			 result = validateNgayCap(Me_NgayCap) && result;
+			 result = validateRequired(Me_DanToc) && result;
+			 result = validateRequired(Me_QuocTich) && result;
+			 result = validateRequired(Me_Tinh) && result;
+			 result = validateRequired(Me_Quan) && result;
+			 result = validateRequired(Me_Phuong) && result;
+			 result = validateRequired(Me_DiaChi) && result;
+
+			 result = validateHoTen(Cha_HoVaTen) && result;
+			 result = validateRequired(Cha_ngaySinh) && result;
+			 result = validateCMND(Cha_CMND) && result;
+			 result = validateRequired(Cha_NoiCap) && result;
+			 result = validateNgayCap(Cha_NgayCap) && result;
+			 result = validateRequired(Cha_DanToc) && result;
+			 result = validateRequired(Cha_QuocTich) && result;
+			 result = validateRequired(Cha_Tinh) && result;
+			 result = validateRequired(Cha_Quan) && result;
+			 result = validateRequired(Cha_Phuong) && result;
+			 result = validateRequired(Cha_DiaChi) && result;
+			 
+			 
 			if(result){
 				return true;
 			}
