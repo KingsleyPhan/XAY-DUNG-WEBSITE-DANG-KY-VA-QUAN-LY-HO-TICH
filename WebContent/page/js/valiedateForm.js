@@ -201,7 +201,7 @@
 			var fe = id_female;
 			var result = "";
 			if(mal.checked == false && fe.checked==false){
-					result = "* Chưa chọn giới tính cho trẻ";
+					result = "* Chưa chọn giới tính";
 			}
 			var id_error = "#error_" + id_male.id;
 			$(id_error).html(result);
@@ -301,6 +301,44 @@
 			 result = validateRequired(Cha_DiaChi) && result;
 			 
 			 
+			if(result){
+				return true;
+			}
+			return false;
+		}
+
+		function validateSubmitChungTu(){
+			var result = validateHoTen(HoTenYeuCau);
+			 result = validateCMND(CMNDYeuCau) && result;
+			 result = validateRequired(NoiCapCMNDYeuCau) && result;
+			 result = validateNgayCap(NgayCapCMNDYeuCau) && result;
+			 result = validateRequired(NguoiYeuCau_QuanHe) && result;
+			 result = validateRequired(NguoiYeuCau_QuanHeKhac) && result;
+			 result = validateRequired(NguoiYeuCau_QuocTich) && result;
+			 result = validateRequired(NguoiYeuCau_Tinh) && result;
+			 result = validateRequired(NguoiYeuCau_Huyen) && result;
+			 result = validateRequired(NguoiYeuCau_Phuong) && result;
+			 result = validateRequired(NguoiYeuCau_DiaChi) && result;
+			
+
+			 result = validateHoTen(QuaDoi_HoVaTen) && result;
+			 result = validateRadio(male, female) && result;
+			 result = validateNgayCap(QuaDoi_ngaySinh) && result;
+			 result = validateRequired(QuaDoi_danToc) && result;
+			 result = validateRequired(QuaDoi_quocTich) && result;
+			 result = validateRequired(QuaDoi_ThanhPho) && result;
+			 result = validateRequired(QuaDoi_Quan) && result;
+			 result = validateRequired(QuaDoi_Phuong) && result;
+			 result = validateRequired(QuaDoi_DiaChi) && result;
+			 result = validateRequired(QuaDoi_NguyenNhan) && result;
+			 result = validateRequired(QuaDoi_QuocGiaQuaDoi) && result;
+			 result = validateRequired(QuaDoi_TPQuaDoi) && result;
+			 result = validateRequired(QuaDoi_QuanQuaDoi) && result;
+			 result = validateRequired(QuaDoi_PhuongQuaDoi) && result;
+			 result = validateRequired(QuaDoi_DiaChiQuaDoi) && result;
+			 result = validateNgayCap(QuaDoi_NgayQuaDoi) && result;
+			 result = validateRequired(QuaDoi_LoaiBaoTu) && result;
+			 result = validateRequired(QuaDoi_SoBaoTu) && result;
 			if(result){
 				return true;
 			}
