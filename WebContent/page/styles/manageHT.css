@@ -1,0 +1,30 @@
+/*Quản lý hộ tịch*/
+
+td.details-control {
+    background: url('../resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('../resources/details_close.png') no-repeat center center;
+}
+
+.col-id{
+	width: 5%
+}
+.col-ma{
+	width: 10%;
+}
+.col-ngay{
+	width: 10%;
+}
+.col-tacvu{
+	width: 15%;
+	text-align: center;
+}
+td.col-canbo{
+	width: 20%;
+	text-align: left;
+}
+tr{
+	line-height: 50px;
+}
