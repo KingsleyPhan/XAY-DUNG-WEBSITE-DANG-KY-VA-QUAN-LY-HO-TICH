@@ -60,6 +60,17 @@ margin-top: 0px;
 	height: 65px;
 	background-color: rgb(243, 93, 33);
 }
+.isChoice{
+	margin: -5px auto 0px;
+	height: 65px;
+	background-color: rgb(243, 93, 33);
+}
+.isChoice a
+{
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+}
 .tablinks
 {
 	font-family: 'Roboto Slab', serif;
@@ -184,9 +195,3 @@ td.col-noidung{
 	width: 15%;
 	text-align: center;
 }
-
-
-
-
-
-

@@ -1,8 +1,20 @@
+
+$(document).ready( function () {
+    $('#table_id').DataTable({
+        scrollCollapse: true,
+		lengthMenu : [[2, 25, 50, -1], [2, 25, 50, "All"]],
+		order : false,
+		searching: false,
+	});
+} );
+
+
 	filterSelection("all");
 	function filterSelection(c) {
 		var x, i;
 	  	x = document.getElementsByClassName("filterDiv");
 	  	if (c == "all") c = "";
+		
 	  	for (i = 0; i < x.length; i++) {
 			w3RemoveClass(x[i], "show");
 			if (x[i].className.indexOf(c) > -1) 
