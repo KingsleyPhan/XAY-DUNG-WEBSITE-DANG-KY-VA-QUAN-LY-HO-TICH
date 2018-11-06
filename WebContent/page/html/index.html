@@ -13,8 +13,10 @@
     <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="..//styles/main.css">
     <link rel="stylesheet" type="text/css" href="..//styles/HAF.css">
+    <link rel="stylesheet" type="text/css" href="..//styles/StepOfIndex.css">
 
 </head>
+
 <body>
     <!-- Start Header-->
 
@@ -33,11 +35,15 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Sở Tư pháp Tp. HCM</option>
-                                    <option>Sở Tư pháp Tp. Hà Nội</option>
-                                    <option>Sở Tư pháp Tỉnh Bến Tre</option>
-                                    <option>Sở Tư pháp Tỉnh Cà Mau</option>
+                                <select class="form-control" id="comboCoQuan">
+                                    <option>SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</option>
+                                    <option>SỞ TƯ PHÁP THÀNH PHỐ HÀ NỘI</option>
+                                    <option>SỞ TƯ PHÁP TỈNH BẾN TRE</option>
+                                    <option>SỞ TƯ PHÁP TỈNH TIỀN GIANG</option>
+                                    <option>SỞ TƯ PHÁP TỈNH BẾN TRE</option>
+                                    <option>SỞ TƯ PHÁP TỈNH CAO BẰNG</option>
+                                    <option>SỞ TƯ PHÁP TỈNH LẠNG SƠN</option>
+                                    <option>SỞ TƯ PHÁP TỈNH CÀ MAU</option>
                                 </select>
                             </div>
                             <div class="col-sm-3" style="padding:0%">
@@ -58,58 +64,80 @@
         <div class="container">
             <div class="row">
                 <div class="header_location">
-                    <p> HỆ THỐNG ĐĂNG KÝ VÀ QUẢN LÝ HỘ TỊCH ONLINE</p>
+                    <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
+                    <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
                 </div>
             </div>
+            <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">CHỌN CƠ QUAN ĐĂNG KÝ HỘ TỊCH</h4>
+                        </div>
+                        <div class="modal-body" >
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="">QUẬN/HUYỆN</label>
+                                    <select class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
 
+                            <div class="col-12 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="">XÃ/PHƯỜNG</label>
+                                    <select class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" style="background-color: #004f7e"
+                                data-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary" style="background-color: #004f7e">Tiếp tục</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-switch">
                         <div class="title-switch">
                             <p>DÀNH CHO CÔNG DÂN</p>
                         </div>
-                        <style>
-                            .step:hover
-                            {
-                              transition: 0.2s;
-                               width: 100%;
-                               margin: auto;
-                               height: 50px;
-                               margin-bottom: 10px;
-                               cursor: context-menu;
-                               
-                            }
-                            .step p:hover
-                            {
-                                transition: 0.2s;
-                                color: #004f7e;
-                                font-size: 18px;
-                                margin-top: -1px;
-                                font-weight: bold;
-                            }
-                        </style>
                         <div class="content-switch">
                             <div class="btn-Dang-Ky">
+                                <form action="view.html">
                                 <button type="submit" class="btn btn-default btn-dk" style="background-color: #004f7e">ĐĂNG
                                     KÝ HỘ TỊCH</button>
+                                </form>
                             </div>
                             <div class="deprestion">
                                 <div class="step">
-                                    <p>
-                                        Chọn cơ quan đăng ký hộ tịch
-                                    </p>
+                                    <a href="javascript:;" class="btn green step-by-step">
+                                        <span>
+                                            TÌM CƠ QUAN QUẢN LÝ HỘ TỊCH </span>
+                                    </a>
                                 </div>
                                 <div class="step">
-                                    <p>
-                                        Chọn và điền thông tin hộ tịch
-                                    </p>
-
+                                    <a href="javascript:;" class="btn red step-by-step">
+                                        <span>
+                                            ĐIỀN THÔNG TIN VÀO TỜ KHAI </span>
+                                    </a>
                                 </div>
                                 <div class="step">
-                                    <p>
-                                        Xác nhận đăng ký
-                                    </p>
-
+                                    <a href="javascript:;" class="btn purple step-by-step">
+                                        <span>
+                                            XÁC NHẬN ĐĂNG KÝ HỘ TỊCH</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -176,6 +204,7 @@
     </footer>
     <!-- End Footer-->
     <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="../js/index.js"></script>
     <script>
         var set_height;
         var h;

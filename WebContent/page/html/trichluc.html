@@ -57,6 +57,7 @@
                 <div class="header_location">
                         <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
                         <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                </div>
             </div>
 
 
@@ -64,7 +65,7 @@
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
-                        <p>TỜ KHAI ĐĂNG KÝ CHỨNG TỬ</p>
+                        <p>TỜ KHAI ĐĂNG KÝ TRÍCH LỤC HỘ TỊCH</p>
                     </div>
                     <div class="row">
                         <div class="container container-paper">
@@ -127,7 +128,7 @@
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <label for="">Quan hệ với người qua đời</label>
+                                                <label for="">Quan hệ với người được trích lục</label>
                                                 <select class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)">
                                                     <option></option>
                                                 </select>
@@ -199,15 +200,15 @@
                         <div class="container container-paper">
                             <div class="part-content">
                                 <div class="title-part">
-                                    <p>THÔNG TIN NGƯỜI QUA ĐỜI</p>
+                                    <p>THÔNG TIN ĐƯỢC TRÍCH LỤC</p>
                                 </div>
                                 <div class="content ">
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for=>Họ và Tên</label>
-                                                <input type="text" class="form-control" id="QuaDoi_HoVaTen" onblur="validateHoTen(QuaDoi_HoVaTen)">
-                                                <p class="error" id="error_QuaDoi_HoVaTen"></p>
+                                                <input type="text" class="form-control" id="TrichLuc_HoVaTen" onblur="validateHoTen(TrichLuc_HoVaTen)">
+                                                <p class="error" id="error_TrichLuc_HoVaTen"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
@@ -234,16 +235,16 @@
                                                                         <i class="fa fa-calendar">
                                                                         </i>
                                                                     </div>
-                                                                    <input class="form-control" id="QuaDoi_ngaySinh"
-                                                                        onblur="validateNgayCap(QuaDoi_ngaySinh)" name="date"
+                                                                    <input class="form-control" id="TrichLuc_ngaySinh"
+                                                                        onblur="validateNgayCap(TrichLuc_ngaySinh)" name="date"
                                                                         placeholder="Ngày/Tháng/Năm" type="text" />
-                                                                        <input type="hidden" id="input_QuaDoi_ngaySinh" name="nam_ngaysinh"/>
+                                                                        <input type="hidden" id="input_TrichLuc_ngaySinh" name="nam_ngaysinh"/>
 
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                <p class="error" id="error_QuaDoi_ngaySinh"></p>
+                                                <p class="error" id="error_TrichLuc_ngaySinh"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -251,15 +252,15 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Số CMND</label>
-                                                <input type="text" class="form-control" id="QuaDoi_CMND" onblur="validateCMND(QuaDoi_CMND)">
+                                                <input type="text" class="form-control" id="TrichLuc_CMND" onblur="validateCMND(TrichLuc_CMND)">
                                             </div>
-                                            <p class="error" id="error_QuaDoi_CMND"></p>
+                                            <p class="error" id="error_TrichLuc_CMND"></p>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Nơi cấp</label>
-                                                <input type="text" class="form-control" id="QuaDoi_NoiCap" onblur="validateRequired(QuaDoi_NoiCap)">
-                                                <p class="error" id="error_QuaDoi_NoiCap"></p>
+                                                <input type="text" class="form-control" id="TrichLuc_NoiCap" onblur="validateRequired(TrichLuc_NoiCap)">
+                                                <p class="error" id="error_TrichLuc_NoiCap"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
@@ -274,15 +275,15 @@
                                                                         <i class="fa fa-calendar">
                                                                         </i>
                                                                     </div>
-                                                                    <input class="form-control" id="QuaDoi_NgayCapBaoTu"
-                                                                        onblur="validateNgayCap(QuaDoi_NgayCapBaoTu)" name="date"
+                                                                    <input class="form-control" id="TrichLuc_NgayCapBaoTu"
+                                                                        onblur="validateNgayCap(TrichLuc_NgayCapBaoTu)" name="date"
                                                                         placeholder="Ngày/Tháng/Năm" type="text" />
     
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                <p class="error" id="error_QuaDoi_NgayCapBaoTu"></p>
+                                                <p class="error" id="error_TrichLuc_NgayCap"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -290,19 +291,19 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Dân tộc</label>
-                                                <select class="form-control" id="QuaDoi_danToc" onblur="validateRequired(QuaDoi_danToc)">
+                                                <select class="form-control" id="TrichLuc_danToc" onblur="validateRequired(TrichLuc_danToc)">
                                                     <option></option>
                                                 </select>
-                                                <p class="error" id="error_QuaDoi_danToc"></p>
+                                                <p class="error" id="error_TrichLuc_danToc"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-8">
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
-                                                <select class="form-control" id="QuaDoi_quocTich" onblur="validateRequired(QuaDoi_quocTich)">
+                                                <select class="form-control" id="TrichLuc_quocTich" onblur="validateRequired(TrichLuc_quocTich)">
                                                     <option></option>
                                                 </select>
-                                                <p class="error" id="error_QuaDoi_quocTich"></p>
+                                                <p class="error" id="error_TrichLuc_quocTich"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -310,28 +311,28 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select class="form-control" id="QuaDoi_ThanhPho" onblur="validateRequired(QuaDoi_ThanhPho)">
+                                                <select class="form-control" id="TrichLuc_ThanhPho" onblur="validateRequired(TrichLuc_ThanhPho)">
                                                     <option></option>
                                                 </select>
-                                                <p class="error" id="error_QuaDoi_ThanhPho"></p>
+                                                <p class="error" id="error_TrichLuc_ThanhPho"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select class="form-control" id="QuaDoi_Quan" onblur="validateRequired(QuaDoi_Quan)">
+                                                <select class="form-control" id="TrichLuc_Quan" onblur="validateRequired(TrichLuc_Quan)">
                                                     <option></option>
                                                 </select>
-                                                <p class="error" id="error_QuaDoi_Quan"></p>
+                                                <p class="error" id="error_TrichLuc_Quan"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
-                                                <select class="form-control" id="QuaDoi_Phuong" onblur="validateRequired(QuaDoi_Phuong)">
+                                                <select class="form-control" id="TrichLuc_Phuong" onblur="validateRequired(TrichLuc_Phuong)">
                                                     <option></option>
                                                 </select>
-                                                <p class="error" id="error_QuaDoi_Phuong"></p>
+                                                <p class="error" id="error_TrichLuc_Phuong"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -339,109 +340,64 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="">Địa chỉ chi tiết</label>
-                                                <input type="text" class="form-control" id="QuaDoi_DiaChi" onblur="validateRequired(QuaDoi_DiaChi)">
-                                                <p class="error" id="error_QuaDoi_DiaChi"></p>
+                                                <input type="text" class="form-control" id="TrichLuc_DiaChi" onblur="validateRequired(TrichLuc_DiaChi)">
+                                                <p class="error" id="error_TrichLuc_DiaChi"></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6">
+                                        <div class="col-12 col-sm-12 col-md-4">
                                             <div class="form-group">
-                                                <label for="">Nguyên nhân qua đời</label>
-                                                <input type="text" class="form-control" id="QuaDoi_NguyenNhan" onblur="validateRequired(QuaDoi_NguyenNhan)">
-                                                <p class="error" id="error_QuaDoi_NguyenNhan"></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Quốc gia nơi mất</label>
-                                                <select class="form-control" id="QuaDoi_QuocGiaQuaDoi" onblur="validateRequired(QuaDoi_QuocGiaQuaDoi)">
+                                                <label for="">Loại giấy tờ trích lục</label>
+                                                <select class="form-control" id="TrichLuc_LoaiGiayTrichLuc" onblur="validateRequired(TrichLuc_LoaiGiayTrichLuc)">
                                                     <option></option>
                                                 </select>
-                                                <p class="error" id="error_QuaDoi_QuocGiaQuaDoi"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 col-sm-6 col-md-4">
-                                            <div class="form-group">
-                                                <label for="">Tỉnh/TP nơi mất</label>
-                                                <select class="form-control" id="QuaDoi_TPQuaDoi" onblur="validateRequired(QuaDoi_TPQuaDoi)">
-                                                    <option></option>
-                                                </select>
-                                                <p class="error" id="error_QuaDoi_TPQuaDoi"></p>
+                                                <p class="error" id="error_TrichLuc_LoaiGiayTrichLuc"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <label for="">Quận/Huyện nơi mất</label>
-                                                <select class="form-control" id="QuaDoi_QuanQuaDoi" onblur="validateRequired(QuaDoi_QuanQuaDoi)">
-                                                    <option></option>
-                                                </select>
-                                                <p class="error" id="error_QuaDoi_QuanQuaDoi"></p>
+                                                <label for="">Số</label>
+                                                <input type="text" class="form-control" id="TrichLuc_SoTrichLuc" onblur="validateRequired(TrichLuc_LoaiGiayTrichLuc)">
+                                                <p class="error" id="error_TrichLuc_SoTrichLuc"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <label for="">Xã/Phường nơi mất</label>
-                                                <select class="form-control" id="QuaDoi_PhuongQuaDoi" onblur="validateRequired(QuaDoi_PhuongQuaDoi)">
-                                                    <option></option>
-                                                </select>
-                                                <p class="error" id="error_QuaDoi_PhuongQuaDoi"></p>
+                                                <label for="">Số quyển</label>
+                                                    <input type="text" class="form-control" id="TrichLuc_SoQuyenTrichLuc" onblur="validateRequired(TrichLuc_SoQuyenTrichLuc)">
+                                                <p class="error" id="error_TrichLuc_SoQuyenTrichLuc"></p>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Địa chỉ chi tiết nơi mất</label>
-                                                <input type="text" class="form-control" id="QuaDoi_DiaChiQuaDoi" onblur="validateRequired(QuaDoi_DiaChiQuaDoi)">
-                                            </div>
-                                            <p class="error" id="error_QuaDoi_DiaChiQuaDoi"></p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <label for="">Ngày qua đời</label>
-                                                <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-                                                <div class="bootstrap-iso">
-                                                        <div class="container-fluid">
-                                                            <div class="row">
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-calendar">
-                                                                        </i>
-                                                                    </div>
-                                                                    <input class="form-control" id="QuaDoi_NgayQuaDoi"
-                                                                        onblur="validateNgayCap(QuaDoi_NgayQuaDoi)" name="date"
-                                                                        placeholder="Ngày/Tháng/Năm" type="text" />
-    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                <p class="error" id="error_QuaDoi_NgayQuaDoi"></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-4">
-                                            <div class="form-group">
-                                                <label for="">Loại giấy tờ báo tử</label>
-                                                <select class="form-control" id="QuaDoi_LoaiBaoTu" onblur="validateRequired(QuaDoi_LoaiBaoTu)">
+                                                <label for="">Tỉnh/TP đăng ký</label>
+                                                <select class="form-control" id="TrichLuc_TPTrichLuc" onblur="validateRequired(TrichLuc_TPTrichLuc)">
                                                     <option></option>
                                                 </select>
-                                                <p class="error" id="error_QuaDoi_LoaiBaoTu"></p>
+                                                <p class="error" id="error_TrichLuc_TPTrichLuc"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
-                                                <label for="">Số số giấy tờ</label>
-                                                <input type="text" class="form-control" id="QuaDoi_SoBaoTu" onblur="validateRequired(QuaDoi_SoBaoTu)">
+                                                <label for="">Quận/Huyện đăng ký</label>
+                                                <select class="form-control" id="TrichLuc_QuanTrichLuc" onblur="validateRequired(TrichLuc_QuanTrichLuc)">
+                                                    <option></option>
+                                                </select>
+                                                <p class="error" id="error_TrichLuc_QuanTrichLuc"></p>
                                             </div>
-                                            <p class="error" id="error_QuaDoi_SoBaoTu"></p>
                                         </div>
-
-
+                                        <div class="col-12 col-sm-6 col-md-4">
+                                            <div class="form-group">
+                                                <label for="">Xã/Phường đăng ký</label>
+                                                <select class="form-control" id="TrichLuc_PhuongTrichLuc" onblur="validateRequired(TrichLuc_PhuongTrichLuc)">
+                                                    <option></option>
+                                                </select>
+                                                <p class="error" id="error_TrichLuc_PhuongTrichLuc"></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -463,51 +419,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="container container-paper">
-                            <div class="part-content">
-                                <div class="title-part">
-                                    <p>HỒ SƠ ĐÍNH KÈM</p>
-                                </div>
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered table-upload">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Thành phần hồ sơ</th>
-                                                                <th scope="col">Tập tin</th>
-                                                                <th scope="col">Tải lên</th>
-                                                                <th scope="col">Ghi chú</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Giấy báo tử</td>
-                                                                <td></td>
-                                                                <td><button class="btn"><i class="fa fa-upload"></i>Tải
-                                                                        lên</button></td>
-                                                                <td><textarea style="width: 100%">
-                                                                </textarea></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!---End paper-->
                 <div class="row">
                     <div class="control-navigation">
                         <button class="btn  btn-cancel">Hủy bỏ</button>
-                        <a href="https://www.google.com.vn" class="btn  btn-continue" onClick="return validateSubmitChungTu()">Tiếp
+                        <a href="https://www.google.com.vn" class="btn  btn-continue" onClick="return validateSubmitTrichLuc()">Tiếp
                             tục</a>
                     </div>
                 </div>

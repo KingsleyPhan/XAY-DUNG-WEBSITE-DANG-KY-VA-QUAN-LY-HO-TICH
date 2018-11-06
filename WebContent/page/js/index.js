@@ -1,0 +1,10 @@
+	
+	
+	function SearchCoQuan()
+	{
+		
+		$("#myModal").modal();
+	}
+
+
+	

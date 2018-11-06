@@ -124,3 +124,8 @@ padding-top: 0px;
 	border-color:rgb(221, 9, 9) !important;
 	box-shadow: 0 7px 6px -6px rgb(221, 9, 9) !important;
 }
+.header_location .locationCap2
+{
+font-size: 20px;
+padding-top: -20px;
+}   
