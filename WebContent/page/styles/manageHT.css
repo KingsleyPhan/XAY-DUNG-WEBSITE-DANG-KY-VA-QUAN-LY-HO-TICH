@@ -8,14 +8,17 @@ tr.shown td.details-control {
     background: url('../resources/details_close.png') no-repeat center center;
 }
 
-.col-id{
-	width: 5%
+.col-stt{
+	width: 5%;
+	text-align: center;
 }
 .col-ma{
-	width: 10%;
+	width: 12%;
+	text-align: center;
 }
 .col-ngay{
-	width: 10%;
+	width: 15%;
+	text-align: center;
 }
 .col-tacvu{
 	width: 15%;
@@ -26,5 +29,22 @@ td.col-canbo{
 	text-align: left;
 }
 tr{
-	line-height: 50px;
+	line-height: 40px;
+}
+.details-control{
+	width: 5%;
+}
+
+
+.adding tbody tr:nth-child(even) {
+    background-color: transparent;
+}
+.adding tbody tr:nth-child(odd):not(adding) {
+    background-color: transparent;
+}
+.adding{
+	width: 100%;
+	border: 2px solid black;;
+}
+.adding tr td{
 }

@@ -52,7 +52,7 @@ margin-top: 0px;
 	transition: 0.3s;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 	border: 2px solid snow;
-	border-radius: 20px 20px 0px 0px;
+	/*border-radius: 20px 20px 0px 0px;*/
 }
 .tab-item:hover
 {
@@ -178,7 +178,7 @@ th{
 tbody tr:nth-child(even) {
     background-color: #e9ebf5;
 }
-tbody tr:nth-child(odd) {
+tbody tr:nth-child(odd):not(adding) {
     background-color: #cfd5ea;
 }
 td.col-noidung{
