@@ -57,198 +57,60 @@
             </div>
             <!-- Setup 2000px for test amnition-->
             <div class="paper">
-                <div class="controls-edit">
-                    <button class="btn add ">THÊM <i class="fa fa-home"></i></button>
-                    <button class="btn add ">CHỈNH SỬA <i class="fa fa-home"></i></button>
-                </div>
                 <div class="title">
-                    <div class="col-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-upload table-User">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" style="width: 20px">STT</th>
-                                            <th scope="col">HỌ VÀ TÊN</th>
-                                            <th scope="col" style="width: 140px">MÃ CÁN BỘ</th>
-                                            <th scope="col" style="width: 180px">EMAIL</th>
-                                            <th scope="col" style="width: 180px">SĐT</th>
-                                            <th scope="col" style="width: 140px">CHỨC VỤ</th>
-                                            <th scope="col" style="width: 140px">QUYỀN</th>
-                                            <th scope="col" style="width: 140px">TRẠNG THÁI</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Phan Văn Phước Thịnh</td>
-                                            <td>MST0001</td>
-                                            <td>123@gmail.com</td>
-                                            <td>0975339843</td>
-                                            <td>Cán bộ hộ tịch</td>
-                                            <td>Người dùng</td>
-                                            <td> <button class="btn-state green"></button> Online</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Phan Văn Phước Thịnh</td>
-                                            <td>MST0001</td>
-                                            <td>123@gmail.com</td>
-                                            <td>0975339843</td>
-                                            <td>Cán bộ hộ tịch</td>
-                                            <td>Người dùng</td>
-                                            <td> <button class="btn-state green"></button> Online</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Phan Văn Phước Thịnh</td>
-                                            <td>MST0001</td>
-                                            <td>123@gmail.com</td>
-                                            <td>0975339843</td>
-                                            <td>Cán bộ hộ tịch</td>
-                                            <td>Người dùng</td>
-                                            <td> <button class="btn-state red"></button> Online</td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+  
                 </div>
 
                 <div style="font-size: 15px">
                     <div class="titile">
-                        <p>TÀI KHOẢN</p>
+                        <p>THÔNG TIN PHẦN MỀM</p>
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-4">
+                        <div class="col-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for=>Họ và Tên</label>
-                                <input type="text" class="form-control" id="nam_hovaten" name="nam_hovaten" onblur="validateHoTen(nam_hovaten)">
-                                <p class="error" id="error_nam_hovaten"></p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">Ngày sinh</label>
-                                <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-                                <div class="bootstrap-iso">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar">
-                                                    </i>
-                                                </div>
-                                                <input class="form-control" id="nam_ngaysinh" name="date" placeholder="Ngày/Tháng/Năm"
-                                                    type="text" onBlur="validateNgaySinh(nam_ngaysinh)" onChange="validateNgaySinh(nam_ngaysinh)" />
-                                                <input type="hidden" id="input_nam_ngaysinh" name="nam_ngaysinh" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="error" id="error_nam_ngaysinh"></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">MÃ CÁN BỘ</label>
-                                <input type="text" class="form-control" id="nam_CMND" name="nam_CMND" onblur="validateCMND(nam_CMND)">
-                                <p class="error" id="error_nam_CMND"></p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">Chức vụ</label>
-                                <input type="text" class="form-control" id="nam_CMND" name="nam_CMND" onblur="validateCMND(nam_CMND)">
-                                <p class="error" id="error_nam_CMND"></p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">Quyền sử dụng</label>
-                                <input type="text" class="form-control" id="nam_CMND" name="nam_CMND" onblur="validateCMND(nam_CMND)">
-                                <p class="error" id="error_nam_CMND"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">Email</label>
-                                <input type="text" class="form-control" id="nam_CMND" name="nam_CMND" onblur="validateCMND(nam_CMND)">
-                                <p class="error" id="error_nam_CMND"></p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">SĐT</label>
-                                <input type="text" class="form-control" id="nam_CMND" name="nam_CMND" onblur="validateCMND(nam_CMND)">
-                                <p class="error" id="error_nam_CMND"></p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">Trạng thái sử dụng </label><br>
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-
-                                <p class="error" id="error_nam_id_dantoc"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">Tỉnh/TP</label>
-                                <select class="form-control" id="nam_id_thanhpho" name="nam_id_thanhpho" onBlur="validateRequired(nam_id_thanhpho)">
-                                    <option></option>
-                                    <option>Test</option>
-                                </select>
-                                <p class="error" id="error_nam_id_thanhpho"></p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">Quận/Huyện</label>
-                                <select class="form-control" id="nam_id_quan" name="nam_id_quan" onBlur="validateRequired(nam_id_quan)">
-                                    <option></option>
-                                    <option>Test</option>
-                                </select>
-                                <p class="error" id="error_nam_id_quan"></p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="form-group">
-                                <label for="">Xã/Phường</label>
-                                <select class="form-control" id="nam_id_phuong" name="nam_id_phuong" onBlur="validateRequired(nam_id_phuong)">
-                                    <option></option>
-                                    <option>Test</option>
-                                </select>
-                                <p class="error" id="error_nam_id_phuong"></p>
+                                <label for=>PHẦN MỀM ĐĂNG KÝ VÀ QUẢN LÝ HỘ TỊCH</label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="">Địa chỉ chi tiết</label>
-                                <input type="text" class="form-control" id="nam_diachi" name="nam_diachi" onBlur="validateRequired(nam_diachi)">
-                                <p class="error" id="error_nam_diachi"></p>
+                                <label for="">Phiên bản: 1.01</label>
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Ngày ra phiên bản phần mềm: 08/11/2018</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Mã số đăng ký: 0123652658524</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Ngày đăng ký: 08/11/2018</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Ngày hết hạn: 08/11/2019</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Thời gian tham gia phàn mềm: 2 năm 3 tháng</label>
+                            </div>
+                        </div>
+                    </div>
+                  
                 </div>
             </div>
-        </div>
-        <div class="controls-edit">
-            <button class="btn add">HỦY BỎ <i class="fa fa-home"></i></button>
-            <button class="btn add " style="float: right; margin-right: 45px;" >LƯU <i class="fa fa-home"></i></button>
         </div>
     </div>
 
