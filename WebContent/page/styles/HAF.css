@@ -94,6 +94,7 @@
     font-weight: 999;
     line-height: 40px;
     font-family: 'Roboto Slab', serif;
+    margin-bottom: -5px;
 }
 /*Footer*/
 footer {
@@ -141,4 +142,17 @@ footer {
 }
 .login-content p{
 	font-size: 18px;
+}
+
+
+.location
+{
+    transition: width 2s;
+    -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
+}
+
+.header_location .locationCap2
+{
+    font-size: 20px;
+    padding-top: -20px;
 }

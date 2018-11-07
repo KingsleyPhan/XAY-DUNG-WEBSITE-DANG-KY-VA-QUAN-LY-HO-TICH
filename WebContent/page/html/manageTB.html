@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HOTICH.NET</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="../plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<script src="../plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script src="../plugins/jquery/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../plugins/font/montserrat.css">
+
+	
+	
+	<link rel="stylesheet" href="../plugins/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="../plugins/DataTables/Buttons-1.5.4/css/buttons.dataTables.min.css">
+	
+    <!--content-->
+    <link rel="stylesheet" type="text/css" href="..//styles/HAF.css">
+    <link rel="stylesheet" type="text/css" href="..//styles/manage.css">
+	<link rel="stylesheet" type="text/css" href="..//styles/manageTB.css">
+    <!--header and footer-->
+	
+
+</head>
+
+<body>
+    <!-- Start Header-->
+    <header id="id-header" class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo-text">
+                        <p id="id-logo-text">HOTICH.NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header-->
+
+    <!--Start Content-->
+    <div id="id-content" class="content-switch">
+        <div class="container">
+            <div class="row">
+                <div class="header_location">
+                    <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
+                    <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--conntent continute-->
+
+				<div class="row tab-control">
+					<div class="tab-col">
+						<div class="tab-item">
+							<a href="manage.html" class="tablinks">Hồ sơ</a>
+						</div>
+					</div>
+					<div class="tab-col">
+						<div class="tab-item">
+							<a href="manageHT.html" class="tablinks">Hộ tịch</a>
+						</div>
+					</div>
+					<div class="tab-col">
+						<div class="tab-item">
+							<a href="#" class="tablinks">Thống kê</a>
+						</div>
+					</div>
+					<div class="tab-col">
+						<div class="tab-item">
+							<a href="#" class="tablinks">Người dùng</a>
+						</div>
+					</div>
+					<div class="tab-col">
+						<div class="tab-item">
+							<a href="#" class="tablinks">Hệ thống</a>
+						</div>
+					</div>
+					<div class="tab-col">
+						<div class="tab-item">
+							<a href="#" class="tablinks">Trợ giúp</a>
+						</div>
+					</div>
+					<div class="tab-col">
+						<div class="tab-item isChoice">
+							<a href="#" class="tablinks notification">
+								<span>Thông báo</span>
+  								<span class="badge">3</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+                <div class="row manage-content">
+					<!--Table mau tự code -->
+					
+					<table id="table_id" class="table" style="width: 100%">
+						<thead>
+								<tr style="display: table-row">
+<!--									<th></th>-->
+  						      		<th class="col-stt">STT</th>
+									<th class="col-loai">Mã thông báo</th>
+  						      		<th class="col-loai">Loại thông báo</th>
+  						      		<th class="col-noidung">Nội dung thông báo</th>
+  						      		<th class="col-ngay">Thông báo ngày</th>
+  						      		<th class="col-trangthai">Trạng thái</th>
+  						      		<th class="col-tacvu">Tác vụ</th>
+  						    	</tr>
+						</thead>
+						<tfoot>
+								<tr style="display: table-row">
+<!--									<th></th>-->
+  						      		<th class="col-id"></th>
+  						      		<th class="col-loai"></th>
+  						      		<th class="search col-loai">Loại thông báo</th>
+  						      		<th class="search col-noidung">Nội dung thông báo</th>
+  						      		<th class="search col-ngay">Thông báo ngày</th>
+  						      		<th class="search col-trangthai">Trạng thái</th>
+  						      		<th class="col-tacvu"></th>
+  						    	</tr>
+						</tfoot>
+					</table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--Start Content-->
+
+    <!-- Start Footer-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="logo-text">
+                        <p>HOTICH.NET</p>
+                    </div>
+                    <div class="subrice">
+                        <p>Hệ thống đăng ký và quản lý hộ tịch trực tuyến</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="footer-imfor">
+                        <p>Copyright (C) 2018-2019 HOTICH.NET</p>
+                        <p>Phát triển bởi Phan Văn Phước Thịnh - Huỳnh Lê Hữu Hưng</p>
+                        <p> SĐT tư vấn - thương mại: 0975 339 843 - 0961 561 682</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer-->
+	<script src="../plugins/DataTables/jQuery-3.3.1/jquery-3.3.1.js"></script>
+		<script src="../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
+		<script src="../plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.js"></script>
+	<!--	button-->
+	<script src="../plugins/DataTables/Buttons-1.5.4/js/dataTables.buttons.min.js"></script>
+	<script src="../plugins/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+	<script src="../plugins/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+	<script src="../plugins/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+	<script src="../plugins/DataTables/Buttons-1.5.4/js/buttons.html5.min.js"></script>
+	<!--	/button-->
+    <script src="../js/Header.js"></script>
+	<script src="../js/manageTB.js"></script>
+
+</body>
+
+</html>
