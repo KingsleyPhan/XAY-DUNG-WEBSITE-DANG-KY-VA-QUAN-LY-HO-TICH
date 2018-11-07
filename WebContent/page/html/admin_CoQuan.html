@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HOTICH.NET</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="..//styles/HAF.css">
+    <link rel="stylesheet" type="text/css" href="..//styles/adminCoQuan.css">
+</head>
+
+<body>
+    <!-- Start Header-->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo-text">
+                        <p>HOTICH.NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header-->
+
+    <!--Start Content-->
+    <div id="ct" class="content-switch">
+        <div class="container">
+            <div class="row">
+                <div class="header_location">
+                    <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
+                    <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="width:95%">
+            <div class="row">
+                <!-- Top navigation -->
+                <div class="topnav">
+                    <!-- Left-aligned links (default) -->
+                    <a href="#news">TỔNG QUAN</a>
+                    <a href="#contact">TÀI KHOẢN</a>
+                    <a href="#news">CƠ QUAN</a>
+                    <a href="#contact">PHẦN MỀM</a>
+                </div>
+
+
+            </div>
+            <!-- Setup 2000px for test amnition-->
+            <div class="paper">
+                <div class="controls-edit">
+                    <button class="btn add " id="btnEdit" onclick="showEdit()" style="float: right; margin-top: 10px ">CHỈNH SỬA <i class="fa fa-home"></i></button>
+                </div>
+                <div class="title">
+
+                </div>
+
+                <div id = "contentEdit" style="font-size: 15px">
+                    <div class="titile">
+                        <p>THÔNG TIN CƠ QUAN QUẢN LÝ</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for=>Tên cơ quan: </label> <label class="lblContent" for=>UBND PHƯỜNG HIỆP PHÚ
+                                    QUẬN 9</label>
+                                <input type="text" class="form-control" style="display: none" id="nam_hovaten" name="nam_hovaten"
+                                    onblur="validateHoTen(nam_hovaten)">
+                                <p class="error" id="error_nam_hovaten"></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Địa chỉ: </label> <label class="lblContent" for=>894/3 Đường Trương Văn
+                                    Thành, Phường Hiệp Phú, Quận 9, TP. Hồ Chí Minh</label>
+                                <input type="text" class="form-control" style="display: none" id="nam_hovaten" name="nam_hovaten"
+                                    onblur="validateHoTen(nam_hovaten)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="">SĐT: </label> <label class="lblContent" for=>0123252254 - 0896325465</label>
+                                <input type="text" class="form-control" style="display: none" id="nam_CMND" name="nam_CMND"
+                                    onblur="validateCMND(nam_CMND)">
+                                <p class="error" id="error_nam_CMND"></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="">Email:</label> <label class="lblContent" for=>hiepphuQ9.email.com</label>
+                                <input type="text" class="form-control" style="display: none" id="nam_CMND" name="nam_CMND"
+                                    onblur="validateCMND(nam_CMND)">
+                                <p class="error" id="error_nam_CMND"></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Chức năng và nhiệm vụ:</label>
+                                <label class="lblContent" for=>Ủy ban nhân dân chỉ có một chức năng duy nhất là quản lý
+                                    nhà nước, vì quản lý nhà nước là hoạt, động chủ yếu, bao trùm lên toàn bộ hoạt động
+                                    của ủy ban nhân dân. Trên cơ sở đảm bảo tính thống nhất của pháp luật, Ủy ban nhân
+                                    dân có quyền ban hành các cơ chế, chính sách phù hợp với thực tế của địa phương
+                                    mình, tạo điều kiện thuận lợi khuyến khích các thành phần kinh tế phát triển và thu
+                                    hút đầu tư nước ngoài.</label>
+                                <textarea rows="4" cols="50" type="text" style="display: none" class="form-control" id="nam_CMND"
+                                    name="nam_CMND" onblur="validateCMND(nam_CMND)"></textarea>
+                                <p class="error" id="error_nam_CMND"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Mô ta cơ quan:</label><br>
+                                <label class="lblContent" for=>Thực hiện đăng ký và quản lý hộ tịch online được triển
+                                    khai như sau: </label> <br>
+                                <label class="lblContent" for=> + Đăng ký khai sinh cho trẻ</label> <br>
+                                <label class="lblContent" for=> + Đăng ký kết hôn</label> <br>
+                                <label class="lblContent" for=> + Đăng ký chứng tử</label> <br>
+                                <label class="lblContent" for=> + Đăng ký trích lục hộ tịch</label> <br>
+                                <textarea rows="4" cols="50" type="text"  style="display: none" class="form-control " id="contentEdit"
+                                    name="nam_CMND" onblur="validateCMND(nam_CMND)"></textarea>
+                                <p class="error" id="error_nam_CMND"></p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="">Trạng thái sử dụng </label><br>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+
+                                <p class="error" id="error_nam_id_dantoc"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controls-edit">
+            <button class="btn add">HỦY BỎ <i class="fa fa-home"></i></button>
+            <button class="btn add " style="float: right; margin-right: 45px;">LƯU <i class="fa fa-home"></i></button>
+        </div>
+    </div>
+
+
+
+    <!--Start Content-->
+    <!-- Start Footer-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="logo-text">
+                        <p>HOTICH.NET</p>
+                    </div>
+                    <div class="subrice">
+                        <p>Hệ thống đăng ký và quản lý hộ tịch trực tuyến</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="footer-imfor">
+                        <p>Copyright (C) 2018-2019 HOTICH.NET</p>
+                        <p>Phát triển bởi Phan Văn Phước Thịnh - Huỳnh Lê Hữu Hưng</p>
+                        <p> SĐT tư vấn - thương mại: 0975 339 843 - 0961 561 682</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer-->
+    <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script>
+        var set_height;
+        var h;
+
+        set_height = function () {
+            $('.header').each(function () {
+                // lấy height của chính nó
+                var el_height = $(this).height();
+                h = $(this).height();
+                // gán height cho element
+                $(this).css('height', el_height);
+            });
+        }
+
+        $(window).on('load resize', function () {
+            document.getElementById("ct").style.paddingTop = $('.header').height() + 'px';
+            document.getElementById("ct").style.fontSize = '0';
+        });
+
+        $(document).ready(function () {
+            var table = $('#example').DataTable();
+
+            $('#example tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+            $('#button').click(function () {
+                table.row('.selected').remove().draw(false);
+            });
+        });
+
+    </script>
+
+    <script language="javascript">
+
+        document.getElementById("btn1").onclick = function () {
+            document.getElementById("content").style.display = 'none';
+        };
+
+        document.getElementById("btnEdit").onclick = function () {
+            alert("sd");
+            document.getElementById("content").style.display = 'block';
+        };
+    </script>
+</body>
+
+</html>

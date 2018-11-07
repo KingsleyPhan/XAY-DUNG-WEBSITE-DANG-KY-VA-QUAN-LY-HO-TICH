@@ -250,3 +250,12 @@ padding-top: -20px;
   .slider.round:before {
     border-radius: 50%;
   }
+
+  .lblContent
+  {
+      font-size: 18px;
+      margin-right: 10px;
+      text-align: justify;
+      font-style: normal;
+      font-weight: 100;
+  }
