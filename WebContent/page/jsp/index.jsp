@@ -52,21 +52,7 @@
                         <div class="title-search">
                             <p>Tỉnh/Thành phố</p>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                   <%ResultSet rs = (ResultSet)request.getAttribute("rs");%>
-										<% while(rs.next())  {%>
-										<option><%=rs.getString(2) %></option>
-										<%} %>
-                                </select>
-                            </div>
-                            <div class="col-sm-3" style="padding:0%">
-                                <div class="btn-default btn-search-location">
-                                    Tìm kiếm
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>

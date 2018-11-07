@@ -1,0 +1,197 @@
+@import url(../../plugins/font/roboto.css);
+*{
+	font-family: 'Roboto Slab', serif;
+}
+.container
+{
+	margin: 0;
+	width: 100%;
+}
+.header_location
+{
+	margin: 20px 100px 15px;
+}
+.manage-content
+{
+	margin: 10px;
+margin-top: 0px;
+	/*border: #004f7e solid 2px;*/
+	width: auto;
+	height: auto;
+	background-color:  #f1f1f1;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+}
+.tab-control
+{
+	margin: 0 15px;
+	width: auto;
+	padding: 4px 5% 0px;
+	height: 55px;
+	overflow: hidden;
+}
+.tab-col
+{
+	width: 14.2%;
+	float: left;
+}
+.tab-item
+{
+  	text-align: center;
+  	padding: 10px 0px;
+  	text-decoration: none;
+  	font-size: 17px;
+	background-color: #004f7e;
+	/*margin: 5px 8% 0px;*/
+	width: 130px;
+	height: 50px;
+	margin: 10px auto 0px;
+	transition: 0.3s;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+	border: 2px solid snow;
+	/*border-radius: 20px 20px 0px 0px;*/
+}
+.tab-item:hover
+{
+	margin: -5px auto 0px;
+	height: 65px;
+	background-color: rgb(243, 93, 33);
+}
+.isChoice{
+	margin: -5px auto 0px;
+	height: 65px;
+	background-color: rgb(243, 93, 33);
+}
+.isChoice a
+{
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+}
+.tablinks
+{
+	font-family: 'Roboto Slab', serif;
+  	color:white;
+}
+.tab-item:hover a
+{
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+}
+.tab-item a:visited, .tab-item a:focus, .tab-item a:hover
+{
+	color: white;
+	text-decoration: none;
+}
+/*Mới thêm*/
+.container-filter{
+	margin: 10px 15px;
+	
+	padding: 0px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+/* Style the buttons */
+.filter {
+	border: #cfd5ea solid 1px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+	padding: 0px;
+  	background-color: #f1f1f1;
+  	cursor: pointer;
+	border-radius: 0px;
+	width: 100%;
+	width: 11.111%;
+	margin: 0px;
+	height: 100px;
+	float: left;
+}
+.filter-content
+{
+	  padding: 5px 10px;
+	height: 100%;
+}
+.filter-content p
+{
+	font-size: 16px;
+	margin: 15px 0 0 0;
+	text-align: center;
+}
+.filter-img
+{
+	padding-top: 10px;
+	width: 50px;
+	height: 50px;
+	margin: auto !important;
+}
+.filter-img img
+{
+	width: 50px;
+	height: 50px;
+	
+}
+
+.filter:hover {
+  background-color: #ddd;
+}
+
+.active {
+  background-color:#008EFF;
+  color: white;
+}
+
+.filterDiv {
+	display: none;
+}
+.show {
+  display: table-row!important;
+}
+
+.container-table
+{
+	margin: 0;
+	width: 100%;
+}
+
+th{
+	text-align: center;
+	width: 100px;
+}
+.filterDiv td
+{
+	width: 100px;
+	line-height: 100%;
+	vertical-align: middle !important;
+	text-align: center;
+}
+
+.table thead{
+	background-color: #004f7e;
+	color: white;
+}
+
+.col-id{
+	width: 5%;
+}
+tbody tr:nth-child(even) {
+    background-color: #e9ebf5;
+}
+tbody tr:nth-child(odd):not(adding) {
+    background-color: #cfd5ea;
+}
+td.col-noidung{
+	width: 35%;
+	text-align: left;
+}
+.col-ma{
+	width: 15%;
+}
+.col-ngay{
+	width: 15%;
+}
+.col-tacvu{
+	width: 15%;
+	text-align: center;
+}
