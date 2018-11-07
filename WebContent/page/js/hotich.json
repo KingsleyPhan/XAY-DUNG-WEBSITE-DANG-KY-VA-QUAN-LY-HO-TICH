@@ -6,7 +6,9 @@
       "so-hotich": "KS0001",
       "quyen": "KS-T01",
       "ngay-hieuluc": "25/01/2018",
-      "nguoi-ki": "Huỳnh Lê Hữu Hưng"
+      "nguoi-ki": "Huỳnh Lê Hữu Hưng",
+		"tenhotich": "Giấy khai sinh trong nước",
+		"tennguoiyc":"Huỳnh Lê Hữu Hưng"
     },
 	{
       "ma-hotich": "1",
@@ -14,7 +16,9 @@
       "so-hotich": "KH0001",
       "quyen": "KH-T01",
       "ngay-hieuluc": "24/01/2018",
-      "nguoi-ki": "Huỳnh Lê Hữu Hưng"
+      "nguoi-ki": "Huỳnh Lê Hữu Hưng",
+		"tenhotich": "Giấy khai sinh trong nước",
+		"tennguoiyc":"Huỳnh Lê Hữu Hưng"
     },
 	{
       "ma-hotich": "1",
@@ -22,7 +26,9 @@
       "so-hotich": "CT0001",
       "quyen": "CT-T01",
       "ngay-hieuluc": "20/01/2018",
-      "nguoi-ki": "Huỳnh Lê Hữu Hưng"
+      "nguoi-ki": "Huỳnh Lê Hữu Hưng",
+		"tenhotich": "Giấy khai sinh trong nước",
+		"tennguoiyc":"Huỳnh Lê Hữu Hưng"
     },
 	{
       "ma-hotich": "2",
@@ -30,7 +36,9 @@
       "so-hotich": "KS0002",
       "quyen": "KS-T01",
       "ngay-hieuluc": "26/01/2018",
-      "nguoi-ki": "Huỳnh Lê Hữu Hưng"
+      "nguoi-ki": "Huỳnh Lê Hữu Hưng",
+		"tenhotich": "Giấy khai sinh trong nước",
+		"tennguoiyc":"Huỳnh Lê Hữu Hưng"
     },
 	{
       "ma-hotich": "2",
@@ -38,7 +46,9 @@
       "so-hotich": "KH0002",
       "quyen": "KH-T01",
       "ngay-hieuluc": "16/01/2018",
-      "nguoi-ki": "Huỳnh Lê Hữu Hưng"
+      "nguoi-ki": "Huỳnh Lê Hữu Hưng",
+		"tenhotich": "Giấy khai sinh trong nước",
+		"tennguoiyc":"Huỳnh Lê Hữu Hưng"
     },
 	{
       "ma-hotich": "2",
@@ -46,7 +56,9 @@
       "so-hotich": "CT0002",
       "quyen": "CT-T01",
       "ngay-hieuluc": "10/01/2018",
-      "nguoi-ki": "Huỳnh Lê Hữu Hưng"
+      "nguoi-ki": "Huỳnh Lê Hữu Hưng",
+		"tenhotich": "Giấy khai sinh trong nước",
+		"tennguoiyc":"Huỳnh Lê Hữu Hưng"
     }
   ]
 }

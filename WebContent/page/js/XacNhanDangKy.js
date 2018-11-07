@@ -1,4 +1,3 @@
-filterSelection("all");
 function GuiToKhai()
 {
 	$("#myModal").modal();

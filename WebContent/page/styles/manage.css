@@ -29,8 +29,9 @@ margin-top: 0px;
 {
 	margin: 0 15px;
 	width: auto;
-	padding: 4px 5% 0px;
-	height: 55px;
+	padding: 14px 5% 0px;
+/*	height: 55px;*/
+	height: 65px;
 	overflow: hidden;
 }
 .tab-col
@@ -194,4 +195,30 @@ td.col-noidung{
 .col-tacvu{
 	width: 15%;
 	text-align: center;
+}
+
+.notification {
+  color: white;
+  text-decoration: none;
+/*  padding: 15px 26px;*/
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+/*
+.notification:hover {
+  background: red;
+}
+*/
+
+.notification .badge {
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+	z-index: 99;
 }

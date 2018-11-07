@@ -131,6 +131,14 @@ footer {
     {
         text-align: center;
     }
+}
 
-   
+.info-login{
+	line-height: 100px;
+}
+.login-content{
+	text-align: right;
+}
+.login-content p{
+	font-size: 18px;
 }

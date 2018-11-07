@@ -1,18 +1,21 @@
 /* Formatting function for row details - modify as you need */
 function format ( d ) {
     // `d` is the original data object for the row
-    return '<table class="adding" cellpadding="5" cellspacing="0" border="0" style="">'+
+    return '<table class="adding" border="0" style="">'+
         '<tr>'+
-            '<td>Full name:</td>'+
-            '<td>'+d.name+'</td>'+
+			'<td class="col-title">Nội dung  </td>'+
+            '<td class="col-lable">Tên hộ tịch :</td>'+
+            '<td class="col-content">'+d.tenhotich+'</td>'+
         '</tr>'+
         '<tr>'+
-            '<td>Extension number:</td>'+
-            '<td>'+d.extn+'</td>'+
+			'<td class="col-title"></td>'+
+            '<td class="col-lable">Người yêu cầu :</td>'+
+            '<td class="col-content">'+d.tennguoiyc+'</td>'+
         '</tr>'+
         '<tr>'+
-            '<td>Extra info:</td>'+
-            '<td>And any further details here (images etc)...</td>'+
+			'<td class="col-title"></td>'+
+            '<td class="col-lable">Thêm thông tin:</td>'+
+            '<td class="col-content">Thêm thông tin cần thiết của 1 hộ tịch</td>'+
         '</tr>'+
     '</table>';
 }
@@ -66,7 +69,7 @@ $(document).ready(function() {
 			{
 				"orderable":      false,
 				"data":		null,
-				"defaultContent": '<div style="text-align: center;"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>',
+				"defaultContent": '<div style="text-align: center;"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Xem</button></div>',
 				"classname":	'col-tacvu',
 				
 			},
