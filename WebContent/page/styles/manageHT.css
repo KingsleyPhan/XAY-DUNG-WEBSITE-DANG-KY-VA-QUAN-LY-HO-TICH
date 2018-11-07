@@ -43,8 +43,19 @@ tr{
     background-color: transparent;
 }
 .adding{
-	width: 100%;
-	border: 2px solid black;;
+	width: 40%;
+	margin-left: 10%;
 }
-.adding tr td{
+.adding .col-title{
+	width: 10%;
+}
+.adding .col-lable{
+	width: 15%;
+	border-top: 1px rgba(63,63,63,1.00) solid;
+	border-bottom: 1px rgba(63,63,63,1.00) solid;
+}
+.adding .col-content{
+	width: 15%;
+	border-top: 1px rgba(63,63,63,1.00) solid;
+	border-bottom: 1px rgba(63,63,63,1.00) solid;
 }
