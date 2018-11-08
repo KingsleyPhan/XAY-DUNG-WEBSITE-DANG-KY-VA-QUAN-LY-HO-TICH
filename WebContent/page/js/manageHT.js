@@ -75,7 +75,7 @@ $(document).ready(function() {
 			{
 				"orderable":      false,
 				"data":		null,
-				"defaultContent": '<div style="text-align: center;"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Xem</button></div>',
+				"defaultContent": '<div style="text-align: center;"><a href="HoTichKhaiSinh.html" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Xem</a></div>',
 				"classname":	'col-tacvu',
 				
 			},

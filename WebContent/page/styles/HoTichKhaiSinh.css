@@ -1,0 +1,10 @@
+/* CSS Document */
+.btn-hotich{
+	background-color: orangered;
+    color: white;
+	margin-bottom: 8px;
+	float: right;
+	box-shadow: 5px 5px 6px -6px #777;
+	margin-left: 10px;
+	margin-right: 10px;
+}
