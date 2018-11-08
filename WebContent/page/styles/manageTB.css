@@ -1,0 +1,37 @@
+/*Quản lý hộ tịch*/
+
+
+.col-sm-12.col-md-6
+{
+	width: 40%;
+}
+
+.manage-content{
+	padding-top: 20px;
+}
+
+.col-stt{
+	width: 5%;
+}
+
+.col-loai{
+	width: 15%;
+	text-align: center;
+}
+
+.col-noidung{
+	width: 35%;
+}
+
+.col-ngay{
+	width: 15%;
+}
+
+.col-trangthai{
+	width: 15%;
+	text-align: center!important;
+}
+
+.col-tacvu{
+	width: 15%;
+}

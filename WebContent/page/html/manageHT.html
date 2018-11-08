@@ -15,6 +15,7 @@
 	
 	
 	<link rel="stylesheet" href="../plugins/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="../plugins/DataTables/Buttons-1.5.4/css/buttons.dataTables.min.css">
 	
     <!--content-->
     <link rel="stylesheet" type="text/css" href="..//styles/HAF.css">
@@ -45,10 +46,11 @@
         <div class="container">
             <div class="row">
                 <div class="header_location">
-                    <p> HỆ THỐNG ĐĂNG KÝ VÀ QUẢN LÝ HỘ TỊCH ONLINE</p>
+                    <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
+                    <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
                 </div>
             </div>
-            <div class="row" style="height: 2000px">
+            <div class="row">
                 <!-- Setup 2000px for test amnition-->
                 <!--conntent continute-->
 
@@ -85,7 +87,10 @@
 					</div>
 					<div class="tab-col">
 						<div class="tab-item">
-							<a href="#" class="tablinks">Thông báo</a>
+							<a href="#" class="tablinks notification">
+								<span>Thông báo</span>
+  								<span class="badge">3</span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -177,12 +182,12 @@
 						</div>
 					</div>
 					<!--Table mau tự code -->
+					
 					<table id="table_id" class="table" style="width: 100%">
 						<thead>
-					
 								<tr style="display: table-row">
 <!--									<th></th>-->
-  						      		<th class="col-id">STT</th>
+  						      		<th class="col-stt">STT</th>
   						      		<th class="col-ma">Mã hộ tịch</th>
   						      		<th class="col-ma">Số hộ tịch</th>
   						      		<th class="col-ma">Số quyển</th>
@@ -192,6 +197,19 @@
   						      		<th class="col-tacvu">Tác vụ</th>
   						    	</tr>
 						</thead>
+						<tfoot>
+								<tr style="display: table-row">
+<!--									<th></th>-->
+  						      		<th class="col-stt"></th>
+  						      		<th class="search col-ma">Mã hộ tịch</th>
+  						      		<th class="search col-ma">Số hộ tịch</th>
+  						      		<th class="search col-ma">Số quyển</th>
+  						      		<th class="search col-ngay">Ngày hiệu lực</th>
+  						      		<th class="search col-canbo">Người xử lý</th>
+  						      		<th class="search col-canbo">Người kí</th>
+  						      		<th class="col-tacvu"></th>
+  						    	</tr>
+						</tfoot>
 					</table>
                 </div>
 
@@ -226,6 +244,13 @@
 	<script src="../plugins/DataTables/jQuery-3.3.1/jquery-3.3.1.js"></script>
 		<script src="../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
 		<script src="../plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.js"></script>
+	<!--	button-->
+	<script src="../plugins/DataTables/Buttons-1.5.4/js/dataTables.buttons.min.js"></script>
+	<script src="../plugins/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+	<script src="../plugins/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+	<script src="../plugins/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+	<script src="../plugins/DataTables/Buttons-1.5.4/js/buttons.html5.min.js"></script>
+	<!--	/button-->
     <script src="../js/Header.js"></script>
 	<script src="../js/manageHT.js"></script>
 

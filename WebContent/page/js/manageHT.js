@@ -21,6 +21,12 @@ function format ( d ) {
 }
  
 $(document).ready(function() {
+	// Setup - add a text input to each footer cell
+    $('#table_id tfoot th.search').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+	
     var table = $('#table_id').DataTable( {
         "ajax": "../js/hotich.json",
         "columns": [
@@ -76,7 +82,42 @@ $(document).ready(function() {
         ],
 		"lengthMenu" : [[10, 25, 50, -1], [10, 25, 50, "All"]],
 		"order" : false,
+//		dom: 'Bfrtip',
+//        buttons: [
+//            { extend: 'copyHtml5'},
+//            { extend: 'excelHtml5' },
+//            { extend: 'csvHtml5'},
+//            { extend: 'pdfHtml5'}
+//        ],
     } );
+	
+	new $.fn.dataTable.Buttons( table, {
+        buttons: [
+            { extend: 'copyHtml5'},
+            { extend: 'excelHtml5' },
+            { extend: 'csvHtml5'},
+            { extend: 'pdfHtml5'}
+        ],
+    } );
+ 
+    table.buttons( 0, null ).container().prependTo(
+        table.table().container()
+    );
+	
+	
+	// Apply the search
+    table.columns([2,3,4,5,6]).every( function () {
+        var that = this;
+ 
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+	
     table.on('order.dt search.dt', function(){
 		table.column(0,{search:'applied',order:'applied'}).nodes().each(function(cell,i){
 			cell.innerHTML = i + 1;
