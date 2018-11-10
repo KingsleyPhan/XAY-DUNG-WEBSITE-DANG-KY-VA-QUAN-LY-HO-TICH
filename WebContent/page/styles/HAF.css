@@ -1,4 +1,4 @@
-/*import font Roboto*/
+﻿/*import font Roboto*/
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700,900');
 /*Header*/
 .header {
@@ -145,14 +145,3 @@ footer {
 }
 
 
-.location
-{
-    transition: width 2s;
-    -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
-}
-
-.header_location .locationCap2
-{
-    font-size: 20px;
-    padding-top: -20px;
-}

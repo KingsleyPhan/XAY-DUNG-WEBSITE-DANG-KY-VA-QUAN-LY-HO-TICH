@@ -166,11 +166,7 @@ body {
    
 }
 
-.location
-{
-    transition: width 2s;
-    -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
-}
+
 
 .header_location .locationCap2
 {
