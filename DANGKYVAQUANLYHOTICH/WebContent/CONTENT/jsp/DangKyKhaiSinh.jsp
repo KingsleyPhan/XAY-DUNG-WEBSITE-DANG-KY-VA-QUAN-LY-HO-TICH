@@ -81,7 +81,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for=>Họ và Tên</label>
-                                                <input type="text" class="form-control" id="HoTenYeuCau" onblur="validateHoTen(HoTenYeuCau)">
+                                                <input name="NYC_HOVATEN" type="text" class="form-control" id="HoTenYeuCau" onblur="validateHoTen(HoTenYeuCau)">
                                                 <p class="error" id="error_HoTenYeuCau"></p>
                                             </div>
                                         </div>
@@ -90,14 +90,14 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Số CMND</label>
-                                                <input type="text" class="form-control" id="CMNDYeuCau" onblur="validateCMND(CMNDYeuCau)">
+                                                <input name="NYC_CMND" type="text" class="form-control" id="CMNDYeuCau" onblur="validateCMND(CMNDYeuCau)">
                                                 <p class="error" id="error_CMNDYeuCau"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Nơi cấp</label>
-                                                <input type="text" class="form-control" id="NoiCapCMNDYeuCau" onblur="validateRequired(NoiCapCMNDYeuCau)">
+                                                <input name = "NYC_NOICAP" type="text" class="form-control" id="NoiCapCMNDYeuCau" onblur="validateRequired(NoiCapCMNDYeuCau)">
                                                 <p class="error" id="error_NoiCapCMNDYeuCau"></p>
                                             </div>
                                         </div>
@@ -113,10 +113,9 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="NgayCapCMNDYeuCau"
-                                                                    onblur="validateNgayCap(NgayCapCMNDYeuCau)" name="date"
+                                                                <input name="NYC_NGAYCAP" class="form-control" id="NgayCapCMNDYeuCau"
+                                                   					onblur="validateNgayCap(NgayCapCMNDYeuCau)" 
                                                                     placeholder="Ngày/Tháng/Năm" type="text" />
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -129,7 +128,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quan hệ với người được khai sinh</label>
-                                                <select class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)">
+                                                <select name="NYC_QUANHE" class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_QuanHe"></p>
@@ -138,7 +137,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quan hệ khác </label>
-                                                <input type="text" class="form-control" id="NguoiYeuCau_QuanHeKhac"
+                                                <input name="NYC_QUANHEKHAC" type="text" class="form-control" id="NguoiYeuCau_QuanHeKhac"
                                                     onblur="validateRequired(NguoiYeuCau_QuanHeKhac)">
                                                 <p class="error" id="error_NguoiYeuCau_QuanHeKhac"></p>
                                             </div>
@@ -148,7 +147,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
-                                                <select class="form-control" id="NguoiYeuCau_QuocTich" onblur="validateRequired(NguoiYeuCau_QuocTich)">
+                                                <select name="NYC_QUOCTICH class="form-control" id="NguoiYeuCau_QuocTich" onblur="validateRequired(NguoiYeuCau_QuocTich)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_QuocTich"></p>
@@ -159,7 +158,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select class="form-control" id="NguoiYeuCau_Tinh" onblur="validateRequired(NguoiYeuCau_Tinh)">
+                                                <select name="NYC_TINH" class="form-control" id="NguoiYeuCau_Tinh" onblur="validateRequired(NguoiYeuCau_Tinh)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_Tinh"></p>
@@ -168,7 +167,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select class="form-control" id="NguoiYeuCau_Huyen" onblur="validateRequired(NguoiYeuCau_Huyen)">
+                                                <select name="NYC_QUAN" class="form-control" id="NguoiYeuCau_Huyen" onblur="validateRequired(NguoiYeuCau_Huyen)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_Huyen"></p>
@@ -177,7 +176,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
-                                                <select class="form-control" id="NguoiYeuCau_Phuong" onblur="validateRequired(NguoiYeuCau_Phuong)">
+                                                <select name = "NYC_PHUONG" class="form-control" id="NguoiYeuCau_Phuong" onblur="validateRequired(NguoiYeuCau_Phuong)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_Phuong"></p>
@@ -186,7 +185,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="">Địa chỉ chi tiết</label>
-                                                <input type="text" class="form-control" id="NguoiYeuCau_DiaChi" onblur="validateRequired(NguoiYeuCau_DiaChi)">
+                                                <input name="NYC_DIACHI" type="text" class="form-control" id="NguoiYeuCau_DiaChi" onblur="validateRequired(NguoiYeuCau_DiaChi)">
                                                 <p class="error" id="error_NguoiYeuCau_DiaChi"></p>
                                             </div>
                                         </div>
@@ -207,7 +206,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for=>Họ và Tên</label>
-                                                <input type="text" class="form-control" id="KhaiSinh_HoVaTen" onblur="validateHoTen(KhaiSinh_HoVaTen)">
+                                                <input name="KS_HOVATEN" type="text" class="form-control" id="KhaiSinh_HoVaTen" onblur="validateHoTen(KhaiSinh_HoVaTen)">
                                                 <p class="error" id="error_KhaiSinh_HoVaTen"></p>
                                             </div>
                                         </div>
@@ -235,7 +234,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="KhaiSinh_ngaySinh" name="date"
+                                                                <input name="KS_NGAYSINH"  class="form-control" id="KhaiSinh_ngaySinh" 
                                                                     placeholder="Ngày/Tháng/Năm" type="text" onblur="validateNgayCap(KhaiSinh_ngaySinh)" />
                                                             </div>
                                                         </div>
@@ -249,7 +248,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Dân tộc</label>
-                                                <select class="form-control" id="KhaiSinh_danToc" onblur="validateRequired(KhaiSinh_danToc)">
+                                                <select name="KS_DANTOC" class="form-control" id="KhaiSinh_danToc" onblur="validateRequired(KhaiSinh_danToc)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_danToc"></p>
@@ -258,7 +257,7 @@
                                         <div class="col-12 col-sm-6 col-md-8">
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
-                                                <select class="form-control" id="KhaiSinh_quocTich" onblur="validateRequired(KhaiSinh_quocTich)">
+                                                <select name="KS_QUOCTICH" class="form-control" id="KhaiSinh_quocTich" onblur="validateRequired(KhaiSinh_quocTich)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_quocTich"></p>
@@ -269,7 +268,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select class="form-control" id="KhaiSinh_ThanhPho" onblur="validateRequired(KhaiSinh_ThanhPho)">
+                                                <select name="KS_THANHPHO" class="form-control" id="KhaiSinh_ThanhPho" onblur="validateRequired(KhaiSinh_ThanhPho)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_ThanhPho"></p>
@@ -278,7 +277,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select class="form-control" id="KhaiSinh_Quan" onblur="validateRequired(KhaiSinh_Quan)">
+                                                <select name="KS_QUAN" class="form-control" id="KhaiSinh_Quan" onblur="validateRequired(KhaiSinh_Quan)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_Quan"></p>
@@ -287,7 +286,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
-                                                <select class="form-control" id="KhaiSinh_Phuong" onblur="validateRequired(KhaiSinh_Phuong)">
+                                                <select name="KS_PHUONG" class="form-control" id="KhaiSinh_Phuong" onblur="validateRequired(KhaiSinh_Phuong)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_Phuong"></p>
@@ -298,7 +297,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="">Địa chỉ chi tiết</label>
-                                                <input type="text" class="form-control" id="KhaiSinh_DiaChi" onblur="validateRequired(KhaiSinh_DiaChi)">
+                                                <input name="KS_DIACHI" type="text" class="form-control" id="KhaiSinh_DiaChi" onblur="validateRequired(KhaiSinh_DiaChi)">
                                                 <p class="error" id="error_KhaiSinh_DiaChi"></p>
                                             </div>
                                         </div>
@@ -307,14 +306,14 @@
                                         <div class="col-12 col-sm-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="">Cơ sở y tế sinh sản</label>
-                                                <input type="text" class="form-control" id="KhaiSinh_CSSinh" onblur="validateRequired(KhaiSinh_CSSinh)">
+                                                <input name="KS_CSSS" type="text" class="form-control" id="KhaiSinh_CSSinh" onblur="validateRequired(KhaiSinh_CSSinh)">
                                                 <p class="error" id="error_KhaiSinh_CSSinh"></p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6">
                                             <div class="form-group">
                                                 <label for="">Quốc gia </label>
-                                                <select class="form-control" id="KhaiSinh_QuocGiaSinh" onblur="validateRequired(KhaiSinh_QuocGiaSinh)">
+                                                <select  name="KS_QUOCGIA_CSSS" class="form-control" id="KhaiSinh_QuocGiaSinh" onblur="validateRequired(KhaiSinh_QuocGiaSinh)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_QuocGiaSinh"></p>
@@ -325,7 +324,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select class="form-control" id="KhaiSinh_TPSinh" onblur="validateRequired(KhaiSinh_TPSinh)">
+                                                <select name="KS_THANHPHO_CSSS" class="form-control" id="KhaiSinh_TPSinh" onblur="validateRequired(KhaiSinh_TPSinh)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_TPSinh"></p>
@@ -334,7 +333,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select class="form-control" id="KhaiSinh_QuanSinh" onblur="validateRequired(KhaiSinh_QuanSinh)">
+                                                <select name="KS_QUAN_CSSS" class="form-control" id="KhaiSinh_QuanSinh" onblur="validateRequired(KhaiSinh_QuanSinh)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_QuanSinh"></p>
@@ -343,7 +342,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
-                                                <select class="form-control" id="KhaiSinh_PhuongSinh" onblur="validateRequired(KhaiSinh_PhuongSinh)">
+                                                <select name="KS_PHUONG_CSSS" class="form-control" id="KhaiSinh_PhuongSinh" onblur="validateRequired(KhaiSinh_PhuongSinh)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_KhaiSinh_PhuongSinh"></p>
@@ -354,7 +353,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="">Địa chỉ chi tiết</label>
-                                                <input type="text" class="form-control" id="KhaiSinh_DiaChiSinh" onblur="validateRequired(KhaiSinh_DiaChiSinh)">
+                                                <input name="KS_DIACHI_CSSS" type="text" class="form-control" id="KhaiSinh_DiaChiSinh" onblur="validateRequired(KhaiSinh_DiaChiSinh)">
                                             </div>
                                             <p class="error" id="error_KhaiSinh_DiaChiSinh"></p>
                                         </div>
@@ -382,7 +381,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for=>Họ và Tên</label>
-                                                <input type="text" class="form-control" id="Me_HoVaTen" onblur="validateHoTen(Me_HoVaTen)">
+                                                <input name="ME_HOVATEN" type="text" class="form-control" id="Me_HoVaTen" onblur="validateHoTen(Me_HoVaTen)">
                                                 <p class="error" id="error_Me_HoVaTen"></p>
                                             </div>
                                         </div>
@@ -398,7 +397,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="Me_ngaySinh" name="date"
+                                                                <input name="ME_NGAYSINH" class="form-control" id="Me_ngaySinh" 
                                                                     placeholder="Ngày/Tháng/Năm" type="text" onblur="validateRequired(Me_ngaySinh)" />
                                                             </div>
                                                         </div>
@@ -412,14 +411,14 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Số CMND</label>
-                                                <input type="text" class="form-control" id="Me_CMND" onblur="validateCMND(Me_CMND)">
+                                                <input name="ME_CMND" type="text" class="form-control" id="Me_CMND" onblur="validateCMND(Me_CMND)">
                                             </div>
                                             <p class="error" id="error_Me_CMND"></p>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Nơi cấp</label>
-                                                <input type="text" class="form-control" id="Me_NoiCap" onblur="validateRequired(Me_NoiCap)">
+                                                <input name = "ME_NOICAP"type="text" class="form-control" id="Me_NoiCap" onblur="validateRequired(Me_NoiCap)">
                                                 <p class="error" id="error_Me_NoiCap"></p>
                                             </div>
                                         </div>
@@ -435,7 +434,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="Me_NgayCap" name="date"
+                                                                <input name="ME_NGAYCAP"  class="form-control" id="Me_NgayCap" name="date"
                                                                     placeholder="Ngày/Tháng/Năm" onblur="validateNgayCap(Me_NgayCap)" type="text" />
                                                             </div>
                                                         </div>
@@ -449,7 +448,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Dân tộc</label>
-                                                <select class="form-control" id="Me_DanToc" onblur="validateRequired(Me_DanToc)">
+                                                <select name="ME_DANTOC" class="form-control" id="Me_DanToc" onblur="validateRequired(Me_DanToc)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_Me_DanToc"></p>
@@ -458,7 +457,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
-                                                <select class="form-control" id="Me_QuocTich" onblur="validateRequired(Me_QuocTich)">
+                                                <select name="ME_QUOCTICH" class="form-control" id="Me_QuocTich" onblur="validateRequired(Me_QuocTich)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_Me_QuocTich"></p>
@@ -469,7 +468,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select class="form-control" id="Me_Tinh" onblur="validateRequired(Me_Tinh)">
+                                                <select name="ME_THANHPHO" class="form-control" id="Me_Tinh" onblur="validateRequired(Me_Tinh)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_Me_Tinh" ></p>
@@ -478,7 +477,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select class="form-control" id="Me_Quan" onblur="validateRequired(Me_Quan)">
+                                                <select name="ME_HUYEN"class="form-control" id="Me_Quan" onblur="validateRequired(Me_Quan)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_Me_Quan"></p>
@@ -487,7 +486,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
-                                                <select class="form-control" id="Me_Phuong" onblur="validateRequired(Me_Phuong)">
+                                                <select name="ME_PHUONG" class="form-control" id="Me_Phuong" onblur="validateRequired(Me_Phuong)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_Me_Phuong"></p>
@@ -498,7 +497,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="">Địa chỉ chi tiết</label>
-                                                <input type="text" class="form-control" id="Me_DiaChi" onblur="validateRequired(Me_DiaChi)">
+                                                <input name="ME_DIACHI" type="text" class="form-control" id="Me_DiaChi" onblur="validateRequired(Me_DiaChi)">
                                                 <p class="error" id="error_Me_DiaChi"></p>
                                             </div>
                                         </div>
@@ -527,7 +526,7 @@
                                                 <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="form-group">
                                                         <label for=>Họ và Tên</label>
-                                                        <input type="text" class="form-control" id="Cha_HoVaTen" onblur="validateHoTen(Cha_HoVaTen)">
+                                                        <input name="CHA_HOVATEN" type="text" class="form-control" id="Cha_HoVaTen" onblur="validateHoTen(Cha_HoVaTen)">
                                                         <p class="error" id="error_Cha_HoVaTen"></p>
                                                     </div>
                                                 </div>
@@ -543,7 +542,7 @@
                                                                             <i class="fa fa-calendar">
                                                                             </i>
                                                                         </div>
-                                                                        <input class="form-control" id="Cha_ngaySinh" name="date"
+                                                                        <input  name="CHA_NGAYSINH" class="form-control" id="Cha_ngaySinh" name="date"
                                                                             placeholder="Ngày/Tháng/Năm" type="text" onblur="validateRequired(Cha_ngaySinh)" />
                                                                     </div>
                                                                 </div>
@@ -557,14 +556,14 @@
                                                 <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Số CMND</label>
-                                                        <input type="text" class="form-control" id="Cha_CMND" onblur="validateCMND(Cha_CMND)">
+                                                        <input name="CHA_CMND" type="text" class="form-control" id="Cha_CMND" onblur="validateCMND(Cha_CMND)">
                                                     </div>
                                                     <p class="error" id="error_Cha_CMND"></p>
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Nơi cấp</label>
-                                                        <input type="text" class="form-control" id="Cha_NoiCap" onblur="validateRequired(Cha_NoiCap)">
+                                                        <input name="CHA_NOICAP" type="text" class="form-control" id="Cha_NoiCap" onblur="validateRequired(Cha_NoiCap)">
                                                         <p class="error" id="error_Cha_NoiCap"></p>
                                                     </div>
                                                 </div>
@@ -580,7 +579,7 @@
                                                                             <i class="fa fa-calendar">
                                                                             </i>
                                                                         </div>
-                                                                        <input class="form-control" id="Cha_NgayCap" naCha="date"
+                                                                        <input name="CHA_NGAYCAP" class="form-control" id="Cha_NgayCap" naCha="date"
                                                                             placeholder="Ngày/Tháng/Năm" onblur="validateNgayCap(Cha_NgayCap)" type="text" />
                                                                     </div>
                                                                 </div>
@@ -594,7 +593,7 @@
                                                 <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Dân tộc</label>
-                                                        <select class="form-control" id="Cha_DanToc" onblur="validateRequired(Cha_DanToc)">
+                                                        <select name = "CHA_DANTOC"  class="form-control" id="Cha_DanToc" onblur="validateRequired(Cha_DanToc)">
                                                             <option></option>
                                                         </select>
                                                         <p class="error" id="error_Cha_DanToc"></p>
@@ -603,7 +602,7 @@
                                                 <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Quốc tịch </label>
-                                                        <select class="form-control" id="Cha_QuocTich" onblur="validateRequired(Cha_QuocTich)">
+                                                        <select name="CHA_QUOCTICH" class="form-control" id="Cha_QuocTich" onblur="validateRequired(Cha_QuocTich)">
                                                             <option></option>
                                                         </select>
                                                         <p class="error" id="error_Cha_QuocTich"></p>
@@ -614,7 +613,7 @@
                                                 <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Tỉnh/TP</label>
-                                                        <select class="form-control" id="Cha_Tinh" onblur="validateRequired(Cha_Tinh)">
+                                                        <select name= "CHA_THANHPHO" class="form-control" id="Cha_Tinh" onblur="validateRequired(Cha_Tinh)">
                                                             <option></option>
                                                         </select>
                                                         <p class="error" id="error_Cha_Tinh" ></p>
@@ -623,7 +622,7 @@
                                                 <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Quận/Huyện</label>
-                                                        <select class="form-control" id="Cha_Quan" onblur="validateRequired(Cha_Quan)">
+                                                        <select name="CHA_QUAN" class="form-control" id="Cha_Quan" onblur="validateRequired(Cha_Quan)">
                                                             <option></option>
                                                         </select>
                                                         <p class="error" id="error_Cha_Quan"></p>
@@ -632,7 +631,7 @@
                                                 <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Xã/Phường</label>
-                                                        <select class="form-control" id="Cha_Phuong" onblur="validateRequired(Cha_Phuong)">
+                                                        <select name="CHA_PHUONG" class="form-control" id="Cha_Phuong" onblur="validateRequired(Cha_Phuong)">
                                                             <option></option>
                                                         </select>
                                                         <p class="error" id="error_Cha_Phuong"></p>
@@ -643,7 +642,7 @@
                                                 <div class="col-12 col-sm-12 col-md-12">
                                                     <div class="form-group">
                                                         <label for="">Địa chỉ chi tiết</label>
-                                                        <input type="text" class="form-control" id="Cha_DiaChi" onblur="validateRequired(Cha_DiaChi)">
+                                                        <input name="CHA_DIACHI" type="text" class="form-control" id="Cha_DiaChi" onblur="validateRequired(Cha_DiaChi)">
                                                         <p class="error" id="error_Cha_DiaChi"></p>
                                                     </div>
                                                 </div>
@@ -657,7 +656,7 @@
                         <div class="container container-paper">
                             <div class="content-checkbox">
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input name="CHECK_AGREE" type="checkbox" class="form-check-input" id="exampleCheck1">
                                     <label class="form-check-label">Tôi cam đoan đề nghị đăng ký trên đây là đúng sự
                                         thật, được sự thỏa thuận và nhất trí của các bên liên quan theo quy định của
                                         pháp luật. </label>

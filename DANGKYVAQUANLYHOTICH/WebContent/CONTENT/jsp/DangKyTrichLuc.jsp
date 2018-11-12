@@ -239,7 +239,6 @@
                                                                         onblur="validateNgayCap(TrichLuc_ngaySinh)" name="date"
                                                                         placeholder="Ngày/Tháng/Năm" type="text" />
                                                                         <input type="hidden" id="input_TrichLuc_ngaySinh" name="nam_ngaysinh"/>
-
                                                                 </div>
                                                             </div>
                                                         </div>
