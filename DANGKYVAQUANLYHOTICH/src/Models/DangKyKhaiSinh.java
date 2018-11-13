@@ -60,11 +60,11 @@ public class DangKyKhaiSinh
 	
 	//Properties Object
 	
-	private NguoiYeuCau
+//	private NguoiYeuCau
 	
-	public DangKyKhaiSinh()
-	{
-		
-	}
+//	public DangKyKhaiSinh()
+//	{
+//		
+//	}
 
 }

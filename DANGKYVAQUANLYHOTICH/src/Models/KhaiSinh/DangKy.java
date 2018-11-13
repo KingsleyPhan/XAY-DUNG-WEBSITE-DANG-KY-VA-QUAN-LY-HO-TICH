@@ -51,9 +51,9 @@ public class DangKy
 	
 	public void ShowDangKyKhaiSinh()
 	{
-		DoiTuongSinh.Show();
-		NguoiYeuCau.Show();
-		Cha.Show();
-		Me.Show();
+//		DoiTuongSinh.Show();
+//		NguoiYeuCau.Show();
+//		Cha.Show();
+//		Me.Show();
 	}
 }
