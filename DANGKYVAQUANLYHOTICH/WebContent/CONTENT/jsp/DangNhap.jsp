@@ -4,6 +4,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Models.CapThanhPhoService"%>
 <%@page import="java.sql.DriverManager"%>
+<%@page import="Controllers.Consts"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
 									ResultSet Result = ThanhPho.ShowThanhPho();
 									
 								%>
-								<select class="form-control" id="comboCoQuan"
+								<select class="form-control" onload="chgQuan()" onmousedown="chgQuan()" onchange="chgQuan()" id="comboCoQuan"
 									name="ComboTHANHPHO">
 									
 									<%
@@ -57,7 +58,7 @@
 									{
 										while (Result.next()) {
 									%>
-									<option><%=Result.getString(3)%></option>
+									<option value="<%=Result.getString(1)%>"><%=Result.getString(3)%></option>
 									<%
 										}
 									}
@@ -66,10 +67,8 @@
 							</div>
 							<div class="col-sm-3" style="padding: 0%">
 						
-							<button class="btn-default btn-search-location"
+							<button class="btn-default btn-search-location" onmouseover="chgQuan()"
 									onclick="return SearchCoQuan()">Tìm kiếm</button>
-							
-								
 							</div>
 						</div>
 					</div>
@@ -84,10 +83,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="header_location">
-					<p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ
-						CHÍ MINH</p>
-					<p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ
-						QUẬN 9</p>
+					<p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%>></p>
+					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
 				</div>
 			</div>
 			<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
@@ -102,9 +99,8 @@
 									<div class="form-group">
 										<label for="">QUẬN/HUYỆN</label>
 										<form action="Tìm Cơ quan">
-											<select class="form-control" id="NguoiYeuCau_QuanHe"
-												onblur="validateRequired(NguoiYeuCau_QuanHe)">
-												<option></option>
+											<select class="form-control" onload="chgPhuong()" onmousedown="chgPhuong()"  onchange="chgPhuong()" id="modal-quan">
+																					
 											</select>
 										</form>
 
@@ -114,9 +110,8 @@
 								<div class="col-12 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="">XÃ/PHƯỜNG</label> <select class="form-control"
-											id="NguoiYeuCau_QuanHe"
-											onblur="validateRequired(NguoiYeuCau_QuanHe)">
-											<option></option>
+											id="modal-xaPhuong">
+											
 										</select>
 									</div>
 								</div>
@@ -127,7 +122,7 @@
 							<button type="button" class="btn btn-default"
 								style="background-color: #004f7e" data-dismiss="modal">Đóng</button>
 							<button type="button" class="btn btn-primary"
-								style="background-color: #004f7e">Tiếp tục</button>
+								style="background-color: #004f7e" onclick="ChangeLocation()">Tiếp tục</button>
 						</div>
 					</div>
 					<!-- /.modal-content -->
@@ -212,16 +207,6 @@
 	<!--Start Content-->
 	<!-- Start Footer-->
 	<footer>
-	<form style="Color: black" action="LoadCoQuan.php">
-	<select id="comboboxCompany" name="comboboxCompany">
-		<option>Company1</option>
-		<option>Company2</option>
-	</select>
-	<select id="comboboxEmployee" name="comboboxEmployee">
-		<option></option>
-	</select>
-	</form>
-	
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6">
@@ -244,72 +229,12 @@
 	</footer>
 	<!-- End Footer-->
 
-	<script>
-		function showAddress(address) 
-		{
-			if (address.length == 0) {
-				return;
-			} 
-			else 
-			{
-				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function() 
-				{
-					if (this.readyState == 4 && this.status == 200) {
-						
-					}
-				};
-				xmlhttp.open("GET", "CapQuanService.java?q=" + address, true);
-				xmlhttp.send();
-			}
-		}
-	</script>
+
 
 	<script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
 	<script src="CONTENT/js/index.js"></script>
-	<script>
-		var set_height;
-		var h;
+	
+	
 
-		set_height = function() {
-			$('.header').each(function() {
-				// lấy height của chính nó
-				var el_height = $(this).height();
-				h = $(this).height();
-				// gán height cho element
-				$(this).css('height', el_height);
-			});
-		}
-
-		$(window).on(
-				'load resize',
-				function() {
-					document.getElementById("ct").style.paddingTop = $(
-							'.header').height()
-							+ 'px';
-					document.getElementById("ct").style.fontSize = '0';
-				});
-	</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-		    $("#comboboxCompany").change( function(){
-		        var text='';
-		    $.ajax({
-		        url: "Select",
-		        type: "GET",
-		        data: "eventSelect=comNameChanged&comName=" + $(this).val(),
-		        dataType: "TEXT",
-		        success: function(result){
-		            text = result;
-		        }
-		    $("#comboboxEmployee").append(
-		    	    '<option value="' + employeName + '">' + employeName + '</option>'     
-		    	    );
-		    }); 
-		    alert(text);
-		    });
-		});
-</script>
 </body>
 </html>
