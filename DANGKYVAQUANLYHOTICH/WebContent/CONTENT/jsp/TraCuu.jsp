@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="Models.TraCuuHoSoService"%>
 <!DOCTYPE html>
 <html>
 <head>
-   <title>HOTICH.NET</title>
+<title>HOTICH.NET</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="page/styles/XacNhanDangKy.css">
-    <link rel="stylesheet" type="text/css" href="page/styles/HAF.css">
-    <link rel="stylesheet" type="text/css" href="page/styles/StepOfIndex.css">
+    <link rel="stylesheet" type="text/css" href="../styles/XacNhanDangKy.css">
+    <link rel="stylesheet" type="text/css" href="../styles/HAF.css"> 
+    <link rel="stylesheet" type="text/css" href="../styles/StepOfIndex.css">
 </head>
 <body>
- <!-- Start Header-->
+    <!-- Start Header-->
 
     <header id="header" class="header">
         <div class="container">
@@ -41,27 +42,32 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">XÁC NHẬN ĐĂNG KÝ HỘ TỊCH ONLINE</h4>
+                        <h4 class="modal-title">TRA CỨU HỒ SƠ ĐĂNG KÝ HỘ TỊCH ONLINE</h4>
                     </div>
                     <div class="row">
                         <div class="modal-body" style="height:auto">
                             <div class="col-12 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="">EMAIL</label>
-                                    <input type="text" class="form-control" id="HoTenYeuCau" style="border: 1px solid #004f7e" onblur="validateHoTen(HoTenYeuCau)">
+                                    <label for="">Loại Giấy tờ</label>
+                                    <select  style="border: 1px solid #004f7e" class="form-control" id="comboCoQuan">
+                                        <option>SỞ TƯ PHÁP TỈNH CÀ MAU</option>
+                                    </select>
                                 </div>
                             </div>
-
                             <div class="col-12 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="">Số điện thoại</label>
-                                    <input name="text-sdt" type="text" class="form-control" id="HoTenYeuCau" style="border: 1px solid #004f7e" onblur="validateHoTen(HoTenYeuCau)">
+                                    <label for="">Mã hồ sơ</label>
+                                    <input type="text" class="form-control" id="HoTenYeuCau" style="border: 1px solid #004f7e" onblur="validateHoTen(HoTenYeuCau)">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="">MÃ XÁC NHẬN</label>
-                                    <p style="text-align: center; font-size: 18px">4SJMG</p>
+                                    <label for="">Mã xác nhận</label>
+                                    <%
+                                         TraCuuHoSoService TraCuu = new   TraCuuHoSoService();
+                                    		String code = TraCuu.GetCodeRamdoom();
+                                    %>
+                                    <p  style="text-align: center; font-size: 18px">${code}</p>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12">
@@ -74,10 +80,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" style="background-color: #004f7e">Trở lại</button>
-                        <form action="xx.php" method="post">
-                         <button type="button" class="btn btn-primary" style="background-color: #004f7e" >Gửi>></button>
-                        </form>
-                       
+                        <button type="button" class="btn btn-primary" style="background-color: #004f7e" onclick="return SearchCoQuan()">Tra cứu
+                            >></button>
                     </div>
 
 

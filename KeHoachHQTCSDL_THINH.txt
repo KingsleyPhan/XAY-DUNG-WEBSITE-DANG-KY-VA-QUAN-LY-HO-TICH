@@ -36,3 +36,5 @@ VD: - Đăng ký giấy khai sinh trong nước
 * Thảo luận với Hưng. 
  - Làm check hôn nhân.
  - Sự cần thiết của tên hồ sơ đăng ký: Nó lưu tên hồ sơ đăng ký. mà mình đã có loại đăng ký (xem note) thì đã có rồi.
+
+* Thêm địa chỉ chi tiết cho CSDL

@@ -47,21 +47,29 @@
 								<%
 									CapThanhPhoService ThanhPho = new CapThanhPhoService();
 									ResultSet Result = ThanhPho.ShowThanhPho();
+									
 								%>
 								<select class="form-control" id="comboCoQuan"
 									name="ComboTHANHPHO">
+									
 									<%
+									if(!Result.wasNull())
+									{
 										while (Result.next()) {
 									%>
-									<option><%=Result.getString(2)%></option>
+									<option><%=Result.getString(3)%></option>
 									<%
 										}
+									}
 									%>
 								</select>
 							</div>
 							<div class="col-sm-3" style="padding: 0%">
-								<button class="btn-default btn-search-location"
+						
+							<button class="btn-default btn-search-location"
 									onclick="return SearchCoQuan()">Tìm kiếm</button>
+							
+								
 							</div>
 						</div>
 					</div>
@@ -204,6 +212,16 @@
 	<!--Start Content-->
 	<!-- Start Footer-->
 	<footer>
+	<form style="Color: black" action="LoadCoQuan.php">
+	<select id="comboboxCompany" name="comboboxCompany">
+		<option>Company1</option>
+		<option>Company2</option>
+	</select>
+	<select id="comboboxEmployee" name="comboboxEmployee">
+		<option></option>
+	</select>
+	</form>
+	
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6">
@@ -272,5 +290,26 @@
 					document.getElementById("ct").style.fontSize = '0';
 				});
 	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		    $("#comboboxCompany").change( function(){
+		        var text='';
+		    $.ajax({
+		        url: "Select",
+		        type: "GET",
+		        data: "eventSelect=comNameChanged&comName=" + $(this).val(),
+		        dataType: "TEXT",
+		        success: function(result){
+		            text = result;
+		        }
+		    $("#comboboxEmployee").append(
+		    	    '<option value="' + employeName + '">' + employeName + '</option>'     
+		    	    );
+		    }); 
+		    alert(text);
+		    });
+		});
+</script>
 </body>
 </html>

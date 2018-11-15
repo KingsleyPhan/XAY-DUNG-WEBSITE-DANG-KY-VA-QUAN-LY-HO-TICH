@@ -28,13 +28,13 @@ function AddClass(element, name) {
 				}
 			else
 				{
-					if (x.value.length > 2) {
+					if (x.value.length > 50) {
                 		result = "* Nhập dài hơn quy định";
 					}
 				}
 			var id_error = "#error_" + id_HoVaTen.id;
 			$(id_error).html(result);
-			if(result == "")
+			if(result == "" && result == "")
 				{
 					RemoveClass(id_HoVaTen,"fild_error")
 					return true;
@@ -347,6 +347,17 @@ function AddClass(element, name) {
 
         $(document).ready(function () {
             var date_input = $('input[name="date"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'dd/mm/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+        
+         $(document).ready(function () {
+            var date_input = $('input[name="NYC_NGAYCAP"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'dd/mm/yyyy',

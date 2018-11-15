@@ -1,6 +1,6 @@
-package Models.KhaiSinh;
+package Entities.KhaiSinh;
 
-public class Parents 
+public class NguoiThan 
 {
 	
 	private String  HoVaTen;
@@ -8,11 +8,11 @@ public class Parents
 	private String  CMND;
 	private String  NoiCap;
 	private String  NgayCap;
-	private String  QuanHe;
+	private String  DanToc;
 	private String  QuocTich;
 	private String  TP;
 	private String  Quan;
-	private String  Huyen;
+	private String  Phuong;
 	private String  DiaChi;
 	
 	public String getHoVaTen() {
@@ -45,11 +45,11 @@ public class Parents
 	public void setNgayCap(String ngayCap) {
 		NgayCap = ngayCap;
 	}
-	public String getQuanHe() {
-		return QuanHe;
+	public String getDanToc() {
+		return DanToc;
 	}
-	public void setQuanHe(String quanHe) {
-		QuanHe = quanHe;
+	public void setDanToc(String dantoc) {
+		DanToc = dantoc;
 	}
 	public String getQuocTich() {
 		return QuocTich;
@@ -69,17 +69,31 @@ public class Parents
 	public void setQuan(String quan) {
 		Quan = quan;
 	}
-	public String getHuyen() {
-		return Huyen;
+	public String getPhuong() {
+		return Phuong;
 	}
-	public void setHuyen(String huyen) {
-		Huyen = huyen;
+	public void setPhuong(String phuong) {
+		Phuong = phuong;
 	}
 	public String getDiaChi() {
 		return DiaChi;
 	}
 	public void setDiaChi(String diaChi) {
 		DiaChi = diaChi;
+	}
+	
+	public void showImfor()
+	{
+		System.out.println(this.HoVaTen);
+		System.out.println(this.CMND);
+		System.out.println(this.NgayCap);
+		System.out.println(this.NoiCap);
+		System.out.println(this.DanToc);
+		System.out.println(this.QuocTich);
+		System.out.println(this.TP);
+		System.out.println(this.Quan);
+		System.out.println(this.Phuong);
+		System.out.println(this.DiaChi);
 	}
 	
 

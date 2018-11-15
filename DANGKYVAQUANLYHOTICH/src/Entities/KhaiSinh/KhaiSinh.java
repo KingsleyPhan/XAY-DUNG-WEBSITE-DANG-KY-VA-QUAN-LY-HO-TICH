@@ -1,4 +1,4 @@
-package Models.KhaiSinh;
+package Entities.KhaiSinh;
 
 public class KhaiSinh {
 
@@ -9,13 +9,13 @@ public class KhaiSinh {
 	private String QuocTich;
 	private String TP;
 	private String Quan;
-	private String Huyen;
+	private String Phuong;
 	private String DiaChi;
 	private String CoSoSinhSan;
 	private String QuocTich_CSSS;
 	private String TP_CSSS;
 	private String Quan_CSSS;
-	private String Huyen_CSSS;
+	private String Phuong_CSSS;
 	private String DiaChi_CSSS;
 
 	public String getHoVaTen() {
@@ -74,12 +74,12 @@ public class KhaiSinh {
 		Quan = quan;
 	}
 
-	public String getHuyen() {
-		return Huyen;
+	public String getPhuong() {
+		return Phuong;
 	}
 
-	public void setHuyen(String huyen) {
-		Huyen = huyen;
+	public void setPhuong(String huyen) {
+		Phuong = huyen;
 	}
 
 	public String getDiaChi() {
@@ -122,12 +122,12 @@ public class KhaiSinh {
 		Quan_CSSS = quan_CSSS;
 	}
 
-	public String getHuyen_CSSS() {
-		return Huyen_CSSS;
+	public String getPhuong_CSSS() {
+		return Phuong_CSSS;
 	}
 
-	public void setHuyen_CSSS(String huyen_CSSS) {
-		Huyen_CSSS = huyen_CSSS;
+	public void setPhuong_CSSS(String huyen_CSSS) {
+		Phuong_CSSS = huyen_CSSS;
 	}
 
 	public String getDiaChi_CSSS() {
@@ -136,6 +136,26 @@ public class KhaiSinh {
 
 	public void setDiaChi_CSSS(String diaChi_CSSS) {
 		DiaChi_CSSS = diaChi_CSSS;
+	}
+	
+	public void showImfor()
+	{
+		System.out.println("NGƯỜI ĐƯỢC KHAI SINH");
+		System.out.println(this.HoVaTen);
+		System.out.println(this.NgaySinh);
+		System.out.println(this.GioiTinh);
+		System.out.println(this.DanToc);
+		System.out.println(this.QuocTich);
+		System.out.println(this.TP);
+		System.out.println(this.Quan);
+		System.out.println(this.Phuong);
+		System.out.println(this.DiaChi);
+		System.out.println(this.CoSoSinhSan);
+		System.out.println(this.QuocTich_CSSS);
+		System.out.println(this.TP_CSSS);
+		System.out.println(this.Quan_CSSS);
+		System.out.println(this.Phuong_CSSS);
+		System.out.println(this.DiaChi_CSSS);
 	}
 
 }

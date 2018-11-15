@@ -1,6 +1,6 @@
 package Models;
 
-import Models.KhaiSinh.NguoiYeuCau;
+import Entities.KhaiSinh.NguoiYeuCau;
 
 public class DangKyKhaiSinh 
 {
@@ -60,11 +60,11 @@ public class DangKyKhaiSinh
 	
 	//Properties Object
 	
-//	private NguoiYeuCau
 	
-//	public DangKyKhaiSinh()
-//	{
-//		
-//	}
+	
+	public DangKyKhaiSinh()
+	{
+		
+	}
 
 }

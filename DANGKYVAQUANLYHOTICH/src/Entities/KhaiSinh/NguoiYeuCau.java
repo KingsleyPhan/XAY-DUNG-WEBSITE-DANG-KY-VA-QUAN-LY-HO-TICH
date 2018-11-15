@@ -1,4 +1,4 @@
-package Models.KhaiSinh;
+package Entities.KhaiSinh;
 
 public class NguoiYeuCau {
 	private String HoVaTen;
@@ -9,7 +9,7 @@ public class NguoiYeuCau {
 	private String QuocTich;
 	private String TP;
 	private String Quan;
-	private String Huyen;
+	private String Phuong;
 	private String DiaChi;
 
 	public String getHoVaTen() {
@@ -76,12 +76,12 @@ public class NguoiYeuCau {
 		Quan = quan;
 	}
 
-	public String getHuyen() {
-		return Huyen;
+	public String getPhuong() {
+		return Phuong;
 	}
 
-	public void setHuyen(String huyen) {
-		Huyen = huyen;
+	public void setPhuong(String huyen) {
+		Phuong = huyen;
 	}
 
 	public String getDiaChi() {
@@ -90,6 +90,21 @@ public class NguoiYeuCau {
 
 	public void setDiaChi(String diaChi) {
 		DiaChi = diaChi;
+	}
+	
+	public void showImfor()
+	{
+		System.out.println(this.HoVaTen);
+		System.out.println(this.CMND);
+		System.out.println(this.NgayCap);
+		System.out.println(this.NoiCap);
+		System.out.println(this.QuanHe);
+		System.out.println(this.QuocTich);
+		System.out.println(this.TP);
+		System.out.println(this.Quan);
+		System.out.println(this.Phuong);
+		System.out.println(this.DiaChi);
+		
 	}
 
 }
