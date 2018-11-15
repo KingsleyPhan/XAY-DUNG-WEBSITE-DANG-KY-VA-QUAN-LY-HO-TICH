@@ -34,25 +34,16 @@
 	{
 	    var e = document.getElementById("comboCoQuan");
 	    var textThanhPho = e.options[e.selectedIndex].text;
-		//document.getElementById("bannerCoQuan").innerHTML = textThanhPho;
+		document.getElementById("bannerCoQuan").innerHTML = textThanhPho;
 		
 		 e = document.getElementById("modal-quan");
 	     textQuan = e.options[e.selectedIndex].text;
 		 document.getElementById("CoQuanCap2").innerHTML = textThanhPho;
 		 e = document.getElementById("modal-xaPhuong");
 	     textPhuong = e.options[e.selectedIndex].text;
-		// document.getElementById("CoQuanCap2").innerHTML = textThanhPho1 + " " + textThanhPho;
+		 document.getElementById("CoQuanCap2").innerHTML = textPhuong + " " + textQuan;
 		
-		  var xhttp = new XMLHttpRequest();
-		    xhttp.onreadystatechange = function()
-		    {
-		        if(xhttp.readyState===4 && xhttp.status===200)
-		        {
-		            document.getElementById("modal-xaPhuong").innerHTML = xhttp.responseText;
-		        }
-		    };
-		    xhttp.open("POST","updateLocationServlet?valajax=" +val,true)
-		    xhttp.send();
+		 
 		 
 		$('#myModal').modal('hide');
 	}
