@@ -302,7 +302,7 @@
 		        dataType: "TEXT",
 		        success: function(result){
 		            text = result;
-		        };
+		        }
 		    $("#comboboxEmployee").append(
 		    	    '<option value="' + employeName + '">' + employeName + '</option>'     
 		    	    );
