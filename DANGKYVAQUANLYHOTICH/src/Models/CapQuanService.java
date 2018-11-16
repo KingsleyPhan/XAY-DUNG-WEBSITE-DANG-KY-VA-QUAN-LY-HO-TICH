@@ -1,6 +1,9 @@
 package Models;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import Entities.QUAN;
 
 public class CapQuanService 
 {
@@ -11,23 +14,31 @@ public class CapQuanService
 		
 	}
 	
-	public String SearchThanhPhoOfQuan(String NameCity)
+	public ArrayList<QUAN> SearchThanhPhoOfQuan(String THANHPHO_ID)
 	{
+		System.out.println("QUAN_SVR: " + THANHPHO_ID);
 		//Kết nối CSDL
 		ResultSet rs;
 		try {
 			Connect.connect();
 			
-			String cityName = NameCity.trim();
+			String ID =THANHPHO_ID.trim();
 			
-			String query ="SELECT THANHPHO_ID FROM THANHPHO WHERE THANHPHO_TEN = "+ cityName;
+			String query ="SELECT * FROM QUAN WHERE THANHPHO_ID = "+ ID;
 			
 			rs = Connect.ExcuseService(query);
 			
-			if(rs.wasNull() == false)
+			ArrayList<QUAN> QUANLST = new ArrayList<QUAN>();
+			
+			while(rs.next())
 			{
-				return rs.getString(1);
+				QUAN Q = new QUAN(rs.getString(1),rs.getString(3));
+				QUANLST.add(Q);
 			}
+			
+			
+			System.out.println(QUANLST.size());
+		return QUANLST;
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

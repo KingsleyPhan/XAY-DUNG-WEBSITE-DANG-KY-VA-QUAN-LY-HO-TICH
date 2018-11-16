@@ -18,6 +18,18 @@
 </head>
 
 <body>
+        <select id="id_of_select">
+                <option></option>
+                <option value="2">two</option>
+                <option value="3">three</option>
+                <option value="4">four</option>
+                </select>
+                
+                <button id="btn">Show selected</button>
+                
+                <div id="display"></div>
+                
+            
     <!-- Start Header-->
     <header id="id-header" class="header">
         <div class="container">
@@ -137,6 +149,16 @@
     <!-- End Footer-->
     <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
     <script src="../js/Header.js"></script>
+    <script>
+        function show_selected() {
+    var selector = document.getElementById('id_of_select');
+    var value = selector[selector.selectedIndex].value;
+
+    document.getElementById('display').innerHTML = value;
+}
+
+document.getElementById('btn').addEventListener('click', show_selected);;
+    </script>
 </body>
 
 </html>
