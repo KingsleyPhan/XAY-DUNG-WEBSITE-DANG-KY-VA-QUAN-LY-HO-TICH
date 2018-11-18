@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+encoding//CanBoTuPhap/Controller/ConnectionUtils.java=UTF-8
+encoding//CanBoTuPhap/Controller/SQLServerConnUtils.java=UTF-8
+encoding//CanBoTuPhap/Entities/CongDan.java=UTF-8
+encoding//CanBoTuPhap/Models/HoSoDangKyModel.java=UTF-8
 encoding//src/Controllers/DangNhap.java=UTF-8
 encoding//src/Entities/KhaiSinh/DangKyKhaiSinh.java=UTF-8
 encoding//src/Entities/KhaiSinh/KhaiSinh.java=UTF-8

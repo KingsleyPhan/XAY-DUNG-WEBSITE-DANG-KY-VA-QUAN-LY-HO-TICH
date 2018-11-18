@@ -1,0 +1,691 @@
+﻿USE CSDL_QLHT_Test
+
+
+IF OBJECT_ID ('AddHoSo_DangKy','TR') IS NOT NULL
+	DROP TRIGGER AddHoSo_DangKy;
+GO
+CREATE TRIGGER AddHoSo_DangKy ON HOSO_DANGKY
+FOR INSERT
+AS
+	declare @id int, @loai_dangki int
+	select @id=ne.HOSO_DANGKY_ID, @loai_dangki = ne.LOAI_DANGKY_ID
+	from inserted ne
+
+	UPDATE HOSO_DANGKY
+	SET HOSO_DANGKY_MA = CONCAT('HSDK',replace(convert(VARCHAR(8),getdate(),11),'/','') +replace(convert(VARCHAR(8),getdate(),108),':',''))
+						,TRANGTHAI_XULI_ID = ( SELECT TRANGTHAI_XULI_ID
+											   FROM TRANGTHAI_XULI
+											   WHERE TRANGTHAI_XULI_TEN like N'Chưa xử lý')
+						,HOSO_DANGKY_NGAY_DANGKY = GETDATE()
+						,HOSO_DANGKY_NGAY_HETHAN = DATEADD(DAY
+														   , (SELECT LOAI_DANGKY_HANXULY
+															  FROM LOAI_DANGKY
+															  WHERE LOAI_DANGKY_ID = @loai_dangki)
+														   , GETDATE())
+	WHERE HOSO_DANGKY_ID = @id
+GO
+
+
+
+--Lấy tất cả hồ sơ đăng kí
+SELECT *
+FROM HOSO_DANGKY
+INNER JOIN LOAI_DANGKY ON HOSO_DANGKY.LOAI_DANGKY_ID = LOAI_DANGKY.LOAI_DANGKY_ID
+WHERE TRANGTHAI_XULI_ID = ( SELECT TRANGTHAI_XULI_ID
+							FROM TRANGTHAI_XULI
+							WHERE TRANGTHAI_XULI_TEN like N'Chưa xử lý')
+							
+ORDER BY HOSO_DANGKY_NGAY_HETHAN
+
+--Lấy tất cả hộ tịch			
+SELECT *
+FROM all_giay_hotich
+ORDER BY NGAY_KI DESC
+
+DROP VIEW all_giay_hotich
+CREATE VIEW all_giay_hotich AS
+	SELECT 
+		GIAY_KHAISINH_ID AS ID
+		,GIAY_KHAISINH_MA AS MA
+		,GIAY_KHAISINH_SOQUYEN AS SOQUYEN
+		,GIAY_KHAISINH_NGAY_KI AS NGAY_KI
+		,GIAY_KHAISINH_NGUOI_XULY AS NGUOI_XULI
+		,GIAY_KHAISINH_NGUOI_KI AS NGUOI_KI
+	FROM GIAY_KHAISINH
+	UNION
+	SELECT
+		GIAY_KETHON_ID AS ID
+		,GIAY_KETHON_MA AS MA
+		,GIAY_KETHON_SOQUYEN AS SOQUYEN
+		,GIAY_KETHON_NGAY_KI AS NGAY_KI
+		,GIAY_KETHON_NGUOI_XULY AS NGUOI_XULI
+		,GIAY_KETHON_NGUOI_KI AS NGUOI_KI
+	FROM GIAY_KETHON
+	UNION
+	SELECT
+		GIAY_CHUNGTU_ID AS ID
+		,GIAY_CHUNGTU_MA AS MA
+		,GIAY_CHUNGTU_SOQUYEN AS SOQUYEN
+		,GIAY_CHUNGTU_NGAY_KI AS NGAY_KI
+		,GIAY_CHUNGTU_NGUOI_XULY AS NGUOI_XULI
+		,GIAY_CHUNGTU_NGUOI_KI AS NGUOI_KI
+	FROM GIAY_CHUNGTU
+
+
+
+
+
+IF OBJECT_ID ('AddLoai_DangKi','TR') IS NOT NULL
+	DROP TRIGGER AddLoai_DangKi;
+GO
+CREATE TRIGGER AddLoai_DangKi ON LOAI_GIAYTO
+AFTER INSERT
+AS
+	declare @new int, @newName nvarchar(50)
+	select @new=ne.LOAI_GIAYTO_ID, @newName = ne.LOAI_GIAYTO_TEN
+	from inserted ne
+
+	DECLARE cursorHinhThuc CURSOR FOR
+	SELECT * FROM HINHTHUC_DANGKY
+	DECLARE @Id int, @Name nvarchar(50)
+	OPEN cursorHinhThuc
+	FETCH NEXT FROM cursorHinhThuc INTO @Id, @Name
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		INSERT INTO LOAI_DANGKY VALUES (@new,@Id,CONCAT(@newName,' - ', @Name))
+		FETCH NEXT FROM cursorHinhThuc INTO @Id, @Name
+	END
+	CLOSE cursorHinhThuc
+	DEALLOCATE cursorHinhThuc
+GO
+
+DROP PROC Add_Giay_Khaisinh
+CREATE PROC Add_Giay_KhaiSinh @maHS_DK int,@nguoi_xuli int, @nguoi_ki int
+AS
+	DECLARE @hoten nvarchar(255)
+			, @gioitinh bit
+			, @ngaysinh date
+			, @noisinh nvarchar(255)
+			, @dantoc nvarchar(50)
+			, @quoctich nvarchar(50)
+			, @cha_ID int
+			, @me_ID int
+			, @quequan nvarchar(50)
+			, @diachi_quocgia nvarchar(50)
+			, @diachi_thanhpho nvarchar(50)
+			, @diachi_quan nvarchar(50)
+			, @diachi_phuong nvarchar(50)
+			, @diachi_chitiet nvarchar(255)
+			, @congdan_id int
+	DECLARE @soquyen nvarchar(10)
+	DECLARE @magiay nvarchar(10)
+
+	DECLARE @month int
+	SET @month = MONTH(GETDATE())
+	IF @month < 10
+		SET @soquyen = CONCAT('KS-T0', @month)
+	ELSE
+		SET @soquyen = CONCAT('KS-T', @month)
+	DECLARE @ma int
+	SELECT @ma = COUNT(*) +1
+	FROM GIAY_KHAISINH ks
+	WHERE ks.GIAY_KHAISINH_SOQUYEN = @soquyen
+	GROUP BY GIAY_KHAISINH_SOQUYEN
+	IF @ma is null
+		SET @ma = 1
+	IF @ma < 10
+		SET @magiay = CONCAT('KS000', @ma)
+	ELSE
+		IF @ma < 100
+			SET @magiay = CONCAT('KS00', @ma)
+		ELSE
+			IF @ma < 1000
+				SET @magiay = CONCAT('KS0', @ma)
+			ELSE
+				SET @magiay = CONCAT('KH', @ma)
+	SELECT 
+			@hoten = ks.KHAISINH_TEN
+			,@gioitinh = ks.KHAISINH_GIOITINH
+			,@ngaysinh = ks.KHAISINH_NGAYSINH
+			,@noisinh = ks.KHAISINH_NOISINH
+			,@dantoc = ks.KHAISINH_DANTOC
+			,@quoctich = ks.KHAISINH_QUOCTICH
+			,@quequan = ks.KHAISINH_QUEQUAN_THANHPHO
+			,@diachi_quocgia = ks.KHAISINH_QUOCGIA
+			,@diachi_thanhpho = ks.KHAISINH_THANHPHO
+			,@diachi_quan = ks.KHAISINH_QUAN
+			,@diachi_phuong = ks.KHAISINH_PHUONG
+			,@diachi_chitiet = ks.KHAISINH_DIACHI
+			,@cha_ID = cha.CONGDAN_ID
+			,@me_ID = me.CONGDAN_ID
+	FROM DANGKY_KHAISINH ks,CONGDAN cha, CONGDAN me
+	WHERE ks.HOSO_DANGKY_ID = @maHS_DK 
+	AND ks.CHA_CMND = cha.CONGDAN_CMND
+	AND ks.ME_CMND = me.CONGDAN_CMND
+	INSERT INTO CONGDAN
+	VALUES (
+		@hoten
+		,@ngaysinh
+		,@gioitinh
+		,@quequan
+		,@quoctich
+		,@dantoc
+		,NULL
+		,NULL
+		,NULL
+		,@diachi_quocgia
+		,@diachi_thanhpho
+		,@diachi_quan
+		,@diachi_phuong
+		,@diachi_chitiet
+		,NULL
+		,1
+	)
+	SELECT @congdan_id = @@IDENTITY 
+
+	INSERT INTO GIAY_KHAISINH
+	VALUES (
+		@magiay
+		,@soquyen
+		,@maHS_DK
+		,@noisinh
+		,@congdan_id
+		,@cha_ID
+		,@me_ID
+		,GETDATE()
+		,@nguoi_xuli
+		,@nguoi_ki
+		,1
+	)
+GO
+--for test
+	--SELECT @hoten, @gioitinh, @ngaysinh, @noisinh, @dantoc, @quoctich, @cha_ID, @me_ID, @quequan, @diachi_quocgia, @diachi_thanhpho, @diachi_quan, @diachi_phuong, @diachi_chitiet, @soquyen, @magiay
+
+EXEC Add_Giay_Khaisinh 1,1,1
+SELECT *
+FROM GIAY_KHAISINH
+SELECT *
+FROM CONGDAN
+GO
+
+IF OBJECT_ID ('ChangeTrangThai_XuLi_KhaiSinh','TR') IS NOT NULL
+	DROP TRIGGER ChangeTrangThai_XuLi_KhaiSinh;
+GO
+CREATE TRIGGER ChangeTrangThai_XuLi_KhaiSinh ON GIAY_KHAISINH
+AFTER INSERT
+AS
+	declare @hosodangky_id int
+	select @hosodangky_id=ne.HOSO_DANGKY_ID
+	from inserted ne
+	UPDATE HOSO_DANGKY
+	SET TRANGTHAI_XULI_ID = (SELECT TRANGTHAI_XULI_ID
+							 FROM TRANGTHAI_XULI
+							 WHERE TRANGTHAI_XULI_TEN LIKE N'Đã xử lý')
+	WHERE HOSO_DANGKY_ID = @hosodangky_id
+GO
+
+DROP PROC Add_Giay_Kethon
+CREATE PROC Add_Giay_Kethon @maHS_DK int,@nguoi_xuli int, @nguoi_ki int
+AS
+	DECLARE @vo_ID int
+			,@chong_ID int
+	DECLARE @soquyen nvarchar(10)
+	DECLARE @magiay nvarchar(10)
+
+	DECLARE @month int
+	SET @month = MONTH(GETDATE())
+	IF @month < 10
+		SET @soquyen = CONCAT('KH-T0', @month)
+	ELSE
+		SET @soquyen = CONCAT('KH-T', @month)
+	DECLARE @ma int
+	SELECT @ma = COUNT(*) +1
+	FROM GIAY_KETHON kh
+	WHERE kh.GIAY_KETHON_SOQUYEN = @soquyen
+	GROUP BY GIAY_KETHON_SOQUYEN
+	IF @ma is null
+		SET @ma = 1
+	IF @ma < 10
+		SET @magiay = CONCAT('KH000', @ma)
+	ELSE
+		IF @ma < 100
+			SET @magiay = CONCAT('KH00', @ma)
+		ELSE
+			IF @ma < 1000
+				SET @magiay = CONCAT('KH0', @ma)
+			ELSE
+				SET @magiay = CONCAT('KH', @ma)
+	SELECT 
+			@vo_ID = vo.CONGDAN_ID
+			,@chong_ID = chong.CONGDAN_ID
+	FROM DANGKY_KETHON kh,CONGDAN vo, CONGDAN chong
+	WHERE kh.HOSO_DANGKY_ID = @maHS_DK 
+	AND kh.KETHON_C_CMND = chong.CONGDAN_CMND
+	AND kh.KETHON_V_CMND = vo.CONGDAN_CMND
+
+
+	INSERT INTO GIAY_KETHON
+	VALUES (
+		@magiay
+		,@soquyen
+		,@maHS_DK
+		,@vo_ID
+		,@chong_ID
+		,GETDATE()
+		,@nguoi_xuli
+		,@nguoi_ki
+		,2
+	)
+GO
+EXEC Add_Giay_Kethon 2,1,1
+SELECT *
+FROM GIAY_KETHON
+SELECT *
+FROM CONGDAN
+GO
+
+IF OBJECT_ID ('ChangeTrangThai_XuLi_KetHon','TR') IS NOT NULL
+	DROP TRIGGER ChangeTrangThai_XuLi_KetHon;
+GO
+CREATE TRIGGER ChangeTrangThai_XuLi_KetHon ON GIAY_KETHON
+AFTER INSERT
+AS
+	declare @hosodangky_id int
+	select @hosodangky_id=ne.HOSO_DANGKY_ID
+	from inserted ne
+	UPDATE HOSO_DANGKY
+	SET TRANGTHAI_XULI_ID = (SELECT TRANGTHAI_XULI_ID
+							 FROM TRANGTHAI_XULI
+							 WHERE TRANGTHAI_XULI_TEN LIKE N'Đã xử lý')
+	WHERE HOSO_DANGKY_ID = @hosodangky_id
+GO
+
+IF OBJECT_ID ('Update_CongDan_KetHon','TR') IS NOT NULL
+	DROP TRIGGER Update_CongDan_KetHon;
+GO
+CREATE TRIGGER Update_CongDan_KetHon ON GIAY_KETHON
+AFTER INSERT
+AS
+	declare @newID int, @chong_ID int, @vo_ID int
+	select @newID = ne.GIAY_KETHON_ID, @chong_ID = ne.CHONG_ID, @vo_ID = ne.VO_ID
+	from inserted ne
+
+	UPDATE CONGDAN
+	SET CONGDAN_TINHTRANG_HONNHAN = @newID
+	WHERE CONGDAN_ID = @chong_ID
+
+	UPDATE CONGDAN
+	SET CONGDAN_TINHTRANG_HONNHAN = @newID
+	WHERE CONGDAN_ID = @vo_ID
+GO
+
+--Chứng tử
+DROP PROC Add_Giay_Chungtu
+CREATE PROC Add_Giay_Chungtu @maHS_DK int,@nguoi_xuli int, @nguoi_ki int
+AS
+	DECLARE @congdan_ID int
+			,@nguyennhan nvarchar(255)
+			,@ngaymat datetime
+			,@noimat nvarchar(255)
+	DECLARE @soquyen nvarchar(10)
+	DECLARE @magiay nvarchar(10)
+
+	DECLARE @month int
+	SET @month = MONTH(GETDATE())
+	IF @month < 10
+		SET @soquyen = CONCAT('CT-T0', @month)
+	ELSE
+		SET @soquyen = CONCAT('CT-T', @month)
+	DECLARE @ma int
+	SELECT @ma = COUNT(*) + 1
+	FROM GIAY_CHUNGTU ct
+	WHERE ct.GIAY_CHUNGTU_SOQUYEN = 'CT-T11'
+	GROUP BY GIAY_CHUNGTU_SOQUYEN
+	IF @ma is null
+		SET @ma = 1
+	IF @ma < 10
+		SET @magiay = CONCAT('CT000', @ma)
+	ELSE
+		IF @ma < 100
+			SET @magiay = CONCAT('CT00', @ma)
+		ELSE
+			IF @ma < 1000
+				SET @magiay = CONCAT('CT0', @ma)
+			ELSE
+				SET @magiay = CONCAT('CT', @ma)
+	SELECT 
+			@congdan_ID = cd.CONGDAN_ID
+			,@nguyennhan = ct.KHAITU_NGUYENNHAN
+			,@ngaymat = ct.KHAITU_NGAYMAT
+			,@noimat = ct.KHAITU_NOIMAT
+	FROM DANGKY_CHUNGTU ct,CONGDAN cd
+	WHERE ct.HOSO_DANGKY_ID = @maHS_DK 
+	AND ct.KHAITU_CMND = cd.CONGDAN_CMND
+
+	INSERT INTO GIAY_CHUNGTU
+	VALUES (
+		@magiay
+		,@soquyen
+		,@maHS_DK
+		,@congdan_ID
+		,@nguyennhan
+		,@ngaymat
+		,@noimat
+		,GETDATE()
+		,@nguoi_xuli
+		,@nguoi_ki
+		,3
+	)
+GO
+EXEC Add_Giay_Chungtu 3,1,1
+SELECT *
+FROM GIAY_CHUNGTU
+SELECT *
+FROM CONGDAN
+GO
+
+IF OBJECT_ID ('ChangeTrangThai_XuLi_ChungTu','TR') IS NOT NULL
+	DROP TRIGGER ChangeTrangThai_XuLi_ChungTu;
+GO
+CREATE TRIGGER ChangeTrangThai_XuLi_ChungTu ON GIAY_CHUNGTU
+AFTER INSERT
+AS
+	declare @hosodangky_id int
+	select @hosodangky_id=ne.HOSO_DANGKY_ID
+	from inserted ne
+	UPDATE HOSO_DANGKY
+	SET TRANGTHAI_XULI_ID = (SELECT TRANGTHAI_XULI_ID
+							 FROM TRANGTHAI_XULI
+							 WHERE TRANGTHAI_XULI_TEN LIKE N'Đã xử lý')
+	WHERE HOSO_DANGKY_ID = @hosodangky_id
+GO
+
+IF OBJECT_ID ('Update_CongDan_Chungtu','TR') IS NOT NULL
+	DROP TRIGGER Update_CongDan_Chungtu;
+GO
+CREATE TRIGGER Update_CongDan_Chungtu ON GIAY_CHUNGTU
+AFTER INSERT
+AS
+	declare @congdan_ID int
+	select @congdan_ID = ne.CONGDAN_ID
+	from inserted ne
+
+	UPDATE CONGDAN
+	SET CONGDAN_CONSONG = 0
+	WHERE CONGDAN_ID = @congdan_ID
+GO
+
+
+
+SELECT *
+FROM CONGDAN
+
+--DROP PROC Get_HoTich
+--CREATE PROC Get_HoTich @id int,@loai int 
+--AS
+--	IF @loai = 1
+--		SELECT *
+--		FROM GIAY_KHAISINH
+--		WHERE GIAY_KHAISINH_ID = @id
+--	ELSE
+--		IF @loai = 2
+--				SELECT *
+--				FROM GIAY_KETHON
+--				WHERE GIAY_KETHON_ID = @id
+--		ELSE
+--			IF @loai = 3
+--				SELECT *
+--				FROM GIAY_CHUNGTU
+--				WHERE GIAY_CHUNGTU_ID = @id
+--EXEC Get_HoTich 4,3
+
+DROP PROC TimKiem_HoTich
+CREATE PROC TimKiem_HoTich @ma nvarchar(10), @soquyen nvarchar(10)
+AS
+	BEGIN
+	DECLARE @id int
+		IF @ma LIKE '%KS%'
+		BEGIN
+			SELECT @id = GIAY_KHAISINH_ID
+			FROM (
+					SELECT GIAY_KHAISINH_MA,GIAY_KHAISINH_ID
+					FROM GIAY_KHAISINH
+					WHERE GIAY_KHAISINH_SOQUYEN = @soquyen) AS KH
+			WHERE GIAY_KHAISINH_MA = @ma
+			SELECT *
+			FROM Get_Giay_KhaiSinh (@id)
+			RETURN
+		END
+		IF @ma LIKE '%KH%'
+		BEGIN
+			SELECT @id = GIAY_KETHON_ID
+			FROM (
+				SELECT GIAY_KETHON_MA, GIAY_KETHON_ID
+				FROM GIAY_KETHON
+				WHERE GIAY_KETHON_SOQUYEN = @soquyen) AS KH
+			WHERE GIAY_KETHON_MA = @ma
+			SELECT *
+			FROM Get_Giay_KetHon(@id)
+			RETURN
+		END
+		IF @ma LIKE '%CT%'
+		BEGIN
+			SELECT @id = GIAY_CHUNGTU_ID
+			FROM (
+				SELECT GIAY_CHUNGTU_MA, GIAY_CHUNGTU_ID
+				FROM GIAY_CHUNGTU
+				WHERE GIAY_CHUNGTU_SOQUYEN = @soquyen) AS CT
+			WHERE GIAY_CHUNGTU_MA = @ma
+			SELECT *
+			FROM Get_Giay_ChungTu(@id)
+			RETURN
+		END
+	END
+
+EXEC TimKiem_HoTich 'KS0004','KS-T11'
+EXEC TimKiem_HoTich 'KH0001','KH-T11'
+EXEC TimKiem_HoTich 'CT0001','CT-T11'
+
+DROP FUNCTION Get_Giay_KhaiSinh
+CREATE FUNCTION Get_Giay_KhaiSinh ( @id int = 0)
+RETURNS @table table (
+					LOAI_GIAYTO_ID INT
+					, MA NVARCHAR(10)
+					, SOQUYEN NVARCHAR(10)
+					, CONGDAN_HOTEN NVARCHAR(255)
+					, CONGDAN_GIOITINH NVARCHAR(10)
+					, CONGDAN_NGAYSINH DATE
+					, CONGDAN_NOISINH NVARCHAR(255)
+					, CONGDAN_DANTOC NVARCHAR(50)
+					, CONGDAN_QUOCTICH NVARCHAR(50)
+					, CHA_HOVATEN NVARCHAR(255)
+					, CHA_DANTOC NVARCHAR(50)
+					, CHA_QUOCTICH NVARCHAR(50)
+					, ME_HOVATEN NVARCHAR(255)
+					, ME_DANTOC NVARCHAR(50)
+					, ME_QUOCTICH NVARCHAR(50)
+					, NGAY_KI DATETIME
+					, NGUOI_XULY_HOTEN NVARCHAR(100)
+					, NGUOI_KI_HOTEN NVARCHAR(100)
+					)
+AS
+	BEGIN
+		INSERT @table 
+			SELECT 
+				1
+				, GKS.GIAY_KHAISINH_MA
+				, GKS.GIAY_KHAISINH_SOQUYEN, CON.CONGDAN_HOVATEN
+				, CASE CON.CONGDAN_GIOITINH
+					WHEN 0 THEN 'NAM'
+					WHEN 1 THEN 'NỮ'
+				  END
+				, CON.CONGDAN_NGAYSINH
+				, GKS.GIAY_KHAISINH_NOISINH
+				, CON.CONGDAN_DANTOC
+				, CON.CONGDAN_QUOCTICH
+				, CHA.CONGDAN_HOVATEN
+				, CHA.CONGDAN_DANTOC
+				, CHA.CONGDAN_QUOCTICH
+				, ME.CONGDAN_HOVATEN
+				, ME.CONGDAN_DANTOC
+				, ME.CONGDAN_QUOCTICH
+				, GKS.GIAY_KHAISINH_NGAY_KI
+				, NGUOI_XULI.NGUOIDUNG_HOVATEN
+				, NGUOI_KI.NGUOIDUNG_HOVATEN
+			FROM 
+				(
+					SELECT *
+					FROM GIAY_KHAISINH
+					WHERE GIAY_KHAISINH_ID = @id
+				) AS GKS
+				INNER JOIN CONGDAN AS CON ON CON.CONGDAN_ID = GKS.CONGDAN_ID
+				INNER JOIN CONGDAN AS CHA ON CHA.CONGDAN_ID = GKS.CHA_ID
+				INNER JOIN CONGDAN AS ME ON ME.CONGDAN_ID = GKS.ME_ID
+				INNER JOIN NGUOIDUNG AS NGUOI_XULI ON NGUOI_XULI.NGUOIDUNG_ID = GKS.GIAY_KHAISINH_NGUOI_XULY
+				INNER JOIN NGUOIDUNG AS NGUOI_KI ON NGUOI_KI.NGUOIDUNG_ID = GKS.GIAY_KHAISINH_NGUOI_KI
+		RETURN
+	END
+
+SELECT * FROM Get_Giay_KhaiSinh (11)
+
+DROP FUNCTION Get_Giay_KetHon
+CREATE FUNCTION Get_Giay_KetHon ( @id int = 0)
+RETURNS @table table (
+					LOAI_GIAYTO_ID INT
+					, MA NVARCHAR(10)
+					, SOQUYEN NVARCHAR(10)
+					, VO_HOTEN NVARCHAR(255)
+					, VO_NGAYSINH DATE
+					, VO_DANTOC NVARCHAR(50)
+					, VO_QUOCTICH NVARCHAR(50)
+					, VO_THANHPHO NVARCHAR(100)
+					, VO_QUAN NVARCHAR(100)
+					, VO_PHUONG NVARCHAR(100)
+					, VO_DIACHI NVARCHAR(255)
+					, VO_CMND NVARCHAR(20)
+					, VO_CMND_NGAYCAP DATE
+					, VO_CMND_NOICAP NVARCHAR(255)
+					, CHONG_HOTEN NVARCHAR(255)
+					, CHONG_NGAYSINH DATE
+					, CHONG_DANTOC NVARCHAR(50)
+					, CHONG_QUOCTICH NVARCHAR(50)
+					, CHONG_THANHPHO NVARCHAR(100)
+					, CHONG_QUAN NVARCHAR(100)
+					, CHONG_PHUONG NVARCHAR(100)
+					, CHONG_DIACHI NVARCHAR(255)
+					, CHONG_CMND NVARCHAR(20)
+					, CHONG_CMND_NGAYCAP DATE
+					, CHONG_CMND_NOICAP NVARCHAR(255)
+					, NGAY_KI DATETIME
+					, NGUOI_XULY_HOTEN NVARCHAR(100)
+					, NGUOI_KI_HOTEN NVARCHAR(100)
+					)
+AS
+	BEGIN
+		INSERT @table 
+			SELECT 
+				2
+				, GKH.GIAY_KETHON_MA
+				, GKH.GIAY_KETHON_SOQUYEN
+				, VO.CONGDAN_HOVATEN
+				, VO.CONGDAN_NGAYSINH
+				, VO.CONGDAN_DANTOC
+				, VO.CONGDAN_QUOCTICH
+				, VO.CONGDAN_THANHPHO
+				, VO.CONGDAN_QUAN
+				, VO.CONGDAN_PHUONG
+				, VO.CONGDAN_DIACHI
+				, VO.CONGDAN_CMND
+				, VO.CONGDAN_CMND_NGAYCAP
+				, VO.CONGDAN_CMND_NOICAP
+				, CHONG.CONGDAN_HOVATEN
+				, CHONG.CONGDAN_NGAYSINH
+				, CHONG.CONGDAN_DANTOC
+				, CHONG.CONGDAN_QUOCTICH
+				, CHONG.CONGDAN_THANHPHO
+				, CHONG.CONGDAN_QUAN
+				, CHONG.CONGDAN_PHUONG
+				, CHONG.CONGDAN_DIACHI
+				, CHONG.CONGDAN_CMND
+				, CHONG.CONGDAN_CMND_NGAYCAP
+				, CHONG.CONGDAN_CMND_NOICAP
+				, GKH.GIAY_KETHON_NGAY_KI
+				, NGUOI_XULI.NGUOIDUNG_HOVATEN
+				, NGUOI_KI.NGUOIDUNG_HOVATEN
+			FROM 
+				(
+					SELECT *
+					FROM GIAY_KETHON
+					WHERE GIAY_KETHON_ID = 6
+				) AS GKH
+				INNER JOIN CONGDAN AS VO ON VO.CONGDAN_ID = GKH.VO_ID
+				INNER JOIN CONGDAN AS CHONG ON CHONG.CONGDAN_ID = GKH.CHONG_ID
+				INNER JOIN NGUOIDUNG AS NGUOI_XULI ON NGUOI_XULI.NGUOIDUNG_ID = GKH.GIAY_KETHON_NGUOI_XULY
+				INNER JOIN NGUOIDUNG AS NGUOI_KI ON NGUOI_KI.NGUOIDUNG_ID = GKH.GIAY_KETHON_NGUOI_KI
+		RETURN
+	END
+SELECT * FROM Get_Giay_KetHon (6)
+
+
+DROP FUNCTION Get_Giay_ChungTu
+CREATE FUNCTION Get_Giay_ChungTu ( @id int = 0)
+RETURNS @table table (
+					LOAI_GIAYTO_ID INT
+					, MA NVARCHAR(10)
+					, SOQUYEN NVARCHAR(10)
+					, HOTEN NVARCHAR(255)
+					, NGAYSINH DATE
+					, DANTOC NVARCHAR(50)
+					, QUOCTICH NVARCHAR(50)
+					, THANHPHO NVARCHAR(100)
+					, QUAN NVARCHAR(100)
+					, PHUONG NVARCHAR(100)
+					, DIACHI NVARCHAR(255)
+					, CMND NVARCHAR(20)
+					, CMND_NGAYCAP DATE
+					, CMND_NOICAP NVARCHAR(255)
+					, NGAYMAT DATETIME
+					, NOIMAT NVARCHAR(255)
+					, NGUYENNHAN NVARCHAR(255)
+					, NGAY_KI DATETIME
+					, NGUOI_XULY_HOTEN NVARCHAR(100)
+					, NGUOI_KI_HOTEN NVARCHAR(100))
+AS
+	BEGIN
+		INSERT @table 
+			SELECT 
+				3
+				, GCT.GIAY_CHUNGTU_MA
+				, GCT.GIAY_CHUNGTU_SOQUYEN
+				, NGUOIMAT.CONGDAN_HOVATEN
+				, NGUOIMAT.CONGDAN_NGAYSINH
+				, NGUOIMAT.CONGDAN_DANTOC
+				, NGUOIMAT.CONGDAN_QUOCTICH
+				, NGUOIMAT.CONGDAN_THANHPHO
+				, NGUOIMAT.CONGDAN_QUAN
+				, NGUOIMAT.CONGDAN_PHUONG
+				, NGUOIMAT.CONGDAN_DIACHI
+				, NGUOIMAT.CONGDAN_CMND
+				, NGUOIMAT.CONGDAN_CMND_NGAYCAP
+				, NGUOIMAT.CONGDAN_CMND_NOICAP
+				, GCT.GIAY_CHUNGTU_NGAYMAT
+				, GCT.GIAY_CHUNGTU_NOIMAT
+				, GCT.GIAY_CHUNGTU_NGUYENNHAN
+				, GCT.GIAY_CHUNGTU_NGAY_KI
+				, NGUOI_XULI.NGUOIDUNG_HOVATEN
+				, NGUOI_KI.NGUOIDUNG_HOVATEN
+			FROM 
+				(
+					SELECT *
+					FROM GIAY_CHUNGTU
+					WHERE GIAY_CHUNGTU_ID = @id
+				) AS GCT
+				INNER JOIN CONGDAN AS NGUOIMAT ON NGUOIMAT.CONGDAN_ID = GCT.CONGDAN_ID
+				INNER JOIN NGUOIDUNG AS NGUOI_XULI ON NGUOI_XULI.NGUOIDUNG_ID = GCT.GIAY_CHUNGTU_NGUOI_XULY
+				INNER JOIN NGUOIDUNG AS NGUOI_KI ON NGUOI_KI.NGUOIDUNG_ID = GCT.GIAY_CHUNGTU_NGUOI_KI
+		RETURN
+	END
+
+SELECT * FROM Get_Giay_ChungTu (6)
+
+
