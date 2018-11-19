@@ -30,12 +30,6 @@ $(document).ready(function() {
     var table = $('#table_id').DataTable( {
         "ajax": "../js/hotich.json",
         "columns": [
-//            {
-//                "className":      'details-control',
-//				"orderable":      false,
-//                "data":           null,
-//                "defaultContent": '',
-//            },
 			{
                 "className":      'col-stt',
                 "orderable":      false,
