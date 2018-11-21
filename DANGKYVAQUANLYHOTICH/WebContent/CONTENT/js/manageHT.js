@@ -28,7 +28,7 @@ $(document).ready(function() {
     } );
 	
     var table = $('#table_id').DataTable( {
-        "ajax": "../js/hotich.json",
+        "ajax": "./CONTENT/js/hotich.json",
         "columns": [
 			{
                 "className":      'col-stt',

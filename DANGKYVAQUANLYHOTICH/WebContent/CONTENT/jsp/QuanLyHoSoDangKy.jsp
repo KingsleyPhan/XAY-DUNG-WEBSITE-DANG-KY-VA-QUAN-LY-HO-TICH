@@ -29,8 +29,8 @@ https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap.min.js"></script>
 	<link rel="stylesheet" href="./CONTENT/plugins/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="./CONTENT//styles/HAF.css">
-    <link rel="stylesheet" type="text/css" href="./CONTENT//styles/manage.css">
+    <link rel="stylesheet" type="text/css" href="./CONTENT/styles/HAF.css">
+    <link rel="stylesheet" type="text/css" href="./CONTENT/styles/manage.css">
 </head>
 <body>
 	<!-- Start Header-->
@@ -193,6 +193,7 @@ https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 							<thead>
   						    	<tr style="display: table-row">
   						      		<th class="col-stt">STT</th>
+  						      		<th class="col-ma">ID hồ sơ đăng kí</th>
   						      		<th class="col-noidung">Nội dung hộ tịch</th>
   						      		<th class="col-ma">Mã hồ sơ đăng kí</th>
   						      		<th class="col-ngay">Ngày đăng kí</th>

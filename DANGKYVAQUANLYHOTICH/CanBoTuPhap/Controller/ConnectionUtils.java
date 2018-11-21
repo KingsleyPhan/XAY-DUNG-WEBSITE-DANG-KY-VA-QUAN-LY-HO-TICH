@@ -44,35 +44,44 @@ public class ConnectionUtils {
 			System.out.println("loaiGiayToId : " + loaiGiayToId);
 			System.out.println("loaiGiayToTen : " + loaiGiayToTen);
 		}
+		
+		
+//		ResultSet rs = statement.executeQuery("Select * from THANHPHO WHERE THANHPHO_TRANGTHAI=1");
+//		 while(rs.next())
+//		 {
+//			 System.out.println(rs.getString(1));
+//			 System.out.println(rs.getString(2));
+//			 System.out.println(rs.getString(3));
+//		 }
 		// Đóng kết nối
 		conn.close();
 
-		// -----------------
-		// Lấy ra kết nối tới cơ sở dữ liệu.
-		conn = ConnectionUtils.getMyConnection();
-
-//		statement = conn.createStatement();
-
-		// Câu lệnh gọi thủ tục (***)
-		sql = "{call TimKiem_HoTich(?,?)}";
-
-		// Tạo một đối tượng CallableStatement.
-		CallableStatement cstm = conn.prepareCall(sql);
-
-		// Sét đặt giá trị tham số thứ nhất (Dấu ? thứ nhất)
-		cstm.setString("ma", "KS0004");
-		// Sét đặt giá trị tham số thứ hai (Dấu ? thứ hai)
-		cstm.setString("soquyen", "KS-T11");
-		// Thực thi câu lệnh.
-		rs = cstm.executeQuery();
-
-		// Duyệt trên kết quả trả về.
-		while (rs.next()) {// Di chuyển con trỏ xuống bản ghi kế tiếp.
-			int loaiGiayToId = rs.getInt("LOAI_GIAYTO_ID");
-			String ma = rs.getString("MA");
-			System.out.println("--------------------");
-			System.out.println("loaiGiayToId : " + loaiGiayToId);
-			System.out.println("ma : " + ma);
-		}
+//		// -----------------
+//		// Lấy ra kết nối tới cơ sở dữ liệu.
+//		conn = ConnectionUtils.getMyConnection();
+//
+////		statement = conn.createStatement();
+//
+//		// Câu lệnh gọi thủ tục (***)
+//		sql = "{call TimKiem_HoTich(?,?)}";
+//
+//		// Tạo một đối tượng CallableStatement.
+//		CallableStatement cstm = conn.prepareCall(sql);
+//
+//		// Sét đặt giá trị tham số thứ nhất (Dấu ? thứ nhất)
+//		cstm.setString("ma", "KS0004");
+//		// Sét đặt giá trị tham số thứ hai (Dấu ? thứ hai)
+//		cstm.setString("soquyen", "KS-T11");
+//		// Thực thi câu lệnh.
+//		rs = cstm.executeQuery();
+//
+//		// Duyệt trên kết quả trả về.
+//		while (rs.next()) {// Di chuyển con trỏ xuống bản ghi kế tiếp.
+//			int loaiGiayToId = rs.getInt("LOAI_GIAYTO_ID");
+//			String ma = rs.getString("MA");
+//			System.out.println("--------------------");
+//			System.out.println("loaiGiayToId : " + loaiGiayToId);
+//			System.out.println("ma : " + ma);
+//		}
 	}
 }

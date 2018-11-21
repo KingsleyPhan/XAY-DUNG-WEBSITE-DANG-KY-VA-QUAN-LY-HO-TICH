@@ -68,51 +68,55 @@ public class HoSoDangKyServlet extends HttpServlet {
 
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
-//		int loaiGiay = Integer.parseInt(request.getParameter("ma"));
+		int loaiGiay = Integer.parseInt(request.getParameter("key"));
 		PrintWriter out = response.getWriter();
 		String data;
 		List<HSDK> DSHSDK;
 		data = "{ \"hsdk\":[";
 		try {
-//			if (loaiGiay == -1)
-//			{
-//				DSHSDK = new HoSoDangKyModel().getAllHSDKCoQuan(1);
-//			}
-//			else
-//			{
-//				DSHSDK = new HoSoDangKyModel().getHSDKLoaiGiayTo(1,loaiGiay);
-//			}
+			if (loaiGiay == -1)
+			{
+				DSHSDK = new HoSoDangKyModel().getAllHSDKCoQuan(1);
+			}
+			else
+			{
+				DSHSDK = new HoSoDangKyModel().getHSDKLoaiGiayTo(1,loaiGiay);
+			}
 			DSHSDK = new HoSoDangKyModel().getAllHSDKCoQuan(1);
 			for (int i = 0; i < DSHSDK.size(); i++) {
 				String temp = "";
 				if (i == DSHSDK.size() - 1) { //Trường hợp dòng cuối cùng sẽ không có dấu ","
-					temp = "["
-							+"\"\"," // Ký tự trống để điền STT tự động
-							+"\""+DSHSDK.get(i).getHoSoDangKyTen()+"\","
-							+"\""+DSHSDK.get(i).getHoSoDangKyMa()+"\","
-							+"\""+DSHSDK.get(i).getNgayDangKy()+"\","
-							+"\""+DSHSDK.get(i).getNgayHetHan()+"\","
-							+"\""+DSHSDK.get(i).getLoaiGiayToID()+"\","
-							+"\"<div>"
-								+"<a href=\\\""+DSHSDK.get(i).getHoSoDangKyId()+"\\\" class=\\\"btn btn-primary\\\">"
-									+"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> Kiểm duyệt"
-								+"</a>"
-							+"</div>\"]";
+					temp = "{"
+							+"\"stt\":\"\"," // Ký tự trống để điền STT tự động
+							+"\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\","
+							+"\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\","
+							+"\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\","
+							+"\"ngay-dangky\":\""+DSHSDK.get(i).getNgayDangKy()+"\","
+							+"\"ngay-hethan\":\""+DSHSDK.get(i).getNgayHetHan()+"\","
+//							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\","
+							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"}";
+//							+"\"tacvu\":\"<div>"
+//								+"<a href=\\\""+DSHSDK.get(i).getHoSoDangKyId()+"\\\" class=\\\"btn btn-primary\\\">"
+//									+"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> Kiểm duyệt"
+//								+"</a>"
+//							+"</div>\"}";
 				}
 				else
 				{
-					temp = "["
-							+"\"\"," // Ký tự trống để điền STT tự động
-							+"\""+DSHSDK.get(i).getHoSoDangKyTen()+"\","
-							+"\""+DSHSDK.get(i).getHoSoDangKyMa()+"\","
-							+"\""+DSHSDK.get(i).getNgayDangKy()+"\","
-							+"\""+DSHSDK.get(i).getNgayHetHan()+"\","
-							+"\""+DSHSDK.get(i).getLoaiGiayToID()+"\","
-							+"\"<div>"
-								+"<a href=\\\""+DSHSDK.get(i).getHoSoDangKyId()+"\\\" class=\\\"btn btn-primary\\\">"
-									+"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> Kiểm duyệt"
-								+"</a>"
-							+"</div>\"],";
+					temp = "{"
+							+"\"stt\":\"\"," // Ký tự trống để điền STT tự động
+							+"\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\","
+							+"\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\","
+							+"\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\","
+							+"\"ngay-dangky\":\""+DSHSDK.get(i).getNgayDangKy()+"\","
+							+"\"ngay-hethan\":\""+DSHSDK.get(i).getNgayHetHan()+"\","
+//							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\","
+							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"},";
+//							+"\"tacvu\":\"<div>"
+//								+"<a href=\\\""+DSHSDK.get(i).getHoSoDangKyId()+"\\\" class=\\\"btn btn-primary\\\">"
+//									+"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> Kiểm duyệt"
+//								+"</a>"
+//							+"</div>\"},";
 				}
 				data += temp;
 			}

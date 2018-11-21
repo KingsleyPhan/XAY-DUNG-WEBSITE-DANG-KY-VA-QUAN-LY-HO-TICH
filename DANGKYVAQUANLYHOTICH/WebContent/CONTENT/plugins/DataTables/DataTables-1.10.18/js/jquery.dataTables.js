@@ -11343,7 +11343,10 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "First",
+				 /**
+				 * Hung fix : "First"
+				 */
+				"sFirst": "Trang đầu",
 	
 	
 				/**
@@ -11366,7 +11369,10 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Last",
+				 /**
+				 * Hung fix : "Last"
+				 */
+				"sLast": "Trang cuối",
 	
 	
 				/**
@@ -11389,7 +11395,10 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				 /**
+				 * Hung fix : "Next"
+				 */
+				"sNext": "Sau",
 	
 	
 				/**
@@ -11412,7 +11421,10 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				 /**
+				 * Hung fix : "Previous"
+				 */
+				"sPrevious": "Trước"
 			},
 	
 			/**
@@ -11435,7 +11447,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			 /**
+			 * Hung fix : "No data available in table"
+			 */
+			"sEmptyTable": "Không có dữ liệu trong bảng",
 	
 	
 			/**
@@ -11467,7 +11482,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			 /**
+			 * Hung fix : Showing _START_ to _END_ of _TOTAL_ entries
+			 */
+			"sInfo": "Hiện thị từ _START_ đến _END_ của _TOTAL_ kết quả",
 	
 	
 			/**
@@ -11488,7 +11506,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			 /**
+			 * Hung fix : Showing 0 to 0 of 0 entries
+			 */
+			"sInfoEmpty": "Không có kết quả",
 	
 	
 			/**
@@ -11510,7 +11531,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			 /**
+			 * Hung fix : (filtered from _MAX_ total entries)
+			 */
+			"sInfoFiltered": "( Lọc từ tổng _MAX_ kết quả )",
 	
 	
 			/**
@@ -11628,7 +11652,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			 /**
+			 * Hung fix : Show _MENU_ entries
+			 */
+			"sLengthMenu": "Hiện thị _MENU_ kết quả",
 	
 	
 			/**
@@ -11652,7 +11679,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Loading...",
+			 /**
+			 * Hung fix : Loading...
+			 */
+			"sLoadingRecords": "Đang tải...Vui lòng chờ...",
 	
 	
 			/**
@@ -11673,7 +11703,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			 /**
+			 * Hung fix : Processing...
+			 */
+			"sProcessing": "Đang thực hiện...",
 	
 	
 			/**
@@ -11708,7 +11741,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			 /**
+			 * Hung fix : Search:
+			 */
+			"sSearch": "Tìm kiếm :",
 	
 	
 			/**
@@ -11719,7 +11755,10 @@
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.searchPlaceholder
 			 */
-			"sSearchPlaceholder": "",
+			 /**
+			 * Hung fix : ""
+			 */
+			"sSearchPlaceholder": "Nhập mã bạn muốn tìm...",
 	
 	
 			/**
@@ -11766,7 +11805,10 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			 /**
+			 * Hung fix : "No matching records found"
+			 */
+			"sZeroRecords": "Không tìm thấy kết quả khớp"
 		},
 	
 	
