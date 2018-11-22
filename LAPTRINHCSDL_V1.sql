@@ -1,3 +1,44 @@
+CREATE PROC ADD_HOSO_DANGKY_KHAISINH_NYC(@TrangThai int
+									,@CoQuanID int
+									,@LoaiDangKyID int
+									,@NYC_TEN	nvarchar(100)
+									,@NYC_CMND	nvarchar(12)
+									,@NYC_CMND_NGAYCAP	date
+									,@NYC_CMND_NOICAP	nvarchar(255)
+									,@NYC_QUOCTICH	nvarchar(50)
+									,@NYC_THANHPHO	nvarchar(100)
+									,@NYC_QUAN	nvarchar(100)
+									,@NYC_PHUONG	nvarchar(100)
+									,@NYC_DIACHI	nvarchar(255)
+									,@NYC_QUANHE	nvarchar(255) )
+									
+AS
+BEGIN
+  --Gọi Procdure Add hồ sơ đăng ký để thêm hồ sơ đăng ký
+   EXEC PROC_ADD_HOSO_DANGKY @TrangThai,@CoQuanID,@LoaiDangKyID;
+   DECLARE @HSDK_ID int;
+  --Lấy giá trị mà vừa mới add vào hồ sơ đăng ký. Để lưu vào hồ sơ chi tiết
+   SELECT @HSDK_ID = IDENT_CURRENT('HOSO_DANGKY');
+
+   INSERT INTO DANGKY_KHAISINH 
+   VALUES ( @HSDK_ID
+			,@NYC_TEN
+			,@NYC_CMND
+			,@NYC_CMND_NGAYCAP
+			,@NYC_CMND_NOICAP
+			,@NYC_QUOCTICH
+			,@NYC_THANHPHO
+			,@NYC_QUAN
+			,@NYC_PHUONG
+			,@NYC_DIACHI
+			,@NYC_QUANHE
+		)
+    
+END
+GO
+
+
+
 CREATE PROC ADD_HOSO_DANGKY_KHAISINH(@TrangThai int
 									,@CoQuanID int
 									,@LoaiDangKyID int
