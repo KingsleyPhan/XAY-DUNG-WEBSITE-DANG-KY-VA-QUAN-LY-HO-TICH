@@ -1,32 +1,35 @@
 /* Formatting function for row details - modify as you need */
 function format ( d ) {
     // `d` is the original data object for the row
-    return '<table class="adding" cellpadding="5" cellspacing="0" border="0" style="">'+
+    return '<table class="adding" border="0" style="">'+
         '<tr>'+
-            '<td>Full name:</td>'+
-            '<td>'+d.name+'</td>'+
+			'<td class="col-title">Nội dung  </td>'+
+            '<td class="col-lable">Tên hộ tịch :</td>'+
+            '<td class="col-content">'+d.tenhotich+'</td>'+
         '</tr>'+
         '<tr>'+
-            '<td>Extension number:</td>'+
-            '<td>'+d.extn+'</td>'+
+			'<td class="col-title"></td>'+
+            '<td class="col-lable">Người yêu cầu :</td>'+
+            '<td class="col-content">'+d.tennguoiyc+'</td>'+
         '</tr>'+
         '<tr>'+
-            '<td>Extra info:</td>'+
-            '<td>And any further details here (images etc)...</td>'+
+			'<td class="col-title"></td>'+
+            '<td class="col-lable">Thêm thông tin:</td>'+
+            '<td class="col-content">Thêm thông tin cần thiết của 1 hộ tịch</td>'+
         '</tr>'+
     '</table>';
 }
  
 $(document).ready(function() {
+	// Setup - add a text input to each footer cell
+    $('#table_id tfoot th.search').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+	
     var table = $('#table_id').DataTable( {
-        "ajax": "../js/hotich.json",
+        "ajax": "./CONTENT/js/hotich.json",
         "columns": [
-//            {
-//                "className":      'details-control',
-//				"orderable":      false,
-//                "data":           null,
-//                "defaultContent": '',
-//            },
 			{
                 "className":      'col-stt',
                 "orderable":      false,
@@ -66,14 +69,49 @@ $(document).ready(function() {
 			{
 				"orderable":      false,
 				"data":		null,
-				"defaultContent": '<div style="text-align: center;"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>',
+				"defaultContent": '<div style="text-align: center;"><a href="HoTichKhaiSinh.html" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Xem</a></div>',
 				"classname":	'col-tacvu',
 				
 			},
         ],
 		"lengthMenu" : [[10, 25, 50, -1], [10, 25, 50, "All"]],
 		"order" : false,
+//		dom: 'Bfrtip',
+//        buttons: [
+//            { extend: 'copyHtml5'},
+//            { extend: 'excelHtml5' },
+//            { extend: 'csvHtml5'},
+//            { extend: 'pdfHtml5'}
+//        ],
     } );
+	
+	new $.fn.dataTable.Buttons( table, {
+        buttons: [
+            { extend: 'copyHtml5'},
+            { extend: 'excelHtml5' },
+            { extend: 'csvHtml5'},
+            { extend: 'pdfHtml5'}
+        ],
+    } );
+ 
+    table.buttons( 0, null ).container().prependTo(
+        table.table().container()
+    );
+	
+	
+	// Apply the search
+    table.columns([2,3,4,5,6]).every( function () {
+        var that = this;
+ 
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+	
     table.on('order.dt search.dt', function(){
 		table.column(0,{search:'applied',order:'applied'}).nodes().each(function(cell,i){
 			cell.innerHTML = i + 1;

@@ -7,10 +7,8 @@ td.details-control {
 tr.shown td.details-control {
     background: url('../resources/details_close.png') no-repeat center center;
 }
-
 .col-stt{
 	width: 5%;
-	text-align: center;
 }
 .col-ma{
 	width: 12%;
@@ -26,7 +24,7 @@ tr.shown td.details-control {
 }
 td.col-canbo{
 	width: 20%;
-	text-align: left;
+	text-align: center;
 }
 tr{
 	line-height: 40px;
@@ -43,8 +41,27 @@ tr{
     background-color: transparent;
 }
 .adding{
-	width: 100%;
-	border: 2px solid black;;
+	width: 40%;
+	margin-left: 10%;
 }
-.adding tr td{
+.adding .col-title{
+	width: 10%;
+}
+.adding .col-lable{
+	width: 15%;
+	border-top: 1px rgba(63,63,63,1.00) solid;
+	border-bottom: 1px rgba(63,63,63,1.00) solid;
+}
+.adding .col-content{
+	width: 15%;
+	border-top: 1px rgba(63,63,63,1.00) solid;
+	border-bottom: 1px rgba(63,63,63,1.00) solid;
+}
+
+.col-sm-12.col-md-6
+{
+	width:42%!important;
+}
+.dataTables_filter{
+	visibility:visible;
 }

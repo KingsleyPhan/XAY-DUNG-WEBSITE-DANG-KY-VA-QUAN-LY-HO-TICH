@@ -1,4 +1,4 @@
-/*import font Roboto*/
+﻿/*import font Roboto*/
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700,900');
 /*Header*/
 .header {
@@ -94,6 +94,7 @@
     font-weight: 999;
     line-height: 40px;
     font-family: 'Roboto Slab', serif;
+    margin-bottom: -5px;
 }
 /*Footer*/
 footer {
@@ -131,6 +132,16 @@ footer {
     {
         text-align: center;
     }
-
-   
 }
+
+.info-login{
+	line-height: 100px;
+}
+.login-content{
+	text-align: right;
+}
+.login-content p{
+	font-size: 18px;
+}
+
+

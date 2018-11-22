@@ -30,12 +30,6 @@ $(document).ready(function() {
     var table = $('#table_id').DataTable( {
         "ajax": "../js/hotich.json",
         "columns": [
-//            {
-//                "className":      'details-control',
-//				"orderable":      false,
-//                "data":           null,
-//                "defaultContent": '',
-//            },
 			{
                 "className":      'col-stt',
                 "orderable":      false,
@@ -75,7 +69,7 @@ $(document).ready(function() {
 			{
 				"orderable":      false,
 				"data":		null,
-				"defaultContent": '<div style="text-align: center;"><a href="HoTichKhaiSinh.html" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Xem</a></div>',
+				"defaultContent": '<div style="text-align: center;"><a href="HoTichKhaiSinh?'+row.data().ma-hotich+'.html" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Xem</a></div>',
 				"classname":	'col-tacvu',
 				
 			},
