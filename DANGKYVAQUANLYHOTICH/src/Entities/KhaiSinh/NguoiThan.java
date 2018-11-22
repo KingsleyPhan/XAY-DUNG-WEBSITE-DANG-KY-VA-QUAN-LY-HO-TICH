@@ -1,13 +1,17 @@
 package Entities.KhaiSinh;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class NguoiThan 
 {
 	
 	private String  HoVaTen;
-	private String  NgaySinh;
+	private Date  NgaySinh;
 	private String  CMND;
 	private String  NoiCap;
-	private String  NgayCap;
+	private Date  NgayCap;
 	private String  DanToc;
 	private String  QuocTich;
 	private String  TP;
@@ -21,11 +25,15 @@ public class NguoiThan
 	public void setHoVaTen(String hoVaTen) {
 		HoVaTen = hoVaTen;
 	}
-	public String getNgaySinh() {
+	public Date getNgaySinh() {
 		return NgaySinh;
 	}
-	public void setNgaySinh(String ngaySinh) {
-		NgaySinh = ngaySinh;
+	public void setNgaySinh(String ngaySinh) throws ParseException {
+		SimpleDateFormat fmd = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = fmd.parse(ngaySinh);
+		java.sql.Date sqlStartDate = new java.sql.Date(date.getTime()); 
+		NgaySinh = sqlStartDate;
+		
 	}
 	public String getCMND() {
 		return CMND;
@@ -39,11 +47,14 @@ public class NguoiThan
 	public void setNoiCap(String noiCap) {
 		NoiCap = noiCap;
 	}
-	public String getNgayCap() {
+	public Date getNgayCap() {
 		return NgayCap;
 	}
-	public void setNgayCap(String ngayCap) {
-		NgayCap = ngayCap;
+	public void setNgayCap(String ngayCap) throws ParseException {
+		SimpleDateFormat fmd = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = fmd.parse(ngayCap);
+		java.sql.Date sqlStartDate = new java.sql.Date(date.getTime()); 
+		NgayCap =sqlStartDate;
 	}
 	public String getDanToc() {
 		return DanToc;
@@ -84,16 +95,16 @@ public class NguoiThan
 	
 	public void showImfor()
 	{
-		System.out.println(this.HoVaTen);
-		System.out.println(this.CMND);
-		System.out.println(this.NgayCap);
-		System.out.println(this.NoiCap);
-		System.out.println(this.DanToc);
-		System.out.println(this.QuocTich);
-		System.out.println(this.TP);
-		System.out.println(this.Quan);
-		System.out.println(this.Phuong);
-		System.out.println(this.DiaChi);
+		System.out.println("Ten :"+this.HoVaTen);
+		System.out.println("CMND :"+this.CMND);
+		System.out.println("Ngay :"+this.NgayCap);
+		System.out.println("Noi :"+this.NoiCap);
+		System.out.println("DanToc :"+this.DanToc);
+		System.out.println("QT :"+this.QuocTich);
+		System.out.println("TP :"+this.TP);
+		System.out.println("Q :"+this.Quan);
+		System.out.println(" P:"+this.Phuong);
+		System.out.println(" DC:"+this.DiaChi);
 	}
 	
 

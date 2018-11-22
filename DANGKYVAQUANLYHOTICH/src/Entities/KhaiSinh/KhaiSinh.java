@@ -1,10 +1,15 @@
 package Entities.KhaiSinh;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+
 public class KhaiSinh {
 
 	private String HoVaTen;
 	private String GioiTinh;
-	private String NgaySinh;
+	private Date NgaySinh;
 	private String DanToc;
 	private String QuocTich;
 	private String TP;
@@ -34,12 +39,15 @@ public class KhaiSinh {
 		GioiTinh = gioiTinh;
 	}
 
-	public String getNgaySinh() {
+	public Date getNgaySinh() {
 		return NgaySinh;
 	}
 
-	public void setNgaySinh(String ngaySinh) {
-		NgaySinh = ngaySinh;
+	public void setNgaySinh(String ngaySinh) throws ParseException {
+		SimpleDateFormat fmd = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = fmd.parse(ngaySinh);
+		java.sql.Date sqlStartDate = new java.sql.Date(date.getTime()); 
+		NgaySinh = sqlStartDate;
 	}
 
 	public String getDanToc() {
@@ -141,21 +149,21 @@ public class KhaiSinh {
 	public void showImfor()
 	{
 		System.out.println("NGƯỜI ĐƯỢC KHAI SINH");
-		System.out.println(this.HoVaTen);
-		System.out.println(this.NgaySinh);
-		System.out.println(this.GioiTinh);
-		System.out.println(this.DanToc);
-		System.out.println(this.QuocTich);
-		System.out.println(this.TP);
-		System.out.println(this.Quan);
-		System.out.println(this.Phuong);
-		System.out.println(this.DiaChi);
-		System.out.println(this.CoSoSinhSan);
-		System.out.println(this.QuocTich_CSSS);
-		System.out.println(this.TP_CSSS);
-		System.out.println(this.Quan_CSSS);
-		System.out.println(this.Phuong_CSSS);
-		System.out.println(this.DiaChi_CSSS);
+		System.out.println("Ten: "+ this.HoVaTen);
+		System.out.println("NgSinh  : "+ this.NgaySinh);
+		System.out.println("Gioi Tinh  : "+ this.GioiTinh);
+		System.out.println("Dan Toc  : "+ this.DanToc);
+		System.out.println("Quoc Tich  : "+ this.QuocTich);
+		System.out.println("Thanh Pho  : "+ this.TP);
+		System.out.println("Quan  : "+ this.Quan);
+		System.out.println("Phuong  : "+ this.Phuong);
+		System.out.println("Dia Chi  : "+ this.DiaChi);
+		System.out.println("CSSS  : "+ this.CoSoSinhSan);
+		System.out.println("Quoc gia Sinh  : "+ this.QuocTich_CSSS);
+		System.out.println("Tp  : "+ this.TP_CSSS);
+		System.out.println("Quan  : "+ this.Quan_CSSS);
+		System.out.println("Phuong  : "+ this.Phuong_CSSS);
+		System.out.println("Dia Chi  : "+ this.DiaChi_CSSS);
 	}
 
 }

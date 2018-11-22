@@ -83,7 +83,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="header_location">
-					<p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%>></p>
+					<p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%></p>
 					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
 				</div>
 			</div>

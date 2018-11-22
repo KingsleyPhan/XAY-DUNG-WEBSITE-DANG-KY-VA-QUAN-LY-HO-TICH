@@ -3,7 +3,17 @@ package Controllers;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Connection;
+
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+
+import DAO.DAO_DK_KHAISINH;
+import DAO.DAO_THANHPHO;
+import Entities.KhaiSinh.DangKyKhaiSinh;
+
 
 
 public class database 
@@ -45,17 +55,12 @@ public class database
 	}
 	
 	public static void main(String[] args) throws Exception {
-		database conn = new database();
-		System.out.println(conn.connect());
+	
 		
-		 ResultSet rs = conn.ChooseData("Select * from THANHPHO WHERE THANHPHO_TRANGTHAI=1");
-		 while(rs.next())
-		 {
-			 System.out.println(rs.getString(1));
-			 System.out.println(rs.getString(2));
-			 System.out.println(rs.getString(3));
-		 }
-		 
+		DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.DatabaseName, Consts.DatabasePass);
+		DKKS.INSERT_DK_KHAISINH();
+		
+	
 	}
 	
 	

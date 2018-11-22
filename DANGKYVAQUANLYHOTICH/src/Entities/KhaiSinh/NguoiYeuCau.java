@@ -1,10 +1,16 @@
 package Entities.KhaiSinh;
 
+
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+
 public class NguoiYeuCau {
 	private String HoVaTen;
 	private String CMND;
 	private String NoiCap;
-	private String NgayCap;
+	private Date NgayCap;
 	private String QuanHe;
 	private String QuocTich;
 	private String TP;
@@ -36,12 +42,15 @@ public class NguoiYeuCau {
 		NoiCap = noiCap;
 	}
 
-	public String getNgayCap() {
+	public Date getNgayCap() {
 		return NgayCap;
 	}
 
-	public void setNgayCap(String ngayCap) {
-		NgayCap = ngayCap;
+	public void setNgayCap(String ngayCap) throws ParseException {
+		SimpleDateFormat fmd = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = fmd.parse(ngayCap);
+		java.sql.Date sqlStartDate = new java.sql.Date(date.getTime()); 
+		NgayCap = sqlStartDate;
 	}
 
 	public String getQuanHe() {
@@ -94,16 +103,16 @@ public class NguoiYeuCau {
 	
 	public void showImfor()
 	{
-		System.out.println(this.HoVaTen);
-		System.out.println(this.CMND);
-		System.out.println(this.NgayCap);
-		System.out.println(this.NoiCap);
-		System.out.println(this.QuanHe);
-		System.out.println(this.QuocTich);
-		System.out.println(this.TP);
-		System.out.println(this.Quan);
-		System.out.println(this.Phuong);
-		System.out.println(this.DiaChi);
+		System.out.println("Ten: " + this.HoVaTen);
+		System.out.println("CMND: " + this.CMND);
+		System.out.println("Ngay: " +this.NgayCap);
+		System.out.println("Noi: " +this.NoiCap);
+		System.out.println("QH: " + this.QuanHe);
+		System.out.println("QTICH: "+ this.QuocTich);
+		System.out.println("TP: " +this.TP);
+		System.out.println("Quan " +this.Quan);
+		System.out.println("Phuong: " +this.Phuong);
+		System.out.println("Dia chi: " +this.DiaChi);
 		
 	}
 

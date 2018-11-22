@@ -2,16 +2,10 @@ package Models;
 
 import java.sql.ResultSet;
 
-public class CapThanhPhoService 
-{
-	ConnectDataBase Connect = new ConnectDataBase();
+public class DanTocService {
+ConnectDataBase Connect = new ConnectDataBase();
 	
-	public CapThanhPhoService()
-	{
-		
-	}
-	
-	public ResultSet  ShowThanhPho()
+	public ResultSet  ShowDanToc()
 	{
 		
 		try 
@@ -20,7 +14,7 @@ public class CapThanhPhoService
 			ResultSet rs;
 			Connect.connect();
 			
-			String query ="SELECT * FROM THANHPHO";
+			String query ="SELECT * FROM DANTOC";
 			
 			rs = Connect.ExcuseService(query);
 			

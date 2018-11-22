@@ -50,7 +50,7 @@ public class ConnectDataBase
 		ConnectDataBase conn = new ConnectDataBase();
 		System.out.println(conn.connect());
 		
-		 ResultSet rs = conn.ExcuseService("Select * from THANHPHO WHERE THANHPHO_TRANGTHAI=1");
+		 ResultSet rs = conn.ExcuseService("Select * from THANHPHO");
 		 while(rs.next())
 		 {
 			 System.out.println(rs.getString(1));

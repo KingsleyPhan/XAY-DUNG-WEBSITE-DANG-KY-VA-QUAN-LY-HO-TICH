@@ -28,7 +28,7 @@ public class updatePhuongServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		try (PrintWriter out = response.getWriter()) {
 			String valueajax = request.getParameter("valajax");
-			System.out.println("Value: " + valueajax);
+			
 			
 			ArrayList<PHUONG> PHUONGLST = new ArrayList<PHUONG>();
 			CapPhuongService CAPPHUONG = new CapPhuongService();
@@ -37,7 +37,7 @@ public class updatePhuongServlet extends HttpServlet {
 			
 			if (valueajax.equals("") == false)
 			{
-				System.out.println("vo 1");
+				
 				response.getWriter().write("Dropdown 2: <select>");
 				for (int i = 0; i < PHUONGLST.size(); i++) {
 					response.getWriter().write("<option value="+ PHUONGLST.get(i).getPhuong_ID() +">" + PHUONGLST.get(i).getPhuong_Ten() + "</option>");
