@@ -8,9 +8,11 @@ public class Consts
 	
 	public static String LocationCap2 = "NỘP HỒ SƠ TRỰC TUYẾN";
 
-	public static String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;"+ "databaseName=CSDL_QLHT_HT;user=HOTICHSVR;password=123456;";
+	//public static String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;"+ "databaseName=CSDL_QLHT_HT;characterEncoding=UTF-8;user=HOTICHSVR;password=123456;";
 	
 	public static String ServerUrl="\"jdbc:sqlserver://localhost:1433;\"+ \"databaseName=CSDL_QLHT;";
 	public static String DatabaseName="HOTICHSVR";
 	public static String DatabasePass ="123456";
+	
+	public static String CONNECTION_STRING ="jdbc:sqlserver://localhost:1433;databaseName=CSDL_QLHT_HT;user=HOTICHSVR;password=123456;useUnicode=true;characterEncoding=UTF-8";
 }

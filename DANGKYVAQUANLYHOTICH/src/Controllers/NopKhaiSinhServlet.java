@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.DAO_DANTOC;
 import DAO.DAO_DK_KHAISINH;
 import DAO.DAO_PHUONG;
 import DAO.DAO_QUAN;
@@ -44,9 +45,13 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		DAO_QUAN QUAN  = new DAO_QUAN(Consts.ServerUrl, Consts.DatabaseName, Consts.DatabasePass);
 		DAO_PHUONG PHUONG = new DAO_PHUONG(Consts.ServerUrl, Consts.DatabaseName, Consts.DatabasePass);
 		DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.DatabaseName, Consts.DatabasePass);
+		DAO_DANTOC DANTOC = new DAO_DANTOC(Consts.ServerUrl, Consts.DatabaseName, Consts.DatabasePass);
 		
 		NguoiYeuCau NYC = new NguoiYeuCau();
-		
+		KhaiSinh KS = new KhaiSinh();
+		NguoiThan ME = new NguoiThan();
+	    NguoiThan CHA = new NguoiThan();
+	    
 		NYC.setHoVaTen(request.getParameter("NYC_HOVATEN"));
 		NYC.setCMND(request.getParameter("NYC_CMND"));
 		NYC.setNoiCap(request.getParameter("NYC_NOICAP"));
@@ -80,91 +85,153 @@ public class NopKhaiSinhServlet extends HttpServlet {
 	
 		NYC.setDiaChi(request.getParameter("NYC_DIACHI"));
 		
-	//	NYC.showImfor();
+		//NYC.showImfor();
 		
-		KhaiSinh KS = new KhaiSinh();
+		
 		
 		KS.setHoVaTen(request.getParameter("KS_HOVATEN"));
 		KS.setGioiTinh(request.getParameter("gender"));
-	//	try {
-	//		KS.setNgaySinh(request.getParameter("KS_NGAYSINH"));
-	//	} catch (ParseException e1) {
+		try {
+			KS.setNgaySinh(request.getParameter("KS_NGAYSINH"));
+		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("NGAY SINH CON " + request.getParameter("KS_NGAYSINH"));
-		//}
-		KS.setDanToc(request.getParameter("KS_DANTOC"));
+		}
+		String DanTocValue = request.getParameter("KS_DANTOC");
+		try {
+			KS.setDanToc(DANTOC.GET_NAME_DANTOC(DanTocValue));
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		KS.setQuocTich(request.getParameter("KS_QUOCTICH"));
-		KS.setTP(request.getParameter("KS_THANHPHO"));
-		KS.setQuan(request.getParameter("KS_QUAN"));
-		KS.setPhuong(request.getParameter("KS_PHUONG"));
+		
+		 ID_THANHPHO = request.getParameter("KS_THANHPHO");
+		 ID_QUAN  = request.getParameter("KS_QUAN");
+		 ID_PHUONG = request.getParameter("KS_PHUONG");
+		
+		try {
+			KS.setTP(TP.GET_NAME_TP(ID_THANHPHO));
+			KS.setQuan(QUAN.GET_NAME_QUAN(ID_QUAN));
+			KS.setPhuong(PHUONG.GET_NAME_PHUONG(ID_PHUONG));
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		KS.setDiaChi(request.getParameter("KS_DIACHI"));
 		KS.setCoSoSinhSan(request.getParameter("KS_CSSS"));
 		KS.setQuocTich_CSSS(request.getParameter("KS_QUOCGIA_CSSS"));
-		KS.setTP_CSSS(request.getParameter("KS_THANHPHO_CSSS"));
-		KS.setQuan_CSSS(request.getParameter("KS_QUAN_CSSS"));
-		KS.setPhuong_CSSS(request.getParameter("KS_PHUONG_CSSS"));
+		
+		 ID_THANHPHO = request.getParameter("KS_THANHPHO_CSSS");
+		 ID_QUAN  = request.getParameter("KS_QUAN_CSSS");
+		 ID_PHUONG = request.getParameter("KS_PHUONG_CSSS");
+		
+		try {
+			KS.setTP_CSSS(TP.GET_NAME_TP(ID_THANHPHO));
+			KS.setQuan_CSSS(QUAN.GET_NAME_QUAN(ID_QUAN));
+			KS.setPhuong_CSSS(PHUONG.GET_NAME_PHUONG(ID_QUAN));
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		KS.setDiaChi_CSSS(request.getParameter("KS_DIACHI_CSSS"));
 		
 		KS.showImfor();
 		
-		NguoiThan ME = new NguoiThan();
-		
+	
 		ME.setHoVaTen(request.getParameter("ME_HOVATEN"));
-	//	try {
-	//		ME.setNgaySinh(request.getParameter("ME_NGAYSINH"));
-	//	} catch (ParseException e1) {
-		//	// TODO Auto-generated catch block
+		try {
+			ME.setNgaySinh(request.getParameter("ME_NGAYSINH"));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
 			System.out.println("NGAY SINH ME" + request.getParameter("ME_NGAYSINH"));
-		//}
+		}
 		ME.setCMND(request.getParameter("ME_CMND"));
 		ME.setNoiCap(request.getParameter("ME_NOICAP"));
-	//	try {
-	//		ME.setNgayCap(request.getParameter("ME_NGAYCAP"));
-	//	} catch (ParseException e1) {
+		try {
+			ME.setNgayCap(request.getParameter("ME_NGAYCAP"));
+		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("NGAY CAP ME " + request.getParameter("ME_NGAYCAP"));
-		//}
-		ME.setDanToc(request.getParameter("ME_DANTOC"));
+		}
+		
+		
+		DanTocValue = request.getParameter("ME_DANTOC");
+		try {
+			ME.setDanToc(DANTOC.GET_NAME_DANTOC(DanTocValue));
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
 		ME.setQuocTich(request.getParameter("ME_QUOCTICH"));
-		ME.setTP(request.getParameter("ME_THANHPHO"));
-		ME.setQuan(request.getParameter("ME_QUAN"));
-		ME.setPhuong(request.getParameter("ME_PHUONG"));
+		
+		 ID_THANHPHO = request.getParameter("ME_THANHPHO");
+		 ID_QUAN  = request.getParameter("ME_QUAN");
+		 ID_PHUONG = request.getParameter("ME_PHUONG");
+		
+		try {
+			ME.setTP(TP.GET_NAME_TP(ID_THANHPHO));
+			ME.setQuan(QUAN.GET_NAME_QUAN(ID_QUAN));
+			ME.setPhuong(PHUONG.GET_NAME_PHUONG(ID_PHUONG));
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+	
 		ME.setDiaChi(request.getParameter("ME_DIACHI"));
 		
-        NguoiThan CHA = new NguoiThan();
+       
 		
 		CHA.setHoVaTen(request.getParameter("CHA_HOVATEN"));
-	///	try {
-			//CHA.setNgaySinh(request.getParameter("CHA_NGAYSINH"));
-	//	} catch (ParseException e1) {
+		try {
+			CHA.setNgaySinh(request.getParameter("CHA_NGAYSINH"));
+		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("NGAYSINH CHA: " + request.getParameter("CHA_NGAYSINH"));
-		//}
+		}
 		CHA.setCMND(request.getParameter("CHA_CMND"));
 		CHA.setNoiCap(request.getParameter("CHA_NOICAP"));
-	// {
-	//		CHA.setNgayCap(request.getParameter("CHA_NGAYCAP"));
-	//	} catch (ParseException e1) {
+	 try {
+			CHA.setNgayCap(request.getParameter("CHA_NGAYCAP"));
+		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("Ngay Cap Cha" + request.getParameter("CHA_NGAYCAP"));
-	//	}
-		CHA.setDanToc(request.getParameter("CHA_DANTOC"));
+		}
+		
+		DanTocValue = request.getParameter("CHA_DANTOC");
+		try {
+			CHA.setDanToc(DANTOC.GET_NAME_DANTOC(DanTocValue));
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
 		CHA.setQuocTich(request.getParameter("CHA_QUOCTICH"));
-		CHA.setTP(request.getParameter("CHA_THANHPHO"));
-		CHA.setQuan(request.getParameter("CHA_QUAN"));
-		CHA.setPhuong(request.getParameter("CHA_PHUONG"));
+		
+		 ID_THANHPHO = request.getParameter("CHA_THANHPHO");
+		 ID_QUAN  = request.getParameter("CHA_QUAN");
+		 ID_PHUONG = request.getParameter("CHA_PHUONG");
+		 try {
+				CHA.setTP(TP.GET_NAME_TP(ID_THANHPHO));
+				CHA.setQuan(QUAN.GET_NAME_QUAN(ID_QUAN));
+				CHA.setPhuong(PHUONG.GET_NAME_PHUONG(ID_PHUONG));
+			} catch (SQLException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+	
 		CHA.setDiaChi(request.getParameter("CHA_DIACHI"));
+		
+		
+	
 		
 		DangKyKhaiSinh DK = new DangKyKhaiSinh(NYC, KS,CHA, ME);
 		
-	   // DK.ShowDangKyKhaiSinh();
-		
-	
-		
-	
-		
 		try {
-			if( DKKS.INSERT_DK_KHAISINH())
+			if( DKKS.INSERT_DK_KHAISINH(1, 1, DK))
 			System.out.println("Successsssssssssssssssssssssssssss");
 			else
 				System.out.println("failllllllllllllllllllllllllllll");

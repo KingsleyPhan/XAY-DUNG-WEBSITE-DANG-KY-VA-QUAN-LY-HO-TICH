@@ -22,7 +22,7 @@ function AddClass(element, name) {
         function validateHoTen(id_HoVaTen) {
             var x = id_HoVaTen;
 			var result = "";
-			if(x.value == "")
+			if(x.value == "" || x.value == undefined)
 				{
 					result = "* Không được để trống";
 				}
@@ -47,7 +47,7 @@ function AddClass(element, name) {
 			var x = id_NgaySinh;
 			var result = "";
 			var id_error = "#error_" + id_NgaySinh.id;
-			if(x.value == ""){
+			if(x.value == "" || x.value == undefined){
 					result = "* Không được để trống";
 			}
 			else{
@@ -91,7 +91,7 @@ function AddClass(element, name) {
 		function validateCMND(id_CMND) {
             var x = id_CMND;
 			var result = "";
-			if(x.value == "")
+			if(x.value == "" || x.value == undefined)
 				{
 					result = "* Không được để trống";
 				}
@@ -115,7 +115,7 @@ function AddClass(element, name) {
 		function validateRequired(id) {
             var x = id;
 			var result = "";
-			if(x.value == ""){
+			if(x.value == "" || x.value == undefined){
 					result = "* Không được để trống";
 			}
 			else{
@@ -138,7 +138,7 @@ function AddClass(element, name) {
 			var x = id_NgayCap;
 			var result = "";
 			var id_error = "#error_" + id_NgayCap.id;
-			if(x.value == ""){
+			if(x.value == "" || x.value == undefined){
 					result = "* Không được để trống";
 			}
 			else{
@@ -179,10 +179,10 @@ function AddClass(element, name) {
 			}
 		}
 		
-		function validateNumber(id){
+		function validateNumber(id ){
 			var x = id;
 			var result = "";
-			if(x.value == ""){
+			if(x.value == "" || x.value == undefined){
 					result = "* Phải nhập số";
 			}
 			var id_error = "#error_" + id.id;

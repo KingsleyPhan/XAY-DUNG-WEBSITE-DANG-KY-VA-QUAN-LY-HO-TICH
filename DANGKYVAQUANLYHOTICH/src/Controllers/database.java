@@ -58,7 +58,7 @@ public class database
 	
 		
 		DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.DatabaseName, Consts.DatabasePass);
-		DKKS.INSERT_DK_KHAISINH();
+	
 		
 	
 	}
