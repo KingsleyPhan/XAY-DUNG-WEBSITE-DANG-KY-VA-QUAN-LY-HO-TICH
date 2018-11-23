@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.sql.DriverManager"
+	import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="Models.CapThanhPhoService" %>
+<%@page import="Models.DanTocService" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +20,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--content-->
-    <link rel="stylesheet" type="text/css" href="page/styles/HAF.css">
-    <link rel="stylesheet" type="text/css" href="page/styles/giayKhaiSinh.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/HAF.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/giayKhaiSinh.css">
     <!--Library datetimepicker-->
     <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
     <!-- Include jQuery -->
@@ -34,7 +39,7 @@
     <!--Font Awesome (added because you use icons in your prepend/append)-->
     <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
     <!--header and footer-->
-	<link rel="stylesheet" href="../styles/kethon.css">
+	<link rel="stylesheet" href="CONTENT/styles/kethon.css">
 </head>
 <body>
    <!-- Start Header-->
@@ -63,11 +68,12 @@
 
 
             <div class="row">
+              <form action="NopKetHon.php" method="Post" onsubmit="return validateSubmitKetHon()">
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
                         <p>TỜ KHAI ĐĂNG KÝ GIẤY KẾT HÔN</p>
-                    </div>
+                    </div>s
                     <div class="row">
                         <div class="container container-paper">
                             <div class="part-content">
@@ -154,10 +160,24 @@
 									<div class="row">
 										<div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
+                                            		 <%
+														DanTocService DanToc = new DanTocService();
+                                                		 ResultSet Result;
+													%>
                                                 <label for="">Dân tộc </label>
                                                 <select name="CHONG_DANTOC" class="form-control" id="nam_id_dantoc" name="nam_id_dantoc" onBlur="validateRequired(nam_id_dantoc)">
-													<option></option>
-                                                    <option>Test</option>
+													   <%
+													   Result= DanToc.ShowDanToc();
+															if (!Result.wasNull()) {
+																while (Result.next()) {
+														%>
+                                                        <option value="<%=Result.getString(1)%>">
+                                                            <%=Result.getString(2)%>
+                                                        </option>
+                                                        <%
+															}
+															}
+														%>
                                                 </select>
 												<p class="error" id="error_nam_id_dantoc"></p>
                                             </div>
@@ -166,8 +186,7 @@
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
                                                 <select name="CHONG_QUOCTICH" class="form-control" id="nam_id_quoctich" name="nam_id_quoctich" onBlur="validateRequired(nam_id_quoctich)">
-													<option></option>
-                                                    <option>Test</option>
+													<option>Việt Nam</option>
                                                 </select>
 												<p class="error" id="error_nam_id_quoctich"></p>
                                             </div>
@@ -189,11 +208,26 @@
 									</div>
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-4">
+                                                    <%
+														CapThanhPhoService ThanhPho = new CapThanhPhoService();
+														
+													%>
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select name="CHONG_THANHPHO" class="form-control" id="nam_id_thanhpho" name="nam_id_thanhpho" onBlur="validateRequired(nam_id_thanhpho)">
-													<option></option>
-                                                    <option>Test</option>
+                                                <select onmousedown="chgQuan(nam_id_thanhpho,nam_id_quan)"
+                                                        onchange="chgQuan(nam_id_thanhpho,nam_id_quan)" name="CHONG_THANHPHO" class="form-control" id="nam_id_thanhpho" name="nam_id_thanhpho" onBlur="validateRequired(nam_id_thanhpho)">
+													<%
+													 Result = ThanhPho.ShowThanhPho();
+															if (!Result.wasNull()) {
+																while (Result.next()) {
+														%>
+                                                        <option value="<%=Result.getString(1)%>">
+                                                            <%=Result.getString(2)%>
+                                                        </option>
+                                                        <%
+															}
+															}
+														%>
                                                 </select>
 												<p class="error" id="error_nam_id_thanhpho"></p>
                                             </div>
@@ -201,9 +235,10 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select name="CHONG_QUAN" class="form-control" id="nam_id_quan" name="nam_id_quan" onBlur="validateRequired(nam_id_quan)">
-													<option></option>
-                                                    <option>Test</option>
+                                                <select onload="chgPhuong(nam_id_quan,nam_id_phuong)"
+                                                            onmousedown="chgPhuong(nam_id_quan,nam_id_phuong)"
+                                                            onchange="chgPhuong(nam_id_quan,nam_id_phuong)" name="CHONG_QUAN" class="form-control" id="nam_id_quan" name="nam_id_quan" onBlur="validateRequired(nam_id_quan)">
+													
                                                 </select>
 												<p class="error" id="error_nam_id_quan"></p>
                                             </div>
@@ -212,8 +247,7 @@
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
                                                 <select name="CHONG_PHUONG" class="form-control" id="nam_id_phuong" name="nam_id_phuong" onBlur="validateRequired(nam_id_phuong)">
-													<option></option>
-                                                    <option>Test</option>
+													
                                                 </select>
 												<p class="error" id="error_nam_id_phuong"></p>
                                             </div>
@@ -319,8 +353,18 @@
                                             <div class="form-group">
                                                 <label for="">Dân tộc </label>
                                                 <select name="VO_DANTOC" class="form-control" id="nu_id_dantoc" name="nu_id_dantoc" onBlur="validateRequired(nu_id_dantoc)">
-													<option></option>
-                                                    <option>Test</option>
+													   <%
+													   Result= DanToc.ShowDanToc();
+															if (!Result.wasNull()) {
+																while (Result.next()) {
+														%>
+                                                        <option value="<%=Result.getString(1)%>">
+                                                            <%=Result.getString(2)%>
+                                                        </option>
+                                                        <%
+															}
+															}
+														%>
                                                 </select>
 												<p class="error" id="error_nu_id_dantoc"></p>
                                             </div>
@@ -329,8 +373,7 @@
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
                                                 <select name="VO_QUOCTICH" class="form-control" id="nu_id_quoctich" name="nu_id_quoctich" onBlur="validateRequired(nu_id_quoctich)">
-													<option></option>
-                                                    <option>Test</option>
+														<option>Việt Nam</option>
                                                 </select>
 												<p class="error" id="error_nu_id_quoctich"></p>
                                             </div>
@@ -354,9 +397,20 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select name="VO_THANHPHO" class="form-control" id="nu_id_thanhpho" name="nu_id_thanhpho" onBlur="validateRequired(nu_id_thanhpho)">
-													<option></option>
-                                                    <option>Test</option>
+                                                <select onmousedown="chgQuan(nu_id_thanhpho,nu_id_quan)"
+                                                        onchange="chgQuan(nu_id_thanhpho,nu_id_quan)" name="VO_THANHPHO" class="form-control" id="nu_id_thanhpho" name="nu_id_thanhpho" onBlur="validateRequired(nu_id_thanhpho)">
+														<%
+													 Result = ThanhPho.ShowThanhPho();
+															if (!Result.wasNull()) {
+																while (Result.next()) {
+														%>
+                                                        <option value="<%=Result.getString(1)%>">
+                                                            <%=Result.getString(2)%>
+                                                        </option>
+                                                        <%
+															}
+															}
+														%>
                                                 </select>
 												<p class="error" id="error_nu_id_thanhpho"></p>
                                             </div>
@@ -364,9 +418,10 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select name="VO_QUAN" class="form-control" id="nu_id_quan" name="nu_id_quan" onBlur="validateRequired(nu_id_quan)">
-													<option></option>
-                                                    <option>Test</option>
+                                                <select onload="chgPhuong(nu_id_quan,nu_id_phuong)"
+                                                            onmousedown="chgPhuong(nu_id_quan,nu_id_phuong)"
+                                                            onchange="chgPhuong(nu_id_quan,nu_id_phuong)" name="VO_QUAN" class="form-control" id="nu_id_quan" name="nu_id_quan" onBlur="validateRequired(nu_id_quan)">
+													
                                                 </select>
 												<p class="error" id="error_nu_id_quan"></p>
                                             </div>
@@ -375,8 +430,7 @@
                                             <div class="form-group">
                                                 <label for="">Xã/Phường</label>
                                                 <select name="VO_PHUONG" class="form-control" id="nu_id_phuong" name="nu_id_phuong" onBlur="validateRequired(nu_id_phuong)">
-													<option></option>
-                                                    <option>Test</option>
+													
                                                 </select>
 												<p class="error" id="error_nu_id_phuong"></p>
                                             </div>
@@ -461,9 +515,10 @@
                 <div class="row">
                     <div class="control-navigation">
                         <button class="btn  btn-cancel">Hủy bỏ</button>
-                        <a href="https://www.google.com/" class="btn btn-continue" onClick="return validateSubmitKetHon()">Tiếp tục</a>
+                        <button type="submit" class="btn btn-continue" onClick="return validateSubmitKetHon()">Tiếp tục</button>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -492,8 +547,9 @@
         </div>
     </footer>
     <!-- End Footer-->
-    <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
-    <script src="../js/Header.js"></script>
-    <script src="../js/valiedateForm.js"></script>
+    <script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="CONTENT/js/Header.js"></script>
+    <script src="CONTENT/js/valiedateForm.js"></script>
+    <script src="CONTENT/js/DangKyKhaiSinhAjax.js"></script>
 </body>
 </html>

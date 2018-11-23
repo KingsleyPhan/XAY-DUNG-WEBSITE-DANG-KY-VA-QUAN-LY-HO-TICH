@@ -418,7 +418,7 @@ function AddClass(element, name) {
             })
         })
              $(document).ready(function () {
-            var date_input = $('input[name="NYC_NGAYCAP"]'); //our date input has the name "date"
+            var date_input = $('input[name="VO_NGAYSINH"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'dd/mm/yyyy',
@@ -428,7 +428,7 @@ function AddClass(element, name) {
             })
         })
              $(document).ready(function () {
-            var date_input = $('input[name="NYC_NGAYCAP"]'); //our date input has the name "date"
+            var date_input = $('input[name="CHONG_NGAYSINH"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'dd/mm/yyyy',
@@ -438,7 +438,7 @@ function AddClass(element, name) {
             })
         })
              $(document).ready(function () {
-            var date_input = $('input[name="NYC_NGAYCAP"]'); //our date input has the name "date"
+            var date_input = $('input[name="VO_NGAYCAP"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'dd/mm/yyyy',
@@ -448,7 +448,7 @@ function AddClass(element, name) {
             })
         })
              $(document).ready(function () {
-            var date_input = $('input[name="NYC_NGAYCAP"]'); //our date input has the name "date"
+            var date_input = $('input[name="CHONG_NGAYCAP"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'dd/mm/yyyy',

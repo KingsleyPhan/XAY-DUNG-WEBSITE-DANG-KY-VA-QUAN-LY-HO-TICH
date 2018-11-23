@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class DangKyKhaiSinhServlet
  */
-@WebServlet("/DangKyKhaiSinh.php")
-public class DangKyKhaiSinhServlet extends HttpServlet {
+@WebServlet("/DangKyKetHon.php")
+public class DangKyKetHonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DangKyKhaiSinhServlet() {
+    public DangKyKetHonServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class DangKyKhaiSinhServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/DangKyKhaiSinh.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/DangKyKetHon.jsp");
 		dispatcher.forward(request, response);
 		return;
 	}

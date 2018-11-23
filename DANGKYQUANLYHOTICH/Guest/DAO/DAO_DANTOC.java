@@ -17,7 +17,7 @@ public class DAO_DANTOC extends ConnectDAO{
 
 	public String GET_NAME_DANTOC(String DANTOC_ID) throws SQLException
 	 {
-		 int ID = Integer.parseInt(DANTOC_ID);
+		    int ID = Integer.parseInt(DANTOC_ID);
 		 
 	        String sql = "SELECT * FROM DANTOC WHERE DANTOC_ID = ?";
 	         

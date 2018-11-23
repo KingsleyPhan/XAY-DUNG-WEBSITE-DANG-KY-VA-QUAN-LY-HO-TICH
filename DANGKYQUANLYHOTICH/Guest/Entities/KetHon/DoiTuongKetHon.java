@@ -1,13 +1,17 @@
 package Entities.KetHon;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class DoiTuongKetHon 
 {
 	private int HOSO_DANGKY_ID;		
 	private String HOTEN;	
-	private String	NGAYSINH;	
+	private Date	NGAYSINH;	
 	private String	DANTOC;	
 	private String CMND;		
-	private String CMND_NGAYCAP;		
+	private Date CMND_NGAYCAP;		
 	private String CMND_NOICAP;	
 	private String	QUOCTICH;	
 	private String THANHPHO;		
@@ -28,11 +32,15 @@ public class DoiTuongKetHon
 	public void setHOTEN(String hOTEN) {
 		HOTEN = hOTEN;
 	}
-	public String getNGAYSINH() {
+	public Date getNGAYSINH() {
 		return NGAYSINH;
 	}
-	public void setNGAYSINH(String nGAYSINH) {
-		NGAYSINH = nGAYSINH;
+	public void setNGAYSINH(String nGAYSINH) throws ParseException {
+		SimpleDateFormat fmd = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = fmd.parse(nGAYSINH);
+		java.sql.Date sqlStartDate = new java.sql.Date(date.getTime()); 
+		NGAYSINH = sqlStartDate;
+		
 	}
 	public String getDANTOC() {
 		return DANTOC;
@@ -46,11 +54,15 @@ public class DoiTuongKetHon
 	public void setCMND(String cMND) {
 		CMND = cMND;
 	}
-	public String getCMND_NGAYCAP() {
+	public Date getCMND_NGAYCAP() {
 		return CMND_NGAYCAP;
 	}
-	public void setCMND_NGAYCAP(String cMND_NGAYCAP) {
-		CMND_NGAYCAP = cMND_NGAYCAP;
+	public void setCMND_NGAYCAP(String cMND_NGAYCAP) throws ParseException {
+		SimpleDateFormat fmd = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = fmd.parse(cMND_NGAYCAP);
+		java.sql.Date sqlStartDate = new java.sql.Date(date.getTime()); 
+		CMND_NGAYCAP  = sqlStartDate;
+		
 	}
 	public String getCMND_NOICAP() {
 		return CMND_NOICAP;
@@ -91,9 +103,27 @@ public class DoiTuongKetHon
 	public int getLAN() {
 		return LAN;
 	}
-	public void setLAN(int lAN) {
-		LAN = lAN;
-	}	 	
+	public void setLAN(String lAN) {
+		LAN = Integer.parseInt(lAN);
+	}
+	
+	public void ShowImFor()
+	{
+		System.out.println("ĐỐI TƯỢNG");
+		System.out.println(HOTEN);
+		System.out.println(NGAYSINH);
+		System.out.println(DANTOC);
+		System.out.println(CMND);
+		System.out.println(CMND_NGAYCAP);
+		System.out.println(CMND_NOICAP);
+		System.out.println(QUOCTICH);
+		
+		System.out.println(THANHPHO);
+		System.out.println(QUAN);
+		System.out.println(PHUONG);
+		System.out.println(DIACHI);
+		System.out.println(LAN);
+	}
 	
 	
 

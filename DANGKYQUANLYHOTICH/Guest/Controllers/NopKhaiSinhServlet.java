@@ -42,6 +42,9 @@ public class NopKhaiSinhServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
+		
 		DAO_THANHPHO TP = new DAO_THANHPHO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_QUAN QUAN  = new DAO_QUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_PHUONG PHUONG = new DAO_PHUONG(Consts.ServerUrl, Consts.UserName, Consts.Pass);
@@ -232,7 +235,7 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		DangKyKhaiSinh DK = new DangKyKhaiSinh(NYC, KS,CHA, ME);
 		
 		try {
-			if( DKKS.INSERT_DK_KHAISINH(1, 1, DK))
+			if( DKKS.INSERT_DK_KHAISINH(1, 5, DK))
 			System.out.println("Successsssssssssssssssssssssssssss");
 			else
 				System.out.println("failllllllllllllllllllllllllllll");

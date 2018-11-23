@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 ctrls-item">
-                                            <form action="../../DangKyKhaiSinhServlet">
+                                            <form action="../../DangKyKhaiSinh.php">
                                                 <button type="submit" class="item-control">ĐĂNG KÝ MỚI</button>
                                             </form>
                                         </div>
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 ctrls-item">
-                                            <form action="KetHon.jsp">
+                                            <form action="../../DangKyKetHon.php">
                                                 <button type="submit" class="item-control">ĐĂNG KÝ MỚI</button>
                                             </form>
                                         </div>

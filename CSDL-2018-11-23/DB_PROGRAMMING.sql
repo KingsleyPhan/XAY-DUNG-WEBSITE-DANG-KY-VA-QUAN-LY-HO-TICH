@@ -155,7 +155,76 @@ BEGIN
 		)
 END
 GO
+--Thêm đăng ký kết hôn
+CREATE PROC ADD_HOSO_DANGKY_KETHON(@TrangThai int
+									,@CoQuanID int
+									,@LoaiDangKyID int
+									,@KH_V_HOTEN	nvarchar(255)
+									,@KH_V_NGAYSINH	date
+									,@KH_V_DANTOC	nvarchar(50)
+									,@KH_V_CMND	nvarchar(12)
+									,@KH_V_CMND_NGAYCAP	date
+									,@KH_V_CMND_NOICAP	nvarchar(255)
+									,@KH_V_QUOCTICH	nvarchar(50)
+									,@KH_V_THANHPHO	nvarchar(50)
+									,@KH_V_QUAN	nvarchar(50)
+									,@KH_V_PHUONG	nvarchar(50)
+									,@KH_V_DIACHI	nvarchar(255)
+									,@KH_V_LAN	int
+									,@KH_FILE_V	nvarchar(255)
+									,@KH_C_HOTEN	nvarchar(255)
+									,@KH_C_NGAYSINH	date
+									,@KH_C_DANTOC	nvarchar(50)
+									,@KH_C_CMND	nvarchar(12)
+									,@KH_C_CMND_NGAYCAP	date
+									,@KH_C_CMND_NOICAP	nvarchar(255)
+									,@KH_C_QUOCTICH	nvarchar(50)
+									,@KH_C_THANHPHO	nvarchar(50)
+									,@KH_C_QUAN	nvarchar(50)
+									,@KH_C_PHUONG	nvarchar(50)
+									,@KH_C_DIACHI	nvarchar(255)
+									,@KH_C_LAN	int
+									,@KH_FILE_C	nvarchar(255))
+AS
+BEGIN
+    --Gọi Procdure Add hồ sơ đăng ký để thêm hồ sơ đăng ký
+   EXEC PROC_ADD_HOSO_DANGKY @CoQuanID,@LoaiDangKyID;
+   DECLARE @HSDK_ID int;
+  --Lấy giá trị mà vừa mới add vào hồ sơ đăng ký. Để lưu vào hồ sơ chi tiết
+   SELECT @HSDK_ID = IDENT_CURRENT('HOSO_DANGKY');
 
+   INSERT INTO DANGKY_KETHON
+   VALUES ( @HSDK_ID
+			,@KH_V_HOTEN
+			,@KH_V_NGAYSINH
+			,@KH_V_DANTOC
+			,@KH_V_CMND
+			,@KH_V_CMND_NGAYCAP
+			,@KH_V_CMND_NOICAP
+			,@KH_V_QUOCTICH
+			,@KH_V_THANHPHO
+			,@KH_V_QUAN
+			,@KH_V_PHUONG
+			,@KH_V_DIACHI
+			,@KH_V_LAN
+			,@KH_FILE_V
+			,@KH_C_HOTEN
+			,@KH_C_NGAYSINH
+			,@KH_C_DANTOC
+			,@KH_C_CMND
+			,@KH_C_CMND_NGAYCAP
+			,@KH_C_CMND_NOICAP
+			,@KH_C_QUOCTICH
+			,@KH_C_THANHPHO
+			,@KH_C_QUAN
+			,@KH_C_PHUONG
+			,@KH_C_DIACHI
+			,@KH_C_LAN
+			,@KH_FILE_C
+		)
+    
+END
+GO
 --2 Thêm loại đăng ký ( xảy ra khi thêm 1 loại giấy tờ mới, sẽ ghép trên ứng với từng loại hình thức đăng ký)
 IF OBJECT_ID ('AddLoai_DangKi','TR') IS NOT NULL
 	DROP TRIGGER AddLoai_DangKi;
