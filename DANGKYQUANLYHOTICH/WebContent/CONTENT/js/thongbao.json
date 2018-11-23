@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "thongbao-ma": "1",
+      "thongbao-loai": "Thông báo hệ thông",
+      "thongbao-noidung": "Cần giải quyết các hồ sơ sau",
+      "thongbao-ngay": "25/01/2018",
+      "thongbao-trangthai": "Chưa đọc"
+    },
+	{
+      "thongbao-ma": "2",
+      "thongbao-loai": "Thông báo hệ thông",
+      "thongbao-noidung": "Cần giải quyết các hồ sơ sau",
+      "thongbao-ngay": "25/01/2018",
+      "thongbao-trangthai": "Chưa đọc"
+    },
+	{
+      "thongbao-ma": "3",
+      "thongbao-loai": "Thông báo hệ thông",
+      "thongbao-noidung": "Cần giải quyết các hồ sơ sau",
+      "thongbao-ngay": "25/01/2018",
+      "thongbao-trangthai": "Chưa đọc"
+    },
+	{
+      "thongbao-ma": "4",
+      "thongbao-loai": "Thông báo hệ thông",
+      "thongbao-noidung": "Cần giải quyết các hồ sơ sau",
+      "thongbao-ngay": "25/01/2018",
+      "thongbao-trangthai": "Chưa đọc"
+    }
+	
+  ]
+}

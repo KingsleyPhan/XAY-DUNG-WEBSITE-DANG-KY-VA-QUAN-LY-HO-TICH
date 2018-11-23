@@ -1,5 +1,13 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/Controllers/Consts.java=UTF-8
+=======
+encoding//CanBoTuPhap/Controller/ConnectionUtils.java=UTF-8
+encoding//CanBoTuPhap/Controller/HoSoDangKyServlet.java=UTF-8
+encoding//CanBoTuPhap/Controller/SQLServerConnUtils.java=UTF-8
+encoding//CanBoTuPhap/Entities/CongDan.java=UTF-8
+encoding//CanBoTuPhap/Models/HoSoDangKyModel.java=UTF-8
+>>>>>>> Huynh-Le-Huu-Hung
 encoding//src/Controllers/DangNhap.java=UTF-8
 encoding//src/Controllers/NopKhaiSinhServlet.java=UTF-8
 encoding//src/DAO/DAO_DK_KHAISINH.java=UTF-8
