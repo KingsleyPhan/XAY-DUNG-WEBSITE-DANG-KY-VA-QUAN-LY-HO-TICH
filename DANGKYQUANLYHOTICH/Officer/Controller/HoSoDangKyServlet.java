@@ -21,7 +21,6 @@ import Models.HoSoDangKyDAO;
 /**
  * Servlet implementation class HoSoDangKyServlet
  */
-@WebServlet(description = "Thao tÃ¡c liÃªn quan h? s? ??ng kÃ­", urlPatterns = { "/HoSoDangKy" })
 public class HoSoDangKyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HoSoDangKyDAO hoSoDangKyDAO;
@@ -66,6 +65,7 @@ public class HoSoDangKyServlet extends HttpServlet {
 
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
+		request.getSession(false);
 		int loaiGiay = Integer.parseInt(request.getParameter("key"));
 		PrintWriter out = response.getWriter();
 		String data;

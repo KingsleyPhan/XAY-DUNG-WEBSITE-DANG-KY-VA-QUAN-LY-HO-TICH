@@ -14,18 +14,13 @@
 	<script src="./CONTENT/plugins/jquery/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="./CONTENT/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="./CONTENT/plugins/font/montserrat.css">
-
-	
-  
-	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-	<script src="
-https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 	
+	<link rel="stylesheet" href="./CONTENT/plugins/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css">
 	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
 	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap.min.js"></script>
-	<link rel="stylesheet" href="./CONTENT/plugins/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css">
+	
 
     <link rel="stylesheet" type="text/css" href="./CONTENT/styles/HAF.css">
     <link rel="stylesheet" type="text/css" href="./CONTENT/styles/manage.css">

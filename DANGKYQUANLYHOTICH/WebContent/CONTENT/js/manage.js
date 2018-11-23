@@ -73,6 +73,7 @@ $(document).ready(function() {
 
 
 function filterSelection(c) {
+	var table = $('#table_id').DataTable();
 	if(c === -1){
 		table
 			.columns(6)
