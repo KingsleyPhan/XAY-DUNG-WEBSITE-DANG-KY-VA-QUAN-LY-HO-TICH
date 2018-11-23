@@ -1,4 +1,4 @@
-	function SearchCoQuan()
+function SearchCoQuan()
 	{
 		
 		$("#myModal").modal();

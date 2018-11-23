@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.sql.DriverManager"
+	import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="Models.CapThanhPhoService" %>
+<%@page import="Models.DanTocService" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +21,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--content-->
-    <link rel="stylesheet" type="text/css" href="page/styles/HAF.css">
-    <link rel="stylesheet" type="text/css" href="page/styles/giayChungTu.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/HAF.css">
+     <link rel="stylesheet" type="text/css" href="CONTENT/styles/giayKhaiSinh.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/giayChungTu.css">
     <!--Library datetimepicker-->
     <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
     <!-- Include jQuery -->
@@ -62,6 +68,7 @@
 
 
             <div class="row">
+             <form action="NopKhaiTu.php" method="Post" onsubmit="return validateSubmitChungTu()" >
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
@@ -130,7 +137,12 @@
                                             <div class="form-group">
                                                 <label for="">Quan hệ với người qua đời</label>
                                                 <select name="NYC_QUANHE" class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)">
-                                                    <option></option>
+                                                    <option>CHA</option>
+                                                      <option>MẸ</option>
+                                                        <option>VỢ</option>
+                                                          <option>CHỒNG</option>
+                                                            <option>CON</option>
+                                                            <option>CHÁU</option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_QuanHe"></p>
                                             </div>
@@ -147,7 +159,7 @@
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
                                                 <select name="NYC_QUOCTICH" class="form-control" id="NguoiYeuCau_QuocTich" onblur="validateRequired(NguoiYeuCau_QuocTich)">
-                                                    <option></option>
+                                                    <option>Việt Nam</option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_QuocTich"></p>
                                             </div>
@@ -155,10 +167,26 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-4">
+                                          <%
+														CapThanhPhoService ThanhPho = new CapThanhPhoService();
+														
+													%>
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select name="NYC_THANHPHO" class="form-control" id="NguoiYeuCau_Tinh" onblur="validateRequired(NguoiYeuCau_Tinh)">
-                                                    <option></option>
+                                                <select onmousedown="chgQuan(NguoiYeuCau_Tinh,NguoiYeuCau_Huyen)"
+                                                        onchange="chgQuan(NguoiYeuCau_Tinh,NguoiYeuCau_Huyen)" name="NYC_THANHPHO" class="form-control" id="NguoiYeuCau_Tinh" onblur="validateRequired(NguoiYeuCau_Tinh)">
+                                                   <%
+													 ResultSet Result = ThanhPho.ShowThanhPho();
+															if (!Result.wasNull()) {
+																while (Result.next()) {
+														%>
+                                                        <option value="<%=Result.getString(1)%>">
+                                                            <%=Result.getString(2)%>
+                                                        </option>
+                                                        <%
+															}
+															}
+														%>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_Tinh"></p>
                                             </div>
@@ -166,7 +194,9 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select name="NYC_QUAN" class="form-control" id="NguoiYeuCau_Huyen" onblur="validateRequired(NguoiYeuCau_Huyen)">
+                                                <select onload="chgPhuong(NguoiYeuCau_Huyen,NguoiYeuCau_Phuong)"
+                                                            onmousedown="chgPhuong(NguoiYeuCau_Huyen,NguoiYeuCau_Phuong)"
+                                                            onchange="chgPhuong(NguoiYeuCau_Huyen,NguoiYeuCau_Phuong)"  name="NYC_QUAN" class="form-control" id="NguoiYeuCau_Huyen" onblur="validateRequired(NguoiYeuCau_Huyen)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_Huyen"></p>
@@ -287,10 +317,25 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-4">
+                                         <%
+														DanTocService DanToc = new DanTocService();
+                                                		
+													%>
                                             <div class="form-group">
                                                 <label for="">Dân tộc</label>
                                                 <select name="NQD_DANTOC" class="form-control" id="QuaDoi_danToc" onblur="validateRequired(QuaDoi_danToc)">
-                                                    <option></option>
+                                                  <%
+													   Result= DanToc.ShowDanToc();
+															if (!Result.wasNull()) {
+																while (Result.next()) {
+														%>
+                                                        <option value="<%=Result.getString(1)%>">
+                                                            <%=Result.getString(2)%>
+                                                        </option>
+                                                        <%
+															}
+															}
+														%>
                                                 </select>
                                                 <p class="error" id="error_QuaDoi_danToc"></p>
                                             </div>
@@ -299,7 +344,7 @@
                                             <div class="form-group">
                                                 <label for="">Quốc tịch </label>
                                                 <select name="NQD_QUOCTICH" class="form-control" id="QuaDoi_quocTich" onblur="validateRequired(QuaDoi_quocTich)">
-                                                    <option></option>
+                                                    <option>Việt Nam</option>
                                                 </select>
                                                 <p class="error" id="error_QuaDoi_quocTich"></p>
                                             </div>
@@ -309,8 +354,20 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP</label>
-                                                <select name="NQQ_THANHPHO" class="form-control" id="QuaDoi_ThanhPho" onblur="validateRequired(QuaDoi_ThanhPho)">
-                                                    <option></option>
+                                                <select onmousedown="chgQuan(QuaDoi_ThanhPho,QuaDoi_Quan)"
+                                                        onchange="chgQuan(QuaDoi_ThanhPho,QuaDoi_Quan)"  name="NQQ_THANHPHO" class="form-control" id="QuaDoi_ThanhPho" onblur="validateRequired(QuaDoi_ThanhPho)">
+                                                   <%
+													 Result = ThanhPho.ShowThanhPho();
+															if (!Result.wasNull()) {
+																while (Result.next()) {
+														%>
+                                                        <option value="<%=Result.getString(1)%>">
+                                                            <%=Result.getString(2)%>
+                                                        </option>
+                                                        <%
+															}
+															}
+														%>
                                                 </select>
                                                 <p class="error" id="error_QuaDoi_ThanhPho"></p>
                                             </div>
@@ -318,7 +375,9 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện</label>
-                                                <select name="NQD_QUAN" class="form-control" id="QuaDoi_Quan" onblur="validateRequired(QuaDoi_Quan)">
+                                                <select onload="chgPhuong(QuaDoi_Quan,QuaDoi_Phuong)"
+                                                            onmousedown="chgPhuong(QuaDoi_Quan,QuaDoi_Phuong)"
+                                                            onchange="chgPhuong(QuaDoi_Quan,QuaDoi_Phuong)" name="NQD_QUAN" class="form-control" id="QuaDoi_Quan" onblur="validateRequired(QuaDoi_Quan)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_QuaDoi_Quan"></p>
@@ -355,7 +414,7 @@
                                             <div class="form-group">
                                                 <label for="">Quốc gia nơi mất</label>
                                                 <select name="NQD_QUOCGIA_QD" class="form-control" id="QuaDoi_QuocGiaQuaDoi" onblur="validateRequired(QuaDoi_QuocGiaQuaDoi)">
-                                                    <option></option>
+                                                    <option>Việt Nam</option>
                                                 </select>
                                                 <p class="error" id="error_QuaDoi_QuocGiaQuaDoi"></p>
                                             </div>
@@ -365,8 +424,20 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Tỉnh/TP nơi mất</label>
-                                                <select name="NQD_THANGPHO_QD" class="form-control" id="QuaDoi_TPQuaDoi" onblur="validateRequired(QuaDoi_TPQuaDoi)">
-                                                    <option></option>
+                                                <select onmousedown="chgQuan(QuaDoi_TPQuaDoi,QuaDoi_QuanQuaDoi)"
+                                                        onchange="chgQuan(QuaDoi_TPQuaDoi,QuaDoi_QuanQuaDoi)" name="NQD_THANGPHO_QD" class="form-control" id="QuaDoi_TPQuaDoi" onblur="validateRequired(QuaDoi_TPQuaDoi)">
+                                                    <%
+													 Result = ThanhPho.ShowThanhPho();
+															if (!Result.wasNull()) {
+																while (Result.next()) {
+														%>
+                                                        <option value="<%=Result.getString(1)%>">
+                                                            <%=Result.getString(2)%>
+                                                        </option>
+                                                        <%
+															}
+															}
+														%>
                                                 </select>
                                                 <p class="error" id="error_QuaDoi_TPQuaDoi"></p>
                                             </div>
@@ -374,7 +445,9 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quận/Huyện nơi mất</label>
-                                                <select name="NQD_QUAN_QD" class="form-control" id="QuaDoi_QuanQuaDoi" onblur="validateRequired(QuaDoi_QuanQuaDoi)">
+                                                <select onload="chgPhuong(QuaDoi_QuanQuaDoi,QuaDoi_PhuongQuaDoi)"
+                                                            onmousedown="chgPhuong(QuaDoi_QuanQuaDoi,QuaDoi_PhuongQuaDoi)"
+                                                            onchange="chgPhuong(QuaDoi_QuanQuaDoi,QuaDoi_PhuongQuaDoi)" name="NQD_QUAN_QD" class="form-control" id="QuaDoi_QuanQuaDoi" onblur="validateRequired(QuaDoi_QuanQuaDoi)">
                                                     <option></option>
                                                 </select>
                                                 <p class="error" id="error_QuaDoi_QuanQuaDoi"></p>
@@ -435,7 +508,11 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Số số giấy tờ</label>
-                                                <input name="NQD_SOGIAYTO" type="text" class="form-control" id="QuaDoi_SoBaoTu" onblur="validateRequired(QuaDoi_SoBaoTu)">
+                                               <form action="/action_page.php">
+  Birthday:
+  <input type="time" name="bday">
+  <input type="submit">
+</form>
                                             </div>
                                             <p class="error" id="error_QuaDoi_SoBaoTu"></p>
                                         </div>
@@ -506,10 +583,11 @@
                 <div class="row">
                     <div class="control-navigation">
                         <button class="btn  btn-cancel">Hủy bỏ</button>
-                        <a href="https://www.google.com.vn" class="btn  btn-continue" onClick="return validateSubmitChungTu()">Tiếp
-                            tục</a>
+                        <button type="" class="btn  btn-continue" onClick="return validateSubmitChungTu()">Tiếp
+                            tục</button>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -538,8 +616,9 @@
         </div>
     </footer>
     <!-- End Footer-->
-    <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
-    <script src="../js/Header.js"></script>
-    <script src="../js/valiedateForm.js"></script>
+    <script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="CONTENT/js/Header.js"></script>
+    <script src="CONTENT/js/valiedateForm.js"></script>
+    <script src="CONTENT/js/DangKyKhaiSinhAjax.js"></script>
 </body>
 </html>

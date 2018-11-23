@@ -104,7 +104,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 ctrls-item">
-                                            <form action="ChungTu.jsp">
+                                            <form action="../../DangKyChungTu.php">
                                                 <button type="submit" class="item-control">ĐĂNG KÝ MỚI</button>
                                             </form>
                                         </div>
