@@ -230,6 +230,11 @@ AS
 	DECLARE @coQuanID int
 	DECLARE @soquyen nvarchar(10)
 	DECLARE @magiay nvarchar(10)
+	DECLARE @loaigiay int
+	
+	SELECT @loaigiay = LOAI_GIAYTO_ID
+	FROM LOAI_GIAYTO
+	WHERE LOAI_GIAYTO_TEN LIKE N'%khai sinh%'
 
 	DECLARE @month int
 	SET @month = MONTH(GETDATE())
@@ -242,7 +247,7 @@ AS
 	FROM (
 		   SELECT *
 		   FROM GIAY_HOTICH
-		   WHERE LOAI_GIAYTO_ID = 1
+		   WHERE LOAI_GIAYTO_ID = @loaigiay
 		   ) as ks
 	WHERE ks.GIAY_HOTICH_SOQUYEN = @soquyen
 	GROUP BY GIAY_HOTICH_SOQUYEN
@@ -324,7 +329,7 @@ AS
 		@giayto_id
 		,@maHS_DK
 		,@coQuanID
-		,1
+		,@loaigiay
 		,@magiay
 		,@soquyen
 		,GETDATE()
@@ -360,6 +365,11 @@ AS
 		DECLARE @coQuanID int
 		DECLARE @soquyen nvarchar(10)
 		DECLARE @magiay nvarchar(10)
+		DECLARE @loaigiay int
+
+		SELECT @loaigiay = LOAI_GIAYTO_ID
+		FROM LOAI_GIAYTO
+		WHERE LOAI_GIAYTO_TEN LIKE N'%kết hôn%'
 
 		DECLARE @month int
 		SET @month = MONTH(GETDATE())
@@ -372,7 +382,7 @@ AS
 		FROM (
 			   SELECT *
 			   FROM GIAY_HOTICH
-			   WHERE LOAI_GIAYTO_ID = 2
+			   WHERE LOAI_GIAYTO_ID = @loaigiay
 			   ) as kh
 		WHERE kh.GIAY_HOTICH_SOQUYEN = @soquyen
 		GROUP BY GIAY_HOTICH_SOQUYEN
@@ -417,7 +427,7 @@ AS
 			@giayto_id
 			,@maHS_DK
 			,@coQuanID
-			,2
+			,@loaigiay
 			,@magiay
 			,@soquyen
 			,GETDATE()
@@ -479,6 +489,11 @@ AS
 		DECLARE @coQuanID int
 		DECLARE @soquyen nvarchar(10)
 		DECLARE @magiay nvarchar(10)
+		DECLARE @loaigiay int
+
+		SELECT @loaigiay = LOAI_GIAYTO_ID
+		FROM LOAI_GIAYTO
+		WHERE LOAI_GIAYTO_TEN LIKE N'%chứng tử%'
 
 		DECLARE @month int
 		SET @month = MONTH(GETDATE())
@@ -491,7 +506,7 @@ AS
 		FROM (
 			   SELECT *
 			   FROM GIAY_HOTICH
-			   WHERE LOAI_GIAYTO_ID = 3
+			   WHERE LOAI_GIAYTO_ID = @loaigiay
 			   ) AS CT
 		WHERE CT.GIAY_HOTICH_SOQUYEN = @soquyen
 		GROUP BY GIAY_HOTICH_SOQUYEN
@@ -546,7 +561,7 @@ AS
 			@giayto_id
 			,@maHS_DK
 			,@coQuanID
-			,3
+			,@loaigiay
 			,@magiay
 			,@soquyen
 			,GETDATE()
@@ -600,7 +615,10 @@ AS
 					FROM (
 							SELECT *
 							FROM GIAY_HOTICH
-							WHERE LOAI_GIAYTO_ID = 1) AS HTKS
+							WHERE LOAI_GIAYTO_ID = (SELECT LOAI_GIAYTO_ID
+													FROM LOAI_GIAYTO
+													WHERE LOAI_GIAYTO_TEN LIKE N'%khai sinh%'
+													)) AS HTKS
 					WHERE GIAY_HOTICH_SOQUYEN = @soquyen) AS KS
 			WHERE GIAY_HOTICH_MA = @ma
 			SELECT *
@@ -615,7 +633,10 @@ AS
 					FROM (
 							SELECT *
 							FROM GIAY_HOTICH
-							WHERE LOAI_GIAYTO_ID = 2) AS HTKH
+							WHERE LOAI_GIAYTO_ID = (
+													SELECT LOAI_GIAYTO_ID
+													FROM LOAI_GIAYTO
+													WHERE LOAI_GIAYTO_TEN LIKE N'%kết hôn%')) AS HTKH
 					WHERE GIAY_HOTICH_SOQUYEN = @soquyen) AS KH
 			WHERE GIAY_HOTICH_MA = @ma
 			SELECT *
@@ -630,7 +651,11 @@ AS
 					FROM (
 							SELECT *
 							FROM GIAY_HOTICH
-							WHERE LOAI_GIAYTO_ID = 3) AS HTCT
+							WHERE LOAI_GIAYTO_ID = (
+													SELECT LOAI_GIAYTO_ID
+													FROM LOAI_GIAYTO
+													WHERE LOAI_GIAYTO_TEN LIKE N'%chứng tử%'
+													)) AS HTCT
 					WHERE GIAY_HOTICH_SOQUYEN = @soquyen) AS CT
 			WHERE GIAY_HOTICH_MA = @ma
 			SELECT *
@@ -697,7 +722,11 @@ AS
 					FROM GIAY_KHAISINH , (
 													SELECT *
 													FROM GIAY_HOTICH
-													WHERE LOAI_GIAYTO_ID = 1
+													WHERE LOAI_GIAYTO_ID = (
+																			SELECT LOAI_GIAYTO_ID
+																			FROM LOAI_GIAYTO
+																			WHERE LOAI_GIAYTO_TEN LIKE N'%khai sinh%'
+																			)
 													) AS HT
 					WHERE GIAY_KHAISINH_ID = @id AND GIAY_KHAISINH_ID = HT.GIAYTO_ID
 				) AS GKS
@@ -781,7 +810,11 @@ AS
 					FROM GIAY_KETHON, (
 										SELECT *
 										FROM GIAY_HOTICH
-										WHERE LOAI_GIAYTO_ID = 2
+										WHERE LOAI_GIAYTO_ID = (
+																SELECT LOAI_GIAYTO_ID
+																FROM LOAI_GIAYTO
+																WHERE LOAI_GIAYTO_TEN LIKE N'%kết hôn%'
+																)
                 					  ) AS HT
 					WHERE GIAY_KETHON_ID = @id AND GIAY_KETHON_ID = HT.GIAYTO_ID
 				) AS GKH
@@ -858,7 +891,11 @@ AS
 					FROM GIAY_CHUNGTU, (
 										SELECT *
 										FROM GIAY_HOTICH
-										WHERE LOAI_GIAYTO_ID = 3
+										WHERE LOAI_GIAYTO_ID = (
+																SELECT LOAI_GIAYTO_ID
+																FROM LOAI_GIAYTO
+																WHERE LOAI_GIAYTO_TEN LIKE N'%chứng tử%'
+																)
                 					  ) AS HT
 					WHERE GIAY_CHUNGTU_ID = @id AND GIAY_CHUNGTU_ID = HT.GIAYTO_ID
 				) AS GCT
