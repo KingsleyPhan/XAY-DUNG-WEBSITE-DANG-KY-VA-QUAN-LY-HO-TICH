@@ -118,9 +118,35 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-4">
+                                             <div class="form-group">
+                                                <label for="">Ngày cấp</label>
+                                                <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+                                                <div class="bootstrap-iso">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar">
+                                                                    </i>
+                                                                </div>
+                                                                <input class="form-control" id="NgayCapCMNDYeuCau"
+                                                                    onblur="validateNgayCap(NgayCapCMNDYeuCau)" name="date"
+                                                                    placeholder="Ngày/Tháng/Năm" type="text" />
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="error" id="error_NgayCapCMNDYeuCau"></p>
+                                            </div>
+                                            <div class="form-group">
+                                            
+                                             
+
                                                 <div class="form-group">
                                                     <label for="">Ngày cấp</label>
                                                     <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+                                                    
                                                     <div class="bootstrap-iso">
                                                         <div class="container-fluid">
                                                             <div class="row">
