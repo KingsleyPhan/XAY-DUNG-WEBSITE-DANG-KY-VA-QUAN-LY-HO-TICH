@@ -23,7 +23,7 @@ public class HoSoDangKyDAO extends ConnectDAO {
 		// Lấy ra kết nối tới cơ sở dữ liệu.
 		Connection();
 		// Câu lệnh gọi thủ tục (***)
-		String sql = "{CALL GETALL_HSDK(?)}";
+		String sql = "{CALL GET_HSDK_COQUAN(?)}";
 		// Tạo một đối tượng CallableStatement.
 		CallableStatement cstm = DBConnection.prepareCall(sql);
 		// Truyền tham số vào hàm (CoQuan_ID)
@@ -52,7 +52,7 @@ public class HoSoDangKyDAO extends ConnectDAO {
 		// Lấy ra kết nối tới cơ sở dữ liệu.
 		Connection();
 		// Câu lệnh gọi thủ tục (***)
-		String sql = "{CALL GET_HSDK_TUNGLOAI(?,?)}";
+		String sql = "{CALL GET_HSDK_COQUAN_TUNGLOAI(?,?)}";
 		// Tạo một đối tượng CallableStatement.
 		CallableStatement cstm = DBConnection.prepareCall(sql);
 		// Truyền tham số vào hàm (CoQuan_ID)
