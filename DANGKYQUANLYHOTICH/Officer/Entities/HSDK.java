@@ -2,6 +2,8 @@ package Entities;
 
 import java.util.Date;
 
+import DAO.Consts;
+
 public class HSDK {
 	private int hoSoDangKyId;
 	private String hoSoDangKyTen;
@@ -39,6 +41,13 @@ public class HSDK {
 		this.ngayHetHan = ngayHetHan;
 		this.loaiGiayToID = loaiGiayToID;
 	}
+	
+	
+	public HSDK(int hoSoDangKyId) {
+		super();
+		this.hoSoDangKyId = hoSoDangKyId;
+	}
+	
 	private HSDK() {
 		super();
 	}
@@ -46,5 +55,27 @@ public class HSDK {
 	public HSDK getHSDK()
 	{
 		return this;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		StringBuilder wrkStr = new StringBuilder();
+		wrkStr.append("ID : " + hoSoDangKyId);
+		wrkStr.append("\r\n");
+		wrkStr.append("Tên : " + hoSoDangKyTen);
+		wrkStr.append("\r\n");
+		wrkStr.append("Mã : " + hoSoDangKyMa);
+		wrkStr.append("\r\n");
+		if(ngayDangKy!=null) {
+			wrkStr.append("Ngày đăng ký : " + Consts.ConvertUtilToString(ngayDangKy));
+			wrkStr.append("\r\n");
+		}
+		if(ngayHetHan!=null) {
+			wrkStr.append("Ngày hết hạn : " + Consts.ConvertUtilToString(ngayHetHan));
+			wrkStr.append("\r\n");
+		}
+		wrkStr.append("Loại giấy tờ ID : "+loaiGiayToID);
+		return wrkStr.toString();
 	}
 }

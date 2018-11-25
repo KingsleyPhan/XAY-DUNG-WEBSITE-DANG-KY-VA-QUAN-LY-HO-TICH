@@ -71,7 +71,7 @@ public class DAO_DK_KHAISINH extends ConnectDAO
 		 
 		 PreparedStatement statement = DBConnection.prepareStatement(StrSql);
 		 statement.setInt(1,1); //Trạng Thái: 1 là trạng thái chưa xử lý
-		 statement.setInt(2, COQUAN_ID);
+		 statement.setInt(2, COQUAN_ID);	
 		 statement.setInt(3, LOAI_DK_ID);
 		 statement.setString(4, DKKS.getNguoiYeuCau().getHoVaTen());
 		 statement.setString(5, DKKS.getNguoiYeuCau().getCMND());

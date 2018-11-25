@@ -3,9 +3,9 @@ $(document).ready(function() {
 		"processing" : true,
 		"ajax" : {
 			"data" : {key : -1},
-			"url" : "HoSoDangKy",
+			"url" : "HoSoDangKy/getAll",
 			"dataSrc" : "hsdk",
-			"type" : "POST"
+			"type" : "POST",
 		},
 		"columns" : [ 
 		{
@@ -67,6 +67,15 @@ $(document).ready(function() {
 	$('#table_id tbody').on( 'click', 'td.col-tacvu .view', function () {
 		var tr = $(this).closest('tr');
 	    console.log( table.row( tr ).data().id );
+	    $.ajax({
+	    	method : "POST",
+	    	data : {id : table.row( tr ).data().id},
+	    	url : "GiayHoTich/setID",
+	    	success : function(){
+	    		window.location = "GiayHoTich"
+	    	}
+	    })
+	    
 	} );
 	filterSelection(-1);
 });
