@@ -48,10 +48,10 @@
         <div class="container" style="width:95%">
             <div class="row">
                 <!-- Top navigation -->
-                <div class="topnav">
+                <div class="topnav menu-top">
                     <!-- Left-aligned links (default) -->
                     <a href="#news">TỔNG QUAN</a>
-                    <a href="#contact">TÀI KHOẢN</a>
+                    <a href="#contact" style=" background-color:rgb(243, 93, 33);">TÀI KHOẢN</a>
                     <a href="#news">CƠ QUAN</a>
                     <a href="#contact">PHẦN MỀM</a>
                 </div>
@@ -60,15 +60,18 @@
             </div>
             <!-- Setup 2000px for test amnition-->
             <div class="paper">
-                <div class="controls-edit">
-                    <button class="btn add ">THÊM <i class="fa fa-home"></i></button>
-                    <button class="btn add ">CHỈNH SỬA <i class="fa fa-home"></i></button>
+
+                <div class="titile" style="margin-top: 30px">
+                    <p><i class="fa fa-list-alt" style="padding-right:10px"></i>QUẢN LÝ THÔNG TIN TÀI KHOẢN</p>
                 </div>
-                <div class="title">
+                <div class="titilees" style="margin-top: 30px">
+                    <p>DANH SÁCH QUẢN LÝ HOẠT ĐỘNG CỦA NGƯỜI DÙNG</p>
+                </div>
+                <div class="content-table">
                     <div class="col-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-upload table-User">
+                                <table id="myTable" class="table table-bordered table-upload table-User">
                                     <thead>
                                         <tr>
                                             <th scope="col" style="width: 20px">STT</th>
@@ -121,8 +124,21 @@
                 </div>
 
                 <div style="font-size: 15px">
+
                     <div class="titile">
-                        <p>TÀI KHOẢN</p>
+                        <div class="row">
+                            <div class="col-sm-6 titiles">
+                                <p><i class="fa fa-print" style="margin-right: 10px"></i>THÔNG TIN TÀI KHOẢN</p>
+                            </div>
+
+                            <div class=" col-sm-6 controls-edit " style="float: right">
+                                <button style="float: right;" class="btn add ">HỦY BỎ <i class="fa fa-home"></i></button>
+                                <button style="float: right;" class="btn add ">CHỈNH SỬA <i class="fa fa-home"></i></button>
+                                <button style="float: right;" class="btn add ">THÊM <i class="fa fa-home"></i></button>
+
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="row">
@@ -251,7 +267,7 @@
         </div>
         <div class="controls-edit">
             <button class="btn add">HỦY BỎ <i class="fa fa-home"></i></button>
-            <button class="btn add " style="float: right; margin-right: 45px;" >LƯU <i class="fa fa-home"></i></button>
+            <button class="btn add " style="float: right; margin-right: 45px;">LƯU <i class="fa fa-home"></i></button>
         </div>
     </div>
 
@@ -284,6 +300,47 @@
     <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
     <script src="../js/index.js"></script>
     <script>
+
+$(document).ready(function() { //Inicio
+    var myTable = $('#myTable').DataTable();
+  
+    $('#myTable tbody').on( 'click', 'tr', function () {
+       $(this).toggleClass('selected');
+    });
+        
+    //Contar filas seleccionadas
+    $('#btnValoresSeleccionados').click(function() {
+       //alert(myTable.rows().data().length+' row(s) selected' );
+      
+      //Recorre las filas de la tabla
+        $('#myTable tbody tr').each(function(indexFila){
+          //verifica si  la fila seleccionada tiene la clase 'selected'  
+          if($(this).hasClass('selected')) { 
+							alert("La fila: "+indexFila+" se ha seleccionado");
+						}
+          //Recorre las columnas de la tabla
+          $(this).children('td').each(function(indexColumna){
+            if(indexColumna==3){
+              campo1=$(this).text()
+              alert(campo1+" :children");
+            };
+          });
+          
+        });//fin de '#myTable tbody tr'
+      
+    });//fin (btnSeleccionados)
+    // alert(myTable.rows('.selected').data().length+' row(s) selected' );
+  
+    //Obtener valor de las filas a las que se hace click
+    var myFila= myTable.row( this ).data(); //Obtiene datos de una fila
+    $.each(myFila,function(index, contenido){ //Recorre un array
+       if(index==2){
+          alert(contenido);
+       };
+    }); 
+  
+} );//Fin
+
         var set_height;
         var h;
 

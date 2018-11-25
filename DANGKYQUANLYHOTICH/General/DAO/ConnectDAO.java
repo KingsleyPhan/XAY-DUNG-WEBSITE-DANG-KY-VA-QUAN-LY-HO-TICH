@@ -28,7 +28,8 @@ public abstract class ConnectDAO {
 	            {
 	                throw new SQLException(e);
 	            }
-	            DBConnection = DriverManager.getConnection(URL, Username, Password);
+	          //  DBConnection = DriverManager.getConnection(URL, Username, Password);
+	            DBConnection = DriverManager.getConnection(Consts.CONNECTION_STRING);
 	        }
 	}
 	 protected void DisConnection() throws SQLException 
