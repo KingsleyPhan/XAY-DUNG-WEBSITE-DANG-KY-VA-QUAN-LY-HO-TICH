@@ -12,6 +12,7 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import DAO.Consts;
 import DAO.DAO_DK_KHAISINH;
+import DAO.DAO_NGUOIDUNG;
 import DAO.DAO_THANHPHO;
 import Entities.KhaiSinh.DangKyKhaiSinh;
 
@@ -58,7 +59,22 @@ public class database
 	public static void main(String[] args) throws Exception {
 	
 		
-//		DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl,Consts.DatabaseName, Consts.UserName, Consts.Pass);
+		
+        DAO_NGUOIDUNG user  = new DAO_NGUOIDUNG(Consts.ServerUrl, Consts.Pass, Consts.UserName);
+        ResultSet result;
+      
+         	result = user.loadUser("1");
+							if (!result.wasNull()) 
+							{
+								while (result.next())
+								{
+		
+                       System.out.println(result.getString(1));
+                     
+          
+							    }
+							}
+			
 	
 		
 	
