@@ -5,6 +5,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="Models.CapThanhPhoService" %>
 <%@page import="Models.DanTocService" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,6 +75,7 @@
                 <div class="paper">
                     <div class="title">
                         <p>TỜ KHAI ĐĂNG KÝ GIẤY KHAI SINH</p>
+                        
                     </div>
                     <div class="row">
                         <div class="container container-paper">
@@ -89,8 +91,17 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for=>Họ và Tên</label>
-                                                <input type="text" name="NYC_HOVATEN" class="form-control" id="HoTenYeuCau" onblur="validateHoTen(HoTenYeuCau)">
-                                                <p class="error" id="error_HoTenYeuCau"></p>
+                                                ${action }
+                                                ${khaisinh.ngYeuCau.getHoVaTen()}
+                                                <c:choose>
+													<c:when test='${action == "KiemDuyet"}'>
+														<input type="text" readonly="readonly" name="NYC_HOVATEN" class="form-control" id="NYC_HOVATEN" value='<c:out value='${khaisinh.ngYeuCau.getHoVaTen()}'></c:out>'>
+													</c:when>
+													<c:otherwise>
+														<input type="text" name="NYC_HOVATEN" class="form-control" id="NYC_HOVATEN" value="" onblur="validateHoTen(NYC_HOVATEN)">
+													</c:otherwise>
+												</c:choose>
+                                                <p class="error" id="error_NYC_HOVATEN"></p>
                                             </div>
                                         </div>
                                     </div>

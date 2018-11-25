@@ -1,4 +1,4 @@
-package Models;
+package DAO;
 
 import DAO.ConnectDAO;
 

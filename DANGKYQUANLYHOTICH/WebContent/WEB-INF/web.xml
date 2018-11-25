@@ -8,9 +8,25 @@
     <servlet-name>HoSoDangKyServlet</servlet-name>
     <servlet-class>Controller.HoSoDangKyServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>GiayHoTichServlet</servlet-name>
+    <servlet-class>Controller.GiayHoTichServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>HoSoDangKyServlet</servlet-name>
     <url-pattern>/HoSoDangKy</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HoSoDangKyServlet</servlet-name>
+    <url-pattern>/HoSoDangKy/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GiayHoTichServlet</servlet-name>
+    <url-pattern>/GiayHoTich</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GiayHoTichServlet</servlet-name>
+    <url-pattern>/GiayHoTich/*</url-pattern>
   </servlet-mapping>
   <error-page>
     <exception-type>java.lang.Exception</exception-type>
