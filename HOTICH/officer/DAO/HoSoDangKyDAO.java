@@ -13,7 +13,6 @@ public class HoSoDangKyDAO extends ConnectDAO {
 
 	public HoSoDangKyDAO(String URL, String Username, String Password) {
 		super(URL, Username, Password);
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<HSDK> getAllHSDKCoQuan(int coQuanID) throws ClassNotFoundException, SQLException {
@@ -73,4 +72,5 @@ public class HoSoDangKyDAO extends ConnectDAO {
 		DisConnection();
 		return DSHSDK;
 	}
+
 }

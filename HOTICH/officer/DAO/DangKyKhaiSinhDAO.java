@@ -22,22 +22,17 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 	}
 
 	public HoSoKhaiSinh getHSDKKhaiSinh(int id) throws SQLException, ParseException {
-		// Lấy ra kết nối tới cơ sở dữ liệu.
 		Connection();
-		// Câu lệnh gọi hàm (***)
 		String sql = "SELECT * FROM GET_HOSO_DANGKY_KHAISINH(?)";
-		// Tạo một đối tượng PreparedStatement.
-		PreparedStatement pstm = DBConnection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
-				ResultSet.CONCUR_READ_ONLY);
-		// Sét đặt giá trị tham số
+		PreparedStatement pstm = DBConnection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		pstm.setInt(1, id);
 		ResultSet rs = pstm.executeQuery();
 		if (rs.next()) {
-			HSDK hsdk = new HSDK(id);
+			HSDK hsdk = new HSDK(id,1);
 			
 			String ngYeuCau_Ten = rs.getString(2);
 			String ngYeuCau_CMND = rs.getString(3);
-			Date ngYeuCau_CMND_NgayCap = Consts.ConvertSQLtoUtilDate(rs.getDate(4));
+			Date ngYeuCau_CMND_NgayCap = rs.getDate(4);
 			String ngYeuCau_CMND_NoiCap = rs.getString(5);
 			String ngYeuCau_QuocTich = rs.getString(6);
 			
@@ -51,7 +46,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 
 			String doiTuongKhaiSinh_Ten = rs.getString(12);
 			Boolean doiTuongKhaiSinh_GioiTinh = rs.getBoolean(13);
-			Date doiTuongKhaiSinh_NgaySinh = Consts.ConvertSQLtoUtilDate(rs.getDate(14));
+			Date doiTuongKhaiSinh_NgaySinh = rs.getDate(14);
 			String doiTuongKhaiSinh_DanToc = rs.getString(15);
 			String doiTuongKhaiSinh_QuocTich = rs.getString(16);
 
@@ -70,10 +65,10 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 			String doiTuongKhaiSinh_NoiSinh_DiaChi = rs.getString(26); 
 
 			String me_Ten = rs.getString(27);
-			Date me_NgaySinh = Consts.ConvertSQLtoUtilDate(rs.getDate(28));
+			Date me_NgaySinh = rs.getDate(28);
 			String me_DanToc = rs.getString(29);
 			String me_CMND = rs.getString(30);
-			Date me_CMND_NgayCap = Consts.ConvertSQLtoUtilDate(rs.getDate(31));
+			Date me_CMND_NgayCap = rs.getDate(31);
 			String me_CMND_NoiCap = rs.getString(32);
 			String me_QuocTich = rs.getString(33);
 			//Địa chỉ của mẹ
@@ -83,10 +78,10 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 			String me_DiaChi = rs.getString(37);
 
 			String cha_Ten = rs.getString(38);
-			Date cha_NgaySinh = Consts.ConvertSQLtoUtilDate(rs.getDate(39));
+			Date cha_NgaySinh = rs.getDate(39);
 			String cha_DanToc = rs.getString(40);
 			String cha_CMND = rs.getString(41);
-			Date cha_CMND_NgayCap = Consts.ConvertSQLtoUtilDate(rs.getDate(42));
+			Date cha_CMND_NgayCap = rs.getDate(42);
 			String cha_CMND_NoiCap = rs.getString(43);
 			String cha_QuocTich = rs.getString(44);
 			//Địa chỉ của cha
@@ -116,7 +111,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 							);
 			CongDan me = null;
 			
-			if (me_Ten.trim() != "") {
+			if (me_Ten != null && me_Ten != "") {
 				me = new CongDan(
 						me_Ten
 						, me_NgaySinh
@@ -127,7 +122,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 						);
 			}
 			CongDan cha = null;
-			if (cha_Ten.trim() != "") {
+			if (cha_Ten != "" && cha_Ten != null) {
 				cha = new CongDan(
 						cha_Ten
 						, cha_NgaySinh
@@ -138,7 +133,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 						);
 			}
 			
-			String fileChungSinh = rs.getString("FILE_GIAYCHUNGSINH");
+			String fileChungSinh = FILE_GIAYCHUNGSINH;
 			return new HoSoKhaiSinh(hsdk, ngYeuCau, ngYeuCau_QuanHe, doiTuongKhaiSinh, cha, me,fileChungSinh);
 		}
 		return null;
