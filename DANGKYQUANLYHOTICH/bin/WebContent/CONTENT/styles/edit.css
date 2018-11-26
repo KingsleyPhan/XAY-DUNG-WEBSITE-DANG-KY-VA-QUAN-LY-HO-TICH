@@ -1,0 +1,14 @@
+.edit{
+	background-color : white!important;
+}
+.error
+{
+	color: red;
+	margin: 5px 0px 0px 15px;
+	
+}
+.fild_error
+{
+	border-color:rgb(221, 9, 9) !important;
+	box-shadow: 0 7px 6px -6px rgb(221, 9, 9) !important;
+}
