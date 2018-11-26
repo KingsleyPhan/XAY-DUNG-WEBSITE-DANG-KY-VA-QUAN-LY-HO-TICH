@@ -20,10 +20,6 @@ public class Consts {
 	public static String Pass = "123456";
 
 	public static String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;databaseName=CSDL_QLHT_Test_2;user=HOTICHSVR;password=123456;useUnicode=true;characterEncoding=UTF-8;";
-<<<<<<< HEAD
-
-=======
->>>>>>> e33c9de350694ac6f2a21aa6ee284909862eba00
 
 	
 	//Chuyển từ form vô Entity
@@ -44,15 +40,15 @@ public class Consts {
 	}
 	
 	//Dùng khi lấy từ SQL ra Entity
-//	public static java.util.Date ConvertSQLtoUtilDate(java.sql.Date date) throws ParseException
-//	{
-//		if(date != null) {
-//			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-//			String temp = format.format(date);
-//			return format.parse(temp);
-//		}
-//		return null;
-//	}
+	public static java.util.Date ConvertSQLtoUtilDate(java.sql.Date date) throws ParseException
+	{
+		if(date != null) {
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+			String temp = format.format(date);
+			return format.parse(temp);
+		}
+		return null;
+	}
 	//Dùng để chuyển từ Entity ra show form
 	public static String ConvertUtilToString(java.util.Date date)
 	{
@@ -62,9 +58,4 @@ public class Consts {
 		}
 		return "";
 	}
-<<<<<<< HEAD
-
-
-=======
->>>>>>> e33c9de350694ac6f2a21aa6ee284909862eba00
 }

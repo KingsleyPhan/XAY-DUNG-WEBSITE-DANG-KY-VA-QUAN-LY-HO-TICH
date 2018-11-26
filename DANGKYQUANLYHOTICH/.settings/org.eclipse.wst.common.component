@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="DANGKYQUANLYHOTICH">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/Admin"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/Officer"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/Guest"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/General"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/"/>
+=======
+>>>>>>> f1d0b62e3a5d25e6b3fd2e59471b80c15eddadf0
         <property name="context-root" value="DANGKYQUANLYHOTICH"/>
         <property name="java-output-path" value="/DANGKYQUANLYHOTICH/build/classes"/>
     </wb-module>

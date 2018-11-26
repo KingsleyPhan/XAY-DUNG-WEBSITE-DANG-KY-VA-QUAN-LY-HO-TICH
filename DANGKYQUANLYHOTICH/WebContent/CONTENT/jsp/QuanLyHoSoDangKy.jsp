@@ -49,9 +49,6 @@
                     <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
                 </div>
             </div>
-            <c:if test='${message != null }'>
-            	<p> Bạn có thông báo <c:out value="${message }"></c:out></p>
-            </c:if>
             <div class="row">
                 <!-- Setup 2000px for test amnition-->
                 <!--conntent continute-->

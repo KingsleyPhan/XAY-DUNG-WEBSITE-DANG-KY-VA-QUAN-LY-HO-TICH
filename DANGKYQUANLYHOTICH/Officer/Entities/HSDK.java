@@ -23,15 +23,10 @@ public class HSDK {
 	public Date getNgayDangKy() {
 		return ngayDangKy;
 	}
-	public String getNgayDangKyString() {
-		return Consts.ConvertUtilToString(ngayDangKy);
-	}
 	public Date getNgayHetHan() {
 		return ngayHetHan;
 	}
-	public String getNgayHetHanString() {
-		return Consts.ConvertUtilToString(ngayHetHan);
-	}
+	
 	public int getLoaiGiayToID() {
 		return loaiGiayToID;
 	}
@@ -48,10 +43,9 @@ public class HSDK {
 	}
 	
 	
-	public HSDK(int hoSoDangKyId, int loaiGiayToID) {
+	public HSDK(int hoSoDangKyId) {
 		super();
 		this.hoSoDangKyId = hoSoDangKyId;
-		this.loaiGiayToID = loaiGiayToID;
 	}
 	
 	private HSDK() {
