@@ -76,13 +76,6 @@ $(document).ready(function() {
         ],
 		"lengthMenu" : [[10, 25, 50, -1], [10, 25, 50, "All"]],
 		"order" : false,
-//		dom: 'Bfrtip',
-//        buttons: [
-//            { extend: 'copyHtml5'},
-//            { extend: 'excelHtml5' },
-//            { extend: 'csvHtml5'},
-//            { extend: 'pdfHtml5'}
-//        ],
     } );
 	
 	new $.fn.dataTable.Buttons( table, {

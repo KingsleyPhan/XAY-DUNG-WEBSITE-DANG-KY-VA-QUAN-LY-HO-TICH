@@ -129,6 +129,6 @@ padding-top: 0px;
 font-size: 20px;
 padding-top: -20px;
 }   
-input:read-only { 
-    background-color: white!important;
+input:disabled, select:disabled { 
+    background: white!important;
 }

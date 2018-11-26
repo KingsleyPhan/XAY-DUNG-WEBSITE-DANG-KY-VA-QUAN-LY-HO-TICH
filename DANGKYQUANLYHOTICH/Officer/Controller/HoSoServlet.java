@@ -19,13 +19,13 @@ import Entities.HoSoDangKy.HoSoKhaiSinh;
 /**
  * Servlet implementation class GiayHoTichServlet
  */
-public class GiayHoTichServlet extends HttpServlet {
+public class HoSoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public GiayHoTichServlet() {
+	public HoSoServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,8 +35,10 @@ public class GiayHoTichServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		int id = 0;
+		int loai = 0;
 		ServletContext context = getServletContext();
 		context.setAttribute("ID_HSDK", id);
+		context.setAttribute("LoaiGiay", loai);
 		dangKyKhaiSinhDAO = new DangKyKhaiSinhDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	}
 
@@ -49,6 +51,8 @@ public class GiayHoTichServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
+		String action = request.getRequestURI();
+		String[] words=action.split("/");
 		try {
 			kiemDuyet(request,response);
 		} catch (SQLException e) {
@@ -65,22 +69,43 @@ public class GiayHoTichServlet extends HttpServlet {
 			throws ServletException, IOException, SQLException, ParseException {
 		ServletContext context = getServletContext();
 		int id = (Integer) context.getAttribute("ID_HSDK");
+		int loai = (Integer) context.getAttribute("LoaiGiay");
+		String page = "";
 		if(id != 0) {
 			context.setAttribute("ID_HSDK", 0);
-			HoSoKhaiSinh hoSoKhaiSinh = dangKyKhaiSinhDAO.getHSDKKhaiSinh(id);
-			request.setAttribute("khaisinh", hoSoKhaiSinh);
-			
-			String action = "KiemDuyet";
-			request.setAttribute("action", action);
-			String page = "";
-			page = "/CONTENT/jsp/DangKyKhaiSinh.jsp";
-			RequestDispatcher dispatcher = request.getRequestDispatcher(page);
-			dispatcher.forward(request, response);
-			return;
+			context.setAttribute("LoaiGiay", 0);
+			switch (loai) {
+			case 1:
+				HoSoKhaiSinh hoSoKhaiSinh = dangKyKhaiSinhDAO.getHSDKKhaiSinh(id);
+				if(hoSoKhaiSinh != null) {
+					request.setAttribute("khaisinh", hoSoKhaiSinh);
+					System.out.println(hoSoKhaiSinh.toString());
+					String action = "KiemDuyet";
+					request.setAttribute("action", action);
+					page = "/CONTENT/jsp/DangKyKhaiSinh.jsp";
+					RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+					dispatcher.forward(request, response);
+					return;
+				}
+				
+				page = "HoSoDangKy";
+				response.sendRedirect(page);
+				return;
+			case 2:
+
+				break;
+			case 3:
+
+				break;
+			default:
+				page = "HoSoDangKy";
+				response.sendRedirect(page);
+				return;
+			}
 		}
-		String page = "";
 		page = "DangKyKhaiSinh.php";
 		response.sendRedirect(page);
+		return;
 	}
 
 	/**
@@ -92,7 +117,6 @@ public class GiayHoTichServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		// TODO Auto-generated method stub
-
 		String action = request.getRequestURI();
 		String[] words = action.split("/");
 		switch (words[words.length - 1]) {
@@ -107,7 +131,9 @@ public class GiayHoTichServlet extends HttpServlet {
 	private void setID(HttpServletRequest request) {
 		ServletContext context = getServletContext();
 		int id = Integer.parseInt(request.getParameter("id"));
+		int loai = Integer.parseInt(request.getParameter("loai"));
 		context.setAttribute("ID_HSDK", id);
+		context.setAttribute("LoaiGiay", loai);
 	}
 
 }
