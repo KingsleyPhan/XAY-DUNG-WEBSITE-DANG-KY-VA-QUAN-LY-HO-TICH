@@ -1,143 +1,115 @@
 package Controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Consts;
-import DAO.HoSoDangKyDAO;
-import Entities.HSDK;
+import DAO.DangKyKhaiSinhDAO;
+import Entities.HoSoDangKy.HoSoKhaiSinh;
 
-/**
- * Servlet implementation class HoSoDangKyServlet
- */
 public class HoSoDangKyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private HoSoDangKyDAO hoSoDangKyDAO;
-	List<HSDK> hsdks = new ArrayList<HSDK>();
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public HoSoDangKyServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
+	DangKyKhaiSinhDAO dangKyKhaiSinhDAO;
+
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		hoSoDangKyDAO = new HoSoDangKyDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		super.init(config);
+		ServletContext context = getServletContext();
+		context.setAttribute("ID_HSDK", 0);
+		context.setAttribute("Loai_GiayTo", 0);
+		dangKyKhaiSinhDAO = new DangKyKhaiSinhDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String page = "";
-		page = "/CONTENT/jsp/QuanLyHoSoDangKy.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
-        dispatcher.forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
-		request.getSession(false);
+		kiemDuyet(request,response);
+		
+		
+	}
+
+	private void kiemDuyet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String page = "";
+		ServletContext context = getServletContext();
+		int id = (Integer) context.getAttribute("ID_HSDK");
+		int loai = (Integer) context.getAttribute("Loai_GiayTo");
+		if(id != 0) {
+			try {
+				switch (loai) {
+				case 1:
+					context.setAttribute("ID_HSDK", 0);
+					context.setAttribute("Loai_GiayTo", 0);
+					HoSoKhaiSinh hoSoKhaiSinh = dangKyKhaiSinhDAO.getHSDKKhaiSinh(id);
+					if(hoSoKhaiSinh != null)
+					{
+						request.setAttribute("khaisinh", hoSoKhaiSinh);
+						
+						String action = "KiemDuyet";
+						request.setAttribute("action", action);
+						
+						page = "/CONTENT/jsp/DangKyKhaiSinh.jsp";
+
+						RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+						dispatcher.forward(request, response);
+						return;
+					}
+					page = "QuanLyDangKy";
+					response.sendRedirect(page);
+					return;
+				case 2:
+					break;
+				case 3:
+					break;
+				default:
+					break;
+				}
+				
+			} catch (SQLException | ParseException e) {
+				e.printStackTrace();
+			}
+		}
+		page = "QuanLyDangKy";
+		response.sendRedirect(page);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
+
 		String action = request.getRequestURI();
-		String[] words=action.split("/");
-		switch (words[words.length-1]) {
-		case "getAll":
-			GetAll(request, response);
+		String[] words = action.split("/");
+		
+		switch (words[words.length - 1]) {
+		case "setHSDK":
+			setHSDK(request);
 			break;
 		default:
 			break;
 		}
 	}
 	
-	private void GetAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		int loaiGiay = Integer.parseInt(request.getParameter("key"));
-		PrintWriter out = response.getWriter();
-		String data;
-		List<HSDK> DSHSDK;
-		data = "{ \"hsdk\":[";
-		try {
-			if (loaiGiay == -1)
-			{
-				DSHSDK = hoSoDangKyDAO.getAllHSDKCoQuan(1);
-			}
-			else
-			{
-				DSHSDK = hoSoDangKyDAO.getHSDKLoaiGiayTo(1,loaiGiay);
-			}
-			for (int i = 0; i < DSHSDK.size(); i++) {
-				String temp = "";
-				if (i == DSHSDK.size() - 1) { //Trường hợp dòng cuối cùng sẽ không có dấu ","
-					temp = "{"
-							+"\"stt\":\"\"," // Ký tự trống để điền STT tự động
-							+"\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\","
-							+"\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\","
-							+"\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\","
-							+"\"ngay-dangky\":\""+DSHSDK.get(i).getNgayDangKy()+"\","
-							+"\"ngay-hethan\":\""+DSHSDK.get(i).getNgayHetHan()+"\","
-//							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\","
-							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"}";
-//							+"\"tacvu\":\"<div>"
-//								+"<a href=\\\""+DSHSDK.get(i).getHoSoDangKyId()+"\\\" class=\\\"btn btn-primary\\\">"
-//									+"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> Kiểm duyệt"
-//								+"</a>"
-//							+"</div>\"}";
-				}
-				else
-				{
-					temp = "{"
-							+"\"stt\":\"\"," // Ký tự trống để điền STT tự động
-							+"\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\","
-							+"\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\","
-							+"\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\","
-							+"\"ngay-dangky\":\""+DSHSDK.get(i).getNgayDangKy()+"\","
-							+"\"ngay-hethan\":\""+DSHSDK.get(i).getNgayHetHan()+"\","
-//							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\","
-							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"},";
-//							+"\"tacvu\":\"<div>"
-//								+"<a href=\\\""+DSHSDK.get(i).getHoSoDangKyId()+"\\\" class=\\\"btn btn-primary\\\">"
-//									+"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> Kiểm duyệt"
-//								+"</a>"
-//							+"</div>\"},";
-				}
-				data += temp;
-			}
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		data += "]}";
-		out.println(data);
+	private void setHSDK(HttpServletRequest request) {
+		ServletContext context = getServletContext();
+		int id = Integer.parseInt(request.getParameter("id"));
+		int loai = Integer.parseInt(request.getParameter("loai"));
+		context.setAttribute("ID_HSDK", id);
+		context.setAttribute("Loai_GiayTo", loai);
 	}
 
 }
