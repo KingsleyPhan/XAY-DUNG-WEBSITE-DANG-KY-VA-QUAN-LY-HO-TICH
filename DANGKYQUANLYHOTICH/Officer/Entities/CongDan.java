@@ -23,6 +23,10 @@ public class CongDan {
 	public Date getNgaySinh() {
 		return ngaySinh;
 	}
+	
+	public String getNgaySinhString() {
+		return Consts.ConvertUtilToString(ngaySinh);
+	}
 
 	public Boolean getGioiTinh() {
 		return gioiTinh;

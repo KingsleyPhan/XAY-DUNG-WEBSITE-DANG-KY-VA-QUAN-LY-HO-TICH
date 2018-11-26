@@ -72,7 +72,7 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		     NYC.setQuanHe(request.getParameter("NYC_QUANHEKHAC"));
 		NYC.setQuocTich(request.getParameter("NYC_QUOCTICH"));
 		
-		String ID_THANHPHO = request.getParameter("ComboTHANHPHO");
+		String ID_THANHPHO = request.getParameter("NYC_THANHPHO");
 		String ID_QUAN  = request.getParameter("NYC_QUAN");
 		String ID_PHUONG = request.getParameter("NYC_PHUONG");
 	
@@ -125,11 +125,11 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		
 		KS.setDiaChi(request.getParameter("KS_DIACHI"));
 		KS.setCoSoSinhSan(request.getParameter("KS_CSSS"));
-		KS.setQuocTich_CSSS(request.getParameter("KS_QUOCGIA_CSSS"));
+		KS.setQuocTich_CSSS(request.getParameter("KS_CSSS_QUOCGIA"));
 		
-		 ID_THANHPHO = request.getParameter("KS_THANHPHO_CSSS");
-		 ID_QUAN  = request.getParameter("KS_QUAN_CSSS");
-		 ID_PHUONG = request.getParameter("KS_PHUONG_CSSS");
+		 ID_THANHPHO = request.getParameter("KS_CSSS_THANHPHO");
+		 ID_QUAN  = request.getParameter("KS_CSSS_QUAN");
+		 ID_PHUONG = request.getParameter("KS_CSSS_PHUONG");
 		
 		try {
 			KS.setTP_CSSS(TP.GET_NAME_TP(ID_THANHPHO));
@@ -140,7 +140,7 @@ public class NopKhaiSinhServlet extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-		KS.setDiaChi_CSSS(request.getParameter("KS_DIACHI_CSSS"));
+		KS.setDiaChi_CSSS(request.getParameter("KS_CSSS_DIACHI"));
 		
 		KS.showImfor();
 		
