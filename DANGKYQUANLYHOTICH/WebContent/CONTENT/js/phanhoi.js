@@ -1,6 +1,0 @@
-function GuiPhanHoi()
-{
-	$("#myModal").modal();
-}
-
-	
