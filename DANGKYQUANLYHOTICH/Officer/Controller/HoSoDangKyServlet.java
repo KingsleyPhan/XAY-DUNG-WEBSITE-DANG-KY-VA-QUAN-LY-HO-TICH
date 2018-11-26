@@ -50,8 +50,6 @@ public class HoSoDangKyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String action = request.getRequestURI();
-		String[] words=action.split("/");
 		String page = "";
 		page = "/CONTENT/jsp/QuanLyHoSoDangKy.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
@@ -82,9 +80,9 @@ public class HoSoDangKyServlet extends HttpServlet {
 	private void GetAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int loaiGiay = Integer.parseInt(request.getParameter("key"));
 		PrintWriter out = response.getWriter();
-		StringBuilder data = new StringBuilder();
+		String data;
 		List<HSDK> DSHSDK;
-		data.append("{ \"hsdk\":[");
+		data = "{ \"hsdk\":[";
 		try {
 			if (loaiGiay == -1)
 			{
@@ -95,29 +93,41 @@ public class HoSoDangKyServlet extends HttpServlet {
 				DSHSDK = hoSoDangKyDAO.getHSDKLoaiGiayTo(1,loaiGiay);
 			}
 			for (int i = 0; i < DSHSDK.size(); i++) {
-				StringBuilder temp = new StringBuilder();
+				String temp = "";
 				if (i == DSHSDK.size() - 1) { //Trường hợp dòng cuối cùng sẽ không có dấu ","
-					temp.append("{");
-					temp.append("\"stt\":\"\","); // Ký tự trống để điền STT tự động
-					temp.append("\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\",");
-					temp.append("\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\",");
-					temp.append("\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\",");
-					temp.append("\"ngayDangKy\":\""+Consts.ConvertUtilToString(DSHSDK.get(i).getNgayDangKy())+"\",");
-					temp.append("\"ngayHetHan\":\""+Consts.ConvertUtilToString(DSHSDK.get(i).getNgayHetHan())+"\",");
-					temp.append("\"loaiGiayTo\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"}");
+					temp = "{"
+							+"\"stt\":\"\"," // Ký tự trống để điền STT tự động
+							+"\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\","
+							+"\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\","
+							+"\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\","
+							+"\"ngay-dangky\":\""+DSHSDK.get(i).getNgayDangKy()+"\","
+							+"\"ngay-hethan\":\""+DSHSDK.get(i).getNgayHetHan()+"\","
+//							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\","
+							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"}";
+//							+"\"tacvu\":\"<div>"
+//								+"<a href=\\\""+DSHSDK.get(i).getHoSoDangKyId()+"\\\" class=\\\"btn btn-primary\\\">"
+//									+"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> Kiểm duyệt"
+//								+"</a>"
+//							+"</div>\"}";
 				}
 				else
 				{
-					temp.append("{");
-					temp.append("\"stt\":\"\","); // Ký tự trống để điền STT tự động
-					temp.append("\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\",");
-					temp.append("\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\",");
-					temp.append("\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\",");
-					temp.append("\"ngayDangKy\":\""+Consts.ConvertUtilToString(DSHSDK.get(i).getNgayDangKy())+"\",");
-					temp.append("\"ngayHetHan\":\""+Consts.ConvertUtilToString(DSHSDK.get(i).getNgayHetHan())+"\",");
-					temp.append("\"loaiGiayTo\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"},");
+					temp = "{"
+							+"\"stt\":\"\"," // Ký tự trống để điền STT tự động
+							+"\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\","
+							+"\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\","
+							+"\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\","
+							+"\"ngay-dangky\":\""+DSHSDK.get(i).getNgayDangKy()+"\","
+							+"\"ngay-hethan\":\""+DSHSDK.get(i).getNgayHetHan()+"\","
+//							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\","
+							+"\"loai-giayto\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"},";
+//							+"\"tacvu\":\"<div>"
+//								+"<a href=\\\""+DSHSDK.get(i).getHoSoDangKyId()+"\\\" class=\\\"btn btn-primary\\\">"
+//									+"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> Kiểm duyệt"
+//								+"</a>"
+//							+"</div>\"},";
 				}
-				data.append(temp);
+				data += temp;
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -126,8 +136,8 @@ public class HoSoDangKyServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		data.append("]}");
-		out.println(data.toString());
+		data += "]}";
+		out.println(data);
 	}
 
 }

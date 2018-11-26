@@ -30,17 +30,17 @@ $(document).ready(function() {
 			"orderable" : false,
 		}, 
 		{
-			"data": "ngayDangKy",
+			"data": "ngay-dangky",
 			"className" : 'col-ngay',
 			"orderable" : false,
 		}, 
 		{
-			"data": "ngayHetHan",
+			"data": "ngay-hethan",
 			"className" : 'col-ngay',
 			"orderable" : false,
 		}, 
 		{
-			"data": "loaiGiayTo",
+			"data": "loai-giayto",
 			"className" : 'col-ma',
 			"orderable" : false,
 			"visible" : false,
@@ -67,15 +67,12 @@ $(document).ready(function() {
 	$('#table_id tbody').on( 'click', 'td.col-tacvu .view', function () {
 		var tr = $(this).closest('tr');
 	    console.log( table.row( tr ).data().id );
-	    console.log( table.row( tr ).data().loaiGiayTo );
 	    $.ajax({
 	    	method : "POST",
-	    	data : {id : table.row( tr ).data().id,
-	    			loai : table.row( tr ).data().loaiGiayTo
-	    			},
-	    	url : "HoSo/setID",
+	    	data : {id : table.row( tr ).data().id},
+	    	url : "GiayHoTich/setID",
 	    	success : function(){
-	    		window.location = "HoSo"
+	    		window.location = "GiayHoTich"
 	    	}
 	    })
 	    

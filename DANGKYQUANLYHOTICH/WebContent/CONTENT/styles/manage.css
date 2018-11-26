@@ -176,20 +176,12 @@ th{
 .col-stt{
 	width: 5%;
 	text-align: center;
-	line-height : 35px!important;
 }
 tbody tr:nth-child(even) {
-    /*background-color: #e9ebf5;*/
-    
+    background-color: #e9ebf5;
 }
 tbody tr:nth-child(odd):not(adding) {
-    /*background-color: #cfd5ea;*/
-}
-tbody tr{
-	background-color: #ffffff;
-}
-.col-noidung{
-	line-height : 35px!important;
+    background-color: #cfd5ea;
 }
 td.col-noidung{
 	width: 35%;
@@ -198,20 +190,14 @@ td.col-noidung{
 .col-ma{
 	width: 10%;
 	text-align: center;
-	line-height : 35px!important;
 }
 .col-ngay{
 	width: 15%;
 	text-align: center;
-	line-height : 35px!important;
 }
 .col-tacvu{
 	width: 15%;
 	text-align: center;
-	line-height : 35px!important;
-}
-.table{
-	width : 100%!important;
 }
 
 .notification {
