@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/Officer"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/Guest"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/General"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/"/>
         <property name="context-root" value="DANGKYQUANLYHOTICH"/>
         <property name="java-output-path" value="/DANGKYQUANLYHOTICH/build/classes"/>
     </wb-module>
