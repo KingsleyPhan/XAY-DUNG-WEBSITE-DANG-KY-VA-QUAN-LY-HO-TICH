@@ -20,11 +20,7 @@ public class Consts {
 	public static String Pass = "123456";
 
 	public static String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;databaseName=CSDL_QLHT_Test_2;user=HOTICHSVR;password=123456;useUnicode=true;characterEncoding=UTF-8;";
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> master
+
 
 	
 	//Chuyển từ form vô Entity
@@ -64,8 +60,5 @@ public class Consts {
 		return "";
 	}
 
-<<<<<<< HEAD
-=======
->>>>>>> Huynh-Le-Huu-Hung
->>>>>>> master
+
 }
