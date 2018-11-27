@@ -1,0 +1,70 @@
+/*import font Roboto*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700,900');
+body {
+    font-family: 'Roboto Slab', serif;
+}
+
+.header_location
+{
+    border-bottom: 3px solid #004f7e;
+}
+
+.location
+{
+    transition: width 2s;
+    -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
+}
+
+.header_location .locationCap2
+{
+    font-size: 20px;
+    padding-top: -20px;
+}
+
+.modal-dialog .modal-content .modal-header
+{
+    color: white;
+    background-color: #004f7e;
+}
+
+.modal-dialog .modal-content .modal-body label
+{
+    font-weight: bold;
+}
+
+#myModal.modal{
+    text-align: center;
+}
+#myModal.modal::before {
+    content: "";	  
+    display: inline-block;
+    height: 100%;	 
+    margin-right: -4px;
+    vertical-align: middle;
+}
+#myModal .modal-dialog {	
+    display: inline-block;	
+    text-align: left;	
+    vertical-align: middle;
+}	
+
+#notify.modal{
+    text-align: center;
+}
+#notify.modal::before {
+    content: "";	  
+    display: inline-block;
+    height: 100%;	 
+    margin-right: -4px;
+    vertical-align: middle;
+}
+#notify .modal-dialog {	
+    display: inline-block;	
+    text-align: left;	
+    vertical-align: middle;
+}	
+#myModal .modal-content {	
+   width: 70%;
+   margin: auto;
+   color: black;
+}
