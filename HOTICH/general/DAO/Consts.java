@@ -18,7 +18,7 @@ public class Consts {
 	//Kết tại máy
 	public static String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;databaseName=CSDL_QLHT_Test_2;user=HOTICHSVR;password=123456;useUnicode=true;characterEncoding=UTF-8;";
 	
-	public static int COQUAN_ID = 0;
+	public static int COQUAN_ID = 1;
 	
 	public static int Get_COQUAN_ID()
 	{

@@ -35,10 +35,10 @@ public class NopHoSo extends HttpServlet {
 	 */
     DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+		String Email = request.getParameter("xacNhanEmail");
+		String SDT = request.getParameter("xacNhanDienThoai");
 		try {
-			if( DKKS.INSERT_DK_KHAISINH(1, 5, StoreEntity.DKKS))
+			if( DKKS.INSERT_DK_KHAISINH(Consts.COQUAN_ID, 5, Email, SDT, StoreEntity.DKKS))
 			{
 			System.out.println("Successsssssssssssssssssssssssssss");
 			StoreEntity.DKKS = null;
@@ -50,7 +50,7 @@ public class NopHoSo extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		 response.sendRedirect("DangNhap.php");
+		
 	}
 
 	/**

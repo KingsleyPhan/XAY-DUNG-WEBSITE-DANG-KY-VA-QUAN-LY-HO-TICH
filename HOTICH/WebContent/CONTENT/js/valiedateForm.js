@@ -357,7 +357,69 @@ function AddClass(element, name) {
 			}
 			return false;
 		}
+		
+		function checkEmail(id_ele) { 
+		    var email = id_ele; 
+		    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+		    if (!filter.test(email.value)) {
+		             email.focus; 
+		             return false; 
+		    }
+		    else{ 
+		            return true;
+		    } 
+		} 
+		
+		function validateCode(id_scr, id_des){
+			var sc = id_scr;
+			var ds = id_des;
+			
+			if(sc.innerHTML == ds.value)
+			{
+				return true;
+			}
+			else
+				{
+				 $(id_error).html('Sai Mã xác nhận. Mời nhập lại');
+				 SearchCoQuans();
+				 return false;
+				}
+			
+		}
+		
+		function validateSubmitXacNhanNopHoSo(){
+			var result = validateHoTen(xacNhanEmail);
+			 result = validateHoTen(xacNhanDienThoai) && result;
+			 result = validateCode(textXacNhan,id_typeXacNhan);
+			 if(result==false)
+				{
+					 return false;
+				}
+			 if(checkEmail(xacNhanEmail) == false)
+		     {
+				 $(id_error).html('Sai format email');
+				 SearchCoQuans();
+				 
+				 return false;
+		     }
+			 
+			 checkEmail(xacNhanEmail);
+			if(result){
+				$(id_error).html('Nộp hồ sơ thành công');
+				
+				SearchCoQuans();
+				return true;
+			}
+			$(id_error).html('Không thể nộp đơn yêu cầu. Xin kiểm tra lại !!!');
+			SearchCoQuans();
+			return false;
+		}
 
+		function SearchCoQuans()
+		{
+			
+			$("#myModals").modal();
+		}
         $(document).ready(function () {
             var date_input = $('input[name="date"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";

@@ -17,6 +17,7 @@ import DAO.DAO_QUYEN;
 import DAO.DAO_THANHPHO;
 import Entities.NguoiDungA;
 import Entities.KhaiSinh.DangKyKhaiSinh;
+import Models.CreateCode;
 
 
 
@@ -61,6 +62,7 @@ public class database
 	public static void main(String[] args) throws Exception {
 	
 		
+		/*
 		
         DAO_NGUOIDUNG user  = new DAO_NGUOIDUNG(Consts.ServerUrl,Consts.UserName, Consts.Pass );
         ResultSet result;
@@ -81,6 +83,10 @@ public class database
          	{
          		System.out.println(result.getString(1));
          	}
+         	*/
+		CreateCode cs = new CreateCode();
+		
+		System.out.println("Code la: " + cs.Code());
 			
        
 		
