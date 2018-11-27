@@ -14,6 +14,49 @@ public class DAO_NGUOIDUNG extends ConnectDAO {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public NguoiDungA SeacrhNguoiDung(String UserName, String Password) throws SQLException
+	{
+		    String sql = "SELECT * FROM NGUOIDUNG   " +
+		    			 "WHERE 					" +
+		    			 "NGUOIDUNG_USERNAME = ?    " +
+		    			 "AND NGUOIDUNG_PASS = ?		" ; 
+	         
+	        Connection();
+	        
+	        System.out.println("Hello");
+	        PreparedStatement statement = DBConnection.prepareStatement(sql);
+	        statement.setString(1, UserName);
+	        statement.setString(2, Password);
+	         
+	        ResultSet resultSet = statement.executeQuery();
+	        
+	        NguoiDungA US = new NguoiDungA();
+	        
+	        while(resultSet.next())
+	        {
+	        	US.setQuyen(resultSet.getString(10));
+	        }
+	      
+	        return US;
+	}
+	
+	public ResultSet Get_MACANBO(String MaCoQuan) throws SQLException
+	 {
+		    int ID = Integer.parseInt(MaCoQuan);
+		 
+	        String sql = "SELECT NGUOIDUNG_ID, NGUOIDUNG_MACANBO FROM NGUOIDUNG WHERE COQUAN_ID = ?";
+	         
+	        Connection();
+	        
+	        System.out.println("Hello");
+	        PreparedStatement statement = DBConnection.prepareStatement(sql);
+	        statement.setInt(1, ID);
+	         
+	        ResultSet resultSet = statement.executeQuery();
+	         
+	       return resultSet;
+	      
+	 }
 	
 	
 	public ResultSet loadUser(String MaCoQuan) throws SQLException

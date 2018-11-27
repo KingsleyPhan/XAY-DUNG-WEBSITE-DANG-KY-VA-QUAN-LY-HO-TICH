@@ -6,6 +6,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="Models.CapThanhPhoService"%>
+<%@page import="DAO.DAO_QUYEN"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,19 +51,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="header_location">
-					<p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ
-						CHÍ MINH</p>
-					<p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ
-						QUẬN 9</p>
+					<p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%></p>
+					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
 				</div>
 			</div>
 		</div>
 		<div class="container" style="width: 95%">
-			<div class="row">
+			<div class="row" style="margin-top: 20px">
 				<!-- Top navigation -->
 				<div class="topnav">
 					<!-- Left-aligned links (default) -->
-					<a href="#news">TỔNG QUAN</a> <a href="#contact">TÀI KHOẢN</a> <a
+					<a href="#news">TỔNG QUAN</a> <a href="#contact"
+						style="background-color: rgb(243, 93, 33);">TÀI KHOẢN</a> <a
 						href="#news">CƠ QUAN</a> <a href="#contact">PHẦN MỀM</a>
 				</div>
 
@@ -69,8 +70,17 @@
 			</div>
 			<!-- Setup 2000px for test amnition-->
 			<div class="paper">
+				<div class="titile" style="margin-top: 30px">
+					<p>
+						<i class="fa fa-list-alt" style="padding-right: 10px"></i>QUẢN LÝ
+						THÔNG TIN TÀI KHOẢN
+					</p>
+				</div>
+				<div class="titilees" style="margin-top: 30px">
+					<p>DANH SÁCH QUẢN LÝ HOẠT ĐỘNG CỦA NGƯỜI DÙNG</p>
+				</div>
 
-				<div class="title">
+				<div class="content-table">
 					<div class="col-12 col-sm-12 col-md-12">
 						<div class="form-group">
 							<div class="table-responsive">
@@ -82,14 +92,13 @@
 											<th scope="col" style="width: 140px">MÃ CÁN BỘ</th>
 											<th scope="col" style="width: 180px">EMAIL</th>
 											<th scope="col" style="width: 180px">SĐT</th>
-											<th scope="col" style="width: 140px">CHỨC VỤ</th>
 											<th scope="col" style="width: 140px">QUYỀN</th>
 											<th scope="col" style="width: 140px">TRẠNG THÁI</th>
 										</tr>
 									</thead>
 									<tbody>
 										<%
-											DAO_NGUOIDUNG user = new DAO_NGUOIDUNG(Consts.ServerUrl, Consts.Pass, Consts.UserName);
+											DAO_NGUOIDUNG user = new DAO_NGUOIDUNG(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 											ResultSet result;
 										%>
 
@@ -107,7 +116,6 @@
 											<td><%=result.getString(4)%></td>
 											<td><%=result.getString(5)%></td>
 											<td><%=result.getString(6)%></td>
-											<td><%=result.getString(7)%></td>
 										<tr>
 											<%
 												count++;
@@ -124,27 +132,41 @@
 				</div>
 
 				<div style="font-size: 15px">
-				<form action="ThemNhanVien.php" method="post">
-					<div class="titile">
-						<p>TÀI KHOẢN</p>
-						<div class="controls-edit" style="margin-right: 20px;margin-bottom: 20px">
-							<button class="btn add ">
-								THÊM <i class="fa fa-home"></i>
-							</button>
-							<button class="btn add ">
-								CHỈNH SỬA <i class="fa fa-home"></i>
-							</button>
-							<button class="btn add">
-								HỦY BỎ <i class="fa fa-home"></i>
-							</button>
-							<button type="submit" class="btn add "
-								style="float: right; margin-right: 45px;">
-								LƯU <i class="fa fa-home"></i>
-							</button>
-						</div>
-					</div>
+					<form action="ThemNhanVien.php" method="post" onsubmit="return validateSubmitThemNhanVien()">
+						 <div class="titile">
+                        <div class="row">
+                            <div class="col-sm-6 titiles">
+                                <p style=" display: inline-block;"><i class="fa fa-print" style="margin-right: 10px;"></i>THÔNG TIN TÀI KHOẢN</p>
+                                <select id="user_IDSearch" style="width:30%;display: inline-block; margin-bottom:5px;margin-left:20px; "
+										name="user_IDSearch" class="form-control"
+										onblur="validateRequired(user_IDSearch)">
+										<%
+											result = user.Get_MACANBO("1");
+											if (!result.wasNull()) {
+												while (result.next()) {
+										%>
+										<option value="<%=result.getString(1)%>">
+											<%=result.getString(2)%>
+										</option>
+										<%
+											}
+											}
+										%>
+							    </select>
+                            </div>
 
-					
+                            <div class=" col-sm-6 controls-edit " style="float: right;  display: inline-block;">
+                                <button style="float: right;" class="btn add ">HỦY BỎ <i class="fa fa-home"></i></button>
+                                <button style="float: right;" class="btn add ">CHỈNH SỬA <i class="fa fa-home"></i></button>
+                                <button style="float: right;" class="btn add ">THÊM <i class="fa fa-home"></i></button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
 						<div class="row">
 							<div class="col-12 col-sm-6 col-md-4">
 								<div class="form-group">
@@ -197,13 +219,30 @@
 								</div>
 							</div>
 							<div class="col-12 col-sm-6 col-md-4">
+								<%
+									DAO_QUYEN quyen = new DAO_QUYEN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+								%>
 								<div class="form-group">
-									<label for="">Quyền sử dụng</label> <input type="text"
-										class="form-control" id="user_Quyen" name="user_Quyen"
+									<label for="">Quyền sử dụng</label> <select id="user_Quyen"
+										name="user_Quyen" class="form-control"
 										onblur="validateRequired(user_Quyen)">
-									<p class="error" id="error_user_Quyen"></p>
+										<%
+											result = quyen.LoadQuyenNguoiDung();
+											if (!result.wasNull()) {
+												while (result.next()) {
+										%>
+										<option value="<%=result.getString(1)%>">
+											<%=result.getString(2)%>
+										</option>
+										<%
+											}
+											}
+										%>
+									</select>
+									<p class="error" id="error_NguoiYeuCau_Tinh"></p>
 								</div>
 							</div>
+
 						</div>
 						<div class="row">
 							<div class="col-12 col-sm-6 col-md-4">
@@ -235,7 +274,7 @@
 								</div>
 							</div>
 						</div>
-					
+
 						<div class="controls-edit">
 							<button class="btn add">
 								HỦY BỎ <i class="fa fa-home"></i>
@@ -278,10 +317,9 @@
 		</div>
 	</footer>
 	<!-- End Footer-->
-	<script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
 	<script src="CONTENT/js/index.js"></script>
 	<script src="CONTENT/js/valiedateForm.js"></script>
-	<script src="CONTENT/js/DangKyKhaiSinhAjax.js"></script>
+	
 	<script>
 		var set_height;
 		var h;

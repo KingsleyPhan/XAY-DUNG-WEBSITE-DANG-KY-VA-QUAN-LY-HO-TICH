@@ -28,6 +28,15 @@ public class PHUONG
 	}
 
 	private String Phuong_Ten;
+	private String Phuong_TenCQ;
+	public String getPhuong_TenCQ() {
+		return Phuong_TenCQ;
+	}
+
+	public void setPhuong_TenCQ(String phuong_TenCQ) {
+		Phuong_TenCQ = phuong_TenCQ;
+	}
+
 	private int Phuong_TrangThai;
 	
 	public PHUONG(int ID, String Ten,int TrangThai)
@@ -37,9 +46,10 @@ public class PHUONG
 		this.Phuong_TrangThai =TrangThai;
 	}
 	
-	public PHUONG(String ID, String Ten)
+	public PHUONG(String ID, String Ten, String TenCQ)
 	{
 		this.Phuong_ID = Integer.parseInt(ID);
 		this.Phuong_Ten = Ten;
+		this.Phuong_TenCQ = TenCQ;
 	}
 }

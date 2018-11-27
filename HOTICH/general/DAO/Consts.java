@@ -8,14 +8,22 @@ public class Consts {
 	public static String LocationCap2 = "NỘP HỒ SƠ TRỰC TUYẾN";
 
 	//Kết nối 2 máy
-//	public static String ServerUrl = "jdbc:sqlserver://192.168.43.228:1433;databaseName=CSDL_QLHT_Test_2;";
+	//public static String ServerUrl = "jdbc:sqlserver://192.168.43.228:1433;databaseName=CSDL_QLHT_Test_2;";
 	//Kết tại máy
 	public static String ServerUrl = "jdbc:sqlserver://localhost:1433;databaseName=CSDL_QLHT_Test_2;";
 	public static String UserName = "HOTICHSVR";
 	public static String Pass = "123456";
-
+	//Kết nối 2 máy
+	//public static String CONNECTION_STRING = "jdbc:sqlserver://192.168.43.228:1433;databaseName=CSDL_QLHT_Test_2;user=HOTICHSVR;password=123456;useUnicode=true;characterEncoding=UTF-8;";
+	//Kết tại máy
 	public static String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;databaseName=CSDL_QLHT_Test_2;user=HOTICHSVR;password=123456;useUnicode=true;characterEncoding=UTF-8;";
 	
+	public static int COQUAN_ID = 0;
+	
+	public static int Get_COQUAN_ID()
+	{
+		return COQUAN_ID;
+	}
 	//Chuyển từ form vô Entity
 	public static java.util.Date ConvertStringToUtilDate(String date) throws ParseException {
 		if(date != "") {

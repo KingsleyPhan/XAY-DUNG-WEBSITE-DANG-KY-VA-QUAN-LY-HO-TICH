@@ -3,12 +3,13 @@ package Models;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import DAO.Consts;
 import Entities.PHUONG;
 
 public class CapPhuongService 
 {
 
-ConnectDataBase Connect = new ConnectDataBase();
+ConnectDataBase Connect = new ConnectDataBase(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	
 	public CapPhuongService()
 	{
@@ -33,7 +34,7 @@ ConnectDataBase Connect = new ConnectDataBase();
 			
 			while(rs.next())
 			{
-				PHUONG Q = new PHUONG(rs.getString(1),rs.getString(4));
+				PHUONG Q = new PHUONG(rs.getString(1),rs.getString(3),rs.getString(4));
 				PHUONGLST.add(Q);
 			}
 			

@@ -36,5 +36,27 @@ public class DAO_PHUONG extends ConnectDAO{
 	         
 	      
 	 }
+	
+	public String GET_CQ_PHUONG(String Phuong_ID) throws SQLException
+	 {
+		 int ID = Integer.parseInt(Phuong_ID);
+		 
+	        String sql = "SELECT * FROM PHUONG WHERE PHUONG_ID = ?";
+	         
+	        Connection();
+	         
+	        PreparedStatement statement = DBConnection.prepareStatement(sql);
+	        statement.setInt(1, ID);
+	         
+	        ResultSet resultSet = statement.executeQuery();
+	         
+	        if (resultSet.next()) {
+	          return resultSet.getString("PHUONG_TENCOQUAN");
+	          
+	        }
+	        return "KHONG TIM THAY PHUONG";
+	         
+	      
+	 }
 
 }

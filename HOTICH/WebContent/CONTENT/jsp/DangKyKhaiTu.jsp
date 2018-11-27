@@ -5,6 +5,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="Models.CapThanhPhoService" %>
 <%@page import="Models.DanTocService" %>
+<%@page import="DAO.Consts"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,8 +63,9 @@
         <div class="container">
             <div class="row">
                 <div class="header_location">
-                        <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
-                        <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                      <p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%></p>
+					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
+					</div>
             </div>
 
 

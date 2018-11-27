@@ -2,8 +2,10 @@ package Models;
 
 import java.sql.ResultSet;
 
+import DAO.Consts;
+
 public class DanTocService {
-ConnectDataBase Connect = new ConnectDataBase();
+ConnectDataBase Connect = new ConnectDataBase(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	
 	public ResultSet  ShowDanToc()
 	{

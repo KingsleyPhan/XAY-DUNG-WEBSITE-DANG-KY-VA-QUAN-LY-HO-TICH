@@ -247,7 +247,7 @@ function AddClass(element, name) {
 		}
 
 		function validateSubmitKhaiSinh(){
-			var result = validateHoTen(HoTenYeuCau);
+			var result = validateHoTen(NYC_HOVATEN);
 			 result = validateCMND(CMNDYeuCau) && result;
 			 result = validateRequired(NoiCapCMNDYeuCau) && result;
 			 result = validateNgayCap(NgayCapCMNDYeuCau) && result;
@@ -339,6 +339,19 @@ function AddClass(element, name) {
 			 result = validateNgayCap(QuaDoi_NgayQuaDoi) && result;
 			 result = validateRequired(QuaDoi_LoaiBaoTu) && result;
 			 result = validateRequired(QuaDoi_SoBaoTu) && result;
+			if(result){
+				return true;
+			}
+			return false;
+		}
+		
+		function validateSubmitThemNhanVien(){
+			var result = validateHoTen(user_HoVaten);
+			 result = validateNgaySinh(user_NgaySinh) && result;
+			 result =validateRequired(user_MACANBO) && result;
+			 result = validateRequired(user_ChucVu) && result;
+			 result = validateRequired(user_Email) && result;
+			 result = validateRequired(user_SDT) && result;
 			if(result){
 				return true;
 			}
@@ -449,6 +462,16 @@ function AddClass(element, name) {
         })
              $(document).ready(function () {
             var date_input = $('input[name="CHONG_NGAYCAP"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'dd/mm/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+           $(document).ready(function () {
+            var date_input = $('input[name="user_NgaySinh"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'dd/mm/yyyy',
