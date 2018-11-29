@@ -13,8 +13,11 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import DAO.Consts;
 import DAO.DAO_DK_KHAISINH;
 import DAO.DAO_NGUOIDUNG;
+import DAO.DAO_QUYEN;
 import DAO.DAO_THANHPHO;
+import Entities.NguoiDungA;
 import Entities.KhaiSinh.DangKyKhaiSinh;
+import Models.CreateCode;
 
 
 
@@ -59,23 +62,33 @@ public class database
 	public static void main(String[] args) throws Exception {
 	
 		
+		/*
 		
-        DAO_NGUOIDUNG user  = new DAO_NGUOIDUNG(Consts.ServerUrl, Consts.Pass, Consts.UserName);
+        DAO_NGUOIDUNG user  = new DAO_NGUOIDUNG(Consts.ServerUrl,Consts.UserName, Consts.Pass );
         ResultSet result;
-      
-         	result = user.loadUser("1");
-							if (!result.wasNull()) 
-							{
-								while (result.next())
-								{
+        DAO_QUYEN GetQuyen =  new DAO_QUYEN(Consts.ServerUrl,Consts.UserName, Consts.Pass );
+       
+         	NguoiDungA us = new NguoiDungA();
+         	
+         	us = user.SeacrhNguoiDung("sac", "sac");
+         	
+         	String Quyen = GetQuyen.GET_QUYEN_ROLL(us.getQuyen());
+         	
+         	System.out.println(Quyen);
+         	
+         	
+         	result = user.Get_MACANBO("1");
+         	
+         	while(result.next())
+         	{
+         		System.out.println(result.getString(1));
+         	}
+         	*/
+		CreateCode cs = new CreateCode();
 		
-                       System.out.println(result.getString(1));
-                     
-          
-							    }
-							}
+		System.out.println("Code la: " + cs.Code());
 			
-	
+       
 		
 	
 	}

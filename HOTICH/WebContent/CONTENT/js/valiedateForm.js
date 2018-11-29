@@ -34,7 +34,7 @@ function AddClass(element, name) {
 				}
 			var id_error = "#error_" + id_HoVaTen.id;
 			$(id_error).html(result);
-			if(result == "")
+			if(result == "" && result == "")
 				{
 					RemoveClass(id_HoVaTen,"fild_error")
 					return true;
@@ -42,6 +42,9 @@ function AddClass(element, name) {
 			AddClass(id_HoVaTen,"fild_error");
 			return false;
         }
+        
+      
+
 
 		function validateNgaySinh(id_NgaySinh){
 			var x = id_NgaySinh;
@@ -247,7 +250,7 @@ function AddClass(element, name) {
 		}
 
 		function validateSubmitKhaiSinh(){
-			var result = validateHoTen(HoTenYeuCau);
+			var result = validateHoTen(NYC_HOVATEN);
 			 result = validateCMND(CMNDYeuCau) && result;
 			 result = validateRequired(NoiCapCMNDYeuCau) && result;
 			 result = validateNgayCap(NgayCapCMNDYeuCau) && result;
@@ -344,7 +347,131 @@ function AddClass(element, name) {
 			}
 			return false;
 		}
+		
+		function checkEmailNhanCien(id ){
+			var x = id;
+			var result = "";
+			
+			  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+			    if (!filter.test(x.value)) {
+			             x.focus; 
+			             result = "* Sai Fortmat Email";
+			    }
+			var id_error = "#error_" + id.id;
+			$(id_error).html(result);
+			if(result == "")
+				{
+					RemoveClass(id,"fild_error")
+					return true;
+				}
+			AddClass(id,"fild_error");
+			return false;
+		}
+		
+		function validateSubmitThemNhanVien(){
+			var result = validateHoTen(user_HoVaten);
+			 result = validateNgaySinh(user_NgaySinh) && result;
+			 result =validateRequired(user_MACANBO) && result;
+			 result = validateRequired(user_ChucVu) && result;
+			 result = validateRequired(user_Email) && result;
+			 result = checkEmailNhanCien(user_Email) && result;
+			 result = validateRequired(user_SDT) && result;
+			if(result){
+				return true;
+			}
+			return false;
+		}
+		
+		function checkEmail(id_ele) { 
+		    var email = id_ele; 
+		    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+		    if (!filter.test(email.value)) {
+		             email.focus; 
+		             return false; 
+		    }
+		    else{ 
+		            return true;
+		    } 
+		} 
+		
+		function validateCode(id_scr, id_des){
+			var sc = id_scr;
+			var ds = id_des;
+			
+			if(sc.innerHTML == ds.value)
+			{
+				return true;
+			}
+			else
+				{
+				 $(id_error).html('Sai Mã xác nhận. Mời nhập lại');
+				 SearchCoQuans();
+				 return false;
+				}
+			
+		}
+		
+		function validateletDt(id_des){
+			var ds = id_des;
+			
+			if(ds.value.length==10)
+			{
+				return true;
+			}
+			else
+				{
+				 $(id_error).html('Sai Số điện thoại');
+				 SearchCoQuans();
+				 return false;
+				}
+			
+		}
+		
+	
+		
+		function validateSubmitXacNhanNopHoSo(){
+			var result = validateHoTen(xacNhanEmail);
+			 result = validateHoTen(xacNhanDienThoai) && result;
+			 result = validateCode(textXacNhan,id_typeXacNhan);
+			
+			 if(result==false)
+				{
+					 return false;
+				} 
+			 if(validateletDt(xacNhanDienThoai)==false)
+				 {
+					 $(id_error).html('Sai Số điện thoại');
+					 SearchCoQuans();
+				 
+					 	return false;
+				 }
+			 
+			 if(checkEmail(xacNhanEmail) == false)
+		     {
+				 $(id_error).html('Sai format email');
+				 SearchCoQuans();
+				 
+				 return false;
+		     }
+			 
+			 checkEmail(xacNhanEmail);
+			 validateletDt(xacNhanDienThoai);
+			if(result){
+				$(id_error).html('Nộp hồ sơ thành công');
+				
+				SearchCoQuans();
+				return true;
+			}
+			$(id_error).html('Không thể nộp đơn yêu cầu. Xin kiểm tra lại !!!');
+			SearchCoQuans();
+			return false;
+		}
 
+		function SearchCoQuans()
+		{
+			
+			$("#myModals").modal();
+		}
         $(document).ready(function () {
             var date_input = $('input[name="date"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
@@ -449,6 +576,16 @@ function AddClass(element, name) {
         })
              $(document).ready(function () {
             var date_input = $('input[name="CHONG_NGAYCAP"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'dd/mm/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+           $(document).ready(function () {
+            var date_input = $('input[name="user_NgaySinh"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'dd/mm/yyyy',

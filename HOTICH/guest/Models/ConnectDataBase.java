@@ -5,23 +5,30 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import DAO.ConnectDAO;
 import DAO.Consts;
 
-public class ConnectDataBase 
+public class ConnectDataBase  extends ConnectDAO
 {
+	protected String URL;
+	protected String Username;
+	protected String Password;
+	public ConnectDataBase(String URL, String Username, String Password) {
+		super(URL, Username, Password);
+		this.URL = URL;
+		this.Username = Username;
+		this.Password = Password;
+	}
+
 	String sql;
 	
-	public ConnectDataBase()
-	{
-	      super();
-	      this.sql = Consts.CONNECTION_STRING;
-	}
+
 	public Connection connect() throws Exception
 	{
 		try
 		{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			Connection connect = DriverManager.getConnection(this.sql);
+			Connection connect = DriverManager.getConnection(URL, Username, Password);
 			System.out.println("Connect Sucsessfull");
 			return connect;
 		}
@@ -47,7 +54,7 @@ public class ConnectDataBase
 	}
 	
 	public static void main(String[] args) throws Exception {
-		ConnectDataBase conn = new ConnectDataBase();
+		ConnectDataBase conn = new ConnectDataBase(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		System.out.println(conn.connect());
 		
 		 ResultSet rs = conn.ExcuseService("Select * from THANHPHO");

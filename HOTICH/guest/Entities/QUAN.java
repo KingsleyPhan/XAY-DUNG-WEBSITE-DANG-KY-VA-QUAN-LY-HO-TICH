@@ -4,6 +4,15 @@ public class QUAN
 {
 	private int Quan_ID;
 	private String Quan_Ten;
+	private String Quan_TenCQ;
+	public String getQuan_TenCQ() {
+		return Quan_TenCQ;
+	}
+
+	public void setQuan_TenCQ(String quan_TenCQ) {
+		Quan_TenCQ = quan_TenCQ;
+	}
+
 	private int Quan_TrangThai;
 	
 	public int getQuan_ID() {
@@ -37,10 +46,11 @@ public class QUAN
 		this.Quan_TrangThai =TrangThai;
 	}
 	
-	public QUAN(String ID, String Ten)
+	public QUAN(String ID, String Ten, String tenCQ)
 	{
 		this.Quan_ID = Integer.parseInt(ID);;
 		this.Quan_Ten = Ten;
+		this.Quan_TenCQ = tenCQ;
 	}
 
 }

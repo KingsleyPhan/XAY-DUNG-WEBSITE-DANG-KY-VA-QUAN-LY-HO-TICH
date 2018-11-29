@@ -16,6 +16,7 @@ import DAO.DAO_DK_KHAISINH;
 import DAO.DAO_NGUOIDUNG;
 import DAO.DAO_PHUONG;
 import DAO.DAO_QUAN;
+import DAO.DAO_QUYEN;
 import DAO.DAO_THANHPHO;
 import Entities.NguoiDungA;
 
@@ -42,7 +43,8 @@ public class ThemNhanVienServlet extends HttpServlet {
 		DAO_QUAN QUAN  = new DAO_QUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_PHUONG PHUONG = new DAO_PHUONG(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_THANHPHO TP = new DAO_THANHPHO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
-		
+	    DAO_QUYEN Quyen  = new DAO_QUYEN(Consts.ServerUrl,Consts.UserName, Consts.Pass );
+	    
 		user.setHoVaTen(request.getParameter("user_HoVaten"));
 		try {
 			user.setNgaySinh(request.getParameter("user_NgaySinh"));
@@ -52,19 +54,25 @@ public class ThemNhanVienServlet extends HttpServlet {
 		}
 		user.setMaCanBo(request.getParameter("user_MACANBO"));
 		user.setEmail(request.getParameter("user_Email"));
+		user.setSDT(request.getParameter("user_SDT"));
+		System.out.println(request.getParameter("user_SDT"));
 		user.setPassword(user.getMaCanBo());
 		user.setUsername(user.getMaCanBo());
 		
 		user.setCoQuan_ID(1);
 		
 		String TranhThai = request.getParameter("user_TrangThai");
-		
-		if(TranhThai == "on")
-			user.setTrangThai("1");
-		else
+		System.out.println("Trang thái: " + TranhThai);
+		if(TranhThai==null)
 			user.setTrangThai("0");
+		else
+			user.setTrangThai("1");
 		
 		DAO_NGUOIDUNG USER_DAO = new DAO_NGUOIDUNG(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		
+		
+	
+			user.setQuyen(request.getParameter("user_Quyen"));
 		
 		try {
 			USER_DAO.INSERT_NGUOIDUNG(user);
@@ -73,10 +81,12 @@ public class ThemNhanVienServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		
+		
 		System.out.println("Thanh cong them nhan vien");
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/AdminNguoiDung.jsp");
-		dispatcher.forward(request, response);
+	    response.sendRedirect("admin");
 		return;
 	}
 

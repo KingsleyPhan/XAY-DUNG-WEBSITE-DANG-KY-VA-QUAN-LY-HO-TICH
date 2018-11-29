@@ -3,11 +3,12 @@ package Models;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import DAO.Consts;
 import Entities.QUAN;
 
 public class CapQuanService 
 {
-	ConnectDataBase Connect = new ConnectDataBase();
+	ConnectDataBase Connect = new ConnectDataBase(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	
 	public CapQuanService()
 	{
@@ -32,7 +33,7 @@ public class CapQuanService
 			
 			while(rs.next())
 			{
-				QUAN Q = new QUAN(rs.getString(1),rs.getString(3));
+				QUAN Q = new QUAN(rs.getString(1),rs.getString(3),rs.getString(4));
 				QUANLST.add(Q);
 			}
 			

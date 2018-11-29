@@ -85,8 +85,4 @@ public class NGUOIDUNG
 		NguoiDung_ID = nguoiDung_ID;
 		HoVaTen = hoVaTen;
 	}
-	
-	
-	
-
 }

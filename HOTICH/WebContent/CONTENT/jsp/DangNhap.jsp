@@ -51,7 +51,7 @@
 									ResultSet Result = ThanhPho.ShowThanhPho();
 									
 								%>
-								<select class="form-control" onload="chgQuan()" onmousedown="chgQuan()" onchange="chgQuan()" id="comboCoQuan"
+								<select class="form-control" onload="CheckSearch()" onmousedown="CheckSearch()" onchange="CheckSearch" id="comboCoQuan"
 									name="ComboTHANHPHO">
 									
 									<%
@@ -68,9 +68,11 @@
 							</div>
 							<div class="col-sm-3" style="padding: 0%">
 						
-							<button class="btn-default btn-search-location" onmouseover="chgQuan()"
+							<button type="submit" class="btn-default btn-search-location" onmouseover="CheckSearch()"
 									onclick="return SearchCoQuan()">Tìm kiếm</button>
+								
 							</div>
+						
 						</div>
 					</div>
 				</div>
@@ -88,6 +90,7 @@
 					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
 				</div>
 			</div>
+			<form action="changelocation">
 			<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -100,18 +103,19 @@
 									<div class="form-group">
 										<label for="">QUẬN/HUYỆN</label>
 										<form action="Tìm Cơ quan">
-											<select class="form-control" onload="chgPhuong()" onmousedown="chgPhuong()"  onchange="chgPhuong()" id="modal-quan">
+											<select class="form-control" onload="chgPhuong()" onmousedown="chgPhuong()"  onchange="chgPhuong()" name="modal-quan" id="modal-quan">
 																					
 											</select>
 										</form>
 
 									</div>
 								</div>
-
+								
+                                 <input type="text" style="display:none" value="" class="form-control" name="id_TP" id="id_TP">
 								<div class="col-12 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="">XÃ/PHƯỜNG</label> <select class="form-control"
-											id="modal-xaPhuong">
+											id="modal-xaPhuong" name="modal-xaPhuong">
 											
 										</select>
 									</div>
@@ -122,14 +126,18 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default"
 								style="background-color: #004f7e" data-dismiss="modal">Đóng</button>
-							<button type="button" class="btn btn-primary"
+							
+								<button type="submit" type="button" class="btn btn-primary"
 								style="background-color: #004f7e" onclick="ChangeLocation()">Tiếp tục</button>
+							
+							
 						</div>
 					</div>
 					<!-- /.modal-content -->
 				</div>
 				<!-- /.modal-dialog -->
 			</div>
+			</form>
 			<!-- /.modal -->
 			<div class="row">
 				<div class="col-sm-6">
@@ -169,10 +177,9 @@
 						<div class="title-switch">
 							<p>DÀNH CHO CÁN BỘ HỘ TỊCH</p>
 						</div>
-						<style>
-</style>
+						<form action="DangNhapHeThong" >
 						<div class="content-switch">
-							<form action="loginServlet" class="form-Dang-Nhap">
+							
 								<div class="form-group" style="margin-top: 5px;">
 									<h5 style="color: #004f7e; font-weight: bold">Tên đăng
 										nhập</h5>
@@ -197,8 +204,9 @@
 										dùng? </a>
 								</div>
 
-							</form>
+							
 						</div>
+						</form>
 
 					</div>
 				</div>
@@ -235,6 +243,17 @@
 	<script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
 	<script src="CONTENT/js/index.js"></script>
 	
+	<script>
+	function CheckSearch()
+	{
+		chgQuan()
+	       var vals = document.getElementById("comboCoQuan").value;
+		 var element = document.getElementById('id_TP');
+		 element.value = vals;
+		 
+		
+	}
+	</script>
 	
 
 </body>

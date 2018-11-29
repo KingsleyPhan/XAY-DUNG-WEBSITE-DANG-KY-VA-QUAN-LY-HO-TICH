@@ -64,7 +64,7 @@ public class HoSoDangKyServlet extends HttpServlet {
 						String action = "KiemDuyet";
 						request.setAttribute("action", action);
 						
-						page = "/CONTENT/jsp/DangKyKhaiSinh.jsp";
+						page = "/CONTENT/jsp/KiemDuyetKhaiSinh.jsp";
 
 						RequestDispatcher dispatcher = request.getRequestDispatcher(page);
 						dispatcher.forward(request, response);

@@ -21,6 +21,7 @@ import Entities.KhaiSinh.DangKyKhaiSinh;
 import Entities.KhaiSinh.KhaiSinh;
 import Entities.KhaiSinh.NguoiThan;
 import Entities.KhaiSinh.NguoiYeuCau;
+import Models.StoreEntity;
 
 /**
  * Servlet implementation class NopKhaiSinhServlet
@@ -48,7 +49,7 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		DAO_THANHPHO TP = new DAO_THANHPHO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_QUAN QUAN  = new DAO_QUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_PHUONG PHUONG = new DAO_PHUONG(Consts.ServerUrl, Consts.UserName, Consts.Pass);
-		DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		
 		DAO_DANTOC DANTOC = new DAO_DANTOC(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		
 		NguoiYeuCau NYC = new NguoiYeuCau();
@@ -234,17 +235,11 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		
 		DangKyKhaiSinh DK = new DangKyKhaiSinh(NYC, KS,CHA, ME);
 		
-		try {
-			if( DKKS.INSERT_DK_KHAISINH(1, 5, DK))
-			System.out.println("Successsssssssssssssssssssssssssss");
-			else
-				System.out.println("failllllllllllllllllllllllllllll");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		StoreEntity Store = new  StoreEntity();
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/XacNhanDangKy.jsp");
+		Store.DKKS  = DK;
+	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/XacNhanDangKy_1.jsp");
 		dispatcher.forward(request, response);
 		
 	

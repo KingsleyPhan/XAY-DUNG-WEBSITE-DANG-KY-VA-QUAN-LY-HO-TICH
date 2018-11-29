@@ -35,6 +35,28 @@ public class DAO_THANHPHO extends ConnectDAO
 	      
 	 }
 	
+	public String GET_CQ_TP(String ThanhPho_ID) throws SQLException
+	 {
+		 int ID = Integer.parseInt(ThanhPho_ID);
+		 
+	        String sql = "SELECT * FROM THANHPHO WHERE THANHPHO_ID = ?";
+	         
+	        Connection();
+	         
+	        PreparedStatement statement = DBConnection.prepareStatement(sql);
+	        statement.setInt(1, ID);
+	         
+	        ResultSet resultSet = statement.executeQuery();
+	         
+	        if (resultSet.next()) {
+	          return resultSet.getString("THANHPHO_TENCOQUAN");
+	          
+	        }
+	        return "KHONG TIM THAY THANH PHO";
+	         
+	      
+	 }
+	
 	public ResultSet  ShowThanhPho()
 	{
 		try 

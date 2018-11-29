@@ -13,15 +13,6 @@
 </head>
 <body>
 
-<!-- 	<form>
-		Enter Your Name: <input type="text" id="userName" />
-	</form>
-	<br>
-	<br> -->
-	<c:redirect url = "/QuanLyDangKy"></c:redirect>
-	<!-- <a href="./HoSoDangKy">aaaaa</a>
-	<strong>Ajax Response</strong>:
-	<div id="ajaxGetUserServletResponse"></div>
-	<a></a> -->
+	<c:redirect url = "/DangNhap.php"></c:redirect>
 </body>
 </html>

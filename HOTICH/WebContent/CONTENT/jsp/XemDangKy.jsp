@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF8"
     pageEncoding="UTF-8"%>
+<%@page import="DAO.Consts"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,13 +40,13 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12">
                     <div class="header_location">
-                        <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
-                        <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                       <p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%></p>
+					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-top:20px">
                 <div class="part-content">
                     <div class="title-part">
                         <div class="col-12 col-sm-12 col-md-12">
@@ -60,7 +61,7 @@
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-4">
+                        <div class="col-12 col-sm-6 col-md-4" style="margin-top:20px">
                             <div class="item-paper">
                                 <div class="item-body">
                                     <h3 class="item-title"><a href="course.html">KHAI SINH</a></h3>
@@ -77,7 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-4">
+                        <div class="col-12 col-sm-6 col-md-4" style="margin-top:20px">
                             <div class="item-paper">
                                 <div class="item-body">
                                     <h3 class="item-title"><a href="course.html">KẾT HÔN</a></h3>
@@ -95,7 +96,7 @@
                             </div>
 
                         </div>
-                        <div class="col-12 col-sm-6 col-md-4">
+                        <div class="col-12 col-sm-6 col-md-4" style="margin-top:20px">
                             <div class="item-paper">
                                 <div class="item-body">
                                     <h3 class="item-title"><a href="course.html">KHAI TỬ</a></h3>
@@ -112,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-4">
+                        <div class="col-12 col-sm-6 col-md-4" style="margin-top:20px">
                             <div class="item-paper">
                                 <div class="item-body">
                                     <h3 class="item-title"><a href="course.html">TRÍCH LỤC HỘ TỊCH</a></h3>

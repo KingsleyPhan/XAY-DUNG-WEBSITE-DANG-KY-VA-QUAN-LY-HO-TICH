@@ -35,6 +35,28 @@ public class DAO_QUAN extends ConnectDAO{
 	         
 	      
 	 }
+	
+	public String GET_CQ_QUAN(String QUAN_ID) throws SQLException
+	 {
+		 int ID = Integer.parseInt(QUAN_ID);
+		 
+	        String sql = "SELECT * FROM QUAN WHERE QUAN_ID = ?";
+	         
+	        Connection();
+	         
+	        PreparedStatement statement = DBConnection.prepareStatement(sql);
+	        statement.setInt(1, ID);
+	         
+	        ResultSet resultSet = statement.executeQuery();
+	         
+	        if (resultSet.next()) {
+	          return resultSet.getString("QUAN_TEN");
+	          
+	        }
+	        return "KHONG TIM QUAN";
+	         
+	      
+	 }
 
 
 }
