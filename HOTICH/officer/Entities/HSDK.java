@@ -10,7 +10,7 @@ public class HSDK {
 	private String hoSoDangKyMa;
 	private Date ngayDangKy;
 	private Date ngayHetHan;
-	private int loaiGiayToID;
+	private int loaiGiayToId;
 	public int getHoSoDangKyId() {
 		return hoSoDangKyId;
 	}
@@ -32,26 +32,26 @@ public class HSDK {
 	public String getNgayHetHanString() {
 		return Consts.ConvertUtilToString(ngayHetHan);
 	}
-	public int getLoaiGiayToID() {
-		return loaiGiayToID;
+	public int getLoaiGiayToId() {
+		return loaiGiayToId;
 	}
 
 	public HSDK(int hoSoDangKyId, String hoSoDangKyTen, String hoSoDangKyMa, Date ngayDangKy, Date ngayHetHan,
-			int loaiGiayToID) {
+			int loaiGiayToId) {
 		super();
 		this.hoSoDangKyId = hoSoDangKyId;
 		this.hoSoDangKyTen = hoSoDangKyTen;
 		this.hoSoDangKyMa = hoSoDangKyMa;
 		this.ngayDangKy = ngayDangKy;
 		this.ngayHetHan = ngayHetHan;
-		this.loaiGiayToID = loaiGiayToID;
+		this.loaiGiayToId = loaiGiayToId;
 	}
 	
 	
-	public HSDK(int hoSoDangKyId, int loaiGiayToID) {
+	public HSDK(int hoSoDangKyId, int loaiGiayToId) {
 		super();
 		this.hoSoDangKyId = hoSoDangKyId;
-		this.loaiGiayToID = loaiGiayToID;
+		this.loaiGiayToId = loaiGiayToId;
 	}
 	
 	private HSDK() {
@@ -67,7 +67,7 @@ public class HSDK {
 	public String toString() {
 		// TODO Auto-generated method stub
 		StringBuilder wrkStr = new StringBuilder();
-		wrkStr.append("ID : " + hoSoDangKyId);
+		wrkStr.append("Id : " + hoSoDangKyId);
 		wrkStr.append("\r\n");
 		wrkStr.append("Tên : " + hoSoDangKyTen);
 		wrkStr.append("\r\n");
@@ -81,7 +81,7 @@ public class HSDK {
 			wrkStr.append("Ngày hết hạn : " + Consts.ConvertUtilToString(ngayHetHan));
 			wrkStr.append("\r\n");
 		}
-		wrkStr.append("Loại giấy tờ ID : "+loaiGiayToID);
+		wrkStr.append("Loại giấy tờ Id : "+loaiGiayToId);
 		return wrkStr.toString();
 	}
 }

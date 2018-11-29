@@ -15,6 +15,9 @@ public class CongDan {
 	private DiaChi diaChi;
 	private CoSoYTe noiSinh;
 	private DiaChi queQuanKhaiSinh;
+	private int id;
+	private int tinhTrangHonNhan;
+	private Boolean conSong;
 
 	public String getHoVaTen() {
 		return hoVaTen;
@@ -58,6 +61,18 @@ public class CongDan {
 
 	public DiaChi getQueQuanKhaiSinh() {
 		return queQuanKhaiSinh;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public int getTinhTrangHonNhan() {
+		return tinhTrangHonNhan;
+	}
+
+	public Boolean getConSong() {
+		return conSong;
 	}
 
 	// Dùng để hứng dữ liệu của con - giấy khai sinh
@@ -123,6 +138,50 @@ public class CongDan {
 		this.danToc = danToc;
 		this.noiSinh = noiSinh;
 		this.queQuanKhaiSinh = queQuanKhaiSinh;
+	}
+	
+	public CongDan(String hoVaTen, Date ngaySinh, Boolean gioiTinh, String queQuan, String quocTich, String danToc,
+			CMND cmnd, DiaChi diaChi, int id, int tinhTrangHonNhan) {
+		super();
+		this.hoVaTen = hoVaTen;
+		this.ngaySinh = ngaySinh;
+		this.gioiTinh = gioiTinh;
+		this.queQuan = queQuan;
+		this.quocTich = quocTich;
+		this.danToc = danToc;
+		this.cmnd = cmnd;
+		this.diaChi = diaChi;
+		this.id = id;
+		this.tinhTrangHonNhan = tinhTrangHonNhan;
+		this.conSong = true;
+	}
+	
+	public String toStringBuilder() {
+		StringBuilder congDan = new StringBuilder();
+		congDan.append("{");
+		congDan.append("\"id\":\""+this.id+"\",");
+		congDan.append("\"hoVaTen\":\""+this.hoVaTen+"\",");
+		congDan.append("\"ngaySinh\":\""+Consts.ConvertUtilToString(this.ngaySinh)+"\",");
+		if(this.gioiTinh){
+			congDan.append("\"gioiTinh\":\""+1+"\",");
+		}
+		else {
+			congDan.append("\"gioiTinh\":\""+0+"\",");
+		}
+		congDan.append("\"queQuan\":\""+this.queQuan+"\",");
+		congDan.append("\"quocTich\":\""+this.quocTich+"\",");
+		congDan.append("\"danToc\":\""+this.danToc+"\",");
+		congDan.append("\"cmndSo\":\""+this.cmnd.getSo()+"\",");
+		congDan.append("\"cmndNgayCap\":\""+Consts.ConvertUtilToString(this.cmnd.getNgayCap())+"\",");
+		congDan.append("\"cmndNoiCap\":\""+this.cmnd.getNoiCap()+"\",");
+		congDan.append("\"thanhPho\":\""+this.diaChi.getThanhPho()+"\",");
+		congDan.append("\"quan\":\""+this.diaChi.getQuan()+"\",");
+		congDan.append("\"phuong\":\""+this.diaChi.getPhuong()+"\",");
+		congDan.append("\"diachi\":\""+this.diaChi.getSoDuong()+"\",");
+		congDan.append("\"tinhTrangHonNhan\":\""+this.tinhTrangHonNhan+"\",");
+		congDan.append("\"conSong\":\""+this.conSong.toString()+"\"");
+		congDan.append("}");
+		return congDan.toString();
 	}
 
 	@Override

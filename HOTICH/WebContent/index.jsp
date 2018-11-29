@@ -18,7 +18,7 @@
 	</form>
 	<br>
 	<br> -->
-	<c:redirect url = "/DangNhap.php"></c:redirect>
+	<c:redirect url = "/QuanLyDangKy"></c:redirect>
 	<!-- <a href="./HoSoDangKy">aaaaa</a>
 	<strong>Ajax Response</strong>:
 	<div id="ajaxGetUserServletResponse"></div>

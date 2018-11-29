@@ -1,6 +1,7 @@
 package Controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.Consts;
 import DAO.DangKyKhaiSinhDAO;
 import Entities.HoSoDangKy.HoSoKhaiSinh;
+import Service.HoSoDangKyService;
 
 public class HoSoDangKyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -91,7 +93,9 @@ public class HoSoDangKyServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
-
+		
+		PrintWriter out = response.getWriter();
+		
 		String action = request.getRequestURI();
 		String[] words = action.split("/");
 		
@@ -99,6 +103,22 @@ public class HoSoDangKyServlet extends HttpServlet {
 		case "setHSDK":
 			setHSDK(request);
 			break;
+		case "getInfo":
+			try {
+				out.println(getInfo(request, response));
+			} catch (SQLException | ParseException e) {
+				e.printStackTrace();
+				out.println("");
+			}
+			return;
+		case "getInfo1":
+			try {
+				out.println(getInfo1(request, response));
+			} catch (SQLException | ParseException e) {
+				e.printStackTrace();
+				out.println("");
+			}
+			return;
 		default:
 			break;
 		}
@@ -112,4 +132,17 @@ public class HoSoDangKyServlet extends HttpServlet {
 		context.setAttribute("Loai_GiayTo", loai);
 	}
 
+	private String getInfo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ParseException {
+		String cmndNgYeuCau = request.getParameter("cmndNgYeuCau");
+		String cmndCha = request.getParameter("cmndCha");
+		String cmndMe = request.getParameter("cmndMe");
+		HoSoDangKyService service = new HoSoDangKyService();
+		return service.getCheckKhaiSinhService(cmndNgYeuCau, cmndCha, cmndMe);
+	}
+	
+	private String getInfo1(HttpServletRequest request, HttpServletResponse response) throws SQLException, ParseException {
+		String cmnd = request.getParameter("cmnd");
+		HoSoDangKyService service = new HoSoDangKyService();
+		return service.getCheckCongDanService(cmnd);
+	}
 }

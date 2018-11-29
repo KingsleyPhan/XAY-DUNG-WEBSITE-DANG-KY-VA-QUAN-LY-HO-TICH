@@ -34,7 +34,7 @@ function AddClass(element, name) {
 				}
 			var id_error = "#error_" + id_HoVaTen.id;
 			$(id_error).html(result);
-			if(result == "" && result == "")
+			if(result == "")
 				{
 					RemoveClass(id_HoVaTen,"fild_error")
 					return true;

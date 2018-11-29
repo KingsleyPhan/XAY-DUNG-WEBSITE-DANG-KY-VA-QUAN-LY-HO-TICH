@@ -1,36 +1,29 @@
-/*Quản lý hộ tịch*/
-
-td.details-control {
-    background: url('../resources/details_open.png') no-repeat center center;
-    cursor: pointer;
-}
-tr.shown td.details-control {
-    background: url('../resources/details_close.png') no-repeat center center;
-}
 .col-stt{
 	width: 5%;
+	line-height : 35px!important;
 }
 .col-ma{
 	width: 12%;
 	text-align: center;
+	line-height : 35px!important;
 }
 .col-ngay{
 	width: 15%;
 	text-align: center;
+	line-height : 35px!important;
 }
 .col-tacvu{
 	width: 15%;
 	text-align: center;
+	line-height : 35px!important;
 }
-td.col-canbo{
+.col-canbo{
 	width: 20%;
 	text-align: center;
+	line-height : 35px!important;
 }
 tr{
 	line-height: 40px;
-}
-.details-control{
-	width: 5%;
 }
 
 
@@ -60,7 +53,7 @@ tr{
 
 .col-sm-12.col-md-6
 {
-	width:42%!important;
+	width:35%!important;
 }
 .dataTables_filter{
 	visibility:visible;

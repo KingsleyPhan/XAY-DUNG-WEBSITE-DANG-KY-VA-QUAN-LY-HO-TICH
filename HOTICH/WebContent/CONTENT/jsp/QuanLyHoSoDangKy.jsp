@@ -21,6 +21,8 @@
 	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
 	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap.min.js"></script>
 	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	
 
     <link rel="stylesheet" type="text/css" href="./CONTENT/styles/HAF.css">
     <link rel="stylesheet" type="text/css" href="./CONTENT/styles/manage.css">
@@ -42,7 +44,7 @@
 
     <!--Start Content-->
     <div id="id-content" class="content-switch">
-        <div class="container">
+        <div class="container-manage">
             <div class="row">
                 <div class="header_location">
                     <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
@@ -56,12 +58,12 @@
 				<div class="row tab-control">
 					<div class="tab-col">
 						<div class="tab-item isChoice">
-							<a href="manage.html" class="tablinks">Hồ sơ</a>
+							<a href="QuanLyDangKy" class="tablinks">Hồ sơ</a>
 						</div>
 					</div>
 					<div class="tab-col">
 						<div class="tab-item">
-							<a href="manageHT.html" class="tablinks">Hộ tịch</a>
+							<a href="QuanLyHoTich" class="tablinks">Hộ tịch</a>
 						</div>
 					</div>
 					<div class="tab-col">
@@ -170,7 +172,6 @@
 							</div>
 						</div>
 						
-						
 						<div class="filter" onclick="filterSelection(8)">
 							<div class="filter-content">
 								<div class="filter-img">
@@ -180,6 +181,24 @@
 							</div>
 						</div>
 					</div>
+					<c:if test='${message != null }'>
+					<div class="container">
+						<c:choose>
+							<c:when test='${message != "" }'>
+								<div class="alert alert-success alert-dismissible fade in">
+								    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								    <strong>Thành công</strong> Thêm hộ tịch thành công.
+								  </div>
+							</c:when>
+							<c:otherwise>
+								<div class="alert alert-danger alert-dismissible fade in">
+								    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								    <strong>Thất bại!</strong> Thêm hộ tịch thất bại.
+								</div>
+							</c:otherwise>
+						</c:choose>
+					</div>
+					</c:if>
 					<!--Table mau tự code -->
 					<div class="row container-table">          
   						<table id="table_id" class="table">

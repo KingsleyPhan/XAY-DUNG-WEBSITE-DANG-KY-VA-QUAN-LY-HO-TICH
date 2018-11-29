@@ -19,9 +19,9 @@
 	<link rel="stylesheet" href="./CONTENT/plugins/DataTables/Buttons-1.5.4/css/buttons.dataTables.min.css">
 	
     <!--content-->
-    <link rel="stylesheet" type="text/css" href="./CONTENT//styles/HAF.css">
-    <link rel="stylesheet" type="text/css" href="./CONTENT//styles/manage.css">
-	<link rel="stylesheet" type="text/css" href="./CONTENT//styles/manageHT.css">
+    <link rel="stylesheet" type="text/css" href="./CONTENT/styles/HAF.css">
+    <link rel="stylesheet" type="text/css" href="./CONTENT/styles/manage.css">
+	<link rel="stylesheet" type="text/css" href="./CONTENT/styles/manageHT.css">
 </head>
 <body>
  <!-- Start Header-->
@@ -40,7 +40,7 @@
 
     <!--Start Content-->
     <div id="id-content" class="content-switch">
-        <div class="container">
+        <div class="container-manage">
             <div class="row">
                 <div class="header_location">
                     <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
@@ -54,12 +54,12 @@
 				<div class="row tab-control">
 					<div class="tab-col">
 						<div class="tab-item">
-							<a href="manage.html" class="tablinks">Hồ sơ</a>
+							<a href="QuanLyDangKy" class="tablinks">Hồ sơ</a>
 						</div>
 					</div>
 					<div class="tab-col">
 						<div class="tab-item  isChoice">
-							<a href="manageHT.html" class="tablinks">Hộ tịch</a>
+							<a href="QuanLyHoTich" class="tablinks">Hộ tịch</a>
 						</div>
 					</div>
 					<div class="tab-col">
@@ -96,7 +96,7 @@
                     
 					<div id="myFilterContainer" class="row container-filter">
 						
-						<div class="filter active" onclick="filterSelection('all')">
+						<div class="filter active" onclick="filterSelection(-1)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/126503.png" alt="No image">
@@ -105,7 +105,7 @@
 							</div>
 						</div>
 
-						<div class="filter" onclick="filterSelection('khaisinh')">
+						<div class="filter" onclick="filterSelection(1)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/icon_KhaiSinh.png" alt="No image">
@@ -114,7 +114,7 @@
 							</div>
 						</div>
 
-						<div class="filter" onclick="filterSelection('kethon')">
+						<div class="filter" onclick="filterSelection(2)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/kethon.png" alt="No image">
@@ -123,7 +123,7 @@
 							</div>
 						</div>
 
-						<div class="filter" onclick="filterSelection('chungtu')">
+						<div class="filter" onclick="filterSelection(3)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/chungtu.jpg" alt="No image">
@@ -132,7 +132,7 @@
 							</div>
 						</div>
 
-						<div class="filter" onclick="filterSelection('giamho')">
+						<div class="filter" onclick="filterSelection(4)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/giamho.png" alt="No image">
@@ -141,7 +141,7 @@
 							</div>
 						</div>
 
-						<div class="filter" onclick="filterSelection('nhanquanhe')">
+						<div class="filter" onclick="filterSelection(5)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/iconNhanQuanHe.png" alt="No image">
@@ -150,7 +150,7 @@
 							</div>
 						</div>
 
-						<div class="filter" onclick="filterSelection('nhanconnuoi')">
+						<div class="filter" onclick="filterSelection(6)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/NhanConNuoi.jpg" alt="No image">
@@ -159,7 +159,7 @@
 							</div>
 						</div>
 
-						<div class="filter" onclick="filterSelection('lyhon')">
+						<div class="filter" onclick="filterSelection(7)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/breakMarrry.png" alt="No image">
@@ -169,7 +169,7 @@
 						</div>
 						
 						
-						<div class="filter" onclick="filterSelection('bansao')">
+						<div class="filter" onclick="filterSelection(8)">
 							<div class="filter-content">
 								<div class="filter-img">
 									<img src="./CONTENT/image/trichluc.png" alt="No image">
@@ -183,10 +183,13 @@
 					<table id="table_id" class="table" style="width: 100%">
 						<thead>
 								<tr style="display: table-row">
-<!--									<th></th>-->
   						      		<th class="col-stt">STT</th>
+  						      		<th class="col-ma">ID Hộ tịch</th>
+  						      		<th class="col-ma">ID Giấy tờ</th>
+  						      		<th class="col-ma">ID Hồ sơ đăng ký</th>
+  						      		<th class="col-ma">ID Cơ quan</th>
+  						      		<th class="col-ma">ID Loại giấy tờ</th>
   						      		<th class="col-ma">Mã hộ tịch</th>
-  						      		<th class="col-ma">Số hộ tịch</th>
   						      		<th class="col-ma">Số quyển</th>
   						      		<th class="col-ngay">Ngày hiệu lực</th>
   						      		<th class="col-canbo">Người xử lý</th>
@@ -196,14 +199,17 @@
 						</thead>
 						<tfoot>
 								<tr style="display: table-row">
-<!--									<th></th>-->
   						      		<th class="col-stt"></th>
-  						      		<th class="search col-ma">Mã hộ tịch</th>
-  						      		<th class="search col-ma">Số hộ tịch</th>
-  						      		<th class="search col-ma">Số quyển</th>
-  						      		<th class="search col-ngay">Ngày hiệu lực</th>
-  						      		<th class="search col-canbo">Người xử lý</th>
-  						      		<th class="search col-canbo">Người kí</th>
+  						      		<th class="col-ma"></th>
+  						      		<th class="col-ma"></th>
+  						      		<th class="col-ma"></th>
+  						      		<th class="col-ma"></th>
+  						      		<th class="col-ma"></th>
+  						      		<th class="search col-ma">mã giấy</th>
+  						      		<th class="search col-ma">số quyển hộ tịch</th>
+  						      		<th class="search col-ngay">ngày hiệu lực</th>
+  						      		<th class="search col-canbo">cán bộ xử lý</th>
+  						      		<th class="search col-canbo">cán hộ ký</th>
   						      		<th class="col-tacvu"></th>
   						    	</tr>
 						</tfoot>
@@ -239,8 +245,8 @@
     </footer>
     <!-- End Footer-->
 	<script src="./CONTENT/plugins/DataTables/jQuery-3.3.1/jquery-3.3.1.js"></script>
-		<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
-		<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.js"></script>
+	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
+	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.js"></script>
 	<!--	button-->
 	<script src="./CONTENT/plugins/DataTables/Buttons-1.5.4/js/dataTables.buttons.min.js"></script>
 	<script src="./CONTENT/plugins/DataTables/JSZip-2.5.0/jszip.min.js"></script>
