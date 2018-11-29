@@ -19,17 +19,12 @@ public class Consts {
 	//public static String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;databaseName=CSDL_QLHT_Test_2;user=HOTICHSVR;password=123456;useUnicode=true;characterEncoding=UTF-8;";
 	
 	public static int COQUAN_ID = 1;
-	
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 	public static int Get_COQUAN_ID()
 	{
 		return COQUAN_ID;
 	}
-=======
->>>>>>> Huynh-Le-Huu-Hung
->>>>>>> master
+
 	//Chuyển từ form vô Entity
 	public static java.util.Date ConvertStringToUtilDate(String date) throws ParseException {
 		if(date != "") {
