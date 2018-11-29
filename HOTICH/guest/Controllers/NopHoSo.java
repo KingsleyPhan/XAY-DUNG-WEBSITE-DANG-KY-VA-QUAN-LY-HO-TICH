@@ -50,6 +50,7 @@ public class NopHoSo extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+	   response.sendRedirect("DangNhap.php");
 		
 	}
 

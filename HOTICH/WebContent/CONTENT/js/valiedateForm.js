@@ -42,6 +42,9 @@ function AddClass(element, name) {
 			AddClass(id_HoVaTen,"fild_error");
 			return false;
         }
+        
+      
+
 
 		function validateNgaySinh(id_NgaySinh){
 			var x = id_NgaySinh;
@@ -345,12 +348,33 @@ function AddClass(element, name) {
 			return false;
 		}
 		
+		function checkEmailNhanCien(id ){
+			var x = id;
+			var result = "";
+			
+			  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+			    if (!filter.test(x.value)) {
+			             x.focus; 
+			             result = "* Sai Fortmat Email";
+			    }
+			var id_error = "#error_" + id.id;
+			$(id_error).html(result);
+			if(result == "")
+				{
+					RemoveClass(id,"fild_error")
+					return true;
+				}
+			AddClass(id,"fild_error");
+			return false;
+		}
+		
 		function validateSubmitThemNhanVien(){
 			var result = validateHoTen(user_HoVaten);
 			 result = validateNgaySinh(user_NgaySinh) && result;
 			 result =validateRequired(user_MACANBO) && result;
 			 result = validateRequired(user_ChucVu) && result;
 			 result = validateRequired(user_Email) && result;
+			 result = checkEmailNhanCien(user_Email) && result;
 			 result = validateRequired(user_SDT) && result;
 			if(result){
 				return true;
@@ -387,14 +411,41 @@ function AddClass(element, name) {
 			
 		}
 		
+		function validateletDt(id_des){
+			var ds = id_des;
+			
+			if(ds.value.length==10)
+			{
+				return true;
+			}
+			else
+				{
+				 $(id_error).html('Sai Số điện thoại');
+				 SearchCoQuans();
+				 return false;
+				}
+			
+		}
+		
+	
+		
 		function validateSubmitXacNhanNopHoSo(){
 			var result = validateHoTen(xacNhanEmail);
 			 result = validateHoTen(xacNhanDienThoai) && result;
 			 result = validateCode(textXacNhan,id_typeXacNhan);
+			
 			 if(result==false)
 				{
 					 return false;
-				}
+				} 
+			 if(validateletDt(xacNhanDienThoai)==false)
+				 {
+					 $(id_error).html('Sai Số điện thoại');
+					 SearchCoQuans();
+				 
+					 	return false;
+				 }
+			 
 			 if(checkEmail(xacNhanEmail) == false)
 		     {
 				 $(id_error).html('Sai format email');
@@ -404,6 +455,7 @@ function AddClass(element, name) {
 		     }
 			 
 			 checkEmail(xacNhanEmail);
+			 validateletDt(xacNhanDienThoai);
 			if(result){
 				$(id_error).html('Nộp hồ sơ thành công');
 				

@@ -22,7 +22,7 @@ public class CapThanhPhoService
 			ResultSet rs;
 			Connect.connect();
 			
-			String query ="SELECT * FROM THANHPHO";
+			String query ="SELECT * FROM GET_THANHPHO";
 			
 			rs = Connect.ExcuseService(query);
 			
