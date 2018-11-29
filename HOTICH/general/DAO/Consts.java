@@ -20,10 +20,13 @@ public class Consts {
 	
 	public static int COQUAN_ID = 1;
 	
+<<<<<<< HEAD
 	public static int Get_COQUAN_ID()
 	{
 		return COQUAN_ID;
 	}
+=======
+>>>>>>> Huynh-Le-Huu-Hung
 	//Chuyển từ form vô Entity
 	public static java.util.Date ConvertStringToUtilDate(String date) throws ParseException {
 		if(date != "") {

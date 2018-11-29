@@ -36,7 +36,12 @@ public class QuanLyDangKyServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
+		
+		String mess = (String)(request.getParameter("message"));
 		String page = "";
+		request.setAttribute("message", mess);
 		page = "/CONTENT/jsp/QuanLyHoSoDangKy.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
         dispatcher.forward(request, response);
@@ -46,7 +51,6 @@ public class QuanLyDangKyServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
-		request.getSession(false);
 		
 		String action = request.getRequestURI();
 		String[] words=action.split("/");
@@ -85,7 +89,7 @@ public class QuanLyDangKyServlet extends HttpServlet {
 					temp.append("\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\",");
 					temp.append("\"ngayDangKy\":\""+Consts.ConvertUtilToString(DSHSDK.get(i).getNgayDangKy())+"\",");
 					temp.append("\"ngayHetHan\":\""+Consts.ConvertUtilToString(DSHSDK.get(i).getNgayHetHan())+"\",");
-					temp.append("\"loaiGiayTo\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"}");
+					temp.append("\"loaiGiayTo\":\""+DSHSDK.get(i).getLoaiGiayToId()+"\"}");
 				}
 				else
 				{
@@ -96,7 +100,7 @@ public class QuanLyDangKyServlet extends HttpServlet {
 					temp.append("\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\",");
 					temp.append("\"ngayDangKy\":\""+Consts.ConvertUtilToString(DSHSDK.get(i).getNgayDangKy())+"\",");
 					temp.append("\"ngayHetHan\":\""+Consts.ConvertUtilToString(DSHSDK.get(i).getNgayHetHan())+"\",");
-					temp.append("\"loaiGiayTo\":\""+DSHSDK.get(i).getLoaiGiayToID()+"\"},");
+					temp.append("\"loaiGiayTo\":\""+DSHSDK.get(i).getLoaiGiayToId()+"\"},");
 				}
 				data.append(temp);
 			}

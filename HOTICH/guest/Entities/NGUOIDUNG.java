@@ -80,8 +80,9 @@ public class NGUOIDUNG
 	public void setCoQuan_ID(int coQuan_ID) {
 		CoQuan_ID = coQuan_ID;
 	}
-	
-	
-	
-
+	public NGUOIDUNG(int nguoiDung_ID, String hoVaTen) {
+		super();
+		NguoiDung_ID = nguoiDung_ID;
+		HoVaTen = hoVaTen;
+	}
 }

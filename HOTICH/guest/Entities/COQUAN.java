@@ -45,6 +45,10 @@ public class COQUAN {
 	public void setGioiThieu(String gioiThieu) {
 		GioiThieu = gioiThieu;
 	}
+	public COQUAN(int coQuan_ID) {
+		super();
+		CoQuan_ID = coQuan_ID;
+	}
 	
 	
 

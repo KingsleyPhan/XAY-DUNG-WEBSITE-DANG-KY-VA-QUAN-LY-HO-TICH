@@ -121,8 +121,13 @@ padding-top: 0px;
 }
 .fild_error
 {
-	border-color:rgb(221, 9, 9) !important;
+	border-color:rgb(221, 9, 9)!important;
 	box-shadow: 0 7px 6px -6px rgb(221, 9, 9) !important;
+}
+.fild_success
+{
+	border-color:#3c763d!important;
+	box-shadow: 0 7px 6px -6px #3c763d!important;
 }
 .header_location .locationCap2
 {

@@ -108,7 +108,7 @@ for (var i = 0; i < btns.length; i++) {
 	});
 }
 
-function w3AddClass(element, name) {
+function AddClass(element, name) {
 	var i, arr1, arr2;
 	arr1 = element.className.split(" ");
 	arr2 = name.split(" ");
@@ -119,7 +119,7 @@ function w3AddClass(element, name) {
 	}
 }
 
-function w3RemoveClass(element, name) {
+function RemoveClass(element, name) {
 	var i, arr1, arr2;
 	arr1 = element.className.split(" ");
 	arr2 = name.split(" ");

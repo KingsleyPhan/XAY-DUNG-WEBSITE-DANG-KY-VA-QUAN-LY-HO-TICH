@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="HOTICH">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/guest"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/officer"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/admin"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/general"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/guest"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/admin"/>
         <property name="context-root" value="HOTICH"/>
         <property name="java-output-path" value="/HOTICH/build/classes"/>
     </wb-module>
