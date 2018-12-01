@@ -42,7 +42,7 @@ public class QuanLyDangKyServlet extends HttpServlet {
 		String mess = (String)(request.getParameter("message"));
 		String page = "";
 		request.setAttribute("message", mess);
-		page = "/CONTENT/jsp/QuanLyHoSoDangKy.jsp";
+		page = "/CONTENT/jsp/QuanLyHoSoDangKy_New.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
         dispatcher.forward(request, response);
 	}

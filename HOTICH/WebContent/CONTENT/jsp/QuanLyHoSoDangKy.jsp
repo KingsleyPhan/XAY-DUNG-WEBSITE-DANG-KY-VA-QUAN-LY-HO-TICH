@@ -12,17 +12,13 @@
 	
 	<link rel="stylesheet" href="./CONTENT/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<script src="./CONTENT/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-	<script src="./CONTENT/plugins/jquery/jquery-3.3.1.min.js"></script>
+	
 	<link rel="stylesheet" href="./CONTENT/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="./CONTENT/plugins/font/montserrat.css">
 	
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 	
 	<link rel="stylesheet" href="./CONTENT/plugins/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css">
-	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
-	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap.min.js"></script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	
 
     <link rel="stylesheet" type="text/css" href="./CONTENT/styles/HAF.css">
@@ -248,7 +244,9 @@
         </div>
     </footer>
     <!-- End Footer-->
-
+	<script src="./CONTENT/plugins/DataTables/jQuery-3.3.1/jquery-3.3.1.js"></script>
+	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
+	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.js"></script>
     <script src="./CONTENT/js/Header.js"></script>
 	<script src="./CONTENT/js/manage.js"></script>
 </body>

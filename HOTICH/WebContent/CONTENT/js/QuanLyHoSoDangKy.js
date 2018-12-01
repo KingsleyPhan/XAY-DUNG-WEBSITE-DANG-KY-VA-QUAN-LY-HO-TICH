@@ -30,17 +30,17 @@ $(document).ready(function() {
 			"orderable" : false,
 		}, 
 		{
-			"data": "ngay-dangky",
+			"data": "ngayDangKy",
 			"className" : 'col-ngay',
 			"orderable" : false,
 		}, 
 		{
-			"data": "ngay-hethan",
+			"data": "ngayHetHan",
 			"className" : 'col-ngay',
 			"orderable" : false,
 		}, 
 		{
-			"data": "loai-giayto",
+			"data": "loaiGiayTo",
 			"className" : 'col-ma',
 			"orderable" : false,
 			"visible" : false,
@@ -69,10 +69,11 @@ $(document).ready(function() {
 	    console.log( table.row( tr ).data().id );
 	    $.ajax({
 	    	method : "POST",
-	    	data : {id : table.row( tr ).data().id},
-	    	url : "GiayHoTich/setID",
+	    	data : {id : table.row( tr ).data().id,
+	    			loai : table.row( tr ).data().loaiGiayTo},
+	    	url : "HoSoDangKy/setHSDK",
 	    	success : function(){
-	    		window.location = "GiayHoTich"
+	    		window.location = "HoSoDangKy"
 	    	}
 	    })
 	    
@@ -80,10 +81,14 @@ $(document).ready(function() {
 	filterSelection(-1);
 });
 
+function showChange(){
+	console.log($("#loai-giay").val())
+	filterSelection($("#loai-giay").val());
+}
 
 function filterSelection(c) {
 	var table = $('#table_id').DataTable();
-	if(c === -1){
+	if(c == -1){
 		table
 			.columns(6)
 			.search("")
@@ -95,17 +100,6 @@ function filterSelection(c) {
 	    .search(c)
 	    .draw();
 	}
-}
-
-// Add active class to the current div (highlight it)
-var btnContainer = document.getElementById("myFilterContainer");
-var btns = btnContainer.getElementsByClassName("filter");
-for (var i = 0; i < btns.length; i++) {
-	btns[i].addEventListener("click", function() {
-		var current = document.getElementsByClassName("active");
-		current[0].className = current[0].className.replace(" active", "");
-		this.className += " active";
-	});
 }
 
 function AddClass(element, name) {

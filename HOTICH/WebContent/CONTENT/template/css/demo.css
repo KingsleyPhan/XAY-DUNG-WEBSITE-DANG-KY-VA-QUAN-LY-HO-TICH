@@ -1,0 +1,180 @@
+.sidebar{
+	width: 200px;
+	background-color: #003453;
+}
+.sidebar .sidebar-wrapper{
+	width: 200px;
+	background-color: #003453;
+}
+/*Chữ trên logo*/
+.sidebar .logo .simple-text, .sidebar[data-background-color="white"] .logo .simple-text, .off-canvas-sidebar .logo .simple-text, .off-canvas-sidebar[data-background-color="white"] .logo .simple-text{
+	font-weight: bold;
+	color: white;
+}
+/*Chữ slidebar bình thường*/
+.sidebar .nav li:not(.active) > a:hover i, .sidebar[data-background-color="white"] .nav li:not(.active) > a:hover i, .off-canvas-sidebar .nav li:not(.active) > a:hover i, .off-canvas-sidebar[data-background-color="white"] .nav li:not(.active) > a:hover i{
+	color: rgb(243, 93, 33);
+}
+.sidebar .nav li:not(.active) > a, .sidebar[data-background-color="white"] .nav li:not(.active) > a, .off-canvas-sidebar .nav li:not(.active) > a, .off-canvas-sidebar[data-background-color="white"] .nav li:not(.active) > a{
+	color: white;
+}
+/*Chữ slidebar khi được chọn*/
+.sidebar .nav li.active > a, .off-canvas-sidebar .nav li.active > a{
+	color: white;
+	background-color: #2D3541;
+   	border-left:4px solid rgb(243, 93, 33);
+	width: 99.5%;
+}
+
+.sidebar .nav li.active > a i, .off-canvas-sidebar .nav li.active > a i{
+	color: rgb(243, 93, 33);
+}
+
+.sidebar .nav li.active p, .off-canvas-sidebar .nav li.active p{
+	font-size : 15px;
+}
+
+.sidebar .nav li.active > a:after, .off-canvas-sidebar .nav li.active > a:after{
+	border-right: 17px solid white;
+}
+
+
+.main-panel{
+	width: calc(100% - 200px);
+	background-color: white;
+}
+
+.main-panel .content{
+	margin-top: 40px;
+}
+.navbar-default{
+	background-color: #f8f8f8;
+	-webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-fixed-top{
+	margin-left: 200px;
+	width: calc(100% - 200px);
+	background-color: white;
+  -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-fixed-top .navbar-brand, .navbar-fixed-top .navbar-brand{
+	color: #003453!important;
+}
+
+.navbar-fixed-top .navbar-brand:focus, .navbar-fixed-top .navbar-brand:hover{
+	color: rgb(243, 93, 33)!important;
+}
+
+.notification{
+	color: red;
+}
+
+ul.notifications > li {
+  border-bottom: 1px solid #F0F0F0; }
+  ul.notifications > li:last-child {
+    border-bottom: none; }
+  ul.notifications > li > .more {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 600; }
+    ul.notifications > li > .more:hover, ul.notifications > li > .more:focus {
+      text-decoration: none; }
+
+.notification-item .dot {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  width: 10px;
+  height: 10px;
+  content: '';
+  margin-right: 8px; }
+
+.bg-success {
+  background-color: #41B314; }
+
+.bg-warning {
+  background-color: #e4cb10; }
+
+.bg-danger {
+  background-color: #F9354C; }
+
+.card .select-loai{
+	padding: 0px;
+	background-color: rgb(243, 93, 33);
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+.card .numbers{
+	font-size: 1.2em;
+	line-height: 40px;
+	width: 100%;
+	text-align: right;
+}
+
+.loai-giay,.loai-giay:focus{
+	padding-left: 10px!important;
+	font-size: 1.2em;
+	padding: 0px;
+	color: white;
+	background-color: #2D3541;
+}
+
+
+/*footer*/
+.logo-text {
+    margin: auto;
+    transition: 0.2s;
+}
+.logo-text p {
+	font-size: 36px;
+	font-weight: 900;
+	line-height: 0.75;
+	color:white;
+	vertical-align: middle;
+	margin-left: 7px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    line-height: 90px;
+    transition: 0.2s;
+}
+footer {
+	width: 100%;
+    background-color: #003453;
+    color: #eef1f3;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+	height: 120px;
+}
+.subrice
+{
+    color: #eef1f3;
+    font-size: 16px;
+    margin-top: -30px;
+    padding-left: 6px;
+}
+.footer-imfor
+{
+    margin-top: 10px;
+    font-size: 18px;
+}
