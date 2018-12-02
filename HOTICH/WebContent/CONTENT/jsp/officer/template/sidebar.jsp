@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url var="home" value="/" scope="request" />
 	<div class="sidebar">
     	<div class="sidebar-wrapper">
             <div class="logo">
@@ -7,20 +9,46 @@
                     HOTICH.NET
                 </a>
             </div>
-
+            ${param.mode }
             <ul class="nav">
-                <li class="active">
-                    <a href="QuanLyDangKy">
-                        <i class="ti-write"></i>
-                        <p>ĐĂNG KÝ</p>
-                    </a>
-                </li>
-                <li >
-                    <a href="QuanLyHoTich">
-                        <i class="ti-bookmark-alt"></i>
-                        <p>HỘ TỊCH</p>
-                    </a>
-                </li>
+	            <c:choose>
+	            	<c:when test="${param.mode == 1 }">
+	            		<li class="active">
+		                    <a href="QuanLyDangKy">
+		                        <i class="ti-write"></i>
+		                        <p>ĐĂNG KÝ</p>
+		                    </a>
+		                </li>
+	            	</c:when>
+	            	<c:otherwise>
+	            		<li>
+		                    <a href="QuanLyDangKy">
+		                        <i class="ti-write"></i>
+		                        <p>ĐĂNG KÝ</p>
+		                    </a>
+		                </li>
+	            	</c:otherwise>
+	            </c:choose>
+                
+             	<c:choose>
+	            	<c:when test="${param.mode == 2 }">
+	            		<li class="active">
+		                    <a href="QuanLyHoTich">
+		                        <i class="ti-bookmark-alt"></i>
+		                        <p>HỘ TỊCH</p>
+		                    </a>
+		                </li>
+	            	</c:when>
+	            	<c:otherwise>
+	            		<li >
+		                    <a href="QuanLyHoTich">
+		                        <i class="ti-bookmark-alt"></i>
+		                        <p>HỘ TỊCH</p>
+		                    </a>
+		                </li>
+	            	</c:otherwise>
+	            </c:choose>
+                
                 <li>
                     <a href="table.html">
                         <i class="ti-pie-chart"></i>

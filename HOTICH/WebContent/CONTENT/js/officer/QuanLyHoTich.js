@@ -165,7 +165,7 @@ $(document).ready(function() {
             row.child( format(row.data()) ).show();
             tr.addClass('shown');
         }
-    } ).draw();
+    } );
 } );
 function showChange(){
 	console.log($("#loai-giay").val())

@@ -1,3 +1,9 @@
+.form-control {
+	color: black;
+	background-color:white;
+}
+
+
 .sidebar{
 	width: 200px;
 	background-color: #003453;
@@ -180,3 +186,4 @@ footer {
     margin-top: 10px;
     font-size: 18px;
 }
+

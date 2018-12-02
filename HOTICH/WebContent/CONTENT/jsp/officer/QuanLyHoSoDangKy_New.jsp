@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url var="home" value="/" scope="request" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,9 @@
 <body>
 
 <div class="wrapper">
-    <jsp:include page="./template/sidebar.jsp"></jsp:include>
+    <jsp:include page="./template/sidebar.jsp">
+    	<jsp:param value="1" name="mode" />
+    </jsp:include>
 
     <div class="main-panel">
         <jsp:include page="./template/navbar.jsp"></jsp:include>
