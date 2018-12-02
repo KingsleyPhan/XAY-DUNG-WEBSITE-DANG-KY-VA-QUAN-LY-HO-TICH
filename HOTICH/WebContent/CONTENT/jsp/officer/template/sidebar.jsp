@@ -10,13 +10,13 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a href="QuanLyDangKy">
                         <i class="ti-write"></i>
                         <p>ĐĂNG KÝ</p>
                     </a>
                 </li>
                 <li >
-                    <a href="user.html">
+                    <a href="QuanLyHoTich">
                         <i class="ti-bookmark-alt"></i>
                         <p>HỘ TỊCH</p>
                     </a>

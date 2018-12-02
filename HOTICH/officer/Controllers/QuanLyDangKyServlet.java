@@ -83,7 +83,6 @@ public class QuanLyDangKyServlet extends HttpServlet {
 				StringBuilder temp = new StringBuilder();
 				if (i == DSHSDK.size() - 1) { //Trường hợp dòng cuối cùng sẽ không có dấu ","
 					temp.append("{");
-					temp.append("\"stt\":\"\","); // Ký tự trống để điền STT tự động
 					temp.append("\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\",");
 					temp.append("\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\",");
 					temp.append("\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\",");
@@ -94,7 +93,6 @@ public class QuanLyDangKyServlet extends HttpServlet {
 				else
 				{
 					temp.append("{");
-					temp.append("\"stt\":\"\","); // Ký tự trống để điền STT tự động
 					temp.append("\"id\":\""+DSHSDK.get(i).getHoSoDangKyId()+"\",");
 					temp.append("\"ten\":\""+DSHSDK.get(i).getHoSoDangKyTen()+"\",");
 					temp.append("\"ma\":\""+DSHSDK.get(i).getHoSoDangKyMa()+"\",");

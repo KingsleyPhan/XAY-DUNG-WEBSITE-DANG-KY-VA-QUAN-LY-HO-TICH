@@ -37,7 +37,7 @@ public class QuanLyHoTichServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		String page = "";
-		page = "/CONTENT/jsp/QuanLyHoTich.jsp";
+		page = "/CONTENT/jsp/officer/QuanLyHoTich_New.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
         dispatcher.forward(request, response);
 	}

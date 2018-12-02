@@ -1,0 +1,78 @@
+.container-table
+{
+	padding : 0;
+	margin: 0!important;
+	width: 100%;
+	/*border: solid #003453 2px;*/
+	border-radius: 4px;
+	box-shadow: 0 2px 4px 0 #003453, 0 4px 10px 0 rgba(0, 0, 0, 0.12) !important; /*rgba(0, 0, 0, 0.16)*/
+}
+#table_id{
+	width:100%!important;
+}
+th{
+	text-align: center;
+	width: 100px;
+}
+
+.table thead{
+	background-color: #004f7e;
+	color: white;
+}
+
+tbody tr{
+	line-height : 30px!important;
+}
+tbody tr td{
+	padding : 5px!important;
+}
+.col-stt{
+	width: 5%;
+	text-align: center;
+	line-height : 35px!important;
+}
+.col-ma{
+	width: 12%;
+	text-align: center;
+}
+.col-ngay{
+	width: 15%;
+	text-align: center;
+}
+.col-tacvu{
+	width: 15%;
+	text-align: center;
+}
+.col-canbo{
+	width: 20%;
+	text-align: center;
+}
+
+.adding tbody tr:nth-child(even) {
+    background-color: transparent;
+}
+.adding tbody tr:nth-child(odd):not(adding) {
+    background-color: transparent;
+}
+.adding{
+	width: 40%;
+	margin-left: 10%;
+}
+.adding .col-title{
+	width: 10%;
+}
+.adding .col-lable{
+	width: 15%;
+	border-top: 1px rgba(63,63,63,1.00) solid;
+	border-bottom: 1px rgba(63,63,63,1.00) solid;
+}
+.adding .col-content{
+	width: 15%;
+	border-top: 1px rgba(63,63,63,1.00) solid;
+	border-bottom: 1px rgba(63,63,63,1.00) solid;
+}
+
+.col-sm-12.col-md-6
+{
+	width:40%!important;
+}
