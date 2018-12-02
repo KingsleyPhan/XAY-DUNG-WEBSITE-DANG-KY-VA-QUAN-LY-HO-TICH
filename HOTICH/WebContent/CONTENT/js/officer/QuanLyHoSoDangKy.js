@@ -49,10 +49,10 @@ $(document).ready(function() {
 			"data": null,
 			"className" : 'col-tacvu',
 			"orderable" : false,
-			"defaultContent": '<div style="text-align: center;"><button class="btn btn-primary view"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button></div>',
+			"defaultContent": '<div style="text-align: center;"><button class="btn btn-info view"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button></div>',
 		} ],
 		scrollCollapse : true,
-		lengthMenu : [ [ 10, 25, 50, -1 ], [ 10, 25, 50, "All" ] ],
+		lengthMenu : [ [ 10, 25, 50, -1 ], [ 10, 25, 50, "Tất cả" ] ],
 		order : false,
 		
 	});
