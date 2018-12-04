@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700,900');
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Roboto Slab', serif;
+}
+
 .form-control {
 	color: black;
 	background-color:white;
 }
-
 
 .sidebar{
 	width: 200px;
@@ -11,6 +17,7 @@
 .sidebar .sidebar-wrapper{
 	width: 200px;
 	background-color: #003453;
+	box-shadow : none;
 }
 /*Chữ trên logo*/
 .sidebar .logo .simple-text, .sidebar[data-background-color="white"] .logo .simple-text, .off-canvas-sidebar .logo .simple-text, .off-canvas-sidebar[data-background-color="white"] .logo .simple-text{
@@ -56,6 +63,7 @@
 	margin-top: 35px;
 }
 .navbar-default{
+	width: calc(100% - 200px);
 	background-color: #f8f8f8;
 	-webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -78,11 +86,14 @@
 
 .navbar-fixed-top .navbar-brand, .navbar-fixed-top .navbar-brand{
 	color: #003453!important;
+	margin-top: -10px;
+	line-height: 30px;
 }
 
 .navbar-fixed-top .navbar-brand:focus, .navbar-fixed-top .navbar-brand:hover{
 	color: rgb(243, 93, 33)!important;
 }
+
 
 .notification{
 	color: red;
@@ -127,7 +138,7 @@ ul.notifications > li {
 .card .select-loai{
 	padding: 0px;
 	background-color: rgb(243, 93, 33);
-	border-radius: 4px;
+	border-radius: 0px 4px 4px 0px;
 	font-weight: bold;
 }
 
@@ -138,12 +149,28 @@ ul.notifications > li {
 	text-align: right;
 }
 
+.card .module-title{
+	background-color: #003453;
+	border-radius: 4px 0px 0px 4px;
+	padding: 0px;
+	font-weight: bold;
+	line-height: 40px!important;
+}
+
+.card .module-title p{
+	color: white;
+	font-size : 20px;
+	margin-left : 10px;
+	padding: 0px;
+	width : 100%;
+	line-height: 40px!important;
+}
 .loai-giay,.loai-giay:focus{
 	padding-left: 10px!important;
 	font-size: 1.2em;
 	padding: 0px;
 	color: white;
-	background-color: #2D3541;
+	background-color:#003453;/* #2D3541*/
 }
 
 
@@ -168,7 +195,8 @@ ul.notifications > li {
     transition: 0.2s;
 }
 footer {
-	width: 100%;
+	width: calc(100% - 200px);
+	margin-left : 200px;
     background-color: #003453!important;
     color: #eef1f3;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;

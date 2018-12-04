@@ -40,9 +40,18 @@ public class HoSoDangKyServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
-		kiemDuyet(request,response);
 		
+		String action = request.getRequestURI();
+		String[] words = action.split("/");
 		
+		switch (words[words.length - 1]) {
+		case "setHSDK":
+			setHSDK(request,response);
+			break;
+		default:
+			kiemDuyet(request,response);
+			break;
+		}
 	}
 
 	private void kiemDuyet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -64,7 +73,7 @@ public class HoSoDangKyServlet extends HttpServlet {
 						String action = "KiemDuyet";
 						request.setAttribute("action", action);
 						
-						page = "/CONTENT/jsp/KiemDuyetKhaiSinh.jsp";
+						page = "/CONTENT/jsp/officer/KiemDuyet.jsp";
 
 						RequestDispatcher dispatcher = request.getRequestDispatcher(page);
 						dispatcher.forward(request, response);
@@ -88,6 +97,16 @@ public class HoSoDangKyServlet extends HttpServlet {
 		page = "QuanLyDangKy";
 		response.sendRedirect(page);
 	}
+	
+	private void setHSDK(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		ServletContext context = getServletContext();
+		int id = Integer.parseInt(request.getParameter("id"));
+		int loai = Integer.parseInt(request.getParameter("loai"));
+		context.setAttribute("ID_HSDK", id);
+		context.setAttribute("Loai_GiayTo", loai);
+		String page = request.getContextPath() + "/HoSoDangKy";
+		response.sendRedirect(page);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -100,9 +119,6 @@ public class HoSoDangKyServlet extends HttpServlet {
 		String[] words = action.split("/");
 		
 		switch (words[words.length - 1]) {
-		case "setHSDK":
-			setHSDK(request);
-			break;
 		case "getInfo":
 			try {
 				out.println(getInfo(request, response));
@@ -124,14 +140,6 @@ public class HoSoDangKyServlet extends HttpServlet {
 		}
 	}
 	
-	private void setHSDK(HttpServletRequest request) {
-		ServletContext context = getServletContext();
-		int id = Integer.parseInt(request.getParameter("id"));
-		int loai = Integer.parseInt(request.getParameter("loai"));
-		context.setAttribute("ID_HSDK", id);
-		context.setAttribute("Loai_GiayTo", loai);
-	}
-
 	private String getInfo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ParseException {
 		String cmndNgYeuCau = request.getParameter("cmndNgYeuCau");
 		String cmndCha = request.getParameter("cmndCha");

@@ -49,10 +49,15 @@ public class HoTichDAO extends ConnectDAO{
 	
 	public static void main(String[] args) throws SQLException, ClassNotFoundException, ParseException {
 		HoTichDAO hoTichDAO = new HoTichDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
-		System.out.println(hoTichDAO.insertHoTich(3, 1, 1, 1).toString());
+		try {
+			System.out.println(hoTichDAO.insertHoTich(3, 1, 1, 1).toString());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public Boolean insertHoTich(int idHSDK, int loai, int ngXuLy, int ngKy) {
+	public Boolean insertHoTich(int idHSDK, int loai, int ngXuLy, int ngKy) throws Exception {
 		PreparedStatement pstm = null;
 		try {
 			Connection();
@@ -84,7 +89,7 @@ public class HoTichDAO extends ConnectDAO{
 			{
 				return true;
 			}
-			return false;
+			throw new Exception("Thêm không thành công, kiểm tra lại hệ thống");
 		}catch (SQLException se) {
 			//https://www.tutorialspoint.com/jdbc/commit-rollback.htm
 			//Handle errors for JDBC
@@ -98,7 +103,7 @@ public class HoTichDAO extends ConnectDAO{
 		      }catch(SQLException se2){
 		         se2.printStackTrace();
 		      }//end try
-			
+			throw new Exception(se);
 		}
 		finally{
 			try {
@@ -108,7 +113,6 @@ public class HoTichDAO extends ConnectDAO{
 				return false;
 			}
 		}
-		return false;
 	}
 
 }

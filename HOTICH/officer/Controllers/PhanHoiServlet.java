@@ -23,10 +23,13 @@ public class PhanHoiServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		String mess = (String) session.getAttribute("message");
+		String content = (String) session.getAttribute("content");
 		session.removeAttribute("message");
 		request.setAttribute("message", mess);
+		session.removeAttribute("content");
+		request.setAttribute("content", content);
 		String page = "";
-		page = "/CONTENT/jsp/PhanHoi.jsp";
+		page = "/CONTENT/jsp/officer/PhanHoi_New.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
         dispatcher.forward(request, response);
 	}

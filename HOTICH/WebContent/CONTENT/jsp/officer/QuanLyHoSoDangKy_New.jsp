@@ -22,7 +22,14 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6">
+	                <div class="col-lg-9 col-sm-6" style="padding-right:0;">
+	                	<div class="card">
+	                    	<div class="content module-title">
+								<p>Quản lý hồ sơ đăng ký</p>
+	                		</div>
+	                	</div>
+	                </div>
+                    <div class="col-lg-3 col-sm-6" style="float:right;padding-left:0;">
                         <div class="card">
                             <div class="content select-loai">
                                 <div class="row">
@@ -44,7 +51,9 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
+                
                 <div class="row">
                 	<div class="col-md-12">
                         <div class="card">
@@ -62,13 +71,12 @@
 		  						      		<th class="col-tacvu">Tác vụ</th>
 		  						    	</tr>
 		  						  	</thead>
-		  						  	
 		  						</table>
 		  					</div>
                         </div>
                 	</div>
                 </div>
-               
+                
             </div>
         </div>
     </div>

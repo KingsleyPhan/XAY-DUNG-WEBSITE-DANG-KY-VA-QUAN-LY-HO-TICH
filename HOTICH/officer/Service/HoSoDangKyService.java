@@ -28,8 +28,8 @@ public class HoSoDangKyService {
 	public String getCheckCongDanService(String cmnd) throws SQLException, ParseException {
 		StringBuilder info = new StringBuilder();
 		CongDanDAO congDanDAO = new CongDanDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
-		CongDan ngYeuCau = congDanDAO.getCongDan(cmnd);
-		info.append(ngYeuCau.toStringBuilder().toString());
+		CongDan congDan = congDanDAO.getCongDan(cmnd);
+		info.append(congDan.toStringBuilder().toString());
 		return info.toString();
 	}
 }

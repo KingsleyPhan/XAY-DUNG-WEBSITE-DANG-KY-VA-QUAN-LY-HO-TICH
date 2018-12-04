@@ -4,23 +4,6 @@ body {
     font-family: 'Roboto Slab', serif;
 }
 
-.header_location
-{
-    border-bottom: 3px solid #004f7e;
-}
-
-.location
-{
-    transition: width 2s;
-    -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
-}
-
-.header_location .locationCap2
-{
-    font-size: 20px;
-    padding-top: -20px;
-}
-
 .modal-dialog .modal-content .modal-header
 {
     color: white;
@@ -33,6 +16,7 @@ body {
 }
 
 #myModal.modal{
+	
     text-align: center;
 }
 #myModal.modal::before {
@@ -44,27 +28,29 @@ body {
 }
 #myModal .modal-dialog {	
     display: inline-block;	
-    text-align: left;	
     vertical-align: middle;
-}	
-
-#notify.modal{
-    text-align: center;
-}
-#notify.modal::before {
-    content: "";	  
-    display: inline-block;
-    height: 100%;	 
-    margin-right: -4px;
-    vertical-align: middle;
-}
-#notify .modal-dialog {	
-    display: inline-block;	
-    text-align: left;	
-    vertical-align: middle;
+    margin-left: 200px;
 }	
 #myModal .modal-content {	
    width: 70%;
    margin: auto;
    color: black;
+}
+.modal-backdrop.fade.in{
+	display : none;
+}
+
+.col-12 .container{
+	width : 60%;
+	margin : auto;
+	margin-top : 50px;
+}
+
+.container .modal-dialog .modal-content .modal-header{
+	border-radius : 5px 5px 0px 0px;
+}
+
+.close{
+	right:0px;
+	top:0px;
 }

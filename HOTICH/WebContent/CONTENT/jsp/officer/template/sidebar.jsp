@@ -9,7 +9,6 @@
                     HOTICH.NET
                 </a>
             </div>
-            ${param.mode }
             <ul class="nav">
 	            <c:choose>
 	            	<c:when test="${param.mode == 1 }">

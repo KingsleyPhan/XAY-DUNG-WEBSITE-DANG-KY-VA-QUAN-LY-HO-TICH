@@ -24,7 +24,7 @@ $(document).ready(function() {
 	// Setup - add a text input to each footer cell
     $('#table_id tfoot th.search').each( function () {
         var title = $(this).text();
-        $(this).html( '<input type="text" class="form-control" placeholder="Tìm kiếm '+title+'..." />' );
+        $(this).html( '<input type="text" class="form-control" placeholder="Nhập '+title+'. . ." />' );
     } );
 	
     var table = $('#table_id').DataTable( {

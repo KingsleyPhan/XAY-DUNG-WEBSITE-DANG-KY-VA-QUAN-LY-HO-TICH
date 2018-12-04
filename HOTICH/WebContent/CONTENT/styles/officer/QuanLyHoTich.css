@@ -13,10 +13,11 @@
 th{
 	text-align: center;
 	width: 100px;
+	padding : 0px;
 }
 
 .table thead{
-	background-color: #004f7e;
+	background-color: #003453;
 	color: white;
 }
 
@@ -29,7 +30,6 @@ tbody tr td{
 .col-stt{
 	width: 5%;
 	text-align: center;
-	line-height : 35px!important;
 }
 .col-ma{
 	width: 12%;
@@ -71,8 +71,10 @@ tbody tr td{
 	border-top: 1px rgba(63,63,63,1.00) solid;
 	border-bottom: 1px rgba(63,63,63,1.00) solid;
 }
-
-.col-sm-12.col-md-6
+.dt-buttons{
+	width:100%!important;
+}
+.col-sm-12.col-md-6:nth-child(even)
 {
-	width:40%!important;
+	float:right!important;
 }

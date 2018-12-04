@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<title>HOTICH.NET</title>
     <jsp:include page="./template/css.jsp"></jsp:include>
-    <link rel="stylesheet" href="./CONTENT/plugins/DataTables/Buttons-1.5.4/css/buttons.dataTables.min.css">
+    
     <link href="./CONTENT/styles/officer/QuanLyHoTich.css" rel="stylesheet"/>
 </head>
 <body>
@@ -23,7 +23,14 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-9 col-sm-6" style="padding-right:0;">
+	                	<div class="card">
+	                    	<div class="content module-title">
+								<p>Quản lý hộ tịch</p>
+	                		</div>
+	                	</div>
+	                </div>
+                    <div class="col-lg-3 col-sm-6" style="float:right;padding-left:0;">
                         <div class="card">
                             <div class="content select-loai">
                                 <div class="row">
@@ -45,6 +52,7 @@
                             </div>
                         </div>
                     </div>
+                   
                 </div>
                 <div class="row">
                 	<div class="col-md-12">
@@ -75,11 +83,11 @@
 			  						      		<th class="col-ma"></th>
 			  						      		<th class="col-ma"></th>
 			  						      		<th class="col-ma"></th>
-			  						      		<th class="search col-ma">mã giấy</th>
-			  						      		<th class="search col-ma">số quyển hộ tịch</th>
-			  						      		<th class="search col-ngay">ngày hiệu lực</th>
-			  						      		<th class="search col-canbo">cán bộ xử lý</th>
-			  						      		<th class="search col-canbo">cán hộ ký</th>
+			  						      		<th class="search col-ma"></th>
+			  						      		<th class="search col-ma"></th>
+			  						      		<th class="search col-ngay"></th>
+			  						      		<th class="search col-canbo"></th>
+			  						      		<th class="search col-canbo"></th>
 			  						      		<th class="col-tacvu"></th>
 			  						    	</tr>
 									</tfoot>
@@ -97,14 +105,6 @@
 </body>
 	<jsp:include page="./template/js.jsp"></jsp:include>
 	<!-- File .js cho datatable -->
-	
-	<script src="./CONTENT/plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.js"></script>
-	<!--	button-->
-	<script src="./CONTENT/plugins/DataTables/Buttons-1.5.4/js/dataTables.buttons.min.js"></script>
-	<script src="./CONTENT/plugins/DataTables/JSZip-2.5.0/jszip.min.js"></script>
-	<script src="./CONTENT/plugins/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
-	<script src="./CONTENT/plugins/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
-	<script src="./CONTENT/plugins/DataTables/Buttons-1.5.4/js/buttons.html5.min.js"></script>
 	
 	<script type="text/javascript" src="./CONTENT/js/officer/QuanLyHoTich.js"></script>
 	<script type="text/javascript">

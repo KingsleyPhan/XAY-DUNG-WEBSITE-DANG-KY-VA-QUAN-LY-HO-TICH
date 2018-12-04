@@ -67,20 +67,23 @@ $(document).ready(function() {
 	$('#table_id tbody').on( 'click', 'td.col-tacvu .view', function () {
 		var tr = $(this).closest('tr');
 	    console.log( table.row( tr ).data().id );
-	    $.ajax({
-	    	method : "POST",
-	    	data : {id : table.row( tr ).data().id,
+	    var id = table.row( tr ).data().id;
+		var loai = table.row( tr ).data().loaiGiayTo
+	    window.location = "HoSoDangKy/setHSDK?id="+id+"&loai="+loai
+	} );
+	filterSelection(-1);
+});
+/*
+ $.ajax({
+ 	    	method : "POST",
+    		data : {id : table.row( tr ).data().id,
 	    			loai : table.row( tr ).data().loaiGiayTo},
 	    	url : "HoSoDangKy/setHSDK",
 	    	success : function(){
 	    		window.location = "HoSoDangKy"
 	    	}
 	    })
-	    
-	} );
-	filterSelection(-1);
-});
-
+ * */
 function showChange(){
 	console.log($("#loai-giay").val())
 	filterSelection($("#loai-giay").val());

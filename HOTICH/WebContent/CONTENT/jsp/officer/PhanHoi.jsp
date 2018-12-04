@@ -216,7 +216,7 @@
                             <div class="col-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="">Phản hồi</label>
-									<textarea class="form-control" rows="5" id="phanhoi" style="border: 1px solid #004f7e" ></textarea>
+									<textarea class="form-control" rows="5" id="phanhoi" style="border: 1px solid #004f7e"><c:out value="${message}"></c:out></textarea>
                                 </div>
                             </div>
                         </div>
