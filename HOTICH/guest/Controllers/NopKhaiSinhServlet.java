@@ -239,7 +239,7 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		
 		Store.DKKS  = DK;
 	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/XacNhanDangKy_1.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy_1.jsp");
 		dispatcher.forward(request, response);
 		
 	

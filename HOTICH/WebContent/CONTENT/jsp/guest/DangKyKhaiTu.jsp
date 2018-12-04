@@ -22,9 +22,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--content-->
-    <link rel="stylesheet" type="text/css" href="CONTENT/styles/HAF.css">
-     <link rel="stylesheet" type="text/css" href="CONTENT/styles/giayKhaiSinh.css">
-    <link rel="stylesheet" type="text/css" href="CONTENT/styles/giayChungTu.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/HAF.css">
+     <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/giayKhaiSinh.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/giayChungTu.css">
     <!--Library datetimepicker-->
     <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
     <!-- Include jQuery -->
@@ -618,9 +618,8 @@
         </div>
     </footer>
     <!-- End Footer-->
-    <script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
-    <script src="CONTENT/js/Header.js"></script>
-    <script src="CONTENT/js/valiedateForm.js"></script>
-    <script src="CONTENT/js/DangKyKhaiSinhAjax.js"></script>
+    <script src="CONTENT/js/guest/Header.js"></script>
+    <script src="CONTENT/js/guest/valiedateForm.js"></script>
+    <script src="CONTENT/js/guest/DangKyKhaiSinhAjax.js"></script>
 </body>
 </html>

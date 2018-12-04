@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--content-->
-    <link rel="stylesheet" type="text/css" href="CONTENT/styles/HAF.css">
-    <link rel="stylesheet" type="text/css" href="CONTENT/styles/giayKhaiSinh.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/HAF.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/giayKhaiSinh.css">
     <!--Library datetimepicker-->
     <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
     <!-- Include jQuery -->
@@ -69,17 +69,8 @@
                 </div>
             </div>
 
-
             <div class="row" style="margin-top:20px">
-<<<<<<< HEAD
-             <form action="NopKhaiSinh.php" method="Post" onsubmit="validateSubmitKhaiSinh()">
-=======
-<<<<<<< HEAD
              <form action="NopKhaiSinh.php" method="Post" onsubmit=" return validateSubmitKhaiSinh()">
-=======
-             <form action="NopKhaiSinh.php" method="Post" onsubmit="validateSubmitKhaiSinh()">
->>>>>>> Huynh-Le-Huu-Hung
->>>>>>> master
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
@@ -892,10 +883,9 @@
         </div>
     </footer>
     <!-- End Footer-->
-    <script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
-    <script src="CONTENT/js/Header.js"></script>
-    <script src="CONTENT/js/valiedateForm.js"></script>
-     <script src="CONTENT/js/DangKyKhaiSinhAjax.js"></script>
+    <script src="CONTENT/js/guest/Header.js"></script>
+    <script src="CONTENT/js/guest/valiedateForm.js"></script>
+     <script src="CONTENT/js/guest/DangKyKhaiSinhAjax.js"></script>
 </body>
 
 </html>

@@ -25,10 +25,10 @@
 <link
 	href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
 	rel="stylesheet" type="text/css" />
-<link href="CONTENT/styles/main.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="CONTENT/styles/HAF.css">
+<link href="CONTENT/styles/guest/main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/HAF.css">
 <link rel="stylesheet" type="text/css"
-	href="CONTENT/styles/StepOfIndex.css">
+	href="CONTENT/styles/guest/StepOfIndex.css">
 </head>
 <body>
 	<header id="header" class="header">
@@ -147,7 +147,7 @@
 						</div>
 						<div class="content-switch">
 							<div class="btn-Dang-Ky">
-								<form action="CONTENT/jsp/XemDangKy.jsp">
+								<form action="CONTENT/jsp/guest/XemDangKy.jsp">
 									<button type="submit" class="btn btn-default btn-dk"
 										style="background-color: #004f7e">ĐĂNG KÝ HỘ TỊCH</button>
 								</form>
@@ -238,10 +238,7 @@
 	</footer>
 	<!-- End Footer-->
 
-
-
-	<script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
-	<script src="CONTENT/js/index.js"></script>
+	<script src="CONTENT/js/guest/index.js"></script>
 	
 	<script>
 	function CheckSearch()

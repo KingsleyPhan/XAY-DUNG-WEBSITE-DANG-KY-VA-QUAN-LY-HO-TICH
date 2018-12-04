@@ -24,7 +24,7 @@ public class DangNhap extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/DangNhap.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/DangNhap.jsp");
 		dispatcher.forward(request, response);
 		return;
 		

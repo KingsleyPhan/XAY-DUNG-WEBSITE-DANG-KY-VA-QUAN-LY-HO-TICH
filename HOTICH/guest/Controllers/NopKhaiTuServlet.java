@@ -52,7 +52,7 @@ public class NopKhaiTuServlet extends HttpServlet {
 		DAO_DANTOC DANTOC = new DAO_DANTOC(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		
 	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/XacNhanDangKy.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy.jsp");
 		dispatcher.forward(request, response);
 		
 	

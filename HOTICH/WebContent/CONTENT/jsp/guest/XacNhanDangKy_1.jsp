@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="CONTENT/styles/XacNhanDangKy.css">
-    <link rel="stylesheet" type="text/css" href="CONTENT/styles/HAF.css">
-    <link rel="stylesheet" type="text/css" href="CONTENT/styles/StepOfIndex.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/XacNhanDangKy.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/HAF.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/StepOfIndex.css">
 
 </head>
 <body>
@@ -133,9 +133,8 @@
         </div>
     </footer>
     <!-- End Footer-->
-    <script src="CONTENT/plugins/scrollmagic/ScrollMagic.min.js"></script>
-    <script src="CONTENT/js/index.js"></script>
-        <script src="CONTENT/js/valiedateForm.js"></script>
+    <script src="CONTENT/js/guest/index.js"></script>
+        <script src="CONTENT/js/guest/valiedateForm.js"></script>
     <script>
     function CheckThongBao()
     {

@@ -28,7 +28,7 @@ public class DangKyKetHonServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/DangKyKetHon.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/DangKyKetHon.jsp");
 		dispatcher.forward(request, response);
 		return;
 	}

@@ -28,7 +28,7 @@ public class DangKyKhaiSinhServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/DangKyKhaiSinh.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/DangKyKhaiSinh.jsp");
 		dispatcher.forward(request, response);
 		return;
 	}
