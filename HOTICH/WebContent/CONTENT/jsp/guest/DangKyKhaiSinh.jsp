@@ -70,7 +70,7 @@
             </div>
 
             <div class="row" style="margin-top:20px">
-             <form action="NopKhaiSinh.php" method="Post" onsubmit=" return validateSubmitKhaiSinh()">
+             <form action="NopKhaiSinh.php" method="Post" onsubmit=" validateSubmitKhaiSinh()">
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
@@ -842,16 +842,10 @@
                 <div class="row">
                     <div class="control-navigation">
                         <button class="btn  btn-cancel">Hủy bỏ</button>
-<<<<<<< HEAD
-                        <button type="submit" class="btn  btn-continue" onClick="validateSubmitKhaiSinh()">Tiếp
-=======
-<<<<<<< HEAD
-                        <button type="submit" class="btn  btn-continue" onClick=" return validateSubmitKhaiSinh()">Tiếp
-=======
-                        <button type="submit" class="btn  btn-continue" onClick="validateSubmitKhaiSinh()">Tiếp
->>>>>>> Huynh-Le-Huu-Hung
->>>>>>> master
-                            tục</button>
+
+
+                        <button type="submit" class="btn  btn-continue" onClick="  validateSubmitKhaiSinh()">Tiếp tục</button>
+                    
                     </div>
                 </div>
                 </form>

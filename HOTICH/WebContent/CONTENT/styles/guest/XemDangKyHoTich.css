@@ -37,7 +37,7 @@
 
 .parallax {
     /* The image used */
-    background-image: url("../html/thinh.jpg");
+  margin-top:20px;
     
     /* Full height */
     height: 100%; 
@@ -78,6 +78,8 @@
     height: 150px; 
     margin: auto;
     margin-top: 30px;
+  
+  
   
     border: 3px solid #2977f7;
     text-decoration: none;

@@ -147,7 +147,7 @@
 						</div>
 						<div class="content-switch">
 							<div class="btn-Dang-Ky">
-								<form action="CONTENT/jsp/guest/XemDangKy.jsp">
+								<form action="CongDan.php">
 									<button type="submit" class="btn btn-default btn-dk"
 										style="background-color: #004f7e">ĐĂNG KÝ HỘ TỊCH</button>
 								</form>

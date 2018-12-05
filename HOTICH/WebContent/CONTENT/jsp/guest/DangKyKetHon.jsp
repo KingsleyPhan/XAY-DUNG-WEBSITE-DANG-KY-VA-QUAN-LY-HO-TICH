@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--content-->
-    <link rel="stylesheet" type="text/css" href="CONTENT/stylesguest//HAF.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest//HAF.css">
     <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/giayKhaiSinh.css">
     <!--Library datetimepicker-->
     <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
@@ -69,12 +69,12 @@
 
 
             <div class="row" style="margin-top:20px">
-              <form action="NopKetHon.php" method="Post" onsubmit="return validateSubmitKetHon()">
+              <form action="NopKetHon.php" method="Post" onsubmit="validateSubmitKetHon()">
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
                         <p>TỜ KHAI ĐĂNG KÝ GIẤY KẾT HÔN</p>
-                    </div>s
+                    </div>
                     <div class="row">
                         <div class="container container-paper">
                             <div class="part-content">
@@ -516,7 +516,7 @@
                 <div class="row">
                     <div class="control-navigation">
                         <button class="btn  btn-cancel">Hủy bỏ</button>
-                        <button type="submit" class="btn btn-continue" onClick="return validateSubmitKetHon()">Tiếp tục</button>
+                        <button type="submit" class="btn btn-continue" onClick="validateSubmitKetHon()">Tiếp tục</button>
                     </div>
                 </div>
                 </form>

@@ -168,7 +168,7 @@ DoiTuongKetHon VO = new  DoiTuongKetHon();
 		}
 		
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy_1.jsp");
 		dispatcher.forward(request, response);
 		
 	

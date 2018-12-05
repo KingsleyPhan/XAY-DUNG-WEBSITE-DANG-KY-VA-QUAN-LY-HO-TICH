@@ -37,8 +37,7 @@ public class XacNhanDangKyServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	     String x = request.getParameter("text_sdt");
-	     System.out.println("X="+x);
+	  doGet(request, response);
 	}
 
 }
