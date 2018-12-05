@@ -136,6 +136,24 @@ function AddClass(element, name) {
 			AddClass(id,"fild_error");
 			return false;
         }
+		
+		function validateCheckBox(id) {
+            var x = id;
+			var result = "";
+			if(x.checked==false){
+					result = "* Không được bỏ qua";
+			}
+			
+			var id_error = "#error_" + id.id;
+			$(id_error).html(result);
+			if(result == "")
+				{
+					RemoveClass(id,"fild_error")
+					return true;
+				}
+			AddClass(id,"fild_error");
+			return false;
+        }
 	
 		function validateNgayCap(id_NgayCap){
 			var x = id_NgayCap;
@@ -217,6 +235,18 @@ function AddClass(element, name) {
 			return false;
 		}
 		
+		function quanHeKhac(){
+			var val =   document.getElementById("NguoiYeuCau_QuanHe").value;
+		    if(val !=2)
+		    {
+		    	document.getElementById("NguoiYeuCau_QuanHeKhac").disabled = true;
+		    }
+		    else
+		    	{
+		    	document.getElementById("NguoiYeuCau_QuanHeKhac").disabled = false;
+		    	}
+		}
+		
 		function validateSubmitKetHon(){
 			var result = validateHoTen(nam_hovaten);
 			result = validateNgaySinh(nam_ngaysinh) && result;
@@ -248,14 +278,24 @@ function AddClass(element, name) {
 			}
 			return false;
 		}
+		
+		
 
 		function validateSubmitKhaiSinh(){
+			
+			var val =   document.getElementById("NguoiYeuCau_QuanHe").value;
+			
+			var CheckBoxValue;
+		
 			var result = validateHoTen(NYC_HOVATEN);
 			 result = validateCMND(CMNDYeuCau) && result;
 			 result = validateRequired(NoiCapCMNDYeuCau) && result;
 			 result = validateNgayCap(NgayCapCMNDYeuCau) && result;
 			 result = validateRequired(NguoiYeuCau_QuanHe) && result;
-			 result = validateRequired(NguoiYeuCau_QuanHeKhac) && result;
+			 if(val==2)
+			{
+				 result = validateRequired(NguoiYeuCau_QuanHeKhac) && result;
+			}
 			 result = validateRequired(NguoiYeuCau_QuocTich) && result;
 			 result = validateRequired(NguoiYeuCau_Tinh) && result;
 			 result = validateRequired(NguoiYeuCau_Huyen) && result;
@@ -279,36 +319,46 @@ function AddClass(element, name) {
 			 result = validateRequired(KhaiSinh_PhuongSinh) && result;
 			 result = validateRequired(KhaiSinh_DiaChiSinh) && result;
 			 
-			 result = validateHoTen(Me_HoVaTen) && result;
-			 result = validateRequired(Me_ngaySinh) && result;
-			 result = validateCMND(Me_CMND) && result;
-			 result = validateRequired(Me_NoiCap) && result;
-			 result = validateNgayCap(Me_NgayCap) && result;
-			 result = validateRequired(Me_DanToc) && result;
-			 result = validateRequired(Me_QuocTich) && result;
-			 result = validateRequired(Me_Tinh) && result;
-			 result = validateRequired(Me_Quan) && result;
-			 result = validateRequired(Me_Phuong) && result;
-			 result = validateRequired(Me_DiaChi) && result;
+			 CheckBoxValue = document.getElementById("nu_check_yeucau").checked;
+		
+			 if(CheckBoxValue == false)
+			 {
+				 result = validateHoTen(Me_HoVaTen) && result;
+				 result = validateRequired(Me_ngaySinh) && result;
+				 result = validateCMND(Me_CMND) && result;
+				 result = validateRequired(Me_NoiCap) && result;
+				 result = validateNgayCap(Me_NgayCap) && result;
+				 result = validateRequired(Me_DanToc) && result;
+				 result = validateRequired(Me_QuocTich) && result;
+				 result = validateRequired(Me_Tinh) && result;
+				 result = validateRequired(Me_Quan) && result;
+				 result = validateRequired(Me_Phuong) && result;
+				 result = validateRequired(Me_DiaChi) && result;
+			 }
+			 CheckBoxValue = document.getElementById("nam_check_yeucau").checked;
 
-			 result = validateHoTen(Cha_HoVaTen) && result;
-			 result = validateRequired(Cha_ngaySinh) && result;
-			 result = validateCMND(Cha_CMND) && result;
-			 result = validateRequired(Cha_NoiCap) && result;
-			 result = validateNgayCap(Cha_NgayCap) && result;
-			 result = validateRequired(Cha_DanToc) && result;
-			 result = validateRequired(Cha_QuocTich) && result;
-			 result = validateRequired(Cha_Tinh) && result;
-			 result = validateRequired(Cha_Quan) && result;
-			 result = validateRequired(Cha_Phuong) && result;
-			 result = validateRequired(Cha_DiaChi) && result;
+			 if(CheckBoxValue == false)
+			 {
+				 result = validateHoTen(Cha_HoVaTen) && result;
+				 result = validateRequired(Cha_ngaySinh) && result;
+				 result = validateCMND(Cha_CMND) && result;
+				 result = validateRequired(Cha_NoiCap) && result;
+				 result = validateNgayCap(Cha_NgayCap) && result;
+				 result = validateRequired(Cha_DanToc) && result;
+				 result = validateRequired(Cha_QuocTich) && result;
+				 result = validateRequired(Cha_Tinh) && result;
+				 result = validateRequired(Cha_Quan) && result;
+				 result = validateRequired(Cha_Phuong) && result;
+				 result = validateRequired(Cha_DiaChi) && result;
+			 }
 			 
-			 
+			 result =validateCheckBox(checkCamKet) && result;
 			if(result){
 				return true;
 			}
 			return false;
 		}
+		
 
 		function validateSubmitChungTu(){
 			var result = validateHoTen(HoTenYeuCau);

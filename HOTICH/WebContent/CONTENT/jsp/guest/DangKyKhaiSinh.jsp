@@ -70,7 +70,7 @@
             </div>
 
             <div class="row" style="margin-top:20px">
-             <form action="NopKhaiSinh.php" method="Post" onsubmit=" validateSubmitKhaiSinh()">
+             <form action="NopKhaiSinh.php" method="Post" onsubmit="return validateSubmitKhaiSinh()">
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
@@ -132,8 +132,8 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="NgayCapCMNDYeuCau"
-                                                                    onblur="validateNgayCap(NgayCapCMNDYeuCau)" name="NYC_NGAYCAP"
+                                                                <input class="form-control" id="NgayCapCMNDYeuCau" 
+                                                                    onblur="validateNgayCap(NgayCapCMNDYeuCau)" name="NYC_NGAYCAP" onchange="validateNgayCap(NgayCapCMNDYeuCau)"
                                                                     placeholder="Ngày/Tháng/Năm" type="text" />
 
                                                             </div>
@@ -148,9 +148,10 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quan hệ với người được khai sinh</label>
-                                                <select name="NYC_QUANHE" class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)">
-                                                    <option>Cha</option>
-                                                     <option>Mẹ</option>
+                                                <select name="NYC_QUANHE" class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)"  onchange="quanHeKhac()">                                                 
+                                                     <option  value="0">Cha</option>
+                                                     <option  value="1">Mẹ</option>
+                                                        <option value="2">Không phải</option>
                                                 </select>
                                                 <p class="error" id="error_NguoiYeuCau_QuanHe"></p>
                                             </div>
@@ -158,7 +159,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quan hệ khác </label>
-                                                <input name="NYC_QUANHEKHAC" type="text" class="form-control" id="NguoiYeuCau_QuanHeKhac"
+                                                <input name="NYC_QUANHEKHAC" disabled type="text" class="form-control" id="NguoiYeuCau_QuanHeKhac"
                                                     onblur="validateRequired(NguoiYeuCau_QuanHeKhac)">
                                                 <p class="error" id="error_NguoiYeuCau_QuanHeKhac"></p>
                                             </div>
@@ -273,7 +274,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input class="form-control" id="KhaiSinh_ngaySinh" name="KS_NGAYSINH"
+                                                                <input class="form-control" id="KhaiSinh_ngaySinh" name="KS_NGAYSINH" onchange = "validateNgayCap(KhaiSinh_ngaySinh)"
                                                                     placeholder="Ngày/Tháng/Năm" type="text" onblur="validateNgayCap(KhaiSinh_ngaySinh)" />
                                                             </div>
                                                         </div>
@@ -454,7 +455,7 @@
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-6" style="text-align: right; height: 100%">
                                                 <input type="checkbox" data-toggle="collapse" data-target="#ME" class="form-check-input"
-                                                    id="nam_check_yeucau" style="bottom: 0px;">
+                                                    id="nu_check_yeucau" name="nu_check_yeucau" style="bottom: 0px;">
                                                 <label style="margin: auto">Không có</label>
                                             </div>
                                 </div>
@@ -479,7 +480,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input name="ME_NGAYSINH" class="form-control" id="Me_ngaySinh" 
+                                                                <input name="ME_NGAYSINH" class="form-control" id="Me_ngaySinh"  onchange = onblur="validateRequired(Me_ngaySinh)"
                                                                     placeholder="Ngày/Tháng/Năm" type="text" onblur="validateRequired(Me_ngaySinh)" />
                                                             </div>
                                                         </div>
@@ -516,7 +517,7 @@
                                                                     <i class="fa fa-calendar">
                                                                     </i>
                                                                 </div>
-                                                                <input name="ME_NGAYCAP" class="form-control" id="Me_NgayCap" 
+                                                                <input name="ME_NGAYCAP" class="form-control" id="Me_NgayCap" onchange = "validateNgayCap(Me_NgayCap)"
                                                                     placeholder="Ngày/Tháng/Năm" onblur="validateNgayCap(Me_NgayCap)" type="text" />
                                                             </div>
                                                         </div>
@@ -624,7 +625,7 @@
                                                     </div>
                                                     <div class="col-12 col-sm-6 col-md-6" style="text-align: right; height: 100%">
                                                         <input type="checkbox" data-toggle="collapse" data-target="#CHA" class="form-check-input"
-                                                            id="nam_check_yeucau" style="bottom: 0px;">
+                                                            id="nam_check_yeucau" name="nam_check_yeucau" style="bottom: 0px;">
                                                         <label style="margin: auto">Không có</label>
                                                     </div>
                                         </div>
@@ -649,7 +650,7 @@
                                                                             <i class="fa fa-calendar">
                                                                             </i>
                                                                         </div>
-                                                                        <input name="CHA_NGAYSINH" class="form-control" id="Cha_ngaySinh" 
+                                                                        <input name="CHA_NGAYSINH" class="form-control" id="Cha_ngaySinh"  onchange="validateRequired(Cha_ngaySinh)"
                                                                             placeholder="Ngày/Tháng/Năm" type="text" onblur="validateRequired(Cha_ngaySinh)" />
                                                                     </div>
                                                                 </div>
@@ -686,7 +687,7 @@
                                                                             <i class="fa fa-calendar">
                                                                             </i>
                                                                         </div>
-                                                                        <input class="form-control" id="Cha_NgayCap" name="CHA_NGAYCAP"
+                                                                        <input class="form-control" id="Cha_NgayCap" name="CHA_NGAYCAP" onchange="validateNgayCap(Cha_NgayCap)"
                                                                             placeholder="Ngày/Tháng/Năm" onblur="validateNgayCap(Cha_NgayCap)" type="text" />
                                                                     </div>
                                                                 </div>
@@ -786,9 +787,10 @@
                     </div>
                     <div class="row">
                         <div class="container container-paper">
+                         <div class="form-group">
                             <div class="content-checkbox">
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="checkCamKet">
                                     <label class="form-check-label">Tôi cam đoan đề nghị đăng ký trên đây là đúng sự
                                         thật, được sự thỏa thuận và nhất trí của các bên liên quan theo quy định của
                                         pháp luật. </label>
@@ -796,6 +798,8 @@
                                     </label>
                                 </div>
                             </div>
+                            <p class="error" id="error_checkCamKet"></p>
+                         </div>
                         </div>
                     </div>
                     <div class="row">
