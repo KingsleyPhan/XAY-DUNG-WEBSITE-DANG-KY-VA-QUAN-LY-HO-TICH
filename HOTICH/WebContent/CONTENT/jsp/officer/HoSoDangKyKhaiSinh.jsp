@@ -79,16 +79,22 @@
                             <div class="row">
                                 <div class="col-12 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Quan hệ với người được khai sinh</label>
+                                        <label for="NYC_QUANHE">Quan hệ với người được khai sinh</label>
 										<c:choose>
 											<c:when test="${khaisinh.getQuanHe() == 'Cha' || khaisinh.getQuanHe() == 'Me'}">
+											<div id="feedback_NYC_QUANHE" class="form-group has-feedback">
 												<select name="NYC_QUANHE" disabled class="form-control" id="NYC_QUANHE">
 													<option>${khaisinh.getQuanHe()}</option>
 		                                        </select>
+		                                        <span id="gly_NYC_QUANHE" class="glyphicon form-control-feedback"></span>
+		                                    </div>
 											</c:when>
 											<c:otherwise>
+											<div id="feedback_NYC_QUANHE" class="form-group has-feedback">
 												<select name="NYC_QUANHE" disabled class="form-control" id="NYC_QUANHE">
 		                                        </select>
+		                                    	<span id="gly_NYC_QUANHE" class="glyphicon form-control-feedback"></span>
+		                                    </div>
 											</c:otherwise>
 										</c:choose>
                                         <p class="error" id="error_NYC_QUANHE"></p>
@@ -96,14 +102,20 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Quan hệ khác </label>
+                                        <label for="NYC_QUANHEKHAC">Quan hệ khác </label>
 										<c:choose>
 											<c:when test="${khaisinh.getQuanHe() != 'Cha' && khaisinh.getQuanHe() != 'Mẹ'}">
+											<div id="feedback_NYC_QUANHEKHAC" class="form-group has-feedback">
 												<input name="NYC_QUANHEKHAC" type="text" disabled class="form-control" id="NYC_QUANHEKHAC" value='${khaisinh.getQuanHe()}'>
+												<span id="gly_NYC_QUANHEKHAC" class="glyphicon form-control-feedback"></span>
+		                                    </div>
 											</c:when>
-										<c:otherwise>
-											<input name="NYC_QUANHEKHAC" type="text" disabled class="form-control" id="NYC_QUANHEKHAC" value="">
-										</c:otherwise>
+											<c:otherwise>
+											<div id="feedback_NYC_QUANHEKHAC" class="form-group has-feedback">
+												<input name="NYC_QUANHEKHAC" type="text" disabled class="form-control" id="NYC_QUANHEKHAC" value="">
+												<span id="gly_NYC_QUANHEKHAC" class="glyphicon form-control-feedback"></span>
+			                                </div>
+											</c:otherwise>
 										</c:choose>
                                         <p class="error" id="error_NYC_QUANHEKHAC"></p>
                                     </div>
@@ -719,7 +731,7 @@
                                         <p style="font-size: 18px;font-weight: bold">HỒ SƠ ĐÍNH KÈM</p>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6" style="text-align: right; height: 100%">
-	                                    <button class="btn btn-success check" onClick="checkNgYeuCau()"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
+	                                    <button class="btn btn-success check" onClick="checkDinhKem()"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
 	                                    <input type="hidden" name="HSDKem_ERROR" id="HSDKem_ERROR" value="">
                                     </div>
                                 </div>

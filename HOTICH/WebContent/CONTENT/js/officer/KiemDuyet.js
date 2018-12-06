@@ -43,13 +43,13 @@ function submitKiemDuyetKhaiSinh(){
 		if(nycError !== "Completed"){
 			error += nycError + "\n";
 		}
-		if(chaError !== "Completed"){
+		if(chaError !== "Completed" && chaError !== undefined){
 			error += chaError + "\n";
 		}
-		if(meError !== "Completed"){
+		if(meError !== "Completed" && meError !== undefined){
 			error += meError + "\n";
 		}
-		if(error === ""){
+		if(error === "" || error == undefined){
 			error = "NoError"
 		}
 		$("#ERROR").val(error);
@@ -66,7 +66,7 @@ function submitKiemDuyetKhaiSinh(){
 		return false;
 	}
 }
-function getCheckKhaiSinh() {
+/*function getCheckKhaiSinh() {
 	var cmndNgYeuCau = $("#NYC_CMND").val();
 	var cmndMe = $("#ME_CMND").val();
 	var cmndCha = $("#CHA_CMND").val();
@@ -94,7 +94,7 @@ function getCheckKhaiSinh() {
 			return temp;
 		}
 	})
-}
+}*/
 
 function checkNgYeuCau(){
 	var cmndNgYeuCau = $("#NYC_CMND").val();
@@ -114,6 +114,7 @@ function checkNgYeuCau(){
 			error += checkValue(NYC_CMND,gly_NYC_CMND,feedback_NYC_CMND,ngYeuCau.cmndSo);
 			error += checkValue(NYC_NOICAP,gly_NYC_NOICAP,feedback_NYC_NOICAP,ngYeuCau.cmndNoiCap);
 			error += checkValue(NYC_NGAYCAP,gly_NYC_NGAYCAP,feedback_NYC_NGAYCAP,ngYeuCau.cmndNgayCap);
+			error += checkQuanHe();
 			error += checkValue(NYC_QUOCTICH,gly_NYC_QUOCTICH,feedback_NYC_QUOCTICH,ngYeuCau.quocTich);
 			error += checkValue(NYC_THANHPHO,gly_NYC_THANHPHO,feedback_NYC_THANHPHO,ngYeuCau.thanhPho);
 			error += checkValue(NYC_QUAN,gly_NYC_QUAN,feedback_NYC_QUAN,ngYeuCau.quan);
@@ -223,12 +224,56 @@ function checkCha(){
 	})
 }
 
-function checkValue(x,gly,feedback,value){
+function checkQuanHe(){
+	setDefault(NYC_QUANHE,gly_NYC_QUANHE,feedback_NYC_QUANHE);
+	setDefault(NYC_QUANHEKHAC,gly_NYC_QUANHEKHAC,feedback_NYC_QUANHEKHAC);
 	var result = "";
-	var isNull = false;
+	var message =  "";
+	if(NYC_QUANHE.value == "" && NYC_QUANHEKHAC == ""){
+		result = "* Công dân đã để trống";
+	}
+	$("#error_NYC_QUANHE").html(result);
+	$("#error_NYC_QUANHEKHAC").html(result);
+	if (result == "") {
+		if(NYC_QUANHE.value == ""){
+			AddClass(NYC_QUANHEKHAC, " fild_success");
+			AddClass(gly_NYC_QUANHEKHAC," glyphicon-ok");
+			AddClass(feedback_NYC_QUANHEKHAC," has-success");
+		}
+		else{
+			AddClass(NYC_QUANHE, " fild_success");
+			AddClass(gly_NYC_QUANHE," glyphicon-ok");
+			AddClass(feedback_NYC_QUANHE," has-success");
+		}
+		
+		message = "";
+		return message;
+	}
+	else{
+		AddClass(NYC_QUANHE, " fild_error");
+		AddClass(gly_NYC_QUANHE," glyphicon-remove");
+		AddClass(feedback_NYC_QUANHE," has-error");
+		
+		AddClass(NYC_QUANHEKHAC, " fild_error");
+		AddClass(gly_NYC_QUANHEKHAC," glyphicon-remove");
+		AddClass(feedback_NYC_QUANHEKHAC," has-error");
+		
+		message = "- Để trống quan hệ ; \n";
+		return message;
+	}
+}
+
+function setDefault(x,gly,feedback){
+	x.className = "form-control";
+	gly.className = "glyphicon form-control-feedback";
+	feedback.className = "form-group has-feedback";
+}
+
+function checkValue(x,gly,feedback,value){
+	setDefault(x,gly,feedback);
+	var result = "";
 	var message =  "";
 	if (x.value == "" || x.value == undefined) {
-		isNull = true;
 		result = "* Công dân đã để trống";
 	} else {
 		if (x.value !== value) {
@@ -237,11 +282,7 @@ function checkValue(x,gly,feedback,value){
 	}
 	var id_error = "#error_" + x.id;
 	$(id_error).html(result);
-	if (result == "" && result == "") {
-		RemoveClass(x, " fild_error");
-		RemoveClass(gly," glyphicon-remove");
-		RemoveClass(feedback," has-error");
-		
+	if (result == "") {
 		AddClass(x, " fild_success");
 		AddClass(gly," glyphicon-ok");
 		AddClass(feedback," has-success")
@@ -250,10 +291,6 @@ function checkValue(x,gly,feedback,value){
 		return message;
 	}
 	else{
-		RemoveClass(x, " fild_success");
-		RemoveClass(gly," glyphicon-ok");
-		RemoveClass(feedback," has-success");
-		
 		AddClass(x, " fild_error");
 		AddClass(gly," glyphicon-remove");
 		AddClass(feedback," has-error");
@@ -286,6 +323,10 @@ function checkValue(x,gly,feedback,value){
 	    	return message = "- Chưa xác định lỗi ; \n";
 		}
 	}
+}
+
+function checkDinhKem(){
+	alert("Kiểm duyệt xong");
 }
 
 function AddClass(element, name) {

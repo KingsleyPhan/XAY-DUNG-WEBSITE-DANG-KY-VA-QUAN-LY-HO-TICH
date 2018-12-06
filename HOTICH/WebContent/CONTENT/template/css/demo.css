@@ -217,4 +217,7 @@ footer {
     margin-top: 10px;
     font-size: 18px;
 }
+span.icons .first-icon.fa.fa-square.fa-base, span.icons .second-icon.fa.fa-check-square.fa-base {
+	display : none;
+}
 

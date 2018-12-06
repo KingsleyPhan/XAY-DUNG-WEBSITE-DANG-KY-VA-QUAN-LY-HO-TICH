@@ -31,7 +31,7 @@
                                 <p class="category">24 Hours performance</p>
                             </div>
                             <div class="content">
-                                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                <div id="chartContainer" style="height: 300px; width: 500px;"></div>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,6 @@
 	<script src="./CONTENT/js/officer/ThongKe.js"></script>
 	<script type="text/javascript">
     	$(document).ready(function(){
-    		demo.initChartist();
         	$.notify({
             	icon: 'ti-gift',
             	message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
