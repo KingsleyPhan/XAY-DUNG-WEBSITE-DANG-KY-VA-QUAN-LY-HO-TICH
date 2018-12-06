@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import DAO.ConnectDAO;
 import Entities.COQUAN;
@@ -19,7 +20,7 @@ public class HoTichDAO extends ConnectDAO{
 		super(URL, Username, Password);
 	}
 	
-	public List<HoTich> getAllHoTichCoQuan(int coQuanID) throws ClassNotFoundException, SQLException, ParseException {
+	/*public List<HoTich> getAllHoTichCoQuan(int coQuanID) throws ClassNotFoundException, SQLException, ParseException {
 		List<HoTich> DSHoTich = new ArrayList<>();
 		Connection();
 		String sql = "{CALL GET_HOTICH_COQUAN(?)}";
@@ -45,7 +46,7 @@ public class HoTichDAO extends ConnectDAO{
 		cstm.close();
 		DisConnection();
 		return DSHoTich;
-	}
+	}*/
 	
 	public static void main(String[] args) throws SQLException, ClassNotFoundException, ParseException {
 		HoTichDAO hoTichDAO = new HoTichDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
@@ -115,4 +116,34 @@ public class HoTichDAO extends ConnectDAO{
 		}
 	}
 
+	public List<Map<Object,Object>> getAllHoTich(int coQuanID) throws SQLException, ParseException{
+		List<Map<Object,Object>> listHoTich = new ArrayList<Map<Object,Object>>();
+		
+		Connection();
+		
+		String sql = "{CALL GET_HOTICH_COQUAN(?)}";
+		
+		CallableStatement cstm = DBConnection.prepareCall(sql);
+		
+		cstm.setInt(1, coQuanID);
+		
+		ResultSet rs = cstm.executeQuery();
+		
+		while (rs.next()) {
+			listHoTich.add(
+					new HoTich(rs.getInt(1)
+							,rs.getInt(2)
+							,rs.getInt(3)
+							,new COQUAN(rs.getInt(4))
+							,rs.getInt(5)
+							,rs.getString(6)
+							,rs.getString(7)
+							,Consts.ConvertSQLtoUtilDate(rs.getDate(8))
+							,new NGUOIDUNG(rs.getInt(9), rs.getString(11))
+							,new NGUOIDUNG(rs.getInt(10), rs.getString(12))
+							).toMap()
+					);
+		}
+		return listHoTich;
+	}
 }

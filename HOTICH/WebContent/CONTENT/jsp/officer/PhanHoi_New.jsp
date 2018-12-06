@@ -69,7 +69,7 @@
 										</div>
 										<div class="modal-footer">
 											<button class="btn btn-primary">Trở lại</button>
-											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>
+											<button type="button" class="btn btn-primary" onClick="GuiPhanHoi()">Gửi phản hồi</button>
 										</div>
 										<!-- /.modal-content -->
 										</div>
@@ -103,7 +103,6 @@
 	<jsp:include page="./template/footer.jsp"></jsp:include>
 </body>
 	<jsp:include page="./template/js.jsp"></jsp:include>
-	<!-- File .js cho datatable -->
 	<script src="./CONTENT/js/officer/PhanHoi.js"></script>
 	<script type="text/javascript">
 		$(document)

@@ -8,7 +8,8 @@
 	<script src="./CONTENT/template/js/bootstrap-checkbox-radio.js"></script>
 
 	<!--  Charts Plugin -->
-	<script src="./CONTENT/template/js/chartist.min.js"></script>
+	<!-- <script src="./CONTENT/template/js/chartist.min.js"></script> -->
+	<script src="./CONTENT/plugins/canvasjs/canvasjs.min.js"></script>
 
     <!--  Notifications Plugin    -->
     <script src="./CONTENT/template/js/bootstrap-notify.js"></script>

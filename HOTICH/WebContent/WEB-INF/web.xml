@@ -18,23 +18,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>QuanLyDangKyServlet</servlet-name>
-    <url-pattern>/QuanLyDangKy</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>QuanLyDangKyServlet</servlet-name>
     <url-pattern>/QuanLyDangKy/*</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HoSoDangKyServlet</servlet-name>
-    <url-pattern>/HoSoDangKy</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>HoSoDangKyServlet</servlet-name>
     <url-pattern>/HoSoDangKy/*</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>QuanLyHoTichServlet</servlet-name>
-    <url-pattern>/QuanLyHoTich</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>QuanLyHoTichServlet</servlet-name>

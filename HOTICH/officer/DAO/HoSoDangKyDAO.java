@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import DAO.ConnectDAO;
 import Entities.HSDK;
@@ -15,7 +16,7 @@ public class HoSoDangKyDAO extends ConnectDAO {
 		super(URL, Username, Password);
 	}
 
-	public List<HSDK> getAllHSDKCoQuan(int coQuanID) throws ClassNotFoundException, SQLException {
+	/*public List<HSDK> getAllHSDKCoQuan(int coQuanID) throws ClassNotFoundException, SQLException {
 		List<HSDK> DSHSDK = new ArrayList<>();
 		// Lấy ra kết nối tới cơ sở dữ liệu.
 		Connection();
@@ -71,6 +72,30 @@ public class HoSoDangKyDAO extends ConnectDAO {
 		// Đóng kết nối
 		DisConnection();
 		return DSHSDK;
-	}
+	}*/
 
+	public List<Map<Object,Object>> getAllHSDK(int coQuanID) throws SQLException{
+		List<Map<Object,Object>> listHSDK = new ArrayList<Map<Object,Object>>();
+		
+		Connection();
+		
+		String sql = "{CALL GET_HSDK_COQUAN(?)}";
+		
+		CallableStatement cstm = DBConnection.prepareCall(sql);
+		
+		cstm.setInt(1, coQuanID);
+		
+		ResultSet rs = cstm.executeQuery();
+		
+		while (rs.next()) {
+			listHSDK.add(
+					new HSDK(rs.getInt(1)
+							, rs.getString(2)
+							, rs.getString(3)
+							, rs.getDate(4)
+							, rs.getDate(5)
+							, rs.getInt(7)).toMap());
+		}
+		return listHSDK;
+	}
 }

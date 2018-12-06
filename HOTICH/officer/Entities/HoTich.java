@@ -1,6 +1,8 @@
 package Entities;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import DAO.Consts;
 
@@ -64,9 +66,10 @@ public class HoTich {
 		this.nguoiKy = nguoiKy;
 	}
 	
-	public String toStringBuilder() {
+	/*public String toJson() {
 		StringBuilder hoTich = new StringBuilder();
 		hoTich.append("{");
+		hoTich.append("\"stt\":\"\",");
 		hoTich.append("\"id\":\""+this.ID+"\",");
 		hoTich.append("\"giayToID\":\""+this.giayToID+"\",");
 		hoTich.append("\"hoSoDangKyID\":\""+this.hoSoDangKyID+"\",");
@@ -79,9 +82,25 @@ public class HoTich {
 		hoTich.append("\"nguoiKy\":\""+this.nguoiKy.getHoVaTen()+"\"");
 		hoTich.append("}");
 		return hoTich.toString();
+	}*/
+	
+	public Map<Object,Object> toMap(){
+		Map<Object,Object> hotich = new HashMap<Object,Object>();
+		hotich.put("stt", "");
+		hotich.put("id", this.ID);
+		hotich.put("giayToID", this.giayToID);
+		hotich.put("hoSoDangKyID", this.hoSoDangKyID);
+		hotich.put("coQuanID", this.coQuan.getCoQuan_ID());
+		hotich.put("loaiGiayToID", this.loaiGiayToID);
+		hotich.put("ma", this.ma);
+		hotich.put("soQuyen", this.soQuyen);
+		hotich.put("ngayKy", Consts.ConvertUtilToString(this.ngayKy));
+		hotich.put("nguoiXuLy", this.nguoiXuLy.getHoVaTen());
+		hotich.put("nguoiKy", this.nguoiKy.getHoVaTen());
+		return hotich;
 	}
 	
-	@Override
+	/*@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		StringBuilder wrkStr = new StringBuilder();
@@ -106,5 +125,5 @@ public class HoTich {
 		wrkStr.append("Người ký : "+nguoiKy.getHoVaTen());
 		wrkStr.append("\r\n");
 		return wrkStr.toString();
-	}
+	}*/
 }
