@@ -148,7 +148,7 @@
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="form-group">
                                                 <label for="">Quan hệ với người được khai sinh</label>
-                                                <select name="NYC_QUANHE" class="form-control" id="NguoiYeuCau_QuanHe" onblur="validateRequired(NguoiYeuCau_QuanHe)"  onchange="quanHeKhac()">                                                 
+                                                <select name="NYC_QUANHE" class="form-control" id="NguoiYeuCau_QuanHe" onblur="quanHeKhac()"  onchange="quanHeKhac()">                                                 
                                                      <option  value="0">Cha</option>
                                                      <option  value="1">Mẹ</option>
                                                         <option value="2">Không phải</option>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.Consts;
 import DAO.DAO_DANTOC;
 import DAO.DAO_DK_KHAISINH;
+import DAO.DAO_DK_KHAITU;
 import DAO.DAO_PHUONG;
 import DAO.DAO_QUAN;
 import DAO.DAO_THANHPHO;
@@ -48,8 +49,48 @@ public class NopKhaiTuServlet extends HttpServlet {
 		DAO_THANHPHO TP = new DAO_THANHPHO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_QUAN QUAN  = new DAO_QUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_PHUONG PHUONG = new DAO_PHUONG(Consts.ServerUrl, Consts.UserName, Consts.Pass);
-		DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		DAO_DK_KHAITU DKKT = new DAO_DK_KHAITU(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		DAO_DANTOC DANTOC = new DAO_DANTOC(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		
+		NguoiYeuCau NYC = new NguoiYeuCau();
+		
+		NYC.setHoVaTen(request.getParameter("NYC_HOVATEN"));
+		NYC.setCMND(request.getParameter("NYC_CMND"));
+		NYC.setNoiCap(request.getParameter("NYC_NOICAP"));
+		try {
+			NYC.setNgayCap(request.getParameter("NYC_NGAYCAP"));
+		} catch (ParseException e2) {
+		
+			// TODO Auto-generated catch block
+			System.out.println("NGAY CAP NYC: "+ request.getParameter("NYC_NGAYCAP"));
+		}
+		
+		
+	   NYC.setQuanHe(request.getParameter("NYC_QUANHEKHAC"));
+		if (NYC.getQuanHe() == null || NYC.getQuanHe().trim()=="")
+			NYC.setQuanHe(request.getParameter("NYC_QUANHE"));
+		
+		NYC.setQuocTich(request.getParameter("NYC_QUOCTICH"));
+		
+		String ID_THANHPHO = request.getParameter("ComboTHANHPHO");
+		String ID_QUAN  = request.getParameter("NYC_QUAN");
+		String ID_PHUONG = request.getParameter("NYC_PHUONG");
+	
+		try 
+		{
+			NYC.setTP(TP.GET_NAME_TP(ID_THANHPHO));
+			NYC.setQuan(QUAN.GET_NAME_QUAN(ID_QUAN));
+			NYC.setPhuong(PHUONG.GET_NAME_PHUONG(ID_PHUONG));
+		} 
+		catch (SQLException e1) 
+		{
+			e1.printStackTrace();
+		}
+	
+		NYC.setDiaChi(request.getParameter("NYC_DIACHI"));
+		
+		NYC.showImfor();
+		
 		
 	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy.jsp");

@@ -45,7 +45,7 @@ public class NopHoSo extends HttpServlet {
 			{
 				DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 				
-				if( DKKS.INSERT_DK_KHAISINH(Consts.COQUAN_ID, 5, Email, SDT, StoreEntity.DKKS))
+				if( DKKS.INSERT_DK_KHAISINH(Consts.COQUAN_ID, 1, Email, SDT, StoreEntity.DKKS))
 				{
 					System.out.println("Nộp giấy Khai Sinh thành công");
 					StoreEntity.DKKS.IsEmty=true;
@@ -66,7 +66,7 @@ public class NopHoSo extends HttpServlet {
 				try {
 					
 					DAO_DK_KETHON DKKetHon = new DAO_DK_KETHON(Consts.ServerUrl, Consts.UserName, Consts.Pass);
-					if(DKKetHon.INSERT_DK_KETHON(Consts.COQUAN_ID, 5, Email, SDT, StoreEntity.DKKH))
+					if(DKKetHon.INSERT_DK_KETHON(Consts.COQUAN_ID, 3, Email, SDT, StoreEntity.DKKH))
 					{
 						System.out.println("Nộp giấy kết hôn thành công");
 						StoreEntity.DKKH.IsEmty = true;
