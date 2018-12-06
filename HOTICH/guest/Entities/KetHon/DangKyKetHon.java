@@ -28,4 +28,11 @@ public class DangKyKetHon
     	this.CHONG = chong;
     	
     }
+    
+    public boolean IsEmty = true;
+    
+    public DangKyKetHon()
+    {
+    	
+    }
 }

@@ -69,8 +69,8 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		}
 		
 		
-	NYC.setQuanHe(request.getParameter("NYC_QUANHEKHAC"));
-		if (NYC.getQuanHe().trim()=="")
+	   NYC.setQuanHe(request.getParameter("NYC_QUANHEKHAC"));
+		if (NYC.getQuanHe() == null || NYC.getQuanHe().trim()=="")
 			NYC.setQuanHe(request.getParameter("NYC_QUANHE"));
 		
 		NYC.setQuocTich(request.getParameter("NYC_QUOCTICH"));
@@ -250,9 +250,10 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		
 		DangKyKhaiSinh DK = new DangKyKhaiSinh(NYC, KS,CHA, ME);
 		
-		StoreEntity Store = new  StoreEntity();
 		
-		Store.DKKS  = DK;
+		StoreEntity.DKKS  = DK;
+		
+		StoreEntity.DKKS.IsEmty = false;
 	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy_1.jsp");
 		dispatcher.forward(request, response);

@@ -24,6 +24,7 @@ import Entities.KhaiSinh.DangKyKhaiSinh;
 import Entities.KhaiSinh.KhaiSinh;
 import Entities.KhaiSinh.NguoiThan;
 import Entities.KhaiSinh.NguoiYeuCau;
+import Models.StoreEntity;
 
 /**
  * Servlet implementation class NopKhaiSinhServlet
@@ -105,7 +106,7 @@ public class NopKetHonServlet extends HttpServlet {
 		CHONG.setDIACHI(request.getParameter("CHONG_DIACHI"));
 		
 		
-DoiTuongKetHon VO = new  DoiTuongKetHon();
+        DoiTuongKetHon VO = new  DoiTuongKetHon();
 		
 		VO.setHOTEN(request.getParameter("VO_HOVATEN"));
 		
@@ -158,16 +159,12 @@ DoiTuongKetHon VO = new  DoiTuongKetHon();
 		CHONG.ShowImFor();
 		VO.ShowImFor();
 		
-		DangKyKetHon KH  = new DangKyKetHon(VO, CHONG);
+		DangKyKetHon DK = new DangKyKetHon(VO, CHONG);
 		
-		try {
-			DKKH.INSERT_DK_KETHON(1, 5, KH);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		StoreEntity.DKKH = DK;
+		StoreEntity.DKKH.IsEmty = false;
 		
-		
+	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy_1.jsp");
 		dispatcher.forward(request, response);
 		

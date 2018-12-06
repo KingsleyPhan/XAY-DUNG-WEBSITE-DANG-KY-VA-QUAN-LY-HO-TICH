@@ -40,6 +40,8 @@ public class DangKyKhaiSinh
 	private NguoiThan Cha;
 	private NguoiThan Me;
 	
+	public boolean IsEmty = true;
+	
 	public DangKyKhaiSinh()
 	{
 	   DoiTuongSinh = new  KhaiSinh();

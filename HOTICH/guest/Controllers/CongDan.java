@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Models.StoreEntity;
+
 /**
  * Servlet implementation class CongDan
  */
@@ -28,6 +30,14 @@ public class CongDan extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(StoreEntity.DKKS == null)
+		{
+		System.out.println("Dang Ky Khai Sinh: NULL");
+		}
+		if(StoreEntity.DKKH == null)
+		{
+		System.out.println("Dang Ky KetHon: NULL");
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/CongDan.jsp");
 		dispatcher.forward(request, response);
 	}

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.catalina.Store;
 
 import DAO.Consts;
+import DAO.DAO_DK_KETHON;
 import DAO.DAO_DK_KHAISINH;
 import Models.StoreEntity;
 
@@ -33,25 +34,51 @@ public class NopHoSo extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String Email = request.getParameter("xacNhanEmail");
 		String SDT = request.getParameter("xacNhanDienThoai");
-		if(StoreEntity.DKKS != null)
+		
+		if(StoreEntity.DKKS.IsEmty == false)
 		{
 			try 
 			{
+				DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+				
 				if( DKKS.INSERT_DK_KHAISINH(Consts.COQUAN_ID, 5, Email, SDT, StoreEntity.DKKS))
 				{
-					System.out.println("Successsssssssssssssssssssssssssss");
-					StoreEntity.DKKS = null;
+					System.out.println("Nộp giấy Khai Sinh thành công");
+					StoreEntity.DKKS.IsEmty=true;
 				}
 				else
-					System.out.println("failllllllllllllllllllllllllllll");
+					System.out.println("Nộp giấy Khai Sinh failllll");
 			} 
 			catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}
+		}
+		else
+		{
+			if(StoreEntity.DKKH.IsEmty==false)
+			{
+				
+				try {
+					
+					DAO_DK_KETHON DKKetHon = new DAO_DK_KETHON(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+					if(DKKetHon.INSERT_DK_KETHON(Consts.COQUAN_ID, 5, Email, SDT, StoreEntity.DKKH))
+					{
+						System.out.println("Nộp giấy kết hôn thành công");
+						StoreEntity.DKKH.IsEmty = true;
+					}
+					else
+					{
+						System.out.println("Nộp giấy Kết hôn failllll");
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		
