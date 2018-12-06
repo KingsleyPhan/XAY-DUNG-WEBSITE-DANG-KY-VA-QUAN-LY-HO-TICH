@@ -95,7 +95,7 @@
                   
                     <form action="CongDan/TraCuu.php">
                     <div class="button-Tracuu">
-                        <button type="submit" class="btn btn-primary" style="background-color: #004f7e" onclick="return SearchCoQuan()">Quay lại
+                        <button type="submit" class="btn btn-primary" style="background-color: #004f7e" >Quay lại
                     </div>
 </form>
                 </div>
@@ -141,6 +141,7 @@
     </footer>
     <!-- End Footer-->
     <script src="CONTENT/js/guest/index.js"></script>
+      <script src="CONTENT/js/guest/valiedateForm.js"></script>
     <script>
         var set_height;
         var h;

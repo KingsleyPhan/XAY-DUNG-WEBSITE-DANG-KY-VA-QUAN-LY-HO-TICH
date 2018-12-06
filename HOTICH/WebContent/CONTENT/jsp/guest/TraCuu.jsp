@@ -83,24 +83,26 @@
                             %>
                         <div class="form-group">
                             <label for="">Mã hồ sơ</label>
-                            <input name="MaHoSo" type="text" class="form-control" style="border: 1px solid #004f7e">
+                            <input name="MaHoSo" id="MaHoSo" type="text" class="form-control" style="border: 1px solid #004f7e">
+                             <p style="color:red; font-size: 10; font-weight: 100" class="error" id="error_MaHoSo"></p>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <label for="">Mã xác nhận</label>
-                            <p style="text-align: center; font-size: 18px"><%=cs.Code() %></p>
+                            <p id="code1" style="text-align: center; font-size: 18px"><%=cs.Code() %></p>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <label for="">Nhập mã xác nhận</label>
-                            <input type="text" class="form-control" id="HoTenYeuCau" style="border: 1px solid #004f7e" onblur="validateHoTen(HoTenYeuCau)">
+                            <input type="text" class="form-control" id="code2" style="border: 1px solid #004f7e" onblur="validateHoTen(HoTenYeuCau)">
+                             <p style="color:red; font-size: 10; font-weight: 100" class="error" id="error_code2"></p>
                         </div>
                     </div>
                    
                     <div class="button-Tracuu">
-                        <button type="submit" value="Tra Cứu" class="btn btn-primary" style="background-color: #004f7e" onclick="return SearchCoQuan()">Tra cứu
+                        <button type="submit" value="Tra Cứu" class="btn btn-primary" style="background-color: #004f7e" onclick="return validateTraCuu()">Tra cứu
                     </div>
 
                 </div>
@@ -146,6 +148,7 @@
     </footer>
     <!-- End Footer-->
     <script src="../CONTENT/js/guest/index.js"></script>
+    <script src="../CONTENT/js/guest/valiedateForm.js"></script>
     <script>
         var set_height;
         var h;

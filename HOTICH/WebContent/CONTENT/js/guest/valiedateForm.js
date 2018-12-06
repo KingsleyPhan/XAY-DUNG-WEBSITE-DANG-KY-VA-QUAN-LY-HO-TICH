@@ -280,6 +280,44 @@ function AddClass(element, name) {
 			return false;
 		}
 		
+		 function validateXacNhan(id_code, id_des) {
+	            var x = id_code;
+	            var des = id_des;
+				var result = "";
+				if(x.value == "" || x.value == undefined)
+					{
+						result = "* Không được để trống";
+					}
+				else
+					{
+						if(des.innerHTML != x.value)
+						{
+							result = "* Mã code không đúng";
+						}	
+					}
+				var id_error = "#error_" + id_code.id;
+				$(id_error).html(result);
+				if(result == "")
+					{
+						RemoveClass(id_code,"fild_error")
+						return true;
+					}
+				AddClass(id_code,"fild_error");
+				return false;
+	        }
+	        
+		
+		function validateTraCuu()
+		{
+			var result = validateRequired(MaHoSo);
+			 result = validateXacNhan(code2, code1) && result;
+			
+			if(result){
+				return true;
+			}
+			return false;
+		}
+		
 		
 
 		function validateSubmitKhaiSinh(){
