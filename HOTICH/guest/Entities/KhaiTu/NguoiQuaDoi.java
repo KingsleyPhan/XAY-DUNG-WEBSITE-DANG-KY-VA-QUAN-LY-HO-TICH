@@ -1,10 +1,14 @@
 package Entities.KhaiTu;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class NguoiQuaDoi 
 {
 	private String  HoVaTen;
-	private String  NgaySinh;
-	private int GioiTinh;
+	private Date  NgaySinh;
+	private String GioiTinh;
 	private String  CMND;
 	private String  NoiCap;
 	private String  NgayCap;
@@ -16,29 +20,43 @@ public class NguoiQuaDoi
 	private String  DiaChi;
 	
 	private String NgayMat;
+	private String ThoiGianMat;
 	private String NoiMat;
 	private String NguyenNhan;
-	private String TenGiayBao;
-	private String NgayCapGiayBao;
-	private String NoiCapGiayBao;
-	
+	private String NoiMat_QuocGia;
+	private String  NoiMat_TP;
+	private String  NoiMat_Quan;
+	private String  NoiMat_Phuong;
+	private String  NoiMat_DiaChi;
 	public String getHoVaTen() {
 		return HoVaTen;
 	}
 	public void setHoVaTen(String hoVaTen) {
 		HoVaTen = hoVaTen;
 	}
-	public String getNgaySinh() {
+	public Date getNgaySinh() {
 		return NgaySinh;
 	}
 	public void setNgaySinh(String ngaySinh) {
-		NgaySinh = ngaySinh;
+		
+		SimpleDateFormat fmd = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date;
+		try {
+			date = fmd.parse(ngaySinh);
+			java.sql.Date sqlStartDate = new java.sql.Date(date.getTime()); 
+			NgaySinh = sqlStartDate;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
-	public int getGioiTinh() {
+	public String getGioiTinh() {
 		return GioiTinh;
 	}
-	public void setGioiTinh(int gioiTinh) {
-		GioiTinh = gioiTinh;
+	public void setGioiTinh(String string) {
+		GioiTinh = string;
 	}
 	public String getCMND() {
 		return CMND;
@@ -100,6 +118,12 @@ public class NguoiQuaDoi
 	public void setNgayMat(String ngayMat) {
 		NgayMat = ngayMat;
 	}
+	public String getThoiGianMat() {
+		return ThoiGianMat;
+	}
+	public void setThoiGianMat(String thoiGianMat) {
+		ThoiGianMat = thoiGianMat;
+	}
 	public String getNoiMat() {
 		return NoiMat;
 	}
@@ -112,24 +136,39 @@ public class NguoiQuaDoi
 	public void setNguyenNhan(String nguyenNhan) {
 		NguyenNhan = nguyenNhan;
 	}
-	public String getTenGiayBao() {
-		return TenGiayBao;
+	public String getNoiMat_QuocGia() {
+		return NoiMat_QuocGia;
 	}
-	public void setTenGiayBao(String tenGiayBao) {
-		TenGiayBao = tenGiayBao;
+	public void setNoiMat_QuocGia(String noiMat_QuocGia) {
+		NoiMat_QuocGia = noiMat_QuocGia;
 	}
-	public String getNgayCapGiayBao() {
-		return NgayCapGiayBao;
+	public String getNoiMat_TP() {
+		return NoiMat_TP;
 	}
-	public void setNgayCapGiayBao(String ngayCapGiayBao) {
-		NgayCapGiayBao = ngayCapGiayBao;
+	public void setNoiMat_TP(String noiMat_TP) {
+		NoiMat_TP = noiMat_TP;
 	}
-	public String getNoiCapGiayBao() {
-		return NoiCapGiayBao;
+	public String getNoiMat_Quan() {
+		return NoiMat_Quan;
 	}
-	public void setNoiCapGiayBao(String noiCapGiayBao) {
-		NoiCapGiayBao = noiCapGiayBao;
+	public void setNoiMat_Quan(String noiMat_Quan) {
+		NoiMat_Quan = noiMat_Quan;
 	}
+	public String getNoiMat_Phuong() {
+		return NoiMat_Phuong;
+	}
+	public void setNoiMat_Phuong(String noiMat_Phuong) {
+		NoiMat_Phuong = noiMat_Phuong;
+	}
+	public String getNoiMat_DiaChi() {
+		return NoiMat_DiaChi;
+	}
+	public void setNoiMat_DiaChi(String noiMat_DiaChi) {
+		NoiMat_DiaChi = noiMat_DiaChi;
+	}
+	
+	
+	
 	
 	
 

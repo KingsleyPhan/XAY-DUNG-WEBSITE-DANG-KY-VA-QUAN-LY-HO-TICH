@@ -71,7 +71,22 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		
 	   NYC.setQuanHe(request.getParameter("NYC_QUANHEKHAC"));
 		if (NYC.getQuanHe() == null || NYC.getQuanHe().trim()=="")
-			NYC.setQuanHe(request.getParameter("NYC_QUANHE"));
+		{
+			String ID_QH = request.getParameter("NYC_QUANHE");
+			
+			System.out.println("Quan He: " + ID_QH);
+			
+			if(Integer.parseInt(ID_QH)==0)
+			{
+				NYC.setQuanHe("Cha");
+			}
+			else				
+			{
+				if(Integer.parseInt(ID_QH)==1) NYC.setQuanHe("Mẹ");
+			}
+		}
+		
+		
 		
 		NYC.setQuocTich(request.getParameter("NYC_QUOCTICH"));
 		
@@ -147,12 +162,14 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		
 		KS.showImfor();
 		
+	
 		String checkedboxValue = request.getParameter("nu_check_yeucau");
 		System.out.println("Me check: " + checkedboxValue);
-		checkedboxValue = request.getParameter("nam_check_yeucau");
-		System.out.println("Cha check: " + checkedboxValue);
-		if(checkedboxValue == "null")
+	
+		if(checkedboxValue == null)
 		{
+			System.out.println("Vao Me: NULL");
+			
 			ME.setHoVaTen(request.getParameter("ME_HOVATEN"));
 			try {
 				ME.setNgaySinh(request.getParameter("ME_NGAYSINH"));
@@ -195,13 +212,17 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		
 			ME.setDiaChi(request.getParameter("ME_DIACHI"));
 			
+			ME.showImfor();
 		}
 	
 	
 		checkedboxValue = request.getParameter("nam_check_yeucau");
-       
-		if(checkedboxValue == "null")
+		System.out.println("CHA check: " + checkedboxValue);
+		
+		if(checkedboxValue == null)
 		{
+			System.out.println("Vao CHA: NULL");
+			
 			CHA.setHoVaTen(request.getParameter("CHA_HOVATEN"));
 			try {
 				CHA.setNgaySinh(request.getParameter("CHA_NGAYSINH"));
@@ -241,6 +262,8 @@ public class NopKhaiSinhServlet extends HttpServlet {
 				}
 		
 			CHA.setDiaChi(request.getParameter("CHA_DIACHI"));
+			
+			CHA.showImfor();
 		}
 		
 	

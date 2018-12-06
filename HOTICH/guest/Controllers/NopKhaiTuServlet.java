@@ -22,6 +22,7 @@ import Entities.KhaiSinh.DangKyKhaiSinh;
 import Entities.KhaiSinh.KhaiSinh;
 import Entities.KhaiSinh.NguoiThan;
 import Entities.KhaiSinh.NguoiYeuCau;
+import Entities.KhaiTu.NguoiQuaDoi;
 
 /**
  * Servlet implementation class NopKhaiSinhServlet
@@ -68,7 +69,19 @@ public class NopKhaiTuServlet extends HttpServlet {
 		
 	   NYC.setQuanHe(request.getParameter("NYC_QUANHEKHAC"));
 		if (NYC.getQuanHe() == null || NYC.getQuanHe().trim()=="")
-			NYC.setQuanHe(request.getParameter("NYC_QUANHE"));
+		{
+			String ID_QH = request.getParameter("NYC_QUANHE");
+			
+			if(ID_QH=="0")
+			{
+				NYC.setQuanHe("Con");
+			}
+			else				
+			{
+				if(ID_QH=="1") NYC.setQuanHe("Cháu");
+			}
+		}
+			
 		
 		NYC.setQuocTich(request.getParameter("NYC_QUOCTICH"));
 		
@@ -91,9 +104,14 @@ public class NopKhaiTuServlet extends HttpServlet {
 		
 		NYC.showImfor();
 		
+		NguoiQuaDoi NQD = new NguoiQuaDoi();
+		
+		NQD.setHoVaTen(request.getParameter("NQD_HOVATEN"));
+		NQD.setGioiTinh(request.getParameter("gender"));
+		NQD.setNgaySinh(request.getParameter("NQD_NGAYSINH"));
 		
 	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/XacNhanDangKy_1.jsp");
 		dispatcher.forward(request, response);
 		
 	
