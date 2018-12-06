@@ -272,7 +272,8 @@ function AddClass(element, name) {
 			result = validateRequired(nu_id_quan) && result;
 			result = validateRequired(nu_id_phuong) && result;
 			result = validateRequired(nu_diachi) && result;
-			
+			result =validateCheckBox(checkCamKet) && result;
+			 
 			if(result){
 				return true;
 			}

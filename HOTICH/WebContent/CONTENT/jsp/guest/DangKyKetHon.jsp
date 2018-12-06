@@ -69,7 +69,7 @@
 
 
             <div class="row" style="margin-top:20px">
-              <form action="NopKetHon.php" method="Post" onsubmit="validateSubmitKetHon()">
+              <form action="NopKetHon.php" method="Post" onsubmit="return validateSubmitKetHon()">
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
@@ -450,11 +450,12 @@
                     </div>
 
                     
-                    <div class="row">
+                   <div class="row">
                         <div class="container container-paper">
+                         <div class="form-group">
                             <div class="content-checkbox">
                                 <div class="form-check">
-                                    <inpu name="CHECK_AGREE" type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="checkCamKet">
                                     <label class="form-check-label">Tôi cam đoan đề nghị đăng ký trên đây là đúng sự
                                         thật, được sự thỏa thuận và nhất trí của các bên liên quan theo quy định của
                                         pháp luật. </label>
@@ -462,6 +463,8 @@
                                     </label>
                                 </div>
                             </div>
+                            <p class="error" id="error_checkCamKet"></p>
+                         </div>
                         </div>
                     </div>
                     <div class="row">

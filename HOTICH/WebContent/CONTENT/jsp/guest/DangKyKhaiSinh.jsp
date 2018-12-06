@@ -70,7 +70,7 @@
             </div>
 
             <div class="row" style="margin-top:20px">
-             <form action="NopKhaiSinh.php" method="Post" onsubmit="validateSubmitKhaiSinh()">
+             <form action="NopKhaiSinh.php" method="Post" onsubmit="return validateSubmitKhaiSinh()">
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
