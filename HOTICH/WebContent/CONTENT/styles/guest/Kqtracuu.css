@@ -1,0 +1,39 @@
+.labelFor
+{
+    font-size: 16px;
+    font-weight: 800;
+    float:left;
+    line-height: 18px;
+    margin-right: 10px;
+}
+.display-result
+{
+    float:left;
+    line-height: 18px;
+    font-size: 18px;
+    color: green;
+   
+}
+.row-table
+{
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  
+}
+.tit
+{
+    width: 25%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    
+    
+}
+.contt
+{
+    width: 75%;
+    padding-top: 5px;
+    padding-bottom:5px;
+  
+}

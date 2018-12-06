@@ -1,0 +1,46 @@
+
+.content-gioithieus
+{
+    color: #004f7e;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: justify;
+    text-align: center;
+   
+
+}
+.title-tracuu
+{
+    color: red;
+    font-size: 25px;
+    font-weight: 800;
+    text-align: justify;
+    text-align: center;
+}
+.Content-TraCuu
+{
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+
+    background-color: aliceblue;
+    color: #004f7e;
+    font-size: 25px;
+    font-weight: 800;
+    padding: 15px;
+
+    box-shadow: rgba(0, 0, 0, .01) 1 1 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.footer-CoQuan
+{
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 3px solid #004f7e;
+}
+.button-Tracuu
+{
+    width: 100px;
+    margin: auto;
+}

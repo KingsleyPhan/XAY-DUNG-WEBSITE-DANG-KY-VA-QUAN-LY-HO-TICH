@@ -12,10 +12,12 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import DAO.Consts;
 import DAO.DAO_DK_KHAISINH;
+import DAO.DAO_HOSODANGKY;
 import DAO.DAO_NGUOIDUNG;
 import DAO.DAO_QUYEN;
 import DAO.DAO_THANHPHO;
 import Entities.NguoiDungA;
+import Entities.HoSo.HoSoDangKy;
 import Entities.KhaiSinh.DangKyKhaiSinh;
 import Models.CreateCode;
 
@@ -87,6 +89,17 @@ public class database
 		CreateCode cs = new CreateCode();
 		
 		System.out.println("Code la: " + cs.Code());
+		
+		
+		DAO_HOSODANGKY HS = new DAO_HOSODANGKY(Consts.ServerUrl,Consts.UserName, Consts.Pass);
+		
+		HoSoDangKy HSDK = new HoSoDangKy();
+		
+		HSDK = HS.Get_TraCuuHoSo("1","HSDK181206204010");
+		
+		HSDK.ShowImfot();
+		
+		
 			
        
 		

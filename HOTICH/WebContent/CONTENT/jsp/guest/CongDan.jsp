@@ -63,7 +63,8 @@
            
         </div>
         <div class="col-sm-3">
-            <button class="link-chucnang" type="submit" >
+        <form action="CongDan/TraCuu.php">
+         <button class="link-chucnang" type="submit" >
                 <div class="chucnang">
                     <div class="titles">
                         <p>TRA CỨU HỒ SƠ</p>
@@ -72,6 +73,8 @@
                         điện tử các thủ tục hành chính giữa Công dân/ Doanh nghiệp và các cơ quan nhà nước.</p>
                 </div>
             </button>
+        </form>
+           
         </div>
         <div class="col-sm-3">
            <button class="link-chucnang" type="submit" >
