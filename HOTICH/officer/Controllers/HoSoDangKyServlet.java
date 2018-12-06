@@ -56,9 +56,12 @@ public class HoSoDangKyServlet extends HttpServlet {
 
 	private void kiemDuyet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String page = "";
+		
 		ServletContext context = getServletContext();
+		
 		int id = (Integer) context.getAttribute("ID_HSDK");
 		int loai = (Integer) context.getAttribute("Loai_GiayTo");
+		
 		if(id != 0) {
 			try {
 				switch (loai) {
@@ -83,8 +86,12 @@ public class HoSoDangKyServlet extends HttpServlet {
 					response.sendRedirect(page);
 					return;
 				case 2:
+					context.setAttribute("ID_HSDK", 0);
+					context.setAttribute("Loai_GiayTo", 0);
 					break;
 				case 3:
+					context.setAttribute("ID_HSDK", 0);
+					context.setAttribute("Loai_GiayTo", 0);
 					break;
 				default:
 					break;

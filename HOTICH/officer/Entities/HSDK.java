@@ -1,6 +1,8 @@
 package Entities;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import DAO.Consts;
 
@@ -63,7 +65,7 @@ public class HSDK {
 		return this;
 	}
 	
-	@Override
+	/*@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		StringBuilder wrkStr = new StringBuilder();
@@ -83,5 +85,18 @@ public class HSDK {
 		}
 		wrkStr.append("Loại giấy tờ Id : "+loaiGiayToId);
 		return wrkStr.toString();
+	}*/
+	
+	public Map<Object,Object> toMap(){
+		Map<Object,Object> hsdk = new HashMap<Object,Object>();
+		hsdk.put("stt", "");
+		hsdk.put("id", this.hoSoDangKyId);
+		hsdk.put("ten", this.hoSoDangKyTen);
+		hsdk.put("ma", this.hoSoDangKyMa);
+		hsdk.put("ngayDangKy", Consts.ConvertUtilToString(this.ngayDangKy));
+		hsdk.put("ngayHetHan", Consts.ConvertUtilToString(this.ngayHetHan));
+		hsdk.put("loaiGiayTo", this.loaiGiayToId);
+		return hsdk;
+		
 	}
 }

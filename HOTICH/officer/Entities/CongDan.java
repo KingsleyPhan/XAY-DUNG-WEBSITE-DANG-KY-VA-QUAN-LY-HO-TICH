@@ -1,6 +1,8 @@
 package Entities;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import DAO.Consts;
 
@@ -156,7 +158,7 @@ public class CongDan {
 		this.conSong = true;
 	}
 	
-	public String toStringBuilder() {
+	/*public String toStringBuilder() {
 		StringBuilder congDan = new StringBuilder();
 		congDan.append("{");
 		congDan.append("\"id\":\""+this.id+"\",");
@@ -182,9 +184,35 @@ public class CongDan {
 		congDan.append("\"conSong\":\""+this.conSong.toString()+"\"");
 		congDan.append("}");
 		return congDan.toString();
+	}*/
+	
+	public Map<Object,Object> toMap(){
+		Map<Object,Object> congDan = new HashMap<Object, Object>();
+		congDan.put("id", this.id);
+		congDan.put("hoVaTen", this.hoVaTen);
+		congDan.put("ngaySinh", Consts.ConvertUtilToString(this.ngaySinh));
+		if(this.gioiTinh){
+			congDan.put("gioiTinh", 1);
+		}else {
+			congDan.put("gioiTinh", 0);
+		}
+		congDan.put("queQuan", this.queQuan);
+		congDan.put("quocTich", this.quocTich);
+		congDan.put("danToc", this.danToc);
+		congDan.put("cmndSo", this.cmnd.getSo());
+		congDan.put("cmndNgayCap", Consts.ConvertUtilToString(this.cmnd.getNgayCap()));
+		congDan.put("cmndNoiCap", this.cmnd.getNoiCap());
+		congDan.put("thanhPho", this.diaChi.getThanhPho());
+		congDan.put("quan", this.diaChi.getQuan());
+		congDan.put("phuong", this.diaChi.getPhuong());
+		congDan.put("diachi", this.diaChi.getSoDuong());
+		congDan.put("tinhTrangHonNhan", this.tinhTrangHonNhan);
+		congDan.put("conSong", this.conSong.toString());
+		return congDan;
+		
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		StringBuilder wrkStr = new StringBuilder();
@@ -218,7 +246,7 @@ public class CongDan {
 			wrkStr.append("Quê quán khai sinh : "+queQuanKhaiSinh.toString());
 		}
 		return wrkStr.toString();
-	}
+	}*/
 
 	
 }

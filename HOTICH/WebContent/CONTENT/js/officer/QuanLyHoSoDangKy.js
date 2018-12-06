@@ -4,7 +4,7 @@ $(document).ready(function() {
 		"ajax" : {
 			"data" : {key : -1},
 			"url" : "QuanLyDangKy/getAll",
-			"dataSrc" : "hsdk",
+			"dataSrc":"",
 			"type" : "POST",
 		},
 		"columns" : [ 
@@ -71,7 +71,9 @@ $(document).ready(function() {
 		var loai = table.row( tr ).data().loaiGiayTo
 	    window.location = "HoSoDangKy/setHSDK?id="+id+"&loai="+loai
 	} );
-	filterSelection(-1);
+	setInterval( function () {
+	    table.ajax.reload();
+	}, 30000 ); // 30 seconds
 });
 /*
  $.ajax({

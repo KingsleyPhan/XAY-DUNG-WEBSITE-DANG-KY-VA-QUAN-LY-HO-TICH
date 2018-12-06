@@ -28,15 +28,16 @@ $(document).ready(function() {
     } );
 	
     var table = $('#table_id').DataTable( {
+    	"processing" : true,
     	"ajax" : {
 			"data" : {key : -1},
 			"url" : "QuanLyHoTich/getAll",
-			"dataSrc" : "hotich",
+			"dataSrc":"",
 			"type" : "POST",
 		},
         "columns": [
         	{
-    			"data": null,
+    			"data": "stt",
     			"className" : 'col-stt',
     			"orderable" : false,
     		},
@@ -96,11 +97,20 @@ $(document).ready(function() {
 				"orderable":      false,
 			},
 			{
+				"className":	'col-tacvu',
 				"orderable":      false,
 				"data":		null,
-				"defaultContent": '<div style="text-align: center;"><a href="HoTichKhaiSinh.html" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i> Xem</a></div>',
-				"classname":	'col-tacvu',
-				
+				"defaultContent": '<div style="float:left; text-align:center;">'
+									+'<button class="btn btn-info view">'
+										+'<i class="glyphicon glyphicon-search"></i>'
+									+'</button>'
+									+'<button class="btn btn-warning edit">'
+										+'<i class="glyphicon glyphicon-pencil"></i>'
+									+'</button>'
+									+'<button class="btn btn-danger delete">'
+										+'<i class="glyphicon glyphicon-ban-circle"></i>'
+									+'</button>'
+								+'</div>',
 			},
         ],
         scrollCollapse : true,
@@ -114,6 +124,10 @@ $(document).ready(function() {
 			order : 'applied'
 		}).nodes().each(function(cell, i) {
 			cell.innerHTML = i + 1;
+			//Lưu số thứ tự vào lại datatable
+			var tr = $(cell).closest('tr');
+			table.row(tr).data().stt = i + 1;
+			console.log(table.row(tr).data().stt)
 		});
 	}).draw();
 	
@@ -142,10 +156,11 @@ $(document).ready(function() {
         } );
     } ).draw();;
     
-    // Add event listener for opening and closing details
-    $('#table_id tbody').on('click', 'td', function () {
+    $('#table_id tbody').on( 'click', 'td.col-tacvu .edit', function () {
         var tr = $(this).closest('tr');
         var row = table.row( tr );
+        console.log( table.row( tr ).data().id);
+        table.ajax.reload();
 		var deafaultTr = document.getElementsByClassName('shown');
 		for (i = 0; i < deafaultTr.length; i++) {
 			var deafaultRow = table.row(deafaultTr[i]);

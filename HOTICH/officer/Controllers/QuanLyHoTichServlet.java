@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -15,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import DAO.Consts;
 import DAO.HoTichDAO;
@@ -71,42 +74,33 @@ public class QuanLyHoTichServlet extends HttpServlet {
 	}
 	private void GetAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int loaiGiay = Integer.parseInt(request.getParameter("key"));
+		
 		PrintWriter out = response.getWriter();
-		StringBuilder data = new StringBuilder();
-		List<HoTich> DSHoTich;
-		data.append("{ \"hotich\":[");
+		
+		Gson gsonObj = new Gson();
+		
+		List<Map<Object,Object>> listHoTich = new ArrayList<Map<Object,Object>>();
+		
 		try {
 			if (loaiGiay == -1)
 			{
-				DSHoTich= hoTichDAO.getAllHoTichCoQuan(1);
+				listHoTich= hoTichDAO.getAllHoTich(1);
 			}
 			else
 			{
 				//Chua xu ly
-				DSHoTich= hoTichDAO.getAllHoTichCoQuan(1);
+				listHoTich= hoTichDAO.getAllHoTich(1);
 			}
-			for (int i = 0; i < DSHoTich.size(); i++) {
-				StringBuilder temp = new StringBuilder();
-				if (i == DSHoTich.size() - 1) { //Trường hợp dòng cuối cùng sẽ không có dấu ","
-					temp.append(DSHoTich.get(i).toStringBuilder());
-					
-				}
-				else
-				{
-					temp.append(DSHoTich.get(i).toStringBuilder());
-					temp.append(",");
-				}
-				data.append(temp);
-			}
-		} catch (ClassNotFoundException e) {
+			
+			String dataPoints = gsonObj.toJson(listHoTich);
+			
+			out.print(dataPoints);
+			
+		}  catch (SQLException e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}catch (ParseException e) {
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		data.append("]}");
-		out.println(data.toString());
 	}
 	
 	private void InsertHoTich(HttpServletRequest request, HttpServletResponse response) throws Exception

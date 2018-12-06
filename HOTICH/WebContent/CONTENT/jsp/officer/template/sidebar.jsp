@@ -48,12 +48,25 @@
 	            	</c:otherwise>
 	            </c:choose>
                 
-                <li>
-                    <a href="table.html">
-                        <i class="ti-pie-chart"></i>
-                        <p>THỐNG KÊ</p>
-                    </a>
-                </li>
+                <c:choose>
+	            	<c:when test="${param.mode == 3 }">
+	            		<li class="active">
+		                    <a href="ThongKe">
+		                        <i class="ti-pie-chart"></i>
+		                        <p>THỐNG KÊ</p>
+		                    </a>
+		                </li>
+	            	</c:when>
+	            	<c:otherwise>
+	            		<li>
+		                    <a href="ThongKe">
+		                        <i class="ti-pie-chart"></i>
+		                        <p>THỐNG KÊ</p>
+		                    </a>
+		                </li>
+	            	</c:otherwise>
+	            </c:choose>
+                
                 <li>
                     <a href="typography.html">
                         <i class="ti-user"></i>
