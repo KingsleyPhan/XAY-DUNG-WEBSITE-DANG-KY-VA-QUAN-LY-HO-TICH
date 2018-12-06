@@ -88,6 +88,9 @@ public class changelocation extends HttpServlet {
 				    Tinh="";
 				     Quan="";
 				   Phuong="";
+				   
+				   Consts.OpenWebsite=true;
+				   
 					RequestDispatcher dispatcher = request.getRequestDispatcher("DangNhap.php");
 					dispatcher.forward(request, response);
 			

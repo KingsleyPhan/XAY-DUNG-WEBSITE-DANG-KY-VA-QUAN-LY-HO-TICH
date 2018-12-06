@@ -102,7 +102,7 @@
 								<div class="col-12 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="">QUẬN/HUYỆN</label>
-										<form action="Tìm Cơ quan">
+										<form action="Tìm Cơ quan" >
 											<select class="form-control" onload="chgPhuong()" onmousedown="chgPhuong()"  onchange="chgPhuong()" name="modal-quan" id="modal-quan">
 																					
 											</select>
@@ -147,7 +147,7 @@
 						</div>
 						<div class="content-switch">
 							<div class="btn-Dang-Ky">
-								<form action="CongDan.php">
+								<form action="CongDan.php" onsubmit="return getVariable()">
 									<button type="submit" class="btn btn-default btn-dk"
 										style="background-color: #004f7e">ĐĂNG KÝ HỘ TỊCH</button>
 								</form>
@@ -194,7 +194,7 @@
 
 								<div class="form-group"
 									style="margin-top: 5px; margin-bottom: 0">
-									<button type="submit" formmethod="get"
+									<button type="submit" formmethod="get" onclick=" return getVariable()"
 										class="btn btn-default btn-dn"
 										style="background-color: #004f7e">Đăng nhập</button>
 								</div>
@@ -214,6 +214,72 @@
 		</div>
 	</div>
 	<!--Start Content-->
+	<style>
+	.modal-dialog .modal-content .modal-header
+{
+    color: white;
+    background-color: #004f7e;
+}
+
+.modal-dialog .modal-content .modal-body label
+{
+    font-weight: bold;
+}
+
+#myModalimfor.modal{
+    text-align: center;
+}
+#myModalimfor.modal::before {
+    content: "";	  
+    display: inline-block;
+    height: 100%;	 
+    margin-right: -4px;
+    vertical-align: middle;
+}
+#myModalimfor .modal-dialog {	
+    display: inline-block;	
+    text-align: left;	
+    vertical-align: middle;
+}	
+
+#notify.modal{
+    text-align: center;
+}
+#notify.modal::before {
+    content: "";	  
+    display: inline-block;
+    height: 100%;	 
+    margin-right: -4px;
+    vertical-align: middle;
+}
+#notify .modal-dialog {	
+    display: inline-block;	
+    text-align: left;	
+    vertical-align: middle;
+}	
+#myModalimfor .modal-content {	
+   width: 70%;
+   margin: auto;
+   color: black;
+}
+	
+	</style>
+	 <!-- Modal -->
+       <div class="modal fade" id="myModalimfor" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">THÔNG BÁO</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p  id="id_error">Bạn chưa chọn cơ quan quản lý</p>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
 	<!-- Start Footer-->
 	<footer>
 		<div class="container">
@@ -238,6 +304,7 @@
 	</footer>
 	<!-- End Footer-->
 
+
 	<script src="CONTENT/js/guest/index.js"></script>
 	
 	<script>
@@ -245,11 +312,36 @@
 	{
 		chgQuan()
 	       var vals = document.getElementById("comboCoQuan").value;
-		 var element = document.getElementById('id_TP');
-		 element.value = vals;
+		    var element = document.getElementById('id_TP');
+		    element.value = vals;
 		 
 		
 	}
+	
+	 function getVariable()
+     {
+     	var val = <%= Consts.OpenWebsite%>
+     	
+     	if(val==true)
+   		{
+   	 	   return true;
+   	 	
+   		}
+     	else
+     		{
+     	   ThongBao();
+   	 	   return false;
+     		}
+     	
+     	
+     	
+     }
+	 
+	 function ThongBao()
+	 {
+	 	$("#myModalimfor").modal();
+	 	
+	 }
 	</script>
 	
 

@@ -59,7 +59,7 @@
                         %>
                     <div class="col-12 col-sm-8 col-md-8">
                         <div class="form-group">
-                            <label for="">Loại Giấy tờ</label>
+                            <label class="forlabel" for="">Loại Giấy tờ</label>
                             <select  style="border: 1px solid #004f7e" class="form-control" name="loaiHoSo">
                                 <%
 													 
@@ -82,20 +82,20 @@
                                 CreateCode cs = new CreateCode();
                             %>
                         <div class="form-group">
-                            <label for="">Mã hồ sơ</label>
+                            <label class="forlabel" for="">Mã hồ sơ</label>
                             <input name="MaHoSo" id="MaHoSo" type="text" class="form-control" style="border: 1px solid #004f7e">
                              <p style="color:red; font-size: 10; font-weight: 100" class="error" id="error_MaHoSo"></p>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <label for="">Mã xác nhận</label>
+                            <label class="forlabel" for="">Mã xác nhận</label>
                             <p id="code1" style="text-align: center; font-size: 18px"><%=cs.Code() %></p>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <label for="">Nhập mã xác nhận</label>
+                            <label class="forlabel" for="">Nhập mã xác nhận</label>
                             <input type="text" class="form-control" id="code2" style="border: 1px solid #004f7e" onblur="validateHoTen(HoTenYeuCau)">
                              <p style="color:red; font-size: 10; font-weight: 100" class="error" id="error_code2"></p>
                         </div>
@@ -168,8 +168,10 @@
             document.getElementById("ct").style.fontSize = '0';
         });
 
-
-
+      
+       
+        
+        
     </script>
 </body>
 </html>

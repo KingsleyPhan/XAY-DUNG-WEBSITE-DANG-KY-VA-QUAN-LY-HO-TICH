@@ -20,6 +20,8 @@ public class Consts {
 	
 	public static int COQUAN_ID = 1;
 
+	public static boolean OpenWebsite = false;
+	
 	public static int Get_COQUAN_ID()
 	{
 		return COQUAN_ID;
