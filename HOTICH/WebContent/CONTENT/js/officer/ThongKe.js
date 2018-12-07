@@ -10,9 +10,6 @@ window.onload = function () {
 			var chart = new CanvasJS.Chart("chartContainer", {
 				exportEnabled: true,
 				animationEnabled: true,
-				title:{
-					text: "Hồ sơ đăng ký trong tháng " + 12
-				},
 				legend:{
 					cursor: "pointer",
 					itemclick: explodePie
