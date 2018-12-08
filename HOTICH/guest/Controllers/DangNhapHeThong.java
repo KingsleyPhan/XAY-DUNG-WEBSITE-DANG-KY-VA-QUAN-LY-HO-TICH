@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,14 +58,16 @@ public class DangNhapHeThong extends HttpServlet {
 				String Quyen = GetQuyen.GET_QUYEN_ROLL(us.getQuyen());
 				if(Quyen.trim().equals("ADMINCOQUAN"))
 				{
-					response.sendRedirect("admin");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/AdminNguoiDung.jsp");
+					dispatcher.forward(request, response);
 					return;
 				}
 				else
 				{
 					if(Quyen.trim().equals("CANBOHOTICH"))
 					{
-						response.sendRedirect("HoSoDangKy");
+						RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/officer/QuanLyHoTich_New.jsp");
+						dispatcher.forward(request, response);
 						return;
 					}
 				}

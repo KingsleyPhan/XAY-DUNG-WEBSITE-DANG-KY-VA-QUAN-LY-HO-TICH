@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css"
 	href="CONTENT/styles/guest/StepOfIndex.css">
 </head>
-<body>
+<body style=" overflow: inherit; padding-right: 0 !important; ">
 	<header id="header" class="header">
 		<div class="container">
 			<div class="row">
@@ -265,7 +265,7 @@
 	
 	</style>
 	 <!-- Modal -->
-       <div class="modal fade" id="myModalimfor" role="dialog">
+       <div class="modal fade" id="myModalimfor" role="dialog" style=" overflow: inherit; padding-right: 0 !important; ">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
