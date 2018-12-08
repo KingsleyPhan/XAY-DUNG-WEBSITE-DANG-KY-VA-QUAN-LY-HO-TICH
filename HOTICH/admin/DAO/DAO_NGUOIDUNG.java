@@ -39,7 +39,9 @@ public class DAO_NGUOIDUNG extends ConnectDAO {
 	        
 	        while(resultSet.next())
 	        {
-	        	US.setQuyen(resultSet.getString(10));
+	        	US.setQuyen(resultSet.getString("NGUOIDUNG_QUYEN"));
+	        	US.setID(resultSet.getInt("NGUOIDUNG_ID"));
+	        	
 	        }
 	      
 	        return US;

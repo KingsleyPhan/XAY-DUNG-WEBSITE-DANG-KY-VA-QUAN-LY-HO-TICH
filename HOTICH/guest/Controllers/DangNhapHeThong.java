@@ -60,6 +60,11 @@ public class DangNhapHeThong extends HttpServlet {
 				String Quyen = GetQuyen.GET_QUYEN_ROLL(us.getQuyen());
 				if(Quyen.trim().equals("ADMINCOQUAN"))
 				{
+					
+					Consts.NGUOIDUNG_ID = us.getID();
+					
+					System.out.println("Nguoi dung: " + Consts.NGUOIDUNG_ID);
+					
 					RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/admin/AdminNguoiDung.jsp");
 					dispatcher.forward(request, response);
 					return;
@@ -68,6 +73,8 @@ public class DangNhapHeThong extends HttpServlet {
 				{
 					if(Quyen.trim().equals("CANBOHOTICH"))
 					{
+						Consts.NGUOIDUNG_ID = us.getID();
+						System.out.println("Nguoi dung: " + Consts.NGUOIDUNG_ID);
 						RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/officer/QuanLyHoTich_New.jsp");
 						dispatcher.forward(request, response);
 						return;
