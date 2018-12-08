@@ -26,8 +26,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" type="text/css" href="CONTENT/styles/HAF.css">
-<link rel="stylesheet" type="text/css" href="CONTENT/styles/admin.css">
+<link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/HAF.css">
+<link rel="stylesheet" type="text/css" href="CONTENT/styles/admin/admin.css">
 
 </head>
 <body>
@@ -317,8 +317,8 @@
 		</div>
 	</footer>
 	<!-- End Footer-->
-	<script src="CONTENT/js/index.js"></script>
-	<script src="CONTENT/js/valiedateForm.js"></script>
+	<script src="CONTENT/js/guest/index.js"></script>
+	<script src="CONTENT/js/guest/valiedateForm.js"></script>
 	
 	<script>
 		var set_height;

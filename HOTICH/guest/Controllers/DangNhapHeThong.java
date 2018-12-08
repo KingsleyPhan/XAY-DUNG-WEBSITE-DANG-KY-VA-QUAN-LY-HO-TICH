@@ -43,6 +43,8 @@ public class DangNhapHeThong extends HttpServlet {
 	   
 		DAO_QUYEN GetQuyen =  new DAO_QUYEN(Consts.ServerUrl,Consts.UserName, Consts.Pass );
 		
+		
+		
 	    NguoiDungA us = new NguoiDungA();
 		
 	    try {
@@ -58,7 +60,7 @@ public class DangNhapHeThong extends HttpServlet {
 				String Quyen = GetQuyen.GET_QUYEN_ROLL(us.getQuyen());
 				if(Quyen.trim().equals("ADMINCOQUAN"))
 				{
-					RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/AdminNguoiDung.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/admin/AdminNguoiDung.jsp");
 					dispatcher.forward(request, response);
 					return;
 				}

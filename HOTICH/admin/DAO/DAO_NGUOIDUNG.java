@@ -1,5 +1,6 @@
 package DAO;
 
+import java.io.Console;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,14 +20,18 @@ public class DAO_NGUOIDUNG extends ConnectDAO {
 		    String sql = "SELECT * FROM NGUOIDUNG   " +
 		    			 "WHERE 					" +
 		    			 "NGUOIDUNG_USERNAME = ?    " +
+		    			 "AND COQUAN_ID      = ?	" +
 		    			 "AND NGUOIDUNG_PASS = ?		" ; 
 	         
 	        Connection();
 	        
+	        System.out.println("CƠ QUAN ID = " + Consts.COQUAN_ID);
+	        
 	        System.out.println("Hello");
 	        PreparedStatement statement = DBConnection.prepareStatement(sql);
 	        statement.setString(1, UserName);
-	        statement.setString(2, Password);
+	        statement.setInt(2, Consts.Get_COQUAN_ID());
+	        statement.setString(3, Password);
 	         
 	        ResultSet resultSet = statement.executeQuery();
 	        
