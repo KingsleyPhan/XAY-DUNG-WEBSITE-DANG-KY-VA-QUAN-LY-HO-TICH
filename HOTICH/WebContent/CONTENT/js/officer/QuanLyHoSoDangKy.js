@@ -68,8 +68,10 @@ $(document).ready(function() {
 		var tr = $(this).closest('tr');
 	    console.log( table.row( tr ).data().id );
 	    var id = table.row( tr ).data().id;
-		var loai = table.row( tr ).data().loaiGiayTo
-	    window.location = "HoSoDangKy/setHSDK?id="+id+"&loai="+loai
+		var loai = table.row( tr ).data().loaiGiayTo;
+		var ma = table.row(tr).data().ma;
+		var ten = table.row(tr).data().ten;
+	    window.location = "HoSoDangKy/setHSDK?id="+id+"&loai="+loai+"&ma="+ma+"&ten="+ten;
 	} );
 	setInterval( function () {
 	    table.ajax.reload();

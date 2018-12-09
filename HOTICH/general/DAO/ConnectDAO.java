@@ -17,6 +17,10 @@ public abstract class ConnectDAO {
 		this.Password = Password;
 	}
 	
+	public ConnectDAO(Connection DBConnection) {
+		this.DBConnection = DBConnection;
+	}
+	
 	protected void Connection() throws SQLException
 	{
 		if (DBConnection == null || DBConnection.isClosed()) {

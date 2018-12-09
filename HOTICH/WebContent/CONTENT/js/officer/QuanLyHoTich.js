@@ -160,7 +160,7 @@ $(document).ready(function() {
         var tr = $(this).closest('tr');
         var row = table.row( tr );
         console.log( table.row( tr ).data().id);
-        table.ajax.reload();
+        /*table.ajax.reload();*/
 		var deafaultTr = document.getElementsByClassName('shown');
 		for (i = 0; i < deafaultTr.length; i++) {
 			var deafaultRow = table.row(deafaultTr[i]);

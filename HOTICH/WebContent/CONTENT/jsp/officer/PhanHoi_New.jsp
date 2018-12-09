@@ -39,6 +39,7 @@
 										</c:otherwise>
 									</c:choose>
 								</c:if>	
+								<form action="${home }PhanHoi" method="POST" onSubmit="return confirm('Do you really want to submit the form?');">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -49,49 +50,35 @@
 												<div class="col-12 col-sm-6 col-md-6">
 													<div class="form-group">
 														<label for="">EMAIL</label>
-														<input type="text" class="form-control" id="NYC_EMAIL" name="NYC_EMAIL" style="border: 1px solid #004f7e" value="test@gmail.com" disabled>
+														<input type="text" class="form-control" id="NYC_EMAIL" name="NYC_EMAIL" style="border: 1px solid #004f7e" value='<c:out value="test@gmail.com"></c:out>'/>
 													</div>
 												</div>
 
 												<div class="col-12 col-sm-6 col-md-6">
 													<div class="form-group">
 														<label for="">Số điện thoại</label>
-														<input type="text" class="form-control" id="NYC_SDT" name="NYC_SDT" style="border: 1px solid #004f7e" value="0909780658" disabled>
+														<input type="text" class="form-control" id="NYC_SDT" name="NYC_SDT" style="border: 1px solid #004f7e" value='<c:out value="0909793154"></c:out>'/>
 													</div>
 												</div>
 												<div class="col-12 col-sm-12 col-md-12">
 													<div class="form-group">
 														<label for="">Phản hồi</label>
-														<textarea class="form-control" rows="5" id="PHANHOI" style="border: 1px solid #004f7e"><c:out value='${content }'></c:out> </textarea>
+														<input type="hidden" id="message" name="message" value='<c:out value="${message }"></c:out>'> 
+														<textarea class="form-control" rows="5" id="NOIDUNG" name="NOIDUNG" style="border: 1px solid #004f7e"><c:out value='${noiDung }'></c:out> </textarea>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button class="btn btn-primary">Trở lại</button>
-											<button type="button" class="btn btn-primary" onClick="GuiPhanHoi()">Gửi phản hồi</button>
+											<button type="button" class="btn btn-primary" onClick="goBack()">Trở lại</button>
+											<button type="submit" class="btn btn-primary">Gửi phản hồi</button>
 										</div>
 										<!-- /.modal-content -->
 										</div>
 									<!-- /.modal-dialog -->
 								</div>
+								</form>
 							</div>
-							<!--  -->
-							<!-- Modal -->
-					       	<div class="modal fade" id="myModal" role="dialog">
-					        	<div class="modal-dialog">
-					                <div class="modal-content">
-					                    <div class="modal-header">
-					                        <h4 class="modal-title">THÔNG BÁO</h4>
-					                    </div>
-					                    <div class="modal-body">
-					                        <p>GỬI PHẢN HỒI THÀNH CÔNG</p>
-											<button class="btn btn-primary" style="background-color: #004f7e" onclick="goQuanLyDangKy()">Xong</button>
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-							
 							<!--  -->
 						</div>
 						

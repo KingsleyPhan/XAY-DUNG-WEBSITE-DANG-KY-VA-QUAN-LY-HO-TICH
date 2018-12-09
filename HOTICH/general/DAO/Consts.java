@@ -3,6 +3,8 @@ package DAO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.http.HttpSession;
+
 public class Consts {
 	public static String LocationCap1 = "HỆ THÔNG ĐĂNG KÝ VÀ QUẢN LÝ HỘ TỊCH ONLINE";
 	public static String LocationCap2 = "NỘP HỒ SƠ TRỰC TUYẾN";
@@ -20,9 +22,26 @@ public class Consts {
 	
 	public static int COQUAN_ID = 0;
 	
-	public static int NGUOIDUNG_ID = 0;
+	public static int NGUOIDUNG_ID = 2;
 
 	public static boolean OpenWebsite = false;
+	
+	public static String subject = "Phản hồi hộ tịch";
+	
+	public static String user = "huuhung9822@gmail.com";
+	
+	public static String pass = "xoeihcpioupannzz";
+	
+	public static void removeSession(HttpSession session) {
+		session.removeAttribute("message");
+		session.removeAttribute("content");
+		session.removeAttribute("NYC_HOVATEN_SUBMIT");
+		session.removeAttribute("HSDK_MA");
+		session.removeAttribute("HSDK_TEN");
+		session.removeAttribute("HSDK_LOAI");
+		session.removeAttribute("HSDK_ID");
+		session.removeAttribute("feedback");
+	}
 	
 	public static int Get_COQUAN_ID()
 	{

@@ -111,7 +111,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 							);
 			CongDan me = null;
 			
-			if (me_Ten != null && me_Ten != "") {
+			if (me_Ten != null && !me_Ten.trim().equals("")) {
 				me = new CongDan(
 						me_Ten
 						, me_NgaySinh
@@ -122,7 +122,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 						);
 			}
 			CongDan cha = null;
-			if (cha_Ten != "" && cha_Ten != null) {
+			if (cha_Ten != null && !cha_Ten.trim().equals("") ) {
 				cha = new CongDan(
 						cha_Ten
 						, cha_NgaySinh

@@ -8,19 +8,17 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
 import DAO.Consts;
 import DAO.HoSoDangKyDAO;
-import Entities.HSDK;
 
 public class QuanLyDangKyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -42,9 +40,14 @@ public class QuanLyDangKyServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		
-		String mess = (String)(request.getParameter("message"));
+		HttpSession session = request.getSession();
+		if(session.getAttribute("feedback") != null) {
+			String feedback = session.getAttribute("feedback").toString();
+			request.setAttribute("feedback", feedback);
+		}
+		Consts.removeSession(session);
+		
 		String page = "";
-		request.setAttribute("message", mess);
 		page = "/CONTENT/jsp/officer/QuanLyHoSoDangKy_New.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
         dispatcher.forward(request, response);

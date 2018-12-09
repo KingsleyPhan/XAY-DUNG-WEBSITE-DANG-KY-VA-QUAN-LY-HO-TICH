@@ -1,11 +1,13 @@
 package DAO;
 
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.sql.*;
 
 import DAO.ConnectDAO;
 import Entities.HSDK;
@@ -14,6 +16,10 @@ public class HoSoDangKyDAO extends ConnectDAO {
 
 	public HoSoDangKyDAO(String URL, String Username, String Password) {
 		super(URL, Username, Password);
+	}
+	
+	public HoSoDangKyDAO(Connection DBConnection) {
+		super(DBConnection);
 	}
 
 	/*public List<HSDK> getAllHSDKCoQuan(int coQuanID) throws ClassNotFoundException, SQLException {
@@ -97,5 +103,38 @@ public class HoSoDangKyDAO extends ConnectDAO {
 							, rs.getInt(7)).toMap());
 		}
 		return listHSDK;
+	}
+	
+	//Dùng khi truyền connection từ ngoài vào
+	public Boolean UpdateTrangThaiXuLy(int idHSDK, String trangThai) {
+		try {
+			String wrkSql = UpdateTrangThaiXuLy();
+			PreparedStatement pstm = DBConnection.prepareStatement(wrkSql);
+			pstm.setString(1, trangThai);
+			pstm.setInt(2, idHSDK);
+			int result = pstm.executeUpdate();
+			if(result == 0)
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public String UpdateTrangThaiXuLy() {
+		StringBuilder wrkSql = new StringBuilder();
+		wrkSql.append("UPDATE HOSO_DANGKY ");
+		wrkSql.append("SET TRANGTHAI_XULY_ID = ( ");
+		wrkSql.append("							SELECT ");
+		wrkSql.append("TRANGTHAI_XULY_ID ");
+		wrkSql.append("FROM ");
+		wrkSql.append("TRANGTHAI_XULY ");
+		wrkSql.append("WHERE ");
+		wrkSql.append("TRANGTHAI_XULY_TEN ");
+		wrkSql.append("LIKE ? ) ");
+		wrkSql.append("WHERE ");
+		wrkSql.append("HOSO_DANGKY_ID = ?");
+		return wrkSql.toString();
 	}
 }

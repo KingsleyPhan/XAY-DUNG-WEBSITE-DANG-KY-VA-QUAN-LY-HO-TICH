@@ -1,9 +1,4 @@
-function GuiPhanHoi()
-{
-	$("#myModal").modal();
-}
-
-function goQuanLyDangKy(){
+function goBack(){
 	window.location = "QuanLyDangKy";
 }
 

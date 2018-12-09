@@ -21,7 +21,23 @@
         <jsp:include page="./template/navbar.jsp"></jsp:include>
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
+            	<c:if test='${feedback != null }'>
+				<c:choose>
+					<c:when test='${feedback == "" }'>
+						<div class="alert alert-success alert-dismissible fade in">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close" style="right:0px;top:0px;">&times;</a>
+							<strong>Thành công!</strong> Phản hồi thành công.
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="alert alert-danger alert-dismissible fade in">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close" style="right:0px;top:0px;">&times;</a>
+							<strong>Thất bại!</strong><c:out value="${feedback }"></c:out> 
+						</div>
+					</c:otherwise>
+				</c:choose>
+				</c:if>	
+                <div class="row title">
 	                <div class="col-lg-9 col-sm-6" style="padding-right:0;">
 	                	<div class="card">
 	                    	<div class="content module-title">

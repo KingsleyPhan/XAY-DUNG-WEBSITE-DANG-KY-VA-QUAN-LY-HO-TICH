@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.Consts;
 import DAO.DangKyKhaiSinhDAO;
@@ -30,8 +31,10 @@ public class HoSoDangKyServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		ServletContext context = getServletContext();
-		context.setAttribute("ID_HSDK", 0);
-		context.setAttribute("Loai_GiayTo", 0);
+		context.setAttribute("HSDK_ID", 0);
+		context.setAttribute("HSDK_LOAI", 0);
+//		context.setAttribute("HSDK_MA", "");
+//		context.setAttribute("HSDK_TEN", "");
 		dangKyKhaiSinhDAO = new DangKyKhaiSinhDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	}
 
@@ -58,21 +61,23 @@ public class HoSoDangKyServlet extends HttpServlet {
 		String page = "";
 		
 		ServletContext context = getServletContext();
+		HttpSession session = request.getSession();
 		
-		int id = (Integer) context.getAttribute("ID_HSDK");
-		int loai = (Integer) context.getAttribute("Loai_GiayTo");
+		int id = Integer.parseInt(context.getAttribute("HSDK_ID").toString());
+		int loai = Integer.parseInt(context.getAttribute("HSDK_LOAI").toString());
 		
 		if(id != 0) {
 			try {
 				switch (loai) {
 				case 1:
-					context.setAttribute("ID_HSDK", 0);
-					context.setAttribute("Loai_GiayTo", 0);
+					context.setAttribute("HSDK_ID", 0);
+					context.setAttribute("HSDK_LOAI", 0);
+					
 					HoSoKhaiSinh hoSoKhaiSinh = dangKyKhaiSinhDAO.getHSDKKhaiSinh(id);
 					if(hoSoKhaiSinh != null)
 					{
+						session.setAttribute("NYC_HOVATEN_SUBMIT", hoSoKhaiSinh.getNgYeuCau().getHoVaTen());
 						request.setAttribute("khaisinh", hoSoKhaiSinh);
-						
 						String action = "KiemDuyet";
 						request.setAttribute("action", action);
 						
@@ -86,12 +91,16 @@ public class HoSoDangKyServlet extends HttpServlet {
 					response.sendRedirect(page);
 					return;
 				case 2:
-					context.setAttribute("ID_HSDK", 0);
-					context.setAttribute("Loai_GiayTo", 0);
+					context.setAttribute("HSDK_ID", 0);
+					context.setAttribute("HSDK_LOAI", 0);
+//					context.setAttribute("HSDK_MA", "");
+//					context.setAttribute("HSDK_TEN", "");
 					break;
 				case 3:
-					context.setAttribute("ID_HSDK", 0);
-					context.setAttribute("Loai_GiayTo", 0);
+					context.setAttribute("HSDK_ID", 0);
+					context.setAttribute("HSDK_LOAI", 0);
+//					context.setAttribute("HSDK_MA", "");
+//					context.setAttribute("HSDK_TEN", "");
 					break;
 				default:
 					break;
@@ -109,8 +118,19 @@ public class HoSoDangKyServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		int id = Integer.parseInt(request.getParameter("id"));
 		int loai = Integer.parseInt(request.getParameter("loai"));
-		context.setAttribute("ID_HSDK", id);
-		context.setAttribute("Loai_GiayTo", loai);
+		
+		context.setAttribute("HSDK_ID", id);
+		context.setAttribute("HSDK_LOAI", loai);
+//		context.setAttribute("HSDK_MA", request.getParameter("ma"));
+//		context.setAttribute("HSDK_TEN", request.getParameter("ten"));
+		
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("HSDK_ID", id);
+		session.setAttribute("HSDK_LOAI", loai);
+		session.setAttribute("HSDK_MA", request.getParameter("ma"));
+		session.setAttribute("HSDK_TEN", request.getParameter("ten"));
+		
 		String page = request.getContextPath() + "/HoSoDangKy";
 		response.sendRedirect(page);
 	}
@@ -142,6 +162,18 @@ public class HoSoDangKyServlet extends HttpServlet {
 				out.println("");
 			}
 			return;
+		case "xacNhan":
+			try {
+				XacNhanHSDK(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				try {
+					throw new Exception(e);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+			break;
 		default:
 			break;
 		}
@@ -159,5 +191,36 @@ public class HoSoDangKyServlet extends HttpServlet {
 		String cmnd = request.getParameter("cmnd");
 		HoSoDangKyService service = new HoSoDangKyService();
 		return service.getCheckCongDanService(cmnd);
+	}
+	
+	private void XacNhanHSDK(HttpServletRequest request, HttpServletResponse response) throws Exception
+	{
+		HttpSession session = request.getSession();
+		
+		String message = "";
+		String content = "";
+		
+		String error = request.getParameter("ERROR");
+		
+		if(error.equals("NoError")) {
+			message = "Success";
+			content = "Sẽ lấy thông tin để phản hồi thêm";
+		}
+		else {
+			if(error.equals("Error")) {
+				message = "Error";
+				content = "Vui lòng điền lại tờ khai";
+			}
+			else {
+				message = "HaveMessage";
+				content = error;
+			}
+		}
+		session.setAttribute("message", message);
+		session.setAttribute("content", content);
+		
+		String page="";
+		page = request.getContextPath()+"/PhanHoi";
+		response.sendRedirect(page);
 	}
 }
