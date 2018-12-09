@@ -22,7 +22,7 @@
         <jsp:include page="./template/navbar.jsp"></jsp:include>
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row title">
                     <div class="col-lg-9 col-sm-6" style="padding-right:0;">
 	                	<div class="card">
 	                    	<div class="content module-title">

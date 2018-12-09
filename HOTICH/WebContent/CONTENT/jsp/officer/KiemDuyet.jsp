@@ -29,9 +29,8 @@
 		                </div>
 	                    <div class="col-lg-6 col-sm-6" style="float:right;padding-left:0;">
 	                        <div class="card">
-	                            <form action="QuanLyHoTich/insert" method="post" onsubmit="return submitKiemDuyetKhaiSinh()">
-									<input type="hidden" name="HSDK_ID" id="HSDK_ID" value='${khaisinh.getHsdk().getHoSoDangKyId()}'>
-									<input type="hidden" name="HSDK_LOAI" id="HSDK_LOAI" value='${khaisinh.getHsdk().getLoaiGiayToId()}'>
+	                            <form action="HoSoDangKy/xacNhan" method="post" onsubmit="return submitKiemDuyetKhaiSinh()">
+									<input type="hidden" name="NYC_HOVATEN_SUBMIT" id="NYC_HOVATEN_SUBMIT" value='<c:out value='${khaisinh.getNgYeuCau().getHoVaTen()}'></c:out>'>
 									<input type="hidden" name="ERROR" id="ERROR" value="">
 									<button type="submit" class="btn  btn-continue" >Tiếp tục</button>
 								</form>

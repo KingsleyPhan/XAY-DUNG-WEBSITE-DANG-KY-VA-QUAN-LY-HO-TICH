@@ -63,8 +63,10 @@ body{
 }
 
 .main-panel .content{
-	margin-top: 35px;
+	margin-top : 110px;
+	padding-top : 0px;
 }
+
 .navbar-default{
 	width: calc(100% - 200px);
 	background-color: #f8f8f8;
@@ -137,6 +139,11 @@ ul.notifications > li {
 
 .bg-danger {
   background-color: #F9354C; }
+
+.card .content{
+	height : auto;
+	margin-top:0px;
+}
 
 .card .select-loai{
 	padding: 0px;

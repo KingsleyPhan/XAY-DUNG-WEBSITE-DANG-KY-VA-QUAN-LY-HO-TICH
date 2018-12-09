@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import DAO.ConnectDAO;
 import Entities.COQUAN;
 import Entities.HoTich;
 import Entities.NGUOIDUNG;
@@ -18,6 +18,10 @@ public class HoTichDAO extends ConnectDAO{
 
 	public HoTichDAO(String URL, String Username, String Password) {
 		super(URL, Username, Password);
+	}
+	
+	public HoTichDAO(Connection DBConnection) {
+		super(DBConnection);
 	}
 	
 	/*public List<HoTich> getAllHoTichCoQuan(int coQuanID) throws ClassNotFoundException, SQLException, ParseException {
@@ -48,6 +52,8 @@ public class HoTichDAO extends ConnectDAO{
 		return DSHoTich;
 	}*/
 	
+	
+
 	public static void main(String[] args) throws SQLException, ClassNotFoundException, ParseException {
 		HoTichDAO hoTichDAO = new HoTichDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		try {

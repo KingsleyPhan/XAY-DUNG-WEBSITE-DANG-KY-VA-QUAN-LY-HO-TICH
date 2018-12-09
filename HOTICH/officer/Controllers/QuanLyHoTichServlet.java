@@ -56,22 +56,11 @@ public class QuanLyHoTichServlet extends HttpServlet {
 		case "getAll":
 			GetAll(request, response);
 			break;
-		case "insert":
-			try {
-				InsertHoTich(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-				try {
-					throw new Exception(e);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-			break;
 		default:
 			break;
 		}
 	}
+
 	private void GetAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int loaiGiay = Integer.parseInt(request.getParameter("key"));
 		
@@ -103,48 +92,4 @@ public class QuanLyHoTichServlet extends HttpServlet {
 		}
 	}
 	
-	private void InsertHoTich(HttpServletRequest request, HttpServletResponse response) throws Exception
-	{
-		HttpSession session = request.getSession();
-		String message = "";
-		String content = "";
-		String error = request.getParameter("ERROR");
-		if(error.equals("NoError")) {
-			int idHSDK = Integer.parseInt(request.getParameter("HSDK_ID"));
-			int idLoai = Integer.parseInt(request.getParameter("HSDK_LOAI"));
-			
-			int ngXuLy = 2;
-			int ngKy = 2;
-			try {
-				if(hoTichDAO.insertHoTich(idHSDK, idLoai, ngXuLy, ngKy)) {
-					message = "Success";
-					content = "Sẽ lấy thông tin để phản hồi thêm";
-				}
-				else {
-					String page="";
-					page = request.getContextPath()+"/QuanLyDangKy";
-					response.sendRedirect(page);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new Exception(e);
-			}
-		}
-		else {
-			if(error.equals("Error")) {
-				message = "Error";
-				content = "Vui lòng điền lại tờ khai";
-			}
-			else {
-				message = "HaveMessage";
-				content = error;
-			}
-		}
-		session.setAttribute("message", message);
-		session.setAttribute("content", content);
-		String page="";
-		page = request.getContextPath()+"/PhanHoi";
-		response.sendRedirect(page);
-		
-	}
 }

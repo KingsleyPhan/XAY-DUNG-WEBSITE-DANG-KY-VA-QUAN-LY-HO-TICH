@@ -1,6 +1,11 @@
 $(document).ready(function() {
 	
 })
+
+function goBack(){
+	window.location = "QuanLyDangKy";
+}
+
 function submitKiemDuyetKhaiSinh(){
 	var chaError = $("#CHA_ERROR").val();
 	var nycError = $("#NYC_ERROR").val();
