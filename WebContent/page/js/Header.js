@@ -13,7 +13,7 @@ set_height = function () {
 
 $(window).on('load resize', function () {
     document.getElementById("id-content").style.paddingTop = $('.header').height() + 'px';
-
+    scrollFunction();
     
 });
 window.onscroll = function () { scrollFunction() };

@@ -1,0 +1,54 @@
+.col-right
+{
+  
+    height: 1000px;
+
+    border: 0px solid #004f7e;
+
+}
+
+.imfor-Table
+{
+    width: 98%;
+    margin: auto;
+    height: 200px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+.head-imfor
+{
+    background-color: #004f7e;
+    color: aliceblue;
+    width: 100%;
+    height: 40px;
+}
+.head-imfor p
+{
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.content-imfor
+{
+    text-align: justify;
+    width: 90%;
+    margin: auto;
+    color: red;
+}
+
+#table-user-imfor
+{
+    cursor: pointer;
+}
+thead tr th
+{
+    text-align: center;
+}
+
+tfoot input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
