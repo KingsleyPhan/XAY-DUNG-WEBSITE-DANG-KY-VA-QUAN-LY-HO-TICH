@@ -683,5 +683,88 @@ function AddClass(element, name) {
                 autoclose: true,
             })
         })
-        
+        function validateSDT(id_CMND) {
+	var x = id_CMND;
+	var result = "";
+	if (x.value == "") {
+		result = "* Không được để trống";
+	}
+	else {
+		if (x.value.length != 10) {
+			result = "* Chưa đúng cấu trúc của số điện thoại";
+		}
+	}
+	var id_error = "#error_" + id_CMND.id;
+	$(id_error).html(result);
+	if (result == "") {
+		RemoveClass(id_CMND, "fild_error")
+		return true;
+	}
+	AddClass(id_CMND, "fild_error");
+	return false;
+}
+
+function validateEmail(id_CMND) {
+	var x = id_CMND;
+	var result = "";
+
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+	if (x.value.length == 0) {
+		result = "* Không được để trống";
+			
+	}
+	else{ 
+		if (!filter.test(x.value)) {
+			result = "* Email chưa đúng";
+		}
+	} 
+
+	
+	var id_error = "#error_" + id_CMND.id;
+	$(id_error).html(result);
+	if (result == "") {
+		RemoveClass(id_CMND, "fild_error")
+		return true;
+	}
+	AddClass(id_CMND, "fild_error");
+	return false;
+}
+
+function validateQuyen(id_CMND) {
+	var x = id_CMND;
+	var result = "";
+
+
+	if (x.value==0) {
+		result = "* Phải chọn quyền của người dùng";
+			
+	}
+
+	
+	var id_error = "#error_" + id_CMND.id;
+	$(id_error).html(result);
+	if (result == "") {
+		RemoveClass(id_CMND, "fild_error")
+		return true;
+	}
+	AddClass(id_CMND, "fild_error");
+	return false;
+}
+
+function validateSubmitThemNhanVien() {
+	var result = validateHoTen(user_MACANBO);
+	result = validateHoTen(user_HoVaten) && result;
+	result = validateNgayCap(user_NgaySinh) && result;
+	result = validateRequired(user_ChucVu) && result;
+	result = validateQuyen(user_Quyen) && result;
+	result = validateRequired(user_name) && result;
+	result = validateRequired(user_pass) && result;
+	result = validateEmail(user_Email) && result;
+	result = validateSDT(user_SDT) && result;
+	if (result) {
+		return true;
+	}
+	return false;
+}
+
        

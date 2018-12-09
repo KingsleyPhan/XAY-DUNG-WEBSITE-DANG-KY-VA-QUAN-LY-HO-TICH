@@ -55,7 +55,7 @@ function myFunction(x) {
             document.getElementById("user_Quyen").value = 1;
         }
         else {
-            if (document.getElementById("table-user-imfor").rows[x.rowIndex].cells[7].innerHTML == "Admin cơ quan") {
+            if (document.getElementById("table-user-imfor").rows[x.rowIndex].cells[7].innerHTML == "Quản trị cơ quan") {
                 document.getElementById("user_Quyen").value = 2;
             }
         }
@@ -98,7 +98,10 @@ $(document).ready(function () {
 function functionChinhSua(x) {
     document.getElementById("buttonSave").disabled = false;
 
-    document.getElementById("user_MACANBO").readOnly = false;
+    document.getElementById("store").value=1;
+    
+    
+  
     document.getElementById("user_HoVaten").readOnly = false;
     document.getElementById("user_NgaySinh").readOnly = false;
     document.getElementById("user_ChucVu").readOnly = false;
@@ -112,11 +115,11 @@ function functionChinhSua(x) {
 }
 
 function functionButtonSave(x) {
-
+	
     if (document.getElementById("buttonAdd").disabled == true) 
     {
       
-        if( validateSubmitThemNhanVien() == false);
+        if(!validateSubmitThemNhanVien());
         {
             return false;
         }
@@ -129,7 +132,7 @@ function functionButtonSave(x) {
 
         
     }
-    x.disabled = true;
+   
 
    
 
@@ -138,22 +141,12 @@ function functionButtonSave(x) {
     document.getElementById("user_HoVaten").readOnly = true;
     document.getElementById("user_NgaySinh").readOnly = true;
     document.getElementById("user_ChucVu").readOnly = true;
-    document.getElementById("user_Quyen").disabled = true;
+    document.getElementById("user_Quyen").readOnly = true;
     document.getElementById("user_Email").readOnly = true;
     document.getElementById("user_SDT").readOnly = true;
     document.getElementById("user_TrangThai").readOnly = true;
 
-    document.getElementById("user_MACANBO").value = '';
-    document.getElementById("user_HoVaten").value = '';
-    document.getElementById("user_NgaySinh").value = '';
-    document.getElementById("user_ChucVu").value = '';
-
-    document.getElementById("user_Quyen").value = 0;
-
-
-    document.getElementById("user_Email").value = '';
-    document.getElementById("user_SDT").value = '';
-
+    
 
   
 
@@ -168,12 +161,11 @@ function functionReset(x) {
             document.getElementById("user_RSP").readOnly = false;
             x.innerHTML = "LƯU PASSWORD";
             document.getElementById("user_RSP").focus();
+            return false;
         }
         else {
-            document.getElementById("user_RSP").readOnly = true;
-            document.getElementById("user_RSP").value = '';
-            x.innerHTML = "RESET PASSWORD";
-            document.getElementById("user_RSP").focus();
+           
+            return true;
         }
     }
 }
@@ -181,10 +173,10 @@ function functionReset(x) {
 function functionCancel(x)
 {
        x.disabled = true;
-
+       document.getElementById("store").value=0;
        
 
-       document.getElementById("buttonReset").disabled = true;
+      
        document.getElementById("user_MACANBO").readOnly = true;
        document.getElementById("user_HoVaten").readOnly = true;
        document.getElementById("user_NgaySinh").readOnly = true;
@@ -208,10 +200,12 @@ function functionCancel(x)
        document.getElementById("Username").value = '';
        document.getElementById("password").value = '';
 
-       document.getElementById("buttonAdd").disabled = false;
+       document.getElementById("buttonAdd").disabled = true;
        document.getElementById("buttonEdit").disabled = true;
        document.getElementById("ResetPassword").style.display = "block";
        document.getElementById("Username").style.display = "none";
        document.getElementById("password").style.display = "none";
        document.getElementById("buttonReset").style.display = "block";
+       document.getElementById("buttonSave").disabled = true;
+       document.getElementById("buttonReset").disabled = true;
 }

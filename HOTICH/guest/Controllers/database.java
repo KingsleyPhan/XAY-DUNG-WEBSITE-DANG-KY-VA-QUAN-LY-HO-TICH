@@ -16,6 +16,7 @@ import DAO.DAO_HOSODANGKY;
 import DAO.DAO_NGUOIDUNG;
 import DAO.DAO_QUYEN;
 import DAO.DAO_THANHPHO;
+import Entities.Decode;
 import Entities.NguoiDungA;
 import Entities.HoSo.HoSoDangKy;
 import Entities.KhaiSinh.DangKyKhaiSinh;
@@ -86,24 +87,13 @@ public class database
          		System.out.println(result.getString(1));
          	}
          	*/
-		CreateCode cs = new CreateCode();
-		
-		System.out.println("Code la: " + cs.Code());
-		
-		
-		DAO_HOSODANGKY HS = new DAO_HOSODANGKY(Consts.ServerUrl,Consts.UserName, Consts.Pass);
-		
-		HoSoDangKy HSDK = new HoSoDangKy();
-		
-		HSDK = HS.Get_TraCuuHoSo("1","HSDK181206204010");
-		
-		HSDK.ShowImfot();
-		
-		
+		System.out.println(Decode.md5("123456"));;
 			
        
-		
 	
+		Date date1=new SimpleDateFormat("dd/MM/yyyy").parse("2012/10/20");  
+		
+		System.out.println(date1);
 	}
 	
 	

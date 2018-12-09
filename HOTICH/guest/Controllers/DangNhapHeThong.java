@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.Consts;
 import DAO.DAO_NGUOIDUNG;
 import DAO.DAO_QUYEN;
+import Entities.Decode;
 import Entities.NguoiDungA;
 
 /**
@@ -37,8 +38,8 @@ public class DangNhapHeThong extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String username = request.getParameter("username");
-		String Passs = request.getParameter("password");
-		
+		String Passs = Decode.md5(request.getParameter("password"));
+		System.out.println("Mật khẩu vừ nhập: " + Passs);
 		DAO_NGUOIDUNG user  = new DAO_NGUOIDUNG(Consts.ServerUrl,Consts.UserName, Consts.Pass );
 	   
 		DAO_QUYEN GetQuyen =  new DAO_QUYEN(Consts.ServerUrl,Consts.UserName, Consts.Pass );
@@ -64,9 +65,8 @@ public class DangNhapHeThong extends HttpServlet {
 					Consts.NGUOIDUNG_ID = us.getID();
 					
 					System.out.println("Nguoi dung: " + Consts.NGUOIDUNG_ID);
+					response.sendRedirect("admin");
 					
-					RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/admin/AdminNguoiDung.jsp");
-					dispatcher.forward(request, response);
 					return;
 				}
 				else
@@ -75,7 +75,8 @@ public class DangNhapHeThong extends HttpServlet {
 					{
 						Consts.NGUOIDUNG_ID = us.getID();
 						System.out.println("Nguoi dung: " + Consts.NGUOIDUNG_ID);
-						RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/officer/QuanLyHoTich_New.jsp");
+					    
+					    RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/officer/QuanLyHoTich_New.jsp");
 						dispatcher.forward(request, response);
 						return;
 					}

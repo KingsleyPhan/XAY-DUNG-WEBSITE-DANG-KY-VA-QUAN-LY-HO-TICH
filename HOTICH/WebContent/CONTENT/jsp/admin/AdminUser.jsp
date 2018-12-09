@@ -1,8 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="DAO.DAO_NGUOIDUNG"%>
+<%@page import="DAO.Consts"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="Models.CapThanhPhoService"%>
+<%@page import="DAO.DAO_QUYEN"%>
+<%@page import="java.sql.Date"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <title>HOTICH.NET</title>
+ <title>HOTICH.NET</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,15 +24,14 @@
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="..//styles/HAF.css">
-    <link rel="stylesheet" type="text/css" href="..//styles/admin.css">
-    <link rel="stylesheet" type="text/css" href="..//styles/Admin_TongQuat.css">
-
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/guest/HAF.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/admin/admin.css">
+    <link rel="stylesheet" type="text/css" href="CONTENT/styles/admin/Admin_TongQuat.css">
 
 
 </head>
-
 <body>
+  <body>
     <!-- Start Header-->
 
     <header id="id-header" class="header">
@@ -43,7 +51,7 @@
     <div id="id-content" class="content-switch">
         <div class="container">
             <div class="row">
-                <div class="header_location">
+                <div class="header_location" style="margin-top:130px; margin-bottom:20px">
                     <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
                     <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
                 </div>
@@ -97,44 +105,36 @@
                         <!--Table head-->
                         <!--Table body-->
                         <tbody>
-                            <tr onclick="myFunction(this)">
-                                <th scope="row">1</th>
-                                <td>CBOO001</td>
-                                <td>Nguyễn Hữu Tiến</td>
-                                <td>12/01/2015</td>
-                                <td>Cán bộ tư pháp</td>
-                                <td>0975339843</td>
-                                <td>phuocthinhit2016@gmail.com</td>
-                                <td>Cán bộ hộ tịch</td>
-                                <td>Đang sử dụng</td>
+                        <%
+											DAO_NGUOIDUNG user = new DAO_NGUOIDUNG(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+											ResultSet result;
+										%>
 
-
-                            </tr>
-                            <tr onclick="myFunction(this)">
-                                <th scope="row">1</th>
-                                <td>CBOO002</td>
-                                <td>Nguyễn Hữu Tiến</td>
-                                <td>12/01/2015</td>
-                                <td>Cán bộ tư pháp</td>
-                                <td>0975339843</td>
-                                <td>phuocthinhit2016@gmail.com</td>
-                                <td>Admin cơ quan</td>
-                                <td>Đang sử dụng</td>
-
-
-                            </tr>
-                            <tr onclick="myFunction(this)">
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-
-                            </tr>
+										<%
+											int count = 1;
+										    
+											result = user.loadUser(Consts.COQUAN_ID + "");
+											if (!result.wasNull()) {
+												while (result.next()) {
+										%>
+										<tr onclick="myFunction(this)">
+											<td><%=count%></td>
+											<td><%=result.getString(1)%></td>
+											<td><%=result.getString(2)%></td>										
+											<td><%=result.getString(3)%></td>
+											<td><%=result.getString(4)%></td>
+											<td><%=result.getString(5)%></td>
+											<td><%=result.getString(6)%></td>
+											<td><%=result.getString(7)%></td>
+											<td><%=result.getString(8)%></td>
+										<tr>
+										<%
+												count++;
+													}
+												}
+											%>
+                        
+                           
                         </tbody>
                         <!--Table body-->
                     </table>
@@ -144,6 +144,7 @@
                 <div class="titile" style="margin-top: 30px">
                     <p><i class="fa fa-list-alt" style="padding-right:10px"></i>THÔNG TIN CHI TIẾT NGƯỜI DÙNG</p>
                 </div>
+               <form action="QuanLyNguoiDung" method="post">
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-4">
                         <div class="form-group">
@@ -201,7 +202,7 @@
 
                                 <option value="0">Chọn quyền người dùng ... </option>
                                 <option value="1">Cán bộ hộ tịch</option>
-                                <option value="2">Admin cơ quan</option>
+                                <option value="2">Quản trị cơ quan</option>
 
 
 
@@ -246,14 +247,14 @@
                             <p class="error" id="error_user_RSP"></p>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-4" id="Username" style="display: none">
+                    <div class="col-12 col-sm-6 col-md-4" id="Username"  style="display: none">
                         <div class="form-group">
                             <label for="">Tên đăng nhập</label> <input type="text" class="form-control" id="user_name"
                                 name="user_name">
                             <p class="error" id="error_user_name"></p>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-4" id="password" style="display: none">
+                    <div class="col-12 col-sm-6 col-md-4" id="password"  style="display: none">
                         <div class="form-group">
                             <label for="">Mật khẩu</label> <input type="text" class="form-control" id="user_pass" name="user_pass">
 
@@ -264,19 +265,15 @@
                 </div>
 
                 <div class="row">
-
-                    <button style="float: right;" id="buttonSave" onclick="functionButtonSave(this)" class="btn add "
-                        disabled>LƯU THÔNG TIN</button>
-                    <button style="float: right;" id="buttonEdit" class="btn add " onclick="functionChinhSua(this)"
-                        disabled>CHỈNH
-                        SỬA</button>
-                        <button style="float: right;" id="buttonCancel" class="btn add " onclick="functionCancel(this)"
-                        disabled>HỦY BỎ THAO TÁC</button>
-                    <button disabled style="float: left; background-color: brown" id="buttonReset" class="btn add "
-                        onclick="functionReset(this)">RESET PASSWORD</button>
+				<input type="text"  id="store" name="store" value=0 style="display: none">
+                    <button type="submit" value="add" style="float: right;" id="buttonSave" name="buttonSave" onclick="functionButtonSave(this)" class="btn add " disabled>LƯU THÔNG TIN</button>
+                    <button style="float: right;" value="edit" id="buttonEdit"name="buttonEdit" class="btn add " onclick="functionChinhSua(this)" disabled>CHỈNH SỬA</button>
+                        <button style="float: right;" id="buttonCancel" class="btn add " onclick="functionCancel(this)" disabled>HỦY BỎ THAO TÁC</button>
+                    <button type="submit" value="reset" disabled style="float: left; background-color: brown" id="buttonReset" name="buttonReset" class="btn add " onclick="return functionReset(this)">RESET PASSWORD</button>
+                   
                 </div>
 
-
+</form>
             </div>
 
         </div>
@@ -319,14 +316,11 @@
         </div>
     </footer>
     <!-- End Footer-->
+    <!-- End Footer-->
 
-    <script src="../js/index.js"></script>
-    <script src="../js/Header.js"></script>
-    <script src="../js/AdminNguoiDung.js"></script>
-    <script src="../js/valiedateForm.js"></script>
-    <script>
-
-    </script>
+    <script src="CONTENT/js/guest/index.js"></script>
+    <script src="CONTENT/js/guest/Header.js"></script>
+    <script src="CONTENT/js/admin/AdminNguoIDung.js"></script>
+    <script src="CONTENT/js/guest/valiedateForm.js"></script>
 </body>
-
 </html>
