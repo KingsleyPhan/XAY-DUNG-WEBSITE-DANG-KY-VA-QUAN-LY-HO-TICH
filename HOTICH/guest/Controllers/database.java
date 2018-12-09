@@ -6,7 +6,7 @@ import java.sql.Connection;
 
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
@@ -87,13 +87,7 @@ public class database
          		System.out.println(result.getString(1));
          	}
          	*/
-		System.out.println(Decode.md5("123456"));;
-			
-       
-	
-		Date date1=new SimpleDateFormat("dd/MM/yyyy").parse("2012/10/20");  
-		
-		System.out.println(date1);
+		System.out.println(new SimpleDateFormat("YYY-dd-MM").format("2012-10-20"));
 	}
 	
 	
