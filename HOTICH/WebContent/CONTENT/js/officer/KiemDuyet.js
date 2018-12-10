@@ -10,11 +10,11 @@ function submitKiemDuyetKhaiSinh(){
 	var chaError = $("#CHA_ERROR").val();
 	var nycError = $("#NYC_ERROR").val();
 	var meError = $("#ME_ERROR").val();
-	var error = false;
+	var haveError = false;
 	var message = "";
 	if (nycError === "Error") {
 		message += "Công dân đã nhập lỗi thông tin người yêu cầu \n Vui lòng phản hồi !!!\n";
-		error = true;
+		haveError = true;
 	} else {
 		if (nycError === "") {
 			message += "Chưa kiểm duyệt người yêu cầu !!!\n";
@@ -24,7 +24,7 @@ function submitKiemDuyetKhaiSinh(){
 	if (meError !== undefined) {
 		if (meError === "Error") {
 			message += "Công dân đã nhập lỗi thông tin người mẹ \n Vui lòng phản hồi !!!\n";
-			error = true;
+			haveError = true;
 		} else {
 			if (meError === "") {
 				message += "Chưa kiểm duyệt mẹ !!!\n";
@@ -35,7 +35,7 @@ function submitKiemDuyetKhaiSinh(){
 	if (chaError !== undefined) {
 		if (meError === "Error") {
 			message += "Công dân đã nhập lỗi thông tin người cha \n Vui lòng phản hồi !!!\n";
-			error = true;
+			haveError = true;
 		} else {
 			if (chaError === "") {
 				message += "Chưa kiểm duyệt cha !!!\n";
@@ -46,13 +46,13 @@ function submitKiemDuyetKhaiSinh(){
 	if(message === ""){
 		var error = "";
 		if(nycError !== "Completed"){
-			error += nycError + "\n";
+			error += nycError;
 		}
 		if(chaError !== "Completed" && chaError !== undefined){
-			error += chaError + "\n";
+			error += chaError;
 		}
 		if(meError !== "Completed" && meError !== undefined){
-			error += meError + "\n";
+			error += meError;
 		}
 		if(error === "" || error == undefined){
 			error = "NoError"
@@ -63,7 +63,7 @@ function submitKiemDuyetKhaiSinh(){
 	else{
 		console.log(message)
 		alert(message);
-		if(error){
+		if(haveError){
 			var temp = "Error";
 			$("#ERROR").val(temp);
 			return true;
@@ -269,9 +269,12 @@ function checkQuanHe(){
 }
 
 function setDefault(x,gly,feedback){
-	x.className = "form-control";
-	gly.className = "glyphicon form-control-feedback";
-	feedback.className = "form-group has-feedback";
+	RemoveClass(x,"fild_success");
+	RemoveClass(x,"fild_error");
+	RemoveClass(gly,"glyphicon-remove");
+	RemoveClass(gly,"glyphicon-ok");
+	RemoveClass(feedback,"has-error");
+	RemoveClass(feedback,"has-success");
 }
 
 function checkValue(x,gly,feedback,value){
@@ -304,6 +307,8 @@ function checkValue(x,gly,feedback,value){
 		switch(name[1]) {
 	    case "HOVATEN":
 	        return message = "- Họ và tên ; \n";
+	    case "NGAYSINH":
+	        return message = "- Ngày sinh ; \n";
 	    case "CMND":
 	        return message = "- Số chứng minh nhân dân ; \n";
 	    case "NOICAP":

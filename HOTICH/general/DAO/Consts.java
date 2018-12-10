@@ -22,7 +22,7 @@ public class Consts {
 	
 	public static int COQUAN_ID = 0;
 	
-	public static int NGUOIDUNG_ID = 2;
+	public static int NGUOIDUNG_ID = 53;
 
 	public static boolean OpenWebsite = false;
 	
@@ -41,6 +41,9 @@ public class Consts {
 		session.removeAttribute("HSDK_LOAI");
 		session.removeAttribute("HSDK_ID");
 		session.removeAttribute("feedback");
+		session.removeAttribute("email");
+		session.removeAttribute("sdt");
+		session.removeAttribute("lephi");
 	}
 	
 	public static int Get_COQUAN_ID()

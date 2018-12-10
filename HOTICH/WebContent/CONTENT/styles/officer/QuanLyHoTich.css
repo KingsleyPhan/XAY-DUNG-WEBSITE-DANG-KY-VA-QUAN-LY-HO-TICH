@@ -78,3 +78,19 @@ tbody tr td{
 {
 	float:right!important;
 }
+/* .jconfirm .jconfirm-box-container.jconfirm-no-transition{
+	margin-left : 100px;
+	width : 100%;
+}
+.jconfirm-box{
+	width : 100%;
+} */
+
+.modal-backdrop{
+	display : none;
+}
+
+.modal-dialog.modal-lg{
+	margin-left: 440px;
+	width: 52%;
+}

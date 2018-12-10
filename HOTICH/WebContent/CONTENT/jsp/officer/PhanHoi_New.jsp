@@ -50,14 +50,14 @@
 												<div class="col-12 col-sm-6 col-md-6">
 													<div class="form-group">
 														<label for="">EMAIL</label>
-														<input type="text" class="form-control" id="NYC_EMAIL" name="NYC_EMAIL" style="border: 1px solid #004f7e" value='<c:out value="test@gmail.com"></c:out>'/>
+														<input type="text" class="form-control" id="NYC_EMAIL" name="NYC_EMAIL" style="border: 1px solid #004f7e" value='<c:out value="${email }"></c:out>'/>
 													</div>
 												</div>
 
 												<div class="col-12 col-sm-6 col-md-6">
 													<div class="form-group">
 														<label for="">Số điện thoại</label>
-														<input type="text" class="form-control" id="NYC_SDT" name="NYC_SDT" style="border: 1px solid #004f7e" value='<c:out value="0909793154"></c:out>'/>
+														<input type="text" class="form-control" id="NYC_SDT" name="NYC_SDT" style="border: 1px solid #004f7e" value='<c:out value="${sdt }"></c:out>'/>
 													</div>
 												</div>
 												<div class="col-12 col-sm-12 col-md-12">

@@ -49,6 +49,12 @@ public class PhanHoiServlet extends HttpServlet {
 			
 			String nyc_hoVaTen = session.getAttribute("NYC_HOVATEN_SUBMIT").toString();
 			
+			String email = session.getAttribute("email").toString();
+			
+			String sdt = session.getAttribute("sdt").toString();
+			
+			float lephi = Float.parseFloat(session.getAttribute("lephi").toString());
+			
 			StringBuilder noiDung = new StringBuilder();
 			
 			noiDung.append("Kính gửi : Ông/Bà "+nyc_hoVaTen+"\n");
@@ -57,19 +63,22 @@ public class PhanHoiServlet extends HttpServlet {
 			
 			switch (message) {
 			case "Success":
-				noiDung.append("Hồ sơ của Ông/Bà đã được xử lý xong, ông bà vui lòng đến ..... để nhận giấy hộ tịch. Với mức phí : 10.000 VNĐ\n");
+				noiDung.append("Hồ sơ của Ông/Bà đã được xử lý xong, ông bà vui lòng đến ..... để nhận giấy hộ tịch. Với mức phí : "+lephi+" VNĐ\n");
 				break;
 			case "Error":
 				noiDung.append("Chúng tôi xin thông báo hồ sơ của ông/bà đã gặp lỗi : \n"+content+"\n");
 				break;
 			case "HaveMessage":
 				noiDung.append("Chúng tôi xin thông báo hồ sơ của ông/bà đã gặp lỗi sau : \n"+content+"\n");
-				noiDung.append("Vui lòng điền lại hồ sơ với mã hồ sơ : "+ma+".\n");
+				noiDung.append("Vui lòng điền lại hồ sơ với mã hồ sơ : "+ma+". \n");
 				break;
 			default:
 				break;
 			}
 			noiDung.append("Xin cảm ơn đã sử dụng dịch vụ.");
+			
+			request.setAttribute("email", email);
+			request.setAttribute("sdt", sdt);
 			request.setAttribute("message", message);
 			request.setAttribute("noiDung", noiDung.toString());
 			
@@ -103,7 +112,7 @@ public class PhanHoiServlet extends HttpServlet {
 		
 		int idLoai = Integer.parseInt(session.getAttribute("HSDK_LOAI").toString());
 		
-		int ngKy = 2;
+		int ngKy = 53;
 		
 		int coQuan = 1;
 

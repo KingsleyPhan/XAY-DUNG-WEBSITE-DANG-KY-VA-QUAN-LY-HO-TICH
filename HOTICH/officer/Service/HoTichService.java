@@ -32,7 +32,7 @@ public class HoTichService {
 		hoSoDangKyDAO = null;
 	}
 	
-	public Boolean XacNhanHoTich(int idHSDK, int loai, int ngXuLy, int ngKy, String email, String sdt,String noiDung,int coQuan) throws Exception{
+	public void XacNhanHoTich(int idHSDK, int loai, int ngXuLy, int ngKy, String email, String sdt,String noiDung,int coQuan) throws Exception{
 		try {	
 			service = new ServiceDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 			
@@ -46,12 +46,12 @@ public class HoTichService {
 			
 			phanHoiDAO = new PhanHoiDAO(DBConnection);
 			
-			if(!hoSoDangKyDAO.UpdateTrangThaiXuLy(idHSDK, DaXuLy)) {
-				throw new Exception("Thay đổi trạng thành công");
-			}
-			
 			if(!hoTichDAO.insertHoTich(idHSDK, loai, ngXuLy, ngKy)) {
 				throw new Exception("Insert Ho tich lỗi");
+			}
+			
+			if(!hoSoDangKyDAO.UpdateTrangThaiXuLy(idHSDK, DaXuLy)) {
+				throw new Exception("Thay đổi trạng thành công");
 			}
 			
 			if(!phanHoiDAO.insertPhanHoi(idHSDK, email, sdt, ngXuLy, noiDung, coQuan)) {
@@ -64,15 +64,16 @@ public class HoTichService {
 			
 			DBConnection.commit();
 			
-			return true;
+			return;
 			
 		} catch (Exception e) {
+			//https://www.tutorialspoint.com/jdbc/commit-rollback.htm
 			e.printStackTrace();
 		    System.out.println("Rolling back data here....");
 			try {
 				if (DBConnection != null)
 					DBConnection.rollback();
-				return false;
+				throw new Exception(e);
 			} catch (SQLException se2) {
 				se2.printStackTrace();
 				throw new Exception("Lỗi rollback...");
@@ -86,7 +87,7 @@ public class HoTichService {
 		}
 	}
 	
-	public Boolean TuChoiHoTich(int idHSDK ,int ngXuLy, String email, String sdt,String noiDung,int coQuan) throws Exception {
+	public void TuChoiHoTich(int idHSDK ,int ngXuLy, String email, String sdt,String noiDung,int coQuan) throws Exception {
 		try {	
 			
 			service = new ServiceDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
@@ -116,7 +117,7 @@ public class HoTichService {
 			
 			DBConnection.commit();
 			
-			return true;
+			return;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -124,7 +125,7 @@ public class HoTichService {
 			try {
 				if (DBConnection != null)
 					DBConnection.rollback();
-				return false;
+				throw new Exception(e);
 			} catch (SQLException se) {
 				se.printStackTrace();
 				throw new Exception("Lỗi rollback...");

@@ -101,7 +101,7 @@ $(document).ready(function() {
 				"orderable":      false,
 				"data":		null,
 				"defaultContent": '<div style="float:left; text-align:center;">'
-									+'<button class="btn btn-info view">'
+									+'<button type="button" class="btn btn-info view" data-toggle="modal" data-target="#exampleModal">'
 										+'<i class="glyphicon glyphicon-search"></i>'
 									+'</button>'
 									+'<button class="btn btn-warning edit">'
@@ -116,6 +116,12 @@ $(document).ready(function() {
         scrollCollapse : true,
 		lengthMenu : [[10, 25, 50, -1], [10, 25, 50, "Tất cả"]],
 		order : false,
+		"initComplete": function () {
+            var api = this.api();
+            api.$('td:not(.col-tacvu)').click( function () {
+                api.search( this.innerHTML ).draw();
+            } );
+        },
     } );
     
     table.on('order.dt search.dt', function() {
@@ -181,6 +187,58 @@ $(document).ready(function() {
             tr.addClass('shown');
         }
     } );
+    
+    
+    $('#table_id tbody').on( 'click', 'td.col-tacvu .view', function () {
+    	var tr = $(this).closest('tr');
+        var row = table.row( tr );
+        console.log( table.row( tr ).data().id);
+    	/*$.confirm({
+            title: 'Adding images',
+            content: '<p class="image">Images from flickr</p>' +
+            '<img src="https://c2.staticflickr.com/4/3891/14354989289_2eec0ba724_b.jpg">',
+            animation: 'scale',
+            animationClose: 'top',
+            buttons: {
+                confirm: {
+                    text: 'Add more',
+                    btnClass: 'btn-blue',
+                    action: function () {
+                        this.$content.append('<img src="https://c2.staticflickr.com/6/5248/5240523362_8d6d315391_b.jpg">');
+                        return false; // prevent dialog from closing.
+                    }
+                },
+                cancel: function () {
+                    // lets the user close the modal.
+                }
+            },
+        });*/
+    	
+    	$('#giayHoTich').attr("src","QuanLyHoTich/getImage");
+    });
+    
+    $('#table_id tbody').on( 'click', 'td.col-tacvu .delete', function () {
+    	$.confirm({
+    	    title: 'Confirm!',
+    	    content: 'Simple confirm!',
+    	    buttons: {
+    	        confirm: function () {
+    	            $.alert('Confirmed!');
+    	        },
+    	        cancel: function () {
+    	            $.alert('Canceled!');
+    	        },
+    	        somethingElse: {
+    	            text: 'Something else',
+    	            btnClass: 'btn-blue',
+    	            keys: ['enter', 'shift'],
+    	            action: function(){
+    	                $.alert('Something else?');
+    	            }
+    	        }
+    	    }
+    	});
+    });
 } );
 function showChange(){
 	console.log($("#loai-giay").val())
@@ -189,6 +247,7 @@ function showChange(){
 
 function filterSelection(c) {
 	var table = $('#table_id').DataTable();
+	table.search("").draw();
 	if(c == -1){
 		table
 			.columns(5)

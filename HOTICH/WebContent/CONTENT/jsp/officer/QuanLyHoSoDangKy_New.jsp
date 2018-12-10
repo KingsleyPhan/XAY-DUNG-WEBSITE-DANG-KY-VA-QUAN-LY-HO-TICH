@@ -32,7 +32,7 @@
 					<c:otherwise>
 						<div class="alert alert-danger alert-dismissible fade in">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close" style="right:0px;top:0px;">&times;</a>
-							<strong>Thất bại!</strong><c:out value="${feedback }"></c:out> 
+							<strong>Thất bại!</strong> Lỗi : <c:out value="${feedback }"></c:out> 
 						</div>
 					</c:otherwise>
 				</c:choose>
@@ -55,7 +55,7 @@
 										</div>
                                     </div>
                                     <div class="col-xs-9">
-                                    	<select class="form-control loai-giay" id="loai-giay" onchange="showChange()">
+                                    	<select class="form-control loai-giay" id="loai-giay" onclick="showChange()">
                                     		<option value="-1">Tất cả</option>
     										<option value="1">Khai sinh</option>
     										<option value="2">Kết hôn</option>

@@ -65,10 +65,7 @@ public class HoTichDAO extends ConnectDAO{
 	}
 	
 	public Boolean insertHoTich(int idHSDK, int loai, int ngXuLy, int ngKy) throws Exception {
-		PreparedStatement pstm = null;
 		try {
-			Connection();
-			DBConnection.setAutoCommit(false);
 			String sql = "";
 			switch (loai)
 			{
@@ -84,41 +81,19 @@ public class HoTichDAO extends ConnectDAO{
 			default:
 					return false;
 			}
-			
-			pstm = DBConnection.prepareStatement(sql);
+			PreparedStatement pstm = DBConnection.prepareStatement(sql);
 			pstm.setInt(1, idHSDK);
 			pstm.setInt(2, ngXuLy);
 			pstm.setInt(3, ngKy);
 			int result = pstm.executeUpdate();
-			System.out.println("Commiting data here....");
-			DBConnection.commit();
 			if(result != 0)
 			{
 				return true;
 			}
 			throw new Exception("Thêm không thành công, kiểm tra lại hệ thống");
-		}catch (SQLException se) {
-			//https://www.tutorialspoint.com/jdbc/commit-rollback.htm
-			//Handle errors for JDBC
-			se.printStackTrace();
-		    // If there is an error then rollback the changes.
-		    System.out.println("Rolling back data here....");
-			try{
-				if(DBConnection!=null)
-					DBConnection.rollback();
-				return false;
-		      }catch(SQLException se2){
-		         se2.printStackTrace();
-		      }//end try
-			throw new Exception(se);
-		}
-		finally{
-			try {
-				pstm.close();
-				DisConnection();
-			} catch (SQLException e) {
-				return false;
-			}
+		}catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
 		}
 	}
 

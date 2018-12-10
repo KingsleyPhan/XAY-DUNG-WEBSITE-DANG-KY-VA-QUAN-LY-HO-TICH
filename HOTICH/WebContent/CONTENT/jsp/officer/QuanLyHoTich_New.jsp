@@ -40,7 +40,7 @@
 										</div>
                                     </div>
                                     <div class="col-xs-9">
-                                    	<select class="form-control loai-giay" id="loai-giay" onchange="showChange()">
+                                    	<select class="form-control loai-giay" id="loai-giay" onclick="showChange()">
                                     		<option value="-1">Tất cả</option>
     										<option value="1">Khai sinh</option>
     										<option value="2">Kết hôn</option>
@@ -96,8 +96,27 @@
                         </div>
                 	</div>
                 </div>
-               
-            </div>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+      <img id="giayHoTich" alt="Lỗi" height="990px" width="700px">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+			</div>
         </div>
     </div>
 </div>

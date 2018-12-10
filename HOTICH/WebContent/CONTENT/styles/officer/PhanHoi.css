@@ -15,27 +15,6 @@ body {
     font-weight: bold;
 }
 
-#myModal.modal{
-	
-    text-align: center;
-}
-#myModal.modal::before {
-    content: "";	  
-    display: inline-block;
-    height: 100%;	 
-    margin-right: -4px;
-    vertical-align: middle;
-}
-#myModal .modal-dialog {	
-    display: inline-block;	
-    vertical-align: middle;
-    margin-left: 200px;
-}	
-#myModal .modal-content {	
-   width: 70%;
-   margin: auto;
-   color: black;
-}
 .modal-backdrop.fade.in{
 	display : none;
 }

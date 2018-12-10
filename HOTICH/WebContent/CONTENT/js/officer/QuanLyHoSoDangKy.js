@@ -54,7 +54,12 @@ $(document).ready(function() {
 		scrollCollapse : true,
 		lengthMenu : [ [ 10, 25, 50, -1 ], [ 10, 25, 50, "Tất cả" ] ],
 		order : false,
-		
+		"initComplete": function () {
+            var api = this.api();
+            api.$('td:not(.col-tacvu)').click( function () {
+                api.search( this.innerHTML ).draw();
+            } );
+        },
 	});
 	table.on('order.dt search.dt', function() {
 		table.column(0, {
@@ -95,6 +100,7 @@ function showChange(){
 
 function filterSelection(c) {
 	var table = $('#table_id').DataTable();
+	table.search("").draw();
 	if(c == -1){
 		table
 			.columns(6)

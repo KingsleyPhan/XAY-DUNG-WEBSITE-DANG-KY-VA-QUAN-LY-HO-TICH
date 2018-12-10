@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import DAO.Consts;
 import DAO.DangKyKhaiSinhDAO;
+import DAO.HoSoDangKyDAO;
 import Entities.HoSoDangKy.HoSoKhaiSinh;
 import Service.HoSoDangKyService;
 
@@ -25,6 +27,8 @@ public class HoSoDangKyServlet extends HttpServlet {
 	public HoSoDangKyServlet() {
 		super();
 	}
+	
+	HoSoDangKyDAO hoSoDangKyDAO;
 
 	DangKyKhaiSinhDAO dangKyKhaiSinhDAO;
 
@@ -33,9 +37,8 @@ public class HoSoDangKyServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		context.setAttribute("HSDK_ID", 0);
 		context.setAttribute("HSDK_LOAI", 0);
-//		context.setAttribute("HSDK_MA", "");
-//		context.setAttribute("HSDK_TEN", "");
 		dangKyKhaiSinhDAO = new DangKyKhaiSinhDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		hoSoDangKyDAO = new HoSoDangKyDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -74,6 +77,16 @@ public class HoSoDangKyServlet extends HttpServlet {
 					context.setAttribute("HSDK_LOAI", 0);
 					
 					HoSoKhaiSinh hoSoKhaiSinh = dangKyKhaiSinhDAO.getHSDKKhaiSinh(id);
+					Map<Object,Object> info = hoSoDangKyDAO.getMoreInfo(id, loai);
+					if(info.containsKey("email")) {
+						session.setAttribute("email", info.get("email"));
+					}
+					if(info.containsKey("sdt")) {
+						session.setAttribute("sdt", info.get("sdt"));
+					}
+					if(info.containsKey("lephi")) {
+						session.setAttribute("lephi", info.get("lephi"));
+					}
 					if(hoSoKhaiSinh != null)
 					{
 						session.setAttribute("NYC_HOVATEN_SUBMIT", hoSoKhaiSinh.getNgYeuCau().getHoVaTen());
@@ -93,14 +106,10 @@ public class HoSoDangKyServlet extends HttpServlet {
 				case 2:
 					context.setAttribute("HSDK_ID", 0);
 					context.setAttribute("HSDK_LOAI", 0);
-//					context.setAttribute("HSDK_MA", "");
-//					context.setAttribute("HSDK_TEN", "");
 					break;
 				case 3:
 					context.setAttribute("HSDK_ID", 0);
 					context.setAttribute("HSDK_LOAI", 0);
-//					context.setAttribute("HSDK_MA", "");
-//					context.setAttribute("HSDK_TEN", "");
 					break;
 				default:
 					break;
@@ -121,8 +130,6 @@ public class HoSoDangKyServlet extends HttpServlet {
 		
 		context.setAttribute("HSDK_ID", id);
 		context.setAttribute("HSDK_LOAI", loai);
-//		context.setAttribute("HSDK_MA", request.getParameter("ma"));
-//		context.setAttribute("HSDK_TEN", request.getParameter("ten"));
 		
 		HttpSession session = request.getSession();
 		

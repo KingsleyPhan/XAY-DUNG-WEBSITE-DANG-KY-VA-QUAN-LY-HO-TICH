@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.sql.*;
@@ -136,5 +137,29 @@ public class HoSoDangKyDAO extends ConnectDAO {
 		wrkSql.append("WHERE ");
 		wrkSql.append("HOSO_DANGKY_ID = ?");
 		return wrkSql.toString();
+	}
+	
+	public Map<Object,Object> getMoreInfo(int id, int loai){
+		Map<Object,Object> info = new HashMap<>();
+		try {
+			Connection();
+			String wrkSql = "SELECT HOSO_DANGKY_EMAIL,HOSO_DANGKY_SDT,LOAI_DANGKY_LEPHI FROM HOSO_DANGKY,LOAI_DANGKY WHERE HOSO_DANGKY_ID = ? AND HOSO_DANGKY.LOAI_DANGKY_ID = LOAI_DANGKY.LOAI_DANGKY_ID";
+			PreparedStatement pstm = DBConnection.prepareStatement(wrkSql);
+			pstm.setInt(1, id);
+			ResultSet rs = pstm.executeQuery();
+			if(rs.next()) {
+				String email = rs.getString(1);
+				String sdt = rs.getString(2);
+				float lephi = rs.getFloat(3);
+				info.put("email", email);
+				info.put("sdt", sdt);
+				info.put("lephi", lephi);
+				return info;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return null;
 	}
 }

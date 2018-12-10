@@ -399,7 +399,7 @@
 																<i class="fa fa-calendar"> </i>
 															</div>
 															<div id="feedback_ME_NGAYSINH" class="form-group has-feedback">
-																<input name="ME_NGAYSINH" class="form-control" id="ME_NGAYSINH" type="text" value='${khaisinh.getMe().getNgaySinh() }' disabled />
+																<input name="ME_NGAYSINH" class="form-control" id="ME_NGAYSINH" type="text" value='${khaisinh.getMe().getNgaySinhString() }' disabled />
 																<span id="gly_ME_NGAYSINH" class="glyphicon form-control-feedback feedback-datetime"></span>
 															</div>
 														</div>
@@ -584,7 +584,7 @@
 																<i class="fa fa-calendar"> </i>
 															</div>
 															<div id="feedback_CHA_NGAYSINH" class="form-group has-feedback">
-																<input name="CHA_NGAYSINH" class="form-control" id="CHA_NGAYSINH" type="text" value='${khaisinh.getCha().getNgaySinh() }' disabled />
+																<input name="CHA_NGAYSINH" class="form-control" id="CHA_NGAYSINH" type="text" value='${khaisinh.getCha().getNgaySinhString() }' disabled />
 																<span id="gly_CHA_NGAYSINH" class="glyphicon form-control-feedback  feedback-datetime"></span>
 															</div>
 														</div>
