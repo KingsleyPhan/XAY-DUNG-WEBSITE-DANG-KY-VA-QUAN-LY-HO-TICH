@@ -28,7 +28,7 @@ public class loginAdminServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/AdminNguoiDung.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/admin/AdminUser.jsp");
 		dispatcher.forward(request, response);
 		return;
 	}

@@ -19,6 +19,14 @@ public class NguoiDungA
 	private String Password;
 	private int TrangThai;
 	private String Quyen;
+	private String ChucVu;
+	public String getChucVu() {
+		return ChucVu;
+	}
+	public void setChucVu(String chucVu) {
+		ChucVu = chucVu;
+	}
+
 	private int CoQuan_ID;
 	public int getID() {
 		return ID;
@@ -94,6 +102,21 @@ public class NguoiDungA
 	public NguoiDungA ()
 	{
 		DAO_NGUOIDUNG NGUOIDUNG  = new DAO_NGUOIDUNG(Consts.ServerUrl, Consts.Pass, Consts.UserName);
+	}
+	
+	public void show()
+	{
+		System.out.println(MaCanBo);
+		System.out.println(HoVaTen);
+		System.out.println(NgaySinh);
+		System.out.println(Email);
+		System.out.println(SDT);
+		System.out.println(Username);
+		System.out.println(Password);
+		System.out.println(TrangThai);
+		System.out.println(Quyen);
+		System.out.println(ChucVu);
+		System.out.println("COQUAN: " + CoQuan_ID);
 	}
 	
 	
