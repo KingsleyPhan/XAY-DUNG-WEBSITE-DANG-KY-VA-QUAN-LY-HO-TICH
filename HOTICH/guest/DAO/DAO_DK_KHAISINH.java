@@ -127,7 +127,7 @@ public class DAO_DK_KHAISINH extends ConnectDAO
 		 statement.setString(51, DKKS.getCha().getPhuong());
 		 statement.setString(52, DKKS.getCha().getDiaChi());
 		 
-		 statement.setString(53, "Chua co");
+		 statement.setBinaryStream(53,DKKS.getDoiTuongSinh().getFile_Image());
 		 
 		 statement.executeUpdate();
 		 

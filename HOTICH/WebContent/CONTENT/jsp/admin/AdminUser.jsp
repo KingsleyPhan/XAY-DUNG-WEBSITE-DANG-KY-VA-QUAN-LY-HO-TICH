@@ -145,6 +145,8 @@
 								result = user.loadUser(Consts.COQUAN_ID + "");
 								if (!result.wasNull()) {
 									while (result.next()) {
+									
+							
 							%>
 							<tr onclick="myFunction(this)">
 								<td><%=count%></td>
@@ -204,12 +206,9 @@
 												<div class="input-group-addon">
 													<i class="fa fa-calendar"> </i>
 												</div>
-												<input class="form-control" id="user_NgaySinh"
-													
-													name="user_NgaySinh"
-													
+												<input class="form-control" id="user_NgaySinh"													
+													name="user_NgaySinh"										
 													placeholder="Ngày/Tháng/Năm" type="text" />
-
 											</div>
 										</div>
 									</div>
@@ -218,9 +217,7 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="row">
-
 						<div class="col-12 col-sm-6 col-md-4">
 							<div class="form-group">
 								<label for="">Chức vụ</label> <input type="text"
@@ -230,22 +227,16 @@
 							</div>
 						</div>
 						<div class="col-12 col-sm-6 col-md-4">
-
 							<div class="form-group">
 								<label for="">Quyền sử dụng</label> <select id="user_Quyen"
 									name="user_Quyen" class="form-control" disabled>
-
 									<option value="0">Chọn quyền người dùng ...</option>
 									<option value="1">Cán bộ hộ tịch</option>
 									<option value="2">Quản trị cơ quan</option>
-
-
-
 								</select>
 								<p class="error" id="error_user_Quyen"></p>
 							</div>
 						</div>
-
 					</div>
 					<div class="row">
 						<div class="col-12 col-sm-6 col-md-4">

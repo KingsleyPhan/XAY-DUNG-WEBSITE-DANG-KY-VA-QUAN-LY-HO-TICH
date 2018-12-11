@@ -1,5 +1,6 @@
 package Entities.KhaiSinh;
 
+import java.io.InputStream;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,6 +23,15 @@ public class KhaiSinh {
 	private String Quan_CSSS;
 	private String Phuong_CSSS;
 	private String DiaChi_CSSS;
+	private InputStream File_Image;
+
+	public InputStream getFile_Image() {
+		return File_Image;
+	}
+
+	public void setFile_Image(InputStream file_Image) {
+		File_Image = file_Image;
+	}
 
 	public String getHoVaTen() {
 		return HoVaTen;

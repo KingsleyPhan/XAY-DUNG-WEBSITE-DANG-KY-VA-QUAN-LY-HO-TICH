@@ -70,7 +70,7 @@
             </div>
 
             <div class="row" style="margin-top:20px">
-             <form action="NopKhaiSinh.php" method="Post" onsubmit="return validateSubmitKhaiSinh()">
+             <form action="NopKhaiSinh.php" method="Post" enctype="multipart/form-data" onsubmit="return validateSubmitKhaiSinh()">
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
@@ -825,9 +825,10 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>Giấy chứng sinh</td>
-                                                                <td></td>
-                                                                <td><button class="btn"><i class="fa fa-upload"></i>Tải
-                                                                        lên</button></td>
+                                                                <td> <div id="file-upload-filename">Chưa có</div> 
+                                                                <input type="file" id="file-upload" name="photo"  multiple required /></td>
+                                                                <td> <label for="file-upload">Upload file</label>
+ 																</td>
                                                                 <td><textarea style="width: 100%">
                                                                 </textarea></td>
                                                             </tr>
@@ -884,6 +885,35 @@
     <script src="CONTENT/js/guest/Header.js"></script>
     <script src="CONTENT/js/guest/valiedateForm.js"></script>
      <script src="CONTENT/js/guest/DangKyKhaiSinhAjax.js"></script>
+     <style>
+     input[type="file"] { 
+  z-index: -1;
+  position: absolute;
+  opacity: 0;
+}
+
+input:focus + label {
+  outline: 2px solid;
+}
+     </style>
+     <script>
+     var input = document.getElementById( 'file-upload' );
+     var infoArea = document.getElementById( 'file-upload-filename' );
+
+     input.addEventListener( 'change', showFileName );
+
+     function showFileName( event ) {
+       
+       // the change event gives us the input it occurred in 
+       var input = event.srcElement;
+       
+       // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+       var fileName = input.files[0].name;
+       
+       // use fileName however fits your app best, i.e. add it into a div
+       infoArea.textContent = 'File name: ' + fileName;
+     }
+     </script>
 </body>
 
 </html>

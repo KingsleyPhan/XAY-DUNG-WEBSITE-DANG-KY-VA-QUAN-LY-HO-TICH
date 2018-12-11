@@ -25,6 +25,7 @@ public class DangNhap extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/DangNhap.jsp");
+		
 		dispatcher.forward(request, response);
 		return;
 		
@@ -32,9 +33,7 @@ public class DangNhap extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String TenThanhPho;
-		TenThanhPho = request.getParameter("ComboTHANHPHO");
-		System.out.println(TenThanhPho);
+		
 	}
 
 }

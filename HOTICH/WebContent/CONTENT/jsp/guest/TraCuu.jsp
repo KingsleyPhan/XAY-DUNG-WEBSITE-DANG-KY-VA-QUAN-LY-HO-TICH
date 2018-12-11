@@ -50,7 +50,7 @@
             <div class="row">
             <form action="../TraCuuHoSo.php">
                
-                    <p class="title-tracuu"> TRA CỨU HỒ SƠ ĐĂNG KÝ HỘ TỊCH TRỰC TUYẾN</p>
+                    <p class="title-tracuu" style="margin-top:10px;"> TRA CỨU HỒ SƠ ĐĂNG KÝ HỘ TỊCH TRỰC TUYẾN</p>
                 
                 <div class="Content-TraCuu" style="height:auto">
                   <%
