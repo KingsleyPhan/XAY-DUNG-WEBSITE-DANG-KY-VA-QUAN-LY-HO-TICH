@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class loginAdminServlet
+ * Servlet implementation class TaiKhoanNguoiDung
  */
-@WebServlet("/admin")
-public class loginAdminServlet extends HttpServlet {
+@WebServlet("/taikhoannguoidung")
+public class TaiKhoanNguoiDung extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginAdminServlet() {
+    public TaiKhoanNguoiDung() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class loginAdminServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/admin/AdminTongQuat.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/admin/AdminUser.jsp");
 		dispatcher.forward(request, response);
 		return;
 	}

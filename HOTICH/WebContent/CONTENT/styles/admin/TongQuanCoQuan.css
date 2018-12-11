@@ -1,0 +1,55 @@
+.Content-Coquan
+{
+    width:60%;
+}
+.ThaoTac
+{
+    width: 10%;
+    text-align: center;
+}
+.title-Coquan
+{
+    width: 20%;
+
+    font-weight: 800;
+    font-size: 16px;
+}
+.btn-edit
+{
+    border: none;
+    background-color: none;
+    background-color: transparent;
+    font-weight: 800;
+    font-size: 15px;
+    
+
+}
+.btn-edit:hover
+{
+  color:brown;
+
+}
+
+.DiaChiCoquan
+{
+    font-weight: 500;
+}
+
+.btn-sav
+{
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+     padding-bottom: 5px;
+    color: white;
+    background-color: #004f7e;
+
+}
+.btn-sav:hover
+{
+    background-color: orangered;
+    color: aliceblue;
+}

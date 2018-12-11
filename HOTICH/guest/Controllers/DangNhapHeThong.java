@@ -76,7 +76,7 @@ public class DangNhapHeThong extends HttpServlet {
 						Consts.NGUOIDUNG_ID = us.getID();
 						System.out.println("Nguoi dung: " + Consts.NGUOIDUNG_ID);
 					    
-					    RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/officer/QuanLyHoTich_New.jsp");
+					    RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/officer/QuanLyHoSoDangKy_New.jsp");
 						dispatcher.forward(request, response);
 						return;
 					}
