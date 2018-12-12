@@ -84,20 +84,24 @@
 		<div class="container " style="width: 95%">
 			<div class="row">
 				<!-- Top navigation -->
-				<div class="topnav menu-top">
-					<!-- Left-aligned links (default) -->
-					<a href="admin_TongQuat.html"><i
-						class="fa fa-list fa-lg padd-icon"></i>TỔNG QUAN</a> <a
-						href="admin_TongQuatNguoiDung.html"
-						style="background-color: rgb(243, 93, 33);"><i
-						class="fa fa-address-book-o fa-lg padd-icon"></i>TÀI KHOẢN NGƯỜI
-						DÙNG</a> <a href="#news"><i class="fa fa-cogs fa-lg padd-icon"></i>THIẾT
-						LẬP CƠ QUAN</a> <a href="#news"><i
-						class="fa fa-cubes  fa-lg padd-icon"></i>QUẢN LÝ PHẦN MỀM</a> <a
-						href="#contact"><i class="fa fa-info-circle fa-lg padd-icon"></i>THÔNG
-						TIN PHẦN MỀM</a>
-
-				</div>
+			 <div class="topnav menu-top">
+                    <!-- Left-aligned links (default) -->
+                    <form action="admin">
+                     <button type="submit"  ><i class="fa fa-list fa-lg padd-icon"></i>TỔNG QUAN</button>
+                    </form>
+                     <form action="taikhoannguoidung">
+                     <button type="submit"  style=" background-color:rgb(243, 93, 33);"><i class="fa fa-address-book-o fa-lg padd-icon"></i>TÀI KHOẢN NGƯỜI DÙNG</button>
+                    </form>
+                     <form action="ThietLapCoQuan">
+                     <button type="submit" ><i class="fa fa-cogs fa-lg padd-icon"></i>THIẾT LẬP CƠ QUAN</button>
+                    </form>
+                     <form action="">
+                       <button type="submit" ><i class="fa fa-cubes  fa-lg padd-icon"></i>QUẢN LÝ PHẦN MỀM</button>
+                    </form>
+                     <form action="">
+                     <button type="submit" ><i class="fa fa-info-circle fa-lg padd-icon" ></i>THÔNG TIN PHẦN MỀM</button>
+                    </form>
+                </div>
 
 
 			</div>
@@ -145,6 +149,8 @@
 								result = user.loadUser(Consts.COQUAN_ID + "");
 								if (!result.wasNull()) {
 									while (result.next()) {
+									
+							
 							%>
 							<tr onclick="myFunction(this)">
 								<td><%=count%></td>
@@ -195,7 +201,7 @@
 						</div>
 						<div class="col-12 col-sm-6 col-md-4">
 							<div class="form-group">
-								<label for="">Ngày cấp</label>
+								<label for="">Ngày Sinh</label>
 								<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
 								<div class="bootstrap-iso">
 									<div class="container-fluid">
@@ -204,12 +210,9 @@
 												<div class="input-group-addon">
 													<i class="fa fa-calendar"> </i>
 												</div>
-												<input class="form-control" id="user_NgaySinh"
-													
-													name="user_NgaySinh"
-													
+												<input class="form-control" id="user_NgaySinh"													
+													name="user_NgaySinh" readOnly										
 													placeholder="Ngày/Tháng/Năm" type="text" />
-
 											</div>
 										</div>
 									</div>
@@ -218,9 +221,7 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="row">
-
 						<div class="col-12 col-sm-6 col-md-4">
 							<div class="form-group">
 								<label for="">Chức vụ</label> <input type="text"
@@ -230,22 +231,16 @@
 							</div>
 						</div>
 						<div class="col-12 col-sm-6 col-md-4">
-
 							<div class="form-group">
 								<label for="">Quyền sử dụng</label> <select id="user_Quyen"
 									name="user_Quyen" class="form-control" disabled>
-
 									<option value="0">Chọn quyền người dùng ...</option>
 									<option value="1">Cán bộ hộ tịch</option>
 									<option value="2">Quản trị cơ quan</option>
-
-
-
 								</select>
 								<p class="error" id="error_user_Quyen"></p>
 							</div>
 						</div>
-
 					</div>
 					<div class="row">
 						<div class="col-12 col-sm-6 col-md-4">

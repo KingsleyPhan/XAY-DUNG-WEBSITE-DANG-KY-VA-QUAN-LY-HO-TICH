@@ -40,7 +40,7 @@
     <div id="id-content" class="content-switch">
         <div class="container">
             <div class="row">
-                <div class="header_location">
+                <div class="header_location" style="margin-top: 130px; margin-bottom: 20px">
                     <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
                     <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
                 </div>
@@ -59,12 +59,21 @@
                 <!-- Top navigation -->
                 <div class="topnav menu-top">
                     <!-- Left-aligned links (default) -->
-                    <a href="admin_TongQuat.html"  style=" background-color:rgb(243, 93, 33);"><i class="fa fa-list fa-lg padd-icon"></i>TỔNG QUAN</a>
-                    <a href="AdminUser.jsp" ><i class="fa fa-address-book-o fa-lg padd-icon"></i>TÀI KHOẢN NGƯỜI DÙNG</a>
-                    <a href="#news"><i class="fa fa-cogs fa-lg padd-icon"></i>THIẾT LẬP CƠ QUAN</a>
-                    <a href="#news"><i class="fa fa-cubes  fa-lg padd-icon"></i>QUẢN LÝ PHẦN MỀM</a>
-                    <a href="#contact"><i class="fa fa-info-circle fa-lg padd-icon" ></i>THÔNG TIN PHẦN MỀM</a>
-                   
+                    <form action="admin">
+                     <button type="submit"  style=" background-color:rgb(243, 93, 33);"><i class="fa fa-list fa-lg padd-icon"></i>TỔNG QUAN</button>
+                    </form>
+                     <form action="taikhoannguoidung">
+                     <button type="submit"  ><i class="fa fa-address-book-o fa-lg padd-icon"></i>TÀI KHOẢN NGƯỜI DÙNG</button>
+                    </form>
+                     <form action="ThietLapCoQuan">
+                     <button type="submit" ><i class="fa fa-cogs fa-lg padd-icon"></i>THIẾT LẬP CƠ QUAN</button>
+                    </form>
+                     <form action="">
+                       <button type="submit" ><i class="fa fa-cubes  fa-lg padd-icon"></i>QUẢN LÝ PHẦN MỀM</button>
+                    </form>
+                     <form action="">
+                     <button type="submit" ><i class="fa fa-info-circle fa-lg padd-icon" ></i>THÔNG TIN PHẦN MỀM</button>
+                    </form>
                 </div>
 
 

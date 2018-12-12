@@ -1,15 +1,18 @@
 package Controllers;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import DAO.Consts;
 import DAO.DAO_DANTOC;
@@ -27,6 +30,7 @@ import Models.StoreEntity;
  * Servlet implementation class NopKhaiSinhServlet
  */
 @WebServlet("/NopKhaiSinh.php")
+@MultipartConfig
 public class NopKhaiSinhServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -160,6 +164,14 @@ public class NopKhaiSinhServlet extends HttpServlet {
 		
 		KS.setDiaChi_CSSS(request.getParameter("KS_DIACHI_CSSS"));
 		
+		//Code lấy ảnh
+		Part filePart = request.getPart("photo");
+		if (filePart != null) {
+			// obtains input stream of the upload file
+			KS.setFile_Image(filePart.getInputStream());
+		}
+		//End code lấy ảnh
+		
 		KS.showImfor();
 		
 	
@@ -272,6 +284,7 @@ public class NopKhaiSinhServlet extends HttpServlet {
 	
 		
 		DangKyKhaiSinh DK = new DangKyKhaiSinh(NYC, KS,CHA, ME);
+		
 		
 		
 		StoreEntity.DKKS  = DK;

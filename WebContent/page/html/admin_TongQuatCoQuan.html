@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HOTICH.NET</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="..//styles/HAF.css">
+    <link rel="stylesheet" type="text/css" href="..//styles/admin.css">
+    <link rel="stylesheet" type="text/css" href="..//styles/Admin_TongQuat.css">
+    <link rel="stylesheet" type="text/css" href="..//styles/TongQuanCoQuan.css">
+
+
+
+</head>
+
+<body>
+    <!-- Start Header-->
+
+    <header id="id-header" class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo-text">
+                        <p id="id-logo-text">HOTICH.NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header-->
+
+    <!--Start Content-->
+    <div id="id-content" class="content-switch">
+        <div class="container">
+            <div class="row">
+                <div class="header_location">
+                    <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
+                    <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .padd-icon {
+                margin-right: 10px;
+            }
+        </style>
+
+        <div class="container " style="width:95%">
+            <div class="row">
+                <!-- Top navigation -->
+                <div class="topnav menu-top">
+                    <!-- Left-aligned links (default) -->
+                    <a href="admin_TongQuat.html"><i class="fa fa-list fa-lg padd-icon"></i>TỔNG QUAN</a>
+                 
+                   <button href="admin_TongQuatNguoiDung.html"><i class="fa fa-address-book-o fa-lg padd-icon"></i>TÀI KHOẢN NGƯỜI DÙNG</button>
+                  
+                    <a href="#news" style=" background-color:rgb(243, 93, 33);"><i class="fa fa-cogs fa-lg padd-icon"></i>THIẾT
+                        LẬP CƠ QUAN</a>
+                    <a href="#news"><i class="fa fa-cubes  fa-lg padd-icon"></i>QUẢN LÝ PHẦN MỀM</a>
+                    <a href="#contact"><i class="fa fa-info-circle fa-lg padd-icon"></i>THÔNG TIN PHẦN MỀM</a>
+                </div>
+            </div>
+            <!-- Setup 2000px for test amnition-->
+            <div class="paper">
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="titile" style="margin-top: 20px">
+                                <p><i class="fa fa-list-alt" style="padding-right:10px"></i>THÔNG TIN CƠ BẢN CƠ QUAN
+                                    CÔNG QUYỀN</p>
+                            </div>
+                            <div>
+                                <table class="table table-striped table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="title-Coquan">Địa chỉ cơ quan</td>
+                                            <td class="Content-Coquan">
+                                                <div class="DiaChiCoquan">
+                                                    <p>247/4 Đường Trương Văn Thành, Phường Hiệp Phú, Quận 9, Tp.Hồ Chí
+                                                        Minh</p>
+                                                    <div class="form-group" style="display:none" id="Frm_diaChiCoQuan">
+                                                        <input type="text" class="form-control" id="DiaChiCoQuan" name="DiaChiCoQuan"
+                                                            onblur="validateRequired(DiaChiCoQuan)">
+                                                        <p class="error" id="error_DiaChiCoQuan"></p>
+                                                        <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                            onclick="functionCancel(this)">Lưu thay đổi</button>
+
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                            <td class="ThaoTac"><button class="btn-edit" onclick="EditDiaChiCoQuan()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh
+                                                    sửa</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title-Coquan">Số điện thoại</td>
+                                            <td class="Content-Coquan">
+                                                <div class="SDTCoquan">
+                                                    <p>0123658569</p>
+                                                    <div class="form-group" style="display:none" id="Frm_SDTCoQuan">
+                                                        <input type="text" class="form-control" id="SDTCoQuan" name="SDTCoQuan"
+                                                            onblur="validateRequired(DiaChiCoQuan)">
+                                                        <p class="error" id="error_SDTCoQuan"></p>
+                                                        <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                            onclick="functionCancel(this)">Lưu thay đổi</button>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="ThaoTac"><button class="btn-edit" onclick="EditSDTCoQuan()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title-Coquan">E - mail</td>
+                                            <td class="Content-Coquan">  <div class="EMAILCoquan">
+                                                    <p>ubnd.phuongQuan9@gmail.com</p>
+                                                    <div class="form-group" style="display:none" id="Frm_EMAILCoQuan">
+                                                        <input type="text" class="form-control" id="EMAILCoQuan" name="EMAILCoQuan"
+                                                            onblur="validateRequired(DiaChiCoQuan)">
+                                                        <p class="error" id="error_EMAILCoQuan"></p>
+                                                        <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                            onclick="functionCancel(this)">Lưu thay đổi</button>
+
+                                                    </div>
+                                                </div></td>
+                                            <td class="ThaoTac"><button class="btn-edit" onclick="EditEmailCoQuan()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title-Coquan">Giới thiệu</td>
+                                            <td class="Content-Coquan"> <div class="GioiThieuCoquan">
+                                                    <p>Là một trong những cơ quan được thí điểm đăng ký và quản lý hộ tịch onine. Một cơ quan có cán bộ chuyên trách chuyên nghiệp phục vụ người dân</p>
+                                                    <div class="form-group" style="display:none" id="Frm_GioiThieuCoQuan">
+                                                            <textarea class="form-control" id="GioiThieuCoQuan" name="GioiThieuCoQuan" rows="4" cols="50">
+                                                                    </textarea>
+                                                        <p class="error" id="error_GioiThieuCoQuan"></p>
+                                                        <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                            onclick="functionCancel(this)">Lưu thay đổi</button>
+
+                                                    </div>
+                                                </div></td>
+                                            <td class="ThaoTac"><button class="btn-edit" onclick="EditGioiThieuCoQuan()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="titile" style="margin-top: 20px">
+                        <p><i class="fa fa-list-alt" style="padding-right:10px"></i>THÔNG TIN NGƯỜI TRƯỞNG CƠ QUAN</p>
+                    </div>
+                    <div>
+                        <table class="table table-striped table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="title-Coquan">Họ và Tên</td>
+                                    <td class="Content-Coquan"> <div class="TenTruong">
+                                            <p>Nguyễn Minh Chính</p>
+                                            <div class="form-group" style="display:none" id="Frm_TenTruong">
+                                                <input type="text" class="form-control" id="TenTruong" name="TenTruong"
+                                                    onblur="validateRequired(TenTruong)">
+                                                <p class="error" id="error_TenTruong"></p>
+                                                <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                    onclick="functionCancel(this)">Lưu thay đổi</button>
+
+                                            </div>
+                                        </div></td>
+                                    <td class="ThaoTac"><button class="btn-edit" onclick="EditTenTruong()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="title-Coquan">SĐT</td>
+                                    <td class="Content-Coquan"> <div class="SDTTruong">
+                                            <p>0123698587</p>
+                                            <div class="form-group" style="display:none" id="Frm_SDTTruong">
+                                                <input type="text" class="form-control" id="SDTTruong" name="SDTTruong"
+                                                    onblur="validateRequired(SDTTruong)">
+                                                <p class="error" id="error_SDTTruong"></p>
+                                                <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                    onclick="functionCancel(this)">Lưu thay đổi</button>
+
+                                            </div>
+                                        </div></td>
+                                    <td class="ThaoTac"><button class="btn-edit"  onclick="EditSDTTruong()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="title-Coquan">E-mail</td>
+                                    <td class="Content-Coquan"> <div class="EmailTruong">
+                                            <p>nguyenMinhChinh@gmail.com</p>
+                                            <div class="form-group" style="display:none" id="Frm_EmailTruong">
+                                                <input type="text" class="form-control" id="EmailTruong" name="EmailTruong"
+                                                    onblur="validateRequired(EmailTruong)">
+                                                <p class="error" id="error_EmailTruong"></p>
+                                                <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                    onclick="functionCancel(this)">Lưu thay đổi</button>
+
+                                            </div>
+                                        </div></td>
+                                    <td class="ThaoTac"><button class="btn-edit"  onclick="EditEmailTruong()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="titile" style="margin-top: 20px">
+                        <p><i class="fa fa-list-alt" style="padding-right:10px"></i>THÔNG TIN NGƯỜI PHÓ CƠ QUAN</p>
+                    </div>
+                    <div>
+                            <table class="table table-striped table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="title-Coquan">Họ và Tên</td>
+                                            <td class="Content-Coquan"> <div class="TenPho">
+                                                    <p>Nguyễn Minh Chính</p>
+                                                    <div class="form-group" style="display:none" id="Frm_TenPho">
+                                                        <input type="text" class="form-control" id="TenPho" name="TenPho"
+                                                            onblur="validateRequired(TenPho)">
+                                                        <p class="error" id="error_TenPho"></p>
+                                                        <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                            onclick="functionCancel(this)">Lưu thay đổi</button>
+        
+                                                    </div>
+                                                </div></td>
+                                            <td class="ThaoTac"><button class="btn-edit" onclick="EditTenPho()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title-Coquan">SĐT</td>
+                                            <td class="Content-Coquan"> <div class="SDTPho">
+                                                    <p>0123698587</p>
+                                                    <div class="form-group" style="display:none" id="Frm_SDTPho">
+                                                        <input type="text" class="form-control" id="SDTPho" name="SDTPho"
+                                                            onblur="validateRequired(SDTPho)">
+                                                        <p class="error" id="error_SDTPho"></p>
+                                                        <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                            onclick="functionCancel(this)">Lưu thay đổi</button>
+        
+                                                    </div>
+                                                </div></td>
+                                            <td class="ThaoTac"><button class="btn-edit"  onclick="EditSDTPho()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title-Coquan">E-mail</td>
+                                            <td class="Content-Coquan"> <div class="EmailPho">
+                                                    <p>nguyenMinhChinh@gmail.com</p>
+                                                    <div class="form-group" style="display:none" id="Frm_EmailPho">
+                                                        <input type="text" class="form-control" id="EmailPho" name="EmailPho"
+                                                            onblur="validateRequired(EmailPho)">
+                                                        <p class="error" id="error_EmailPho"></p>
+                                                        <button style="float: right;" id="buttonCancel" class="btn btn-sav "
+                                                            onclick="functionCancel(this)">Lưu thay đổi</button>
+        
+                                                    </div>
+                                                </div></td>
+                                            <td class="ThaoTac"><button class="btn-edit"  onclick="EditEmailPho()"><i class="fa fa-edit" style="margin-right: 3px"></i>Chỉnh sửa</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--Start Content-->
+        <!-- Start Footer-->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="logo-text">
+                            <p>HOTICH.NET</p>
+                        </div>
+                        <div class="subrice">
+                            <p>Hệ thống đăng ký và quản lý hộ tịch trực tuyến</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="footer-imfor">
+                            <p>Copyright (C) 2018-2019 HOTICH.NET</p>
+                            <p>Phát triển bởi Phan Văn Phước Thịnh - Huỳnh Lê Hữu Hưng</p>
+                            <p> SĐT tư vấn - thương mại: 0975 339 843 - 0961 561 682</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer-->
+
+        <script src="../js/index.js"></script>
+        <script src="../js/Header.js"></script>
+        <script src="../js/CoQuan.js"></script>
+
+</body>
+
+</html>

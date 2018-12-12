@@ -6,7 +6,7 @@ import java.sql.Connection;
 
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-
+import java.util.Date;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
@@ -87,7 +87,7 @@ public class database
          		System.out.println(result.getString(1));
          	}
          	*/
-		System.out.println(new SimpleDateFormat("YYY-dd-MM").format("2012-10-20"));
+		System.out.println(new SimpleDateFormat("MM-dd-yyyy").format("2012/10/10"));
 	}
 	
 	

@@ -1,25 +1,28 @@
 package Controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.Consts;
+import DAO.DAO_COQUAN;
+
 /**
- * Servlet implementation class loginAdminServlet
+ * Servlet implementation class ThemDiaChiCQ
  */
-@WebServlet("/admin")
-public class loginAdminServlet extends HttpServlet {
+@WebServlet("/ThemTenChuTich")
+public class ThemTRTEN extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginAdminServlet() {
+    public ThemTRTEN() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +31,20 @@ public class loginAdminServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/admin/AdminTongQuat.jsp");
-		dispatcher.forward(request, response);
-		return;
+		
+		DAO_COQUAN CQ = new DAO_COQUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		
+		System.out.println("Ten  CT: " + request.getParameter("TenTruong"));
+		
+		try {
+			CQ.Update_TR_TEN_CoQuan(request.getParameter("TenTruong"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		response.sendRedirect("ThietLapCoQuan");
+		
 	}
 
 	/**

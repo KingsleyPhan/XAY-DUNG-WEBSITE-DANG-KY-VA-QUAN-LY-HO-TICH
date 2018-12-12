@@ -167,7 +167,7 @@ public class QuanLyNguoiDung extends HttpServlet {
 				e.printStackTrace();
 			}
 			}
-		response.sendRedirect("admin");
+		response.sendRedirect("taikhoannguoidung");
 	}
 
 }

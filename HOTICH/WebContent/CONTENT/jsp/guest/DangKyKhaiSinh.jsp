@@ -70,7 +70,7 @@
             </div>
 
             <div class="row" style="margin-top:20px">
-             <form action="NopKhaiSinh.php" method="Post" onsubmit="return validateSubmitKhaiSinh()">
+             <form action="NopKhaiSinh.php" method="Post" enctype="multipart/form-data" onsubmit="return validateSubmitKhaiSinh()">
                 <!-- Setup 2000px for test amnition-->
                 <div class="paper">
                     <div class="title">
@@ -825,9 +825,10 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>Giấy chứng sinh</td>
-                                                                <td></td>
-                                                                <td><button class="btn"><i class="fa fa-upload"></i>Tải
-                                                                        lên</button></td>
+                                                                <td> <div id="file-upload-filename">Chưa có</div> 
+                                                                <input type="file" id="file-upload" name="photo"  multiple required /></td>
+                                                                <td> <label for="file-upload">Upload file</label>
+ 																</td>
                                                                 <td><textarea style="width: 100%">
                                                                 </textarea></td>
                                                             </tr>
@@ -884,6 +885,12 @@
     <script src="CONTENT/js/guest/Header.js"></script>
     <script src="CONTENT/js/guest/valiedateForm.js"></script>
      <script src="CONTENT/js/guest/DangKyKhaiSinhAjax.js"></script>
+     <style>
+
+     </style>
+     <script>
+ 
+     </script>
 </body>
 
 </html>
