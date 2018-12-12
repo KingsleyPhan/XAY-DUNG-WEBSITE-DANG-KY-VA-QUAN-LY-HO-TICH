@@ -66,7 +66,6 @@ function submitKiemDuyetKhaiSinh(){
 		if (ksError === "Error") {
 			message += "Công dân đã nhập lỗi thông tin người được khai sinh \n Vui lòng phản hồi !!!\n";
 			haveError = true;
-			haveCheckKS = true;
 		} else {
 			if (ksError === "") {
 				message += "Chưa kiểm duyệt đối tượng khai sinh !!!\n";
@@ -81,7 +80,6 @@ function submitKiemDuyetKhaiSinh(){
 		if(dinhKemError === "Error"){
 			message += "Công dân chưa thêm file đính kèm \n Vui lòng phản hồi !!!\n";
 			haveError = true;
-			haveCheckDK = true;
 		}else{
 			if(dinhKemError === ""){
 				message += "Chưa kiểm duyệt file đính kèm\n";
@@ -118,7 +116,7 @@ function submitKiemDuyetKhaiSinh(){
 	else{
 		console.log(message)
 		alert(message);
-		if (ksError !== undefined && dinhKemError !== undefined){
+		if (ksError !== "" && dinhKemError !== ""){
 			/*Trường hợp : Xảy ra lỗi khi kiểm duyệt*/
 			if(haveError){
 				var temp = "Error";

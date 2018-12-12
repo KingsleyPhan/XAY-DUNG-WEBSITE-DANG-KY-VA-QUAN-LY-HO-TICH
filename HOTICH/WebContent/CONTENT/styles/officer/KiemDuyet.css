@@ -196,3 +196,13 @@ ul.confirm{
     margin-top: 8px;
     margin-left: 8px;
 }
+
+
+.modal-backdrop{
+	display : none;
+}
+
+.modal-dialog.modal-lg{
+	margin-left: 440px;
+	width: 52%;
+}

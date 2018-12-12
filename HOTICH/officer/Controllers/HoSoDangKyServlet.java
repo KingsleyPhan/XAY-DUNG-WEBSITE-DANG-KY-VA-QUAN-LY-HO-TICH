@@ -1,11 +1,14 @@
 package Controllers;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -37,6 +40,7 @@ public class HoSoDangKyServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		context.setAttribute("HSDK_ID", 0);
 		context.setAttribute("HSDK_LOAI", 0);
+		context.setAttribute("HSDK", null);
 		dangKyKhaiSinhDAO = new DangKyKhaiSinhDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		hoSoDangKyDAO = new HoSoDangKyDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 	}
@@ -54,9 +58,34 @@ public class HoSoDangKyServlet extends HttpServlet {
 		case "setHSDK":
 			setHSDK(request,response);
 			break;
+		case "getImage":
+			getImage(request,response);
+			break;
 		default:
 			kiemDuyet(request,response);
 			break;
+		}
+	}
+
+	private void getImage(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			ServletContext context = getServletContext();
+			HoSoKhaiSinh hoSoKhaiSinh = (HoSoKhaiSinh) context.getAttribute("HSDK");
+			context.setAttribute("HSDK", null);
+			if(hoSoKhaiSinh.getFileGiayChungSinh() != null)
+			{
+				 String imageFileName = "GiayChungSinh.png";
+				 String contentType = this.getServletContext().getMimeType(imageFileName);
+				 response.setHeader("Content-Type", contentType);
+			        
+		          response.setHeader("Content-Length", String.valueOf(hoSoKhaiSinh.getFileGiayChungSinh().length));
+		        
+		          response.setHeader("Content-Disposition", "inline; filename=\"" + imageFileName + "\"");
+		          
+		          response.getOutputStream().write(hoSoKhaiSinh.getFileGiayChungSinh());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -64,7 +93,7 @@ public class HoSoDangKyServlet extends HttpServlet {
 		String page = "";
 		
 		ServletContext context = getServletContext();
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		
 		int id = Integer.parseInt(context.getAttribute("HSDK_ID").toString());
 		int loai = Integer.parseInt(context.getAttribute("HSDK_LOAI").toString());
@@ -73,10 +102,11 @@ public class HoSoDangKyServlet extends HttpServlet {
 			try {
 				switch (loai) {
 				case 1:
-					context.setAttribute("HSDK_ID", 0);
-					context.setAttribute("HSDK_LOAI", 0);
 					
+					context.setAttribute("HSDK_LOAI", 0);
+					context.setAttribute("HSDK_ID", 0);
 					HoSoKhaiSinh hoSoKhaiSinh = dangKyKhaiSinhDAO.getHSDKKhaiSinh(id);
+					context.setAttribute("HSDK", hoSoKhaiSinh);
 					Map<Object,Object> info = hoSoDangKyDAO.getMoreInfo(id, loai);
 					if(info.containsKey("email")) {
 						session.setAttribute("email", info.get("email"));

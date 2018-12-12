@@ -12,7 +12,7 @@ public class HoSoKhaiSinh {
 	private CoSoYTe noiSinh;
 	private CongDan cha;
 	private CongDan me;
-	private String fileGiayChungSinh;
+	private byte[] fileGiayChungSinh;
 
 	public HSDK getHsdk() {
 		return hsdk;
@@ -41,12 +41,14 @@ public class HoSoKhaiSinh {
 		return noiSinh;
 	}
 
-	public String getFileGiayChungSinh() {
+	public byte[] getFileGiayChungSinh() {
 		return fileGiayChungSinh;
 	}
+	
+	
 
-	public HoSoKhaiSinh(HSDK hsdk, CongDan ngYeuCau, String quanHe, CongDan doiTuongKhaiSinh,CoSoYTe noiSinh, CongDan cha, CongDan me,
-			String fileGiayChungSinh) {
+	public HoSoKhaiSinh(HSDK hsdk, CongDan ngYeuCau, String quanHe, CongDan doiTuongKhaiSinh, CoSoYTe noiSinh,
+			CongDan cha, CongDan me, byte[] fileGiayChungSinh) {
 		super();
 		this.hsdk = hsdk;
 		this.ngYeuCau = ngYeuCau;
@@ -57,7 +59,7 @@ public class HoSoKhaiSinh {
 		this.me = me;
 		this.fileGiayChungSinh = fileGiayChungSinh;
 	}
-	
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

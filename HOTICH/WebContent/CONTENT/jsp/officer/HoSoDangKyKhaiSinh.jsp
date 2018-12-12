@@ -753,17 +753,19 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="row">
+			<c:choose>
+				<c:when test="${khaisinh.getFileGiayChungSinh() != null }">
+					<div class="row">
                         <div class="container container-paper">
                             <div class="part-content">
                             	<div class="title-part">
                                 	<div class="col-12 col-sm-6 col-md-6">
 										<p style="font-size: 18px;font-weight: bold">HỒ SƠ ĐÍNH KÈM</p>
 									</div>
+									
 									<div class="col-12 col-sm-6 col-md-6" style="text-align: right; height: 100%">
-										<button class="btn btn-success check" onClick="acceptDinhKem()"><i class="glyphicon glyphicon-ok"></i> Xác nhận</button>
-										<button class="btn btn-success check" onClick="ignoreDinhKem()"><i class="glyphicon glyphicon-remove"></i> Từ chối</button>
+										<!-- <button class="btn btn-success check" onClick="acceptDinhKem()"><i class="glyphicon glyphicon-ok"></i> Xác nhận</button>
+										<button class="btn btn-success check" onClick="ignoreDinhKem()"><i class="glyphicon glyphicon-remove"></i> Từ chối</button> -->
 				                    </div>
                                     <input type="hidden" name="DINHKEM_ERROR" id="DINHKEM_ERROR" value="">
                                 </div>
@@ -784,8 +786,8 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>Giấy chứng sinh</td>
-                                                                <td>${khaisinh.getFileGiayChungSinh() }</td>
-                                                                <td><button class="btn"><i class="fa fa-upload"></i>Tải lên</button></td>
+                                                                <td>GiayChungSinh.png</td>
+                                                                <td><button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-upload"></i>Xem</button></td>
                                                                 <td><textarea style="width: 100%"></textarea></td>
                                                             </tr>
                                                         </tbody>
@@ -797,8 +799,83 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>		
+                    <!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="exampleModalLabel">File đính kèm</h5>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+      <img id="giayHoTich" alt="Lỗi" height="990px" width="700px" src="${home }HoSoDangKy/getImage">
+      </div>
+      <div class="modal-footer">
+<!--         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+        <button class="btn btn-success check" onClick="acceptDinhKem()" data-dismiss="modal"><i class="glyphicon glyphicon-ok"></i> Xác nhận</button>
+		<button class="btn btn-success check" onClick="ignoreDinhKem()" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Từ chối</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal -->		
+				</c:when>
+				<c:otherwise>
+				
+					<div class="row">
+                        <div class="container container-paper">
+                            <div class="part-content">
+                            	<div class="title-part">
+                                	<div class="col-12 col-sm-6 col-md-6">
+										<p style="font-size: 18px;font-weight: bold">HỒ SƠ ĐÍNH KÈM</p>
+									</div>
+									
+									<!-- <div class="col-12 col-sm-6 col-md-6" style="text-align: right; height: 100%">
+										<button class="btn btn-success check" onClick="acceptDinhKem()"><i class="glyphicon glyphicon-ok"></i> Xác nhận</button>
+										<button class="btn btn-success check" onClick="ignoreDinhKem()"><i class="glyphicon glyphicon-remove"></i> Từ chối</button>
+				                    </div> -->
+                                    <input type="hidden" name="DINHKEM_ERROR" id="DINHKEM_ERROR" value="Error">
+                                </div>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-upload">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Thành phần hồ sơ</th>
+                                                                <th scope="col">Tập tin</th>
+                                                                <th scope="col">Tải lên</th>
+                                                                <th scope="col">Ghi chú</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <!-- <tbody>
+                                                            <tr>
+                                                                <td>Giấy chứng sinh</td>
+                                                                <td>GiayChungSinh.png</td>
+                                                                <td><button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-upload" ></i>Xem</button></td>
+                                                                <td><textarea style="width: 100%"></textarea></td>
+                                                            </tr>
+                                                        </tbody> -->
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>	
+				</c:otherwise>
+			</c:choose>
+			
                 </div>
                 <!---End paper-->
+                
             </div>
         </div>

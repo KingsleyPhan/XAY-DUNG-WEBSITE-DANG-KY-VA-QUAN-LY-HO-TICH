@@ -90,7 +90,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 			String cha_Phuong = rs.getString(47);
 			String cha_DiaChi = rs.getString(48);
 
-			String FILE_GIAYCHUNGSINH = rs.getString(49);
+			byte[] FILE_GIAYCHUNGSINH = rs.getBytes(49);
 			
 			CongDan ngYeuCau = 
 					new CongDan(
@@ -133,8 +133,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 						);
 			}
 			
-			String fileChungSinh = FILE_GIAYCHUNGSINH;
-			return new HoSoKhaiSinh(hsdk, ngYeuCau, ngYeuCau_QuanHe, doiTuongKhaiSinh,noiSinh, cha, me,fileChungSinh);
+			return new HoSoKhaiSinh(hsdk, ngYeuCau, ngYeuCau_QuanHe, doiTuongKhaiSinh,noiSinh, cha, me,FILE_GIAYCHUNGSINH);
 		}
 		return null;
 	}
