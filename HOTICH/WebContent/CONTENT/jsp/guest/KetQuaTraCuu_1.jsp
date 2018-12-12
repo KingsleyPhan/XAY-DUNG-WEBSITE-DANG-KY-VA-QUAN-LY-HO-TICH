@@ -44,8 +44,8 @@
         <div class="container">
             <div class="row">
                 <div class="header_location">
-                    <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
-                    <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                  	<p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%></p>
+					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
                 </div>
             </div>
             <div class="row">
@@ -101,16 +101,16 @@
                 </div>
             </div>
             <div class="row footer-CoQuan">
+                 <div class="row">
                 <div class="col-sm-6">
-                    <p class="content-gioithieus"> HỔ TRỢ TƯ VẤN THỦ TỤC ĐANG KÝ HỘ TỊCH</p>
-                    <p class="content-gioithieus" style="text-align: center"><i class="fa fa-phone"></i> 08963254658
-                    </p>
+                        <p class="content-gioithieus"> HỔ TRỢ TƯ VẤN THỦ TỤC ĐANG KÝ HỘ TỊCH</p> 
+                        <p class="content-gioithieus" style="text-align: center"><i class="fa fa-phone" style="margin-right:10px"></i>${SDTCQ}</p>
                 </div>
                 <div class="col-sm-6">
-                    <p class="content-gioithieus"> ĐỊA CHỈ TỌA LẠC CƠ QUAN</p>
-                    <p class="content-gioithieus" style="text-align: center">835/23 Đường Trương Văn Thành, Phường Hiệp
-                        Phú, Quận 9 </p>
-                </div>
+                        <p class="content-gioithieus"> ĐỊA CHỈ TỌA LẠC CƠ QUAN</p> 
+                        <p class="content-gioithieus" style="text-align: center">${DCCQ}</p>
+                    </div>
+            </div>
             </div>
         </div>
 

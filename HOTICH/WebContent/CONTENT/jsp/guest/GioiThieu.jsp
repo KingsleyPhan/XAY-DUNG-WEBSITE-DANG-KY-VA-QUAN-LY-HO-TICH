@@ -37,9 +37,9 @@
     <div id="id-content" class="content-switch">
         <div class="container">
             <div class="row">
-                <div class="header_location">
-                    <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
-                    <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                <div class="header_location" style="margin-top: 130px; margin-bottom: 20px">
+                   	<p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%></p>
+					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
                 </div>
             </div>
         </div>
@@ -119,9 +119,7 @@
     
                         <div class="row">
                             <div class="col-sm-5 Gioi-Thieu">
-                                <p class="title-gioiThieu">Giới thiệu</p>
-                                <p class="content-gioithieu"> Hệ thống dịch vụ công trực tuyến là hệ thống giao dịch
-                                    điện tử các thủ tục hành chính giữa Công dân/ Doanh nghiệp và các cơ quan nhà nước.</p>
+                               
                             </div>
     
                         </div>
@@ -130,21 +128,9 @@
                     </div>
                 </div>
                
-        </div>
-    </div>
+    
     <!--Start Content-->
- <div class="container" style="padding-top: 20px; padding-bottom: -20px; margin-bottom: 0px;">
-            <div class="row">
-                <div class="col-sm-6">
-                        <p class="content-gioithieus"> HỔ TRỢ TƯ VẤN THỦ TỤC ĐANG KÝ HỘ TỊCH</p> 
-                        <p class="content-gioithieus" style="text-align: center"><i class="fa fa-phone" style="margin-right:10px"></i>${SDTCQ}</p>
-                </div>
-                <div class="col-sm-6">
-                        <p class="content-gioithieus"> ĐỊA CHỈ TỌA LẠC CƠ QUAN</p> 
-                        <p class="content-gioithieus" style="text-align: center">${DCCQ}</p>
-                    </div>
-            </div>
-        </div>
+  
     <!-- Start Footer-->
     <footer>
         <div class="container">
@@ -168,7 +154,6 @@
         </div>
     </footer>
     <!-- End Footer-->
-    <script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
-    <script src="../js/Header.js"></script>
+  <script src="../CONTENT/js/guest/index.js"></script>
 </body>
 </html>

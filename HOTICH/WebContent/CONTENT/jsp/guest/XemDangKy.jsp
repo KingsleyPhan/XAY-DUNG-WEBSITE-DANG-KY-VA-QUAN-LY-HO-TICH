@@ -42,8 +42,8 @@
         <div class="container">
             <div class="row">
                 <div class="header_location">
-                    <p id="bannerCoQuan" class="location">SỞ TƯ PHÁP THÀNH PHỐ HỒ CHÍ MINH</p>
-                    <p id="CoQuanCap2" class="locationCap2">UBND PHƯỜNG HIỆP PHÚ QUẬN 9</p>
+                  	<p id="bannerCoQuan" class="location"><%=Consts.LocationCap1%></p>
+					<p id="CoQuanCap2" class="locationCap2"><%=Consts.LocationCap2%></p>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="container" style="padding-top: 20px; padding-bottom: -20px; margin-bottom: 0px;">
         
             <div class="row">
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4" style="margin-top:10px;">
                     <div class="item-paper">
                         <div class="item-body">
                             <h3 class="item-title"><a href="course.html">KHAI SINH</a></h3>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4" style="margin-top:10px;">
                     <div class="item-paper">
                         <div class="item-body">
                             <h3 class="item-title"><a href="course.html">KẾT HÔN</a></h3>
@@ -103,7 +103,7 @@
                     </div>
 
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4" style="margin-top:10px;">
                     <div class="item-paper">
                         <div class="item-body">
                             <h3 class="item-title"><a href="course.html">KHAI TỬ</a></h3>
@@ -123,7 +123,7 @@
             
 
           
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4" style="margin-top:10px;">
                     <div class="item-paper">
                         <div class="item-body">
                             <h3 class="item-title"><a href="course.html">TRÍCH LỤC HỘ TỊCH</a></h3>
@@ -141,7 +141,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4" style="margin-top:10px;">
                     <div class="item-paper">
                         <div class="item-body">
                             <h3 class="item-title"><a href="course.html">GIÁM HỘ</a></h3>
@@ -159,7 +159,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4" style="margin-top:10px;">
                     <div class="item-paper">
                         <div class="item-body">
                             <h3 class="item-title"><a href="course.html">NHẬN CON NUÔI</a></h3>
