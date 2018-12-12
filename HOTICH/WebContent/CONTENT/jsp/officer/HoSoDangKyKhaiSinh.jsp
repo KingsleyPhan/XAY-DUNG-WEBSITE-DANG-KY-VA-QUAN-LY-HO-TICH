@@ -189,14 +189,32 @@
 				<div class="container container-paper">
 					<div class="part-content">
 						<div class="title-part">
-							<p>THÔNG TIN NGƯỜI ĐƯỢC KHAI SINH</p>
+							<div class="col-12 col-sm-6 col-md-6">
+								<p style="font-size: 18px;font-weight: bold">THÔNG TIN NGƯỜI ĐƯỢC KHAI SINH</p>
+							</div>
+							<div class="col-12 col-sm-6 col-md-6" style="text-align: right; height: 100%">
+								<button class="btn btn-success check" onClick="acceptKhaiSinh()"><i class="glyphicon glyphicon-ok"></i> Xác nhận</button>
+								<button class="btn btn-success check" onClick="ignoreKhaiSinh()"><i class="glyphicon glyphicon-remove"></i> Từ chối</button>
+	                        </div>
+							<input type="hidden" name="KS_ERROR" id="KS_ERROR"  value="">
 						</div>
 						<div class="content ">
 							<div class="row">
 								<div class="col-12 col-sm-6 col-md-4">
 									<div class="form-group">
 										<label for="KS_HOVATEN">Họ và Tên</label>
-										<input type="text" disabled name="KS_HOVATEN" class="form-control" id="KS_HOVATEN" value="<c:out value='${khaisinh.getDoiTuongKhaiSinh().getHoVaTen()}'></c:out>">
+										<div class="row">
+											<div id="feedback_KS_HOVATEN" class="form-group has-feedback "> <!-- div-check -->
+												<input type="text" disabled name="KS_HOVATEN" class="form-control " id="KS_HOVATEN" value="<c:out value='${khaisinh.getDoiTuongKhaiSinh().getHoVaTen()}'></c:out>"> <!-- input-md-check -->
+												<span id="gly_KS_HOVATEN" class="glyphicon form-control-feedback"></span>
+											</div>
+											<!-- <div class="example">
+										    	<div id="tooltip_KS_HOVATEN" class="box" data-tooltip="Xác thực thông tin?">
+										    		<input type="hidden" name="KS_HOVATEN_ERROR" id="KS_HOVATEN_ERROR" value="">
+													<i class="glyphicon glyphicon-pencil"></i>
+										    	</div>
+									    	</div> -->
+								    	</div>
 										<p class="error" id="error_KS_HOVATEN"></p>
 									</div>
 								</div>
@@ -211,8 +229,10 @@
 													</div>
 												</c:when>
 												<c:otherwise>
+												<div class="control-sex">
 													<input type="radio" name="gender" value="1" id="male" disabled>Nam
 				                                    <input style="margin-left: 20px" type="radio" name="gender" id="female" value="0" checked disabled>Nữ
+												</div>                                               
                                                 </c:otherwise>
 											</c:choose>
 											<p class="error" id="error_male"></p>
@@ -221,15 +241,26 @@
 									<div class="col-12 col-sm-6 col-md-4">
 										<div class="form-group">
 											<label for="KS_NGAYSINH">Ngày sinh</label>
+											<div class="row">
 											<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-											<div class="bootstrap-iso">
-												<div class="container-fluid">
-													<div class="row">
-														<div class="input-group">
-															<div class="input-group-addon">
-																<i class="fa fa-calendar"> </i>
+												<div class="bootstrap-iso">
+													<div class="container-fluid">
+														<div class="row">
+															<div class="input-group">
+																<div class="input-group-addon">
+																	<i class="fa fa-calendar"> </i>
+																</div>
+																<div id="feedback_KS_NGAYSINH" class="form-group has-feedback "> <!-- div-check -->
+																	<input class="form-control " id="KS_NGAYSINH" disabled name="KS_NGAYSINH" type="text" value='<c:out value='${khaisinh.getDoiTuongKhaiSinh().getNgaySinhString()}'></c:out>' /> <!-- input-date-check -->
+																	<span id="gly_KS_NGAYSINH" class="glyphicon form-control-feedback"></span>
+																</div>
+																<!-- <div class="example">
+															    	<div id="tooltip_KS_NGAYSINH" class="box" data-tooltip="Xác thực thông tin?">
+															    		<input type="hidden" name="KS_NGAYSINH_ERROR" id="KS_NGAYSINH_ERROR" value="">
+																		<i class="glyphicon glyphicon-pencil"></i>
+															    	</div>
+									    						</div> -->
 															</div>
-															<input class="form-control" id="KS_NGAYSINH" disabled name="KS_NGAYSINH" type="text" value='<c:out value='${khaisinh.getDoiTuongKhaiSinh().getNgaySinhString()}'></c:out>' />
 														</div>
 													</div>
 												</div>
@@ -298,7 +329,7 @@
 									<div class="col-12 col-sm-12 col-md-6">
 										<div class="form-group">
 											<label for="KS_CSSS">Cơ sở y tế sinh sản</label>
-											<input name="KS_CSSS" type="text" class="form-control" id="KS_CSSS" value='${khaisinh.getDoiTuongKhaiSinh().getNoiSinh().getTenCoSoYTe() }' disabled>
+											<input name="KS_CSSS" type="text" class="form-control" id="KS_CSSS" value='${khaisinh.getNoiSinh().getTenCoSoYTe() }' disabled>
 											<p class="error" id="error_KS_CSSS"></p>
 										</div>
 									</div>
@@ -306,7 +337,7 @@
 										<div class="form-group">
 											<label for="KS_CSSS_QUOCGIA">Quốc gia </label>
 											<select name="KS_CSSS_QUOCGIA" class="form-control" id="KS_CSSS_QUOCGIA" disabled>
-												<option>${khaisinh.getDoiTuongKhaiSinh().getNoiSinh().getDiaChi().getQuocGia() }</option>
+												<option>${khaisinh.getNoiSinh().getDiaChi().getQuocGia() }</option>
 											</select>
 											<p class="error" id="error_KS_CSSS_QUOCGIA"></p>
 										</div>
@@ -317,7 +348,7 @@
 										<div class="form-group">
 											<label for="KS_CSSS_THANHPHO">Tỉnh/TP</label>
 											<select name="KS_CSSS_THANHPHO" disabled class="form-control" id="KS_CSSS_THANHPHO">
-												<option>${khaisinh.getDoiTuongKhaiSinh().getNoiSinh().getDiaChi().getThanhPho() }</option>
+												<option>${khaisinh.getNoiSinh().getDiaChi().getThanhPho() }</option>
 											</select>
 											<p class="error" id="error_KS_CSSS_THANHPHO"></p>
 										</div>
@@ -326,7 +357,7 @@
 										<div class="form-group">
 											<label for="KS_CSSS_QUAN">Quận/Huyện</label>
 											<select name="KS_CSSS_QUAN" disabled class="form-control" id="KS_CSSS_QUAN">
-												<option>${khaisinh.getDoiTuongKhaiSinh().getNoiSinh().getDiaChi().getQuan() }</option>
+												<option>${khaisinh.getNoiSinh().getDiaChi().getQuan() }</option>
 											</select>
 											<p class="error" id="error_KS_CSSS_QUAN"></p>
 										</div>
@@ -335,7 +366,7 @@
 										<div class="form-group">
 											<label for="">Xã/Phường</label>
 											<select name="KS_CSSS_PHUONG" disabled class="form-control" id="KS_CSSS_PHUONG">
-												<option>${khaisinh.getDoiTuongKhaiSinh().getNoiSinh().getDiaChi().getPhuong() }</option>
+												<option>${khaisinh.getNoiSinh().getDiaChi().getPhuong() }</option>
 											</select>
 											<p class="error" id="error_KS_CSSS_PHUONG"></p>
 										</div>
@@ -343,7 +374,7 @@
 									<div class="col-12 col-sm-12 col-md-12">
 										<div class="form-group">
 											<label for="KS_CSSS_DIACHI">Địa chỉ chi tiết</label>
-											<input name="KS_CSSS_DIACHI" type="text" disabled class="form-control" id="KS_CSSS_DIACHI" value='${khaisinh.getDoiTuongKhaiSinh().getNoiSinh().getDiaChi().getSoDuong() }'>
+											<input name="KS_CSSS_DIACHI" type="text" disabled class="form-control" id="KS_CSSS_DIACHI" value='${khaisinh.getNoiSinh().getDiaChi().getSoDuong() }'>
 											<p class="error" id="error_KS_CSSS_DIACHI"></p>
 										</div>
 									</div>
@@ -369,7 +400,7 @@
 									</c:when>
 									<c:otherwise>
 										<button class="btn btn-success check" onClick="checkMe()"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
-										<input type="hidden" name="NYC_ERROR" id="ME_ERROR" value="">
+										<input type="hidden" name="ME_ERROR" id="ME_ERROR"  value="">
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -554,13 +585,13 @@
 									</c:when>
 									<c:otherwise>
 										<button class="btn btn-success check" onClick="checkCha()"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
-										<input type="hidden" name="NYC_ERROR" id="CHA_ERROR" value="">
+										<input type="hidden" name="CHA_ERROR" id="CHA_ERROR"  value="">
 									</c:otherwise>
 								</c:choose>
 							</div>
 						</div>
 						<c:if test='${khaisinh.getCha() != null }'>
-							<div class="content collapse in" id="ME">
+							<div class="content collapse in" id="CHA">
 								<div class="row">
 									<div class="col-12 col-sm-6 col-md-4">
 										<div class="form-group">
@@ -727,13 +758,14 @@
                         <div class="container container-paper">
                             <div class="part-content">
                             	<div class="title-part">
-                                    <div class="col-12 col-sm-6 col-md-6">
-                                        <p style="font-size: 18px;font-weight: bold">HỒ SƠ ĐÍNH KÈM</p>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6" style="text-align: right; height: 100%">
-	                                    <button class="btn btn-success check" onClick="checkDinhKem()"><i class="glyphicon glyphicon-pencil"></i> Kiểm duyệt</button>
-	                                    <input type="hidden" name="HSDKem_ERROR" id="HSDKem_ERROR" value="">
-                                    </div>
+                                	<div class="col-12 col-sm-6 col-md-6">
+										<p style="font-size: 18px;font-weight: bold">HỒ SƠ ĐÍNH KÈM</p>
+									</div>
+									<div class="col-12 col-sm-6 col-md-6" style="text-align: right; height: 100%">
+										<button class="btn btn-success check" onClick="acceptDinhKem()"><i class="glyphicon glyphicon-ok"></i> Xác nhận</button>
+										<button class="btn btn-success check" onClick="ignoreDinhKem()"><i class="glyphicon glyphicon-remove"></i> Từ chối</button>
+				                    </div>
+                                    <input type="hidden" name="DINHKEM_ERROR" id="DINHKEM_ERROR" value="">
                                 </div>
                                 <div class="content">
                                     <div class="row">

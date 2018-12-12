@@ -22,7 +22,7 @@ function format ( d ) {
  
 $(document).ready(function() {
 	// Setup - add a text input to each footer cell
-    $('#table_id tfoot th.search').each( function () {
+    $('#table_id thead div.search').each( function () {
         var title = $(this).text();
         $(this).html( '<input type="text" class="form-control" placeholder="Nhập '+title+'. . ." />' );
     } );
@@ -100,7 +100,7 @@ $(document).ready(function() {
 				"className":	'col-tacvu',
 				"orderable":      false,
 				"data":		null,
-				"defaultContent": '<div style="float:left; text-align:center;">'
+				"defaultContent": '<div style="text-align:center;">'
 									+'<button type="button" class="btn btn-info view" data-toggle="modal" data-target="#exampleModal">'
 										+'<i class="glyphicon glyphicon-search"></i>'
 									+'</button>'
@@ -133,7 +133,7 @@ $(document).ready(function() {
 			//Lưu số thứ tự vào lại datatable
 			var tr = $(cell).closest('tr');
 			table.row(tr).data().stt = i + 1;
-			console.log(table.row(tr).data().stt)
+			/*console.log(table.row(tr).data().stt)*/
 		});
 	}).draw();
 	
@@ -153,7 +153,7 @@ $(document).ready(function() {
     // Apply the search
     table.columns([6,7,8,9,10]).every( function () {
         var that = this;
-        $( 'input', this.footer() ).on( 'keyup change', function () {
+        $( 'input', this.header() ).on( 'keyup change', function () {
             if ( that.search() !== this.value ) {
                 that
                     .search( this.value )
@@ -213,8 +213,10 @@ $(document).ready(function() {
                 }
             },
         });*/
-    	
-    	$('#giayHoTich').attr("src","QuanLyHoTich/getImage");
+    	var ma = table.row( tr ).data().ma;
+    	var soQuyen = table.row( tr ).data().soQuyen;
+    	var loai = table.row( tr ).data().loaiGiayToID;
+    	$('#giayHoTich').attr("src","QuanLyHoTich/getImage?ma="+ma+"&soQuyen="+soQuyen+"&loai="+loai);
     });
     
     $('#table_id tbody').on( 'click', 'td.col-tacvu .delete', function () {

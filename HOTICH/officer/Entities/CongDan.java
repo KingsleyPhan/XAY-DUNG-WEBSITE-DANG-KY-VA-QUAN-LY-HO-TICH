@@ -15,7 +15,6 @@ public class CongDan {
 	private String danToc;
 	private CMND cmnd;
 	private DiaChi diaChi;
-	private CoSoYTe noiSinh;
 	private DiaChi queQuanKhaiSinh;
 	private int id;
 	private int tinhTrangHonNhan;
@@ -56,11 +55,6 @@ public class CongDan {
 	public DiaChi getDiaChi() {
 		return diaChi;
 	}
-
-	public CoSoYTe getNoiSinh() {
-		return noiSinh;
-	}
-
 	public DiaChi getQueQuanKhaiSinh() {
 		return queQuanKhaiSinh;
 	}
@@ -78,22 +72,28 @@ public class CongDan {
 	}
 
 	// Dùng để hứng dữ liệu của con - giấy khai sinh
-	public CongDan(String hoVaTen, Date ngaySinh, Boolean gioiTinh, String quocTich, String danToc) {
+	public CongDan(String hoVaTen, Date ngaySinh, Boolean gioiTinh, String queQuan, String quocTich, String danToc) {
 		super();
 		this.hoVaTen = hoVaTen;
 		this.ngaySinh = ngaySinh;
 		this.gioiTinh = gioiTinh;
+		this.queQuan = queQuan;
 		this.quocTich = quocTich;
 		this.danToc = danToc;
+		this.queQuanKhaiSinh = queQuanKhaiSinh;
 	}
 
 	// Dùng để hứng dữ liệu của cha, mẹ - giấy khai sinh
-	public CongDan(String hoVaTen, String quocTich, String danToc) {
+	public CongDan(String hoVaTen,Date ngaySinh, String quocTich, String danToc, DiaChi diaChi) {
 		super();
 		this.hoVaTen = hoVaTen;
+		this.ngaySinh = ngaySinh;
 		this.quocTich = quocTich;
 		this.danToc = danToc;
+		this.diaChi = diaChi;
 	}
+
+	
 
 	// Dùng để hứng dữ liệu vợ, chồng
 	// Dùng để hứng dữ liệu cha, mẹ hồ sơ đăng ký khai sinh
@@ -130,18 +130,16 @@ public class CongDan {
 	}
 
 	//Dùng để hứng đối tượng khai sinh - hồ sơ đăng ký khai sinh
-	public CongDan(String hoVaTen, Boolean gioiTinh, Date ngaySinh, String danToc, String quocTich, DiaChi queQuanKhaiSinh,
-			CoSoYTe noiSinh) {
+	public CongDan(String hoVaTen, Boolean gioiTinh, Date ngaySinh, String danToc, String quocTich, DiaChi queQuanKhaiSinh) {
 		super();
 		this.hoVaTen = hoVaTen;
 		this.ngaySinh = ngaySinh;
 		this.gioiTinh = gioiTinh;
 		this.quocTich = quocTich;
 		this.danToc = danToc;
-		this.noiSinh = noiSinh;
 		this.queQuanKhaiSinh = queQuanKhaiSinh;
 	}
-	
+
 	public CongDan(String hoVaTen, Date ngaySinh, Boolean gioiTinh, String queQuan, String quocTich, String danToc,
 			CMND cmnd, DiaChi diaChi, int id, int tinhTrangHonNhan) {
 		super();

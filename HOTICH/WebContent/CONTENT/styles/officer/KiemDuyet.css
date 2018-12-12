@@ -175,3 +175,24 @@ width: 100%;
 input:read-only { 
     background-color: white!important;
 }
+
+ul.confirm{
+	padding : 0px;
+}
+
+.div-check{
+	margin: 0;
+    float: left;
+}
+.input-md-check{
+	width: 320px;
+}
+.input-date-check{
+	width: 275px;
+}
+.example{
+	margin: 0;
+    float: left;
+    margin-top: 8px;
+    margin-left: 8px;
+}

@@ -19,7 +19,11 @@
 	
 	<link rel="stylesheet" href="${home}CONTENT/plugins/dist/jquery-confirm.min.css">
 	
+	
+	
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="${home}CONTENT/template/css/demo.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="${home}CONTENT/plugins/darktooltip/darktooltip.css"> 
     
     

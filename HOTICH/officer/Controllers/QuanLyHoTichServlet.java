@@ -1,5 +1,8 @@
 package Controllers;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,17 +18,16 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
 import DAO.Consts;
 import DAO.HoTichDAO;
-import Entities.HoTich;
+import Entities.HoTichKhaiSinh;
+import Entities.KhaiSinh.KhaiSinh;
 
 public class QuanLyHoTichServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -112,11 +114,48 @@ public class QuanLyHoTichServlet extends HttpServlet {
 	
 	private void GetImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType("image/png;charset=UTF-8");
+		
+		String ma = request.getParameter("ma");
+		String soQuyen = request.getParameter("soQuyen");
+		
 		ServletOutputStream out = response.getOutputStream();
 //		BufferedImage bufferedImage = ImageIO.read(getClass().getResource("/CONTENT/image/126503.png"));
-		BufferedImage bufferedImage = ImageIO.read(new File("D:\\\\0.DATA\\\\18_19\\\\HK1\\\\Lap_Trinh_Web\\\\DoAnLTW\\\\XAY-DUNG-WEBSITE-DANG-KY-VA-QUAN-LY-HO-TICH\\\\HOTICH\\\\WebContent\\\\CONTENT\\\\image\\\\giayKhaiSinh.png"));
+		BufferedImage bufferedImage = ImageIO.read(new File(Consts.urlImage+"giayKhaiSinh.png"));
+		Graphics g = bufferedImage.getGraphics();  
+		g.setColor(Color.black);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+		HoTichKhaiSinh khaisinh = hoTichDAO.getGiayKhaiSinh(ma, soQuyen);
+		g.drawString(khaisinh.getMa(), 2010, 330);
+		g.drawString(khaisinh.getSoQuyen(), 2010, 400);
+		g.drawString(khaisinh.getDoiTuongKhaiSinh().getHoVaTen(), 770, 870);
+		g.drawString(khaisinh.getDoiTuongKhaiSinh().getNgaySinhString(), 790, 1045);
+		g.drawString(Consts.writeDate(khaisinh.getDoiTuongKhaiSinh().getNgaySinh()), 1580, 1045);
+		g.drawString(khaisinh.getDoiTuongKhaiSinh().getGioiTinh()?("Nam"):("Nữ"), 520, 1223);
+		g.drawString(khaisinh.getDoiTuongKhaiSinh().getDanToc(), 980, 1223);
+		g.drawString(khaisinh.getDoiTuongKhaiSinh().getQuocTich(), 1700, 1223);
+		g.drawString(khaisinh.getNoiSinh().getTenCoSoYTe(), 600, 1310);
+		g.drawString(khaisinh.getNoiSinh().getDiaChi().writeDiaChi(), 300, 1400);
+		g.drawString(khaisinh.getDoiTuongKhaiSinh().getQueQuan(), 600, 1490);
+		g.drawString(khaisinh.getMe().getHoVaTen(), 960, 1755);
+		g.drawString((khaisinh.getMe().getNgaySinh().getYear() + 1900)+"", 545, 1850);
+		g.drawString(khaisinh.getMe().getDanToc(), 1020, 1850);
+		g.drawString(khaisinh.getMe().getQuocTich(), 1735, 1850);
+		g.drawString(khaisinh.getMe().getDiaChi().getSoDuong() + " , " + khaisinh.getMe().getDiaChi().getPhuong(), 545, 1940);
+		g.drawString(khaisinh.getMe().getDiaChi().getQuan() + " , " + khaisinh.getMe().getDiaChi().getThanhPho(), 545, 2025);
+		g.drawString(khaisinh.getCha().getHoVaTen(), 960, 2120);
+		g.drawString((khaisinh.getCha().getNgaySinh().getYear() + 1900)+"", 545, 2205);
+		g.drawString(khaisinh.getCha().getDanToc(), 1020, 2205);
+		g.drawString(khaisinh.getCha().getQuocTich(), 1735, 2205);
+		g.drawString(khaisinh.getCha().getDiaChi().getSoDuong() + " , " + khaisinh.getCha().getDiaChi().getPhuong(), 545, 2295);
+		g.drawString(khaisinh.getCha().getDiaChi().getQuan() + " , " + khaisinh.getCha().getDiaChi().getThanhPho(), 545, 2380);
+		g.drawString(khaisinh.getNgYeuCau_Ten(), 1130, 2475);
+		g.drawString(khaisinh.getCoQuan(), 810, 2665);
+		g.drawString(khaisinh.getNgayKySring(), 925, 2832);
+		g.drawString(khaisinh.getNgKy(), 1530, 3280);
+		g.drawString("Chứng minh nhân dân : Sô            , Ngày cấp :            , Nơi cấp :                              ", 660, 2562);
+//		g.drawString(str, x, y);
 		System.out.println(bufferedImage);
 		
-		ImageIO.write(bufferedImage, "PNG", out);
+		ImageIO.write(Consts.resize(bufferedImage, 990, 700), "PNG", out);
 	}
 }

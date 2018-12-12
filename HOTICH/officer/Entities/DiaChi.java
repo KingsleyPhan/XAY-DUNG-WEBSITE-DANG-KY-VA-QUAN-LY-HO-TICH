@@ -42,6 +42,18 @@ public class DiaChi {
 		super();
 	}
 	
+	public String writeDiaChi() {
+		StringBuilder diaChi = new StringBuilder();
+		diaChi.append(soDuong + " , ");
+		diaChi.append(phuong + " , ");
+		diaChi.append(quan+" , ");
+		diaChi.append(thanhPho);
+		if(quocGia != null) {
+			diaChi.append(" , "+quocGia);
+		}
+		return diaChi.toString();
+	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
