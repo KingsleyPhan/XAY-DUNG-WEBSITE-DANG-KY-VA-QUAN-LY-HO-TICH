@@ -106,19 +106,22 @@ public class HoSoDangKyServlet extends HttpServlet {
 					context.setAttribute("HSDK_LOAI", 0);
 					context.setAttribute("HSDK_ID", 0);
 					HoSoKhaiSinh hoSoKhaiSinh = dangKyKhaiSinhDAO.getHSDKKhaiSinh(id);
-					context.setAttribute("HSDK", hoSoKhaiSinh);
-					Map<Object,Object> info = hoSoDangKyDAO.getMoreInfo(id, loai);
-					if(info.containsKey("email")) {
-						session.setAttribute("email", info.get("email"));
-					}
-					if(info.containsKey("sdt")) {
-						session.setAttribute("sdt", info.get("sdt"));
-					}
-					if(info.containsKey("lephi")) {
-						session.setAttribute("lephi", info.get("lephi"));
-					}
+					
 					if(hoSoKhaiSinh != null)
 					{
+						context.setAttribute("HSDK", hoSoKhaiSinh);
+						
+						Map<Object,Object> info = hoSoDangKyDAO.getMoreInfo(id, loai);
+						if(info.containsKey("email")) {
+							session.setAttribute("email", info.get("email"));
+						}
+						if(info.containsKey("sdt")) {
+							session.setAttribute("sdt", info.get("sdt"));
+						}
+						if(info.containsKey("lephi")) {
+							session.setAttribute("lephi", info.get("lephi"));
+						}
+						
 						session.setAttribute("NYC_HOVATEN_SUBMIT", hoSoKhaiSinh.getNgYeuCau().getHoVaTen());
 						request.setAttribute("khaisinh", hoSoKhaiSinh);
 						String action = "KiemDuyet";

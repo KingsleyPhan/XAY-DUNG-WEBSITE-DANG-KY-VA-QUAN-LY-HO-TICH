@@ -110,8 +110,9 @@
       <img id="giayHoTich" alt="Lỗi" height="990px" width="700px">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      	<a class="btn btn-primary" href="${home }QuanLyHoTich/downloadImage">Tải về</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+        
       </div>
     </div>
   </div>

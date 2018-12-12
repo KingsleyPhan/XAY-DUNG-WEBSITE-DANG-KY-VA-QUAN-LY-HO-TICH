@@ -5,7 +5,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -16,6 +18,7 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +30,6 @@ import com.google.gson.Gson;
 import DAO.Consts;
 import DAO.HoTichDAO;
 import Entities.HoTichKhaiSinh;
-import Entities.KhaiSinh.KhaiSinh;
 
 public class QuanLyHoTichServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,6 +42,9 @@ public class QuanLyHoTichServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		hoTichDAO = new HoTichDAO(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		ServletContext context = getServletContext();
+		context.setAttribute("fileName", "");
+		context.setAttribute("image", null);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,10 +63,49 @@ public class QuanLyHoTichServlet extends HttpServlet {
 		case "getImage":
 			GetImage(request,response);
 			break;
+		case "downloadImage":
+			DownloadImage(request,response);
+			break;
 		default:
 			break;
 		}
 		
+	}
+
+	private void DownloadImage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		ServletContext context = getServletContext();
+		String fileName = context.getAttribute("fileName").toString();
+		BufferedImage image = (BufferedImage) context.getAttribute("image");
+		
+		if(fileName != "" && image!=null) {
+			context.setAttribute("fileName", "");
+			context.setAttribute("image", null);
+			
+			File outputfile = new File(fileName);
+			ImageIO.write(image, "png", outputfile);
+			
+			String mimeType = context.getMimeType(fileName);
+			response.setContentType(mimeType != null? mimeType:"application/octet-stream");
+		    
+			response.setContentLength((int)outputfile.length());
+			response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
+			
+			InputStream fis = new FileInputStream(outputfile);
+			ServletOutputStream os = response.getOutputStream();
+			byte[] bufferData = new byte[1024];
+			int read=0;
+			while((read = fis.read(bufferData))!= -1){
+				os.write(bufferData, 0, read);
+			}
+			os.flush();
+			os.close();
+			fis.close();
+		}else {
+			throw new ServletException("No image avalible");
+		}
+		
+		
+		System.out.println("File downloaded at client successfully");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -156,6 +200,14 @@ public class QuanLyHoTichServlet extends HttpServlet {
 //		g.drawString(str, x, y);
 		System.out.println(bufferedImage);
 		
-		ImageIO.write(Consts.resize(bufferedImage, 990, 700), "PNG", out);
+		BufferedImage new_image = Consts.resize(bufferedImage, 990, 700);
+		
+		ServletContext context = getServletContext();
+		context.setAttribute("image", new_image);
+		String fileName = khaisinh.getSoQuyen() + "-" + khaisinh.getMa() + "-"+ new java.util.Date().getTime()+".png";
+		context.setAttribute("fileName", fileName);
+		
+		ImageIO.write(new_image, "PNG", out);
 	}
+	
 }

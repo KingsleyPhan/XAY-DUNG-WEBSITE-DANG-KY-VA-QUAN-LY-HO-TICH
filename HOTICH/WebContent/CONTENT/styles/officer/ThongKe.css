@@ -1,0 +1,46 @@
+.thongke-control{
+	background-color: #003453;
+    width: 40%;
+    border-radius: 0 20px 20px 0;
+}
+.thongke-select,.thongke-select:focus{
+	width: 75%;
+    float: left;
+    padding: 0;
+    padding-left: 21px;
+    background-color: #003453;
+    font-size: 1.2em;
+    color: white;
+    border-radius: 0;
+}
+.thongke-button{
+	float: left;
+    height: 40px;
+    width:25%;
+}
+.thongke-condition{
+	margin: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.title-condition{
+	float: left;
+    line-height: 30px;
+    margin-right: 10px;
+}
+.condition-input{
+	width: 20%;
+	float: left;
+	padding-top: 0;
+    padding-bottom: 0;
+    height : 30px;
+}
+.condition-input:focus{
+	border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+.category{
+	font-size : 1.4em!important;
+}

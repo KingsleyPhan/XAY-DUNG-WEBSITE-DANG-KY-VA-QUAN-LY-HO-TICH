@@ -7,16 +7,13 @@ import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Consts;
-import DAO.HoTichDAO;
 import DAO.ThongKeDAO;
 
-@WebServlet("/ThongKe")
 public class ThongKeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -44,15 +41,44 @@ public class ThongKeServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		
+		String action = request.getRequestURI();
+		String[] words=action.split("/");
+		
+		switch (words[words.length-1]) {
+		case "Loai1":
+			getLoai1(request,response);
+			break;
+		case "Loai2":
+			getLoai2(request,response);
+			break;
+			default :
+				break;
+		}
+		
+		
+		
+	}
+
+	private void getLoai1(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int thang = Integer.parseInt(request.getParameter("thang"));
 		
 		PrintWriter out = response.getWriter();
 		try {
-			out.print(thongKeDAO.getHSDK_Thang(thang, 1));
+			out.print(thongKeDAO.getHSDK_Thang(thang, Consts.Get_COQUAN_ID()));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void getLoai2(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		int nam = Integer.parseInt(request.getParameter("nam"));
 		
+		PrintWriter out = response.getWriter();
+		try {
+			out.print(thongKeDAO.getHSDK_Nam(nam, Consts.Get_COQUAN_ID()));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -22,18 +22,35 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                <!-- code here .... -->
+	                <div class="row thongke-control">
+		                <select class="form-control thongke-select" id="loai-thongke" onchange="changeSelect()">
+		                	<option value= -1>Chọn loại thống kê ....</option>
+		                    <option value = 1>Thống kê từng loại giấy tờ theo tháng</option>
+		                    <option value = 2>Thống kê từng loại giấy tờ theo năm</option>
+		                </select>
+		                
+		                <button class="btn btn-success thongke-button" onclick="showChart()" id="thongke-submit">Xác nhận</button>
+	                </div>
+	                <div class="row thongke-condition" id="condition">
+	                	
+	                </div>
                 
-                    <!-- code here .... -->
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Users Behavior</h4>
-                                <p class="category">24 Hours performance</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartContainer" style="height: 300px; width: 500px;"></div>
-                            </div>
-                        </div>
+	                
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <div class="card">
+	                            <div class="header" style="text-align : center;    padding-top: 0;">
+	                                <h4 class="title">
+	                                	
+	                                </h4>
+	                                <p class="category"></p>
+	                            </div>
+	                            <div class="content">
+	                                <div id="chartContainer" style="height: 400px; width: 800px;margin:auto;"></div>
+	                            </div>
+	                        </div>
+	                    </div>
                     </div>
                     <!-- end code here -->
                 </div>

@@ -16,6 +16,10 @@
     <servlet-name>QuanLyHoTichServlet</servlet-name>
     <servlet-class>Controllers.QuanLyHoTichServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ThongKeServlet</servlet-name>
+    <servlet-class>Controllers.ThongKeServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>QuanLyDangKyServlet</servlet-name>
     <url-pattern>/QuanLyDangKy/*</url-pattern>
@@ -27,6 +31,10 @@
   <servlet-mapping>
     <servlet-name>QuanLyHoTichServlet</servlet-name>
     <url-pattern>/QuanLyHoTich/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ThongKeServlet</servlet-name>
+    <url-pattern>/ThongKe/*</url-pattern>
   </servlet-mapping>
   <error-page>
     <error-code>403</error-code>

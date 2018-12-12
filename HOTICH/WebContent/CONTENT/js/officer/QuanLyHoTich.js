@@ -116,12 +116,12 @@ $(document).ready(function() {
         scrollCollapse : true,
 		lengthMenu : [[10, 25, 50, -1], [10, 25, 50, "Tất cả"]],
 		order : false,
-		"initComplete": function () {
+		/*"initComplete": function () {
             var api = this.api();
             api.$('td:not(.col-tacvu)').click( function () {
                 api.search( this.innerHTML ).draw();
             } );
-        },
+        },*/
     } );
     
     table.on('order.dt search.dt', function() {
