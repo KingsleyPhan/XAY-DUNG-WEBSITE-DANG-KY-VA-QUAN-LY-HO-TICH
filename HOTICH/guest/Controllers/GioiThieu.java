@@ -18,14 +18,14 @@ import Models.StoreEntity;
 /**
  * Servlet implementation class DangKyHoTich
  */
-@WebServlet("/CongDan/DangKyHoTich.php")
-public class DangKyHoTich extends HttpServlet {
+@WebServlet("/CongDan/GioiThieu.php")
+public class GioiThieu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DangKyHoTich() {
+    public GioiThieu() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,7 +52,7 @@ DAO_COQUAN DCQ = new DAO_COQUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		System.out.println("Dia Chi Co Quan: " + CQ.getCoQuan_DiaChi());
 		
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("../CONTENT/jsp/guest/XemDangKy.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("../CONTENT/jsp/guest/GioiThieu.jsp");
 		dispatcher.forward(request, response);
 	}
 

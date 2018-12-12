@@ -77,6 +77,7 @@
            
         </div>
         <div class="col-sm-3">
+          <form action="CongDan/GioiThieu.php">
            <button class="link-chucnang" type="submit" >
                 <div class="chucnang">
                     <div class="titles">
@@ -86,6 +87,7 @@
                         điện tử các thủ tục hành chính giữa Công dân/ Doanh nghiệp và các cơ quan nhà nước.</p>
                 </div>
             </button>
+            </form>
         </div>
         <div class="col-sm-3">
              <button class="link-chucnang" type="submit" >
@@ -105,11 +107,11 @@
             <div class="row">
                 <div class="col-sm-6">
                         <p class="content-gioithieus"> HỔ TRỢ TƯ VẤN THỦ TỤC ĐANG KÝ HỘ TỊCH</p> 
-                        <p class="content-gioithieus" style="text-align: center"><i class="fa fa-phone"></i> 08963254658 </p>
+                        <p class="content-gioithieus" style="text-align: center"><i class="fa fa-phone" style="margin-right:10px"></i>${SDTCQ}</p>
                 </div>
                 <div class="col-sm-6">
                         <p class="content-gioithieus"> ĐỊA CHỈ TỌA LẠC CƠ QUAN</p> 
-                        <p class="content-gioithieus" style="text-align: center">835/23 Đường Trương Văn Thành, Phường Hiệp Phú, Quận 9 </p>
+                        <p class="content-gioithieus" style="text-align: center">${DCCQ}</p>
                     </div>
             </div>
         </div>

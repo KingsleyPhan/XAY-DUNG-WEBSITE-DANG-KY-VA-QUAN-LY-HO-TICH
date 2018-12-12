@@ -147,3 +147,19 @@ input:read-only {
 input:focus + label {
   outline: 2px solid;
 }
+
+
+.btn-up
+{
+	background-color:#004f7e;
+	color: white;
+	padding:10px;
+	border-radius:5px;
+	cursor:Pointer;
+}
+.btn-up:hover
+{
+	background-color:orangered;
+	color: white;
+}
+

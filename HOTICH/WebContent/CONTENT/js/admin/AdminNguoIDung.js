@@ -200,7 +200,7 @@ function functionCancel(x)
        document.getElementById("Username").value = '';
        document.getElementById("password").value = '';
 
-       document.getElementById("buttonAdd").disabled = true;
+       document.getElementById("buttonAdd").disabled = false;
        document.getElementById("buttonEdit").disabled = true;
        document.getElementById("ResetPassword").style.display = "block";
        document.getElementById("Username").style.display = "none";
@@ -208,4 +208,5 @@ function functionCancel(x)
        document.getElementById("buttonReset").style.display = "block";
        document.getElementById("buttonSave").disabled = true;
        document.getElementById("buttonReset").disabled = true;
+       document.getElementById("user_RSP").readOnly = true;
 }

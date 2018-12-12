@@ -1,6 +1,7 @@
 package Controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.Consts;
+import DAO.DAO_COQUAN;
+import Entities.CoQuanCongQuyen;
 import Models.StoreEntity;
 
 /**
@@ -30,6 +34,22 @@ public class CongDan extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		DAO_COQUAN DCQ = new DAO_COQUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		
+		CoQuanCongQuyen CQ = new CoQuanCongQuyen();
+		
+		try {
+			CQ = DCQ.Get_CoQuan();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("SDTCQ", CQ.getCoQuan_SDT());
+		System.out.println("So Dien Thoai Co Quan: " + CQ.getCoQuan_SDT());
+		request.setAttribute("DCCQ", CQ.getCoQuan_DiaChi());
+		System.out.println("Dia Chi Co Quan: " + CQ.getCoQuan_DiaChi());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/CongDan.jsp");
 		dispatcher.forward(request, response);

@@ -180,16 +180,19 @@
         
 
             </div>
-            <div class="row footer-CoQuan">
+             <div class="container" style="padding-top: 20px; padding-bottom: -20px; margin-bottom: 0px;">
+            <div class="row">
                 <div class="col-sm-6">
                         <p class="content-gioithieus"> HỔ TRỢ TƯ VẤN THỦ TỤC ĐANG KÝ HỘ TỊCH</p> 
-                        <p class="content-gioithieus" style="text-align: center"><i class="fa fa-phone"></i> 08963254658 </p>
+                        <p class="content-gioithieus" style="text-align: center"><i class="fa fa-phone" style="margin-right:10px"></i>${SDTCQ}</p>
                 </div>
                 <div class="col-sm-6">
                         <p class="content-gioithieus"> ĐỊA CHỈ TỌA LẠC CƠ QUAN</p> 
-                        <p class="content-gioithieus" style="text-align: center">835/23 Đường Trương Văn Thành, Phường Hiệp Phú, Quận 9 </p>
+                        <p class="content-gioithieus" style="text-align: center">${DCCQ}</p>
                     </div>
             </div>
+        </div>
+  
         </div>
   
 

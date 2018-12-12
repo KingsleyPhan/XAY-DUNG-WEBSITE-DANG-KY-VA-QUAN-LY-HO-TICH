@@ -827,7 +827,7 @@
                                                                 <td>Giấy chứng sinh</td>
                                                                 <td> <div id="file-upload-filename">Chưa có</div> 
                                                                 <input type="file" id="file-upload" name="photo"  multiple required /></td>
-                                                                <td> <label for="file-upload">Upload file</label>
+                                                                <td> <label class="btn-up" for="file-upload"><i class="fa fa-upload" style="margin-right:10px"></i>Upload file</label>
  																</td>
                                                                 <td><textarea style="width: 100%">
                                                                 </textarea></td>
