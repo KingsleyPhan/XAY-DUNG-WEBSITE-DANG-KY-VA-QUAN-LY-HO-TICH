@@ -1,5 +1,8 @@
 package DAO;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -20,7 +23,7 @@ public class Consts {
 	//Kết tại máy
 	public static String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;databaseName=CSDL_QLHT_Test_2;user=HOTICHSVR;password=123456;useUnicode=true;characterEncoding=UTF-8;";
 	
-	public static int COQUAN_ID = 0;
+	public static int COQUAN_ID = 1;
 	
 	public static int NGUOIDUNG_ID = 53;
 
@@ -31,6 +34,8 @@ public class Consts {
 	public static String user = "huuhung9822@gmail.com";
 	
 	public static String pass = "xoeihcpioupannzz";
+	
+	public static String urlImage = "D:/0.DATA/18_19/HK1/Lap_Trinh_Web/DoAnLTW/XAY-DUNG-WEBSITE-DANG-KY-VA-QUAN-LY-HO-TICH/HOTICH/WebContent/CONTENT/image/";
 	
 	public static void removeSession(HttpSession session) {
 		session.removeAttribute("message");
@@ -50,11 +55,16 @@ public class Consts {
 	{
 		return COQUAN_ID;
 	}
+	
+	@SuppressWarnings("deprecation")
+	public static String writeDate(java.util.Date date) {
+		return "Ngày "+date.getDate()+" tháng "+(date.getMonth() +1) + " năm "+(date.getYear()+1900);
+	}
 
 	//Chuyển từ form vô Entity
 	public static java.util.Date ConvertStringToUtilDate(String date) throws ParseException {
 		if(date != "") {
-			SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			return format.parse(date);
 		}
 		return null;
@@ -72,7 +82,7 @@ public class Consts {
 	public static java.util.Date ConvertSQLtoUtilDate(java.sql.Date date) throws ParseException
 	{
 		if(date != null) {
-			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+			SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 			String temp = format.format(date);
 			return format.parse(temp);
 		}
@@ -87,4 +97,14 @@ public class Consts {
 		}
 		return "";
 	}
+	
+	public static BufferedImage resize(BufferedImage img, int height, int width) {
+        Image tmp = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        BufferedImage resized = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = resized.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+        return resized;
+    }
+
 }

@@ -1,5 +1,6 @@
 package Entities.HoSoDangKy;
 
+import Entities.CoSoYTe;
 import Entities.CongDan;
 import Entities.HSDK;
 
@@ -8,6 +9,7 @@ public class HoSoKhaiSinh {
 	private CongDan ngYeuCau;
 	private String quanHe;
 	private CongDan doiTuongKhaiSinh;
+	private CoSoYTe noiSinh;
 	private CongDan cha;
 	private CongDan me;
 	private String fileGiayChungSinh;
@@ -34,18 +36,23 @@ public class HoSoKhaiSinh {
 	public String getQuanHe() {
 		return quanHe;
 	}
+	
+	public CoSoYTe getNoiSinh() {
+		return noiSinh;
+	}
 
 	public String getFileGiayChungSinh() {
 		return fileGiayChungSinh;
 	}
 
-	public HoSoKhaiSinh(HSDK hsdk, CongDan ngYeuCau, String quanHe, CongDan doiTuongKhaiSinh, CongDan cha, CongDan me,
+	public HoSoKhaiSinh(HSDK hsdk, CongDan ngYeuCau, String quanHe, CongDan doiTuongKhaiSinh,CoSoYTe noiSinh, CongDan cha, CongDan me,
 			String fileGiayChungSinh) {
 		super();
 		this.hsdk = hsdk;
 		this.ngYeuCau = ngYeuCau;
 		this.quanHe = quanHe;
 		this.doiTuongKhaiSinh = doiTuongKhaiSinh;
+		this.noiSinh = noiSinh;
 		this.cha = cha;
 		this.me = me;
 		this.fileGiayChungSinh = fileGiayChungSinh;

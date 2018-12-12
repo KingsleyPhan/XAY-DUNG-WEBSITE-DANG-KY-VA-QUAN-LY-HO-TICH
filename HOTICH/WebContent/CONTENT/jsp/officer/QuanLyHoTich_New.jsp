@@ -67,15 +67,15 @@
   								      		<th class="col-ma">ID Hồ sơ đăng ký</th>
   										    <th class="col-ma">ID Cơ quan</th>
   						      				<th class="col-ma">ID Loại giấy tờ</th>
-		  						      		<th class="col-ma">Mã hộ tịch</th>
-		  						      		<th class="col-ma">Số quyển</th>
-		  						      		<th class="col-ngay">Ngày hiệu lực</th>
-		  						      		<th class="col-canbo">Người xử lý</th>
-		  						      		<th class="col-canbo">Người kí</th>
+		  						      		<th class="col-ma">Mã hộ tịch<div class="search"></div></th>
+		  						      		<th class="col-ma">Số quyển<div class="search"></div></th>
+		  						      		<th class="col-ngay">Ngày hiệu lực<div class="search"></div></th>
+		  						      		<th class="col-canbo">Người xử lý<div class="search"></div></th>
+		  						      		<th class="col-canbo">Người kí<div class="search"></div></th>
 		  						      		<th class="col-tacvu">Tác vụ</th>
 		  						    	</tr>
 									</thead>
-									<tfoot>
+									<!-- <tfoot>
 											<tr style="display: table-row">
 			  						      		<th class="col-stt"></th>
 			  						      		<th class="col-ma"></th>
@@ -90,7 +90,7 @@
 			  						      		<th class="search col-canbo"></th>
 			  						      		<th class="col-tacvu"></th>
 			  						    	</tr>
-									</tfoot>
+									</tfoot> -->
 								</table>
 		  					</div>
                         </div>

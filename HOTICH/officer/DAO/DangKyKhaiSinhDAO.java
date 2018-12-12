@@ -107,8 +107,8 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 							, doiTuongKhaiSinh_DanToc
 							, doiTuongKhaiSinh_QuocTich
 							, new DiaChi(doiTuongKhaiSinh_QueQuan_ThanhPho, doiTuongKhaiSinh_QueQuan_Quan, doiTuongKhaiSinh_QueQuan_Phuong, doiTuongKhaiSinh_QueQuan_DiaChi)
-							, new CoSoYTe(doiTuongKhaiSinh_NoiSinh, new DiaChi(doiTuongKhaiSinh_NoiSinh_QuocGia, doiTuongKhaiSinh_NoiSinh_ThanhPho, doiTuongKhaiSinh_NoiSinh_Quan, doiTuongKhaiSinh_NoiSinh_Phuong, doiTuongKhaiSinh_NoiSinh_DiaChi))
 							);
+			CoSoYTe noiSinh = new CoSoYTe(doiTuongKhaiSinh_NoiSinh, new DiaChi(doiTuongKhaiSinh_NoiSinh_QuocGia, doiTuongKhaiSinh_NoiSinh_ThanhPho, doiTuongKhaiSinh_NoiSinh_Quan, doiTuongKhaiSinh_NoiSinh_Phuong, doiTuongKhaiSinh_NoiSinh_DiaChi));
 			CongDan me = null;
 			
 			if (me_Ten != null && !me_Ten.trim().equals("")) {
@@ -134,7 +134,7 @@ public class DangKyKhaiSinhDAO extends ConnectDAO {
 			}
 			
 			String fileChungSinh = FILE_GIAYCHUNGSINH;
-			return new HoSoKhaiSinh(hsdk, ngYeuCau, ngYeuCau_QuanHe, doiTuongKhaiSinh, cha, me,fileChungSinh);
+			return new HoSoKhaiSinh(hsdk, ngYeuCau, ngYeuCau_QuanHe, doiTuongKhaiSinh,noiSinh, cha, me,fileChungSinh);
 		}
 		return null;
 	}

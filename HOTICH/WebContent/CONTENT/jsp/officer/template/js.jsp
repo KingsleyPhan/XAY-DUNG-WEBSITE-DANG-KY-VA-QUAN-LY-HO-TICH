@@ -15,8 +15,6 @@
     <!--  Notifications Plugin    -->
     <script src="${home}CONTENT/template/js/bootstrap-notify.js"></script>
 
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="${home}CONTENT/template/js/paper-dashboard.js"></script>
@@ -32,9 +30,10 @@
 	<script src="${home}CONTENT/plugins/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
 	<script src="${home}CONTENT/plugins/DataTables/Buttons-1.5.4/js/buttons.html5.min.js"></script>
 	
-	<<script type="text/javascript" src="${home}CONTENT/plugins/dist/jquery-confirm.min.js">
+	
+	<script type="text/javascript" src="${home}CONTENT/plugins/dist/jquery-confirm.min.js"></script>
+	<script type="text/javascript" src="${home}CONTENT/plugins/darktooltip/jquery.darktooltip.js"></script>
 <!--
 
 //-->
-</script>
 	

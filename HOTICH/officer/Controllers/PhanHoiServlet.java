@@ -112,9 +112,9 @@ public class PhanHoiServlet extends HttpServlet {
 		
 		int idLoai = Integer.parseInt(session.getAttribute("HSDK_LOAI").toString());
 		
-		int ngKy = 53;
+		int ngKy = Consts.NGUOIDUNG_ID;
 		
-		int coQuan = 1;
+		int coQuan = Consts.COQUAN_ID;
 
 		String feedback = "";
 		try {

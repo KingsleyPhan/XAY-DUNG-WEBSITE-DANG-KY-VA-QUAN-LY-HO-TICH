@@ -1,6 +1,22 @@
 $(document).ready(function() {
-	
+	/*$('#tooltip_KS_HOVATEN').darkTooltip({
+		trigger:'click',
+		animation:'flipIn',
+		gravity:'north',
+		confirm:true,
+		yes:'Sure',
+		no:'No Way',
+	});
+	$('#tooltip_KS_NGAYSINH').darkTooltip({
+		trigger:'click',
+		animation:'flipIn',
+		gravity:'north',
+		confirm:true,
+		yes:'Sure',
+		no:'No Way',
+	});*/
 })
+
 
 function goBack(){
 	window.location = "QuanLyDangKy";
@@ -10,7 +26,10 @@ function submitKiemDuyetKhaiSinh(){
 	var chaError = $("#CHA_ERROR").val();
 	var nycError = $("#NYC_ERROR").val();
 	var meError = $("#ME_ERROR").val();
+	var dinhKemError = $("#DINHKEM_ERROR").val();
+	var ksError = $("#KS_ERROR").val();
 	var haveError = false;
+	
 	var message = "";
 	if (nycError === "Error") {
 		message += "Công dân đã nhập lỗi thông tin người yêu cầu \n Vui lòng phản hồi !!!\n";
@@ -33,7 +52,7 @@ function submitKiemDuyetKhaiSinh(){
 		}
 	}
 	if (chaError !== undefined) {
-		if (meError === "Error") {
+		if (chaError === "Error") {
 			message += "Công dân đã nhập lỗi thông tin người cha \n Vui lòng phản hồi !!!\n";
 			haveError = true;
 		} else {
@@ -42,6 +61,36 @@ function submitKiemDuyetKhaiSinh(){
 				checkCha();
 			}
 		}
+	}
+	if (ksError !== undefined) {
+		if (ksError === "Error") {
+			message += "Công dân đã nhập lỗi thông tin người được khai sinh \n Vui lòng phản hồi !!!\n";
+			haveError = true;
+			haveCheckKS = true;
+		} else {
+			if (ksError === "") {
+				message += "Chưa kiểm duyệt đối tượng khai sinh !!!\n";
+				/*checkKS();*/
+			}
+		}
+	}
+	else{
+		message += "Chưa kiểm duyệt đối tượng khai sinh !!!\n";
+	}
+	if(dinhKemError !== undefined){
+		if(dinhKemError === "Error"){
+			message += "Công dân chưa thêm file đính kèm \n Vui lòng phản hồi !!!\n";
+			haveError = true;
+			haveCheckDK = true;
+		}else{
+			if(dinhKemError === ""){
+				message += "Chưa kiểm duyệt file đính kèm\n";
+				/*checkDinhKem();*/
+			}
+		}
+	}
+	else{
+		message += "Chưa kiểm duyệt file đính kèm\n";
 	}
 	if(message === ""){
 		var error = "";
@@ -54,6 +103,12 @@ function submitKiemDuyetKhaiSinh(){
 		if(meError !== "Completed" && meError !== undefined){
 			error += meError;
 		}
+		if(dinhKemError !== "Completed" && dinhKemError !== undefined){
+			error += dinhKemError;
+		}
+		if(ksError !== "Completed" && ksError !== undefined){
+			error += ksError;
+		}
 		if(error === "" || error == undefined){
 			error = "NoError"
 		}
@@ -63,10 +118,15 @@ function submitKiemDuyetKhaiSinh(){
 	else{
 		console.log(message)
 		alert(message);
-		if(haveError){
-			var temp = "Error";
-			$("#ERROR").val(temp);
-			return true;
+		if (ksError !== undefined && dinhKemError !== undefined){
+			/*Trường hợp : Xảy ra lỗi khi kiểm duyệt*/
+			if(haveError){
+				var temp = "Error";
+				$("#ERROR").val(temp);
+				return true;
+			}
+			/*Trường hợp : chưa kiểm duyệt*/
+			return false;
 		}
 		return false;
 	}
@@ -335,8 +395,24 @@ function checkValue(x,gly,feedback,value){
 	}
 }
 
-function checkDinhKem(){
-	alert("Kiểm duyệt xong");
+function acceptDinhKem(){
+	$("#DINHKEM_ERROR").val("Completed");
+	alert("Kiểm duyệt xong Đính kèm");
+}
+
+function acceptKhaiSinh(){
+	$("#KS_ERROR").val("Completed");
+	alert("Kiểm duyệt xong Đối tượng khai sinh");
+}
+
+function ignoreKhaiSinh(){
+	$("#KS_ERROR").val("Error");
+	alert("Từ chối đối tượng khai sinh");
+}
+
+function ignoreDinhKem(){
+	$("#DINHKEM_ERROR").val("Error");
+	alert("Từ chối dính kèm");
 }
 
 function AddClass(element, name) {
