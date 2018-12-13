@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Consts;
+import DAO.DAO_COQUAN;
 import DAO.DAO_HOSODANGKY;
+import Entities.CoQuanCongQuyen;
 import Entities.HoSo.HoSoDangKy;
 
 /**
@@ -56,7 +58,21 @@ public class TraCuuHoSo extends HttpServlet {
 		  request.setAttribute("Email", HSDK.Email);
 		  request.setAttribute("SoDienThoai",HSDK.SDT );
 		  request.setAttribute("TrangThai",HSDK.TrangThai );
-		  
+		  DAO_COQUAN DCQ = new DAO_COQUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+			
+			CoQuanCongQuyen CQ = new CoQuanCongQuyen();
+			
+			try {
+				CQ = DCQ.Get_CoQuan();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			request.setAttribute("SDTCQ", CQ.getCoQuan_SDT());
+			System.out.println("So Dien Thoai Co Quan: " + CQ.getCoQuan_SDT());
+			request.setAttribute("DCCQ", CQ.getCoQuan_DiaChi());
+			System.out.println("Dia Chi Co Quan: " + CQ.getCoQuan_DiaChi());
 		  
 		  try
 		  {

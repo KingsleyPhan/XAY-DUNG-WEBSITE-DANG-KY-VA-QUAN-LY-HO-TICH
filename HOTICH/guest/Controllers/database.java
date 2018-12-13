@@ -87,7 +87,9 @@ public class database
          		System.out.println(result.getString(1));
          	}
          	*/
-		System.out.println(new SimpleDateFormat("MM-dd-yyyy").format("2012/10/10"));
+		//System.out.println(Consts.ConvertUtilToString(Consts.ConvertSQLtoUtilDate(new )));
+		DAO_DK_KHAISINH DKKS = new DAO_DK_KHAISINH(Consts.ServerUrl, Consts.UserName, Consts.Pass);
+		System.out.println(DKKS.GetMAHOS());
 	}
 	
 	

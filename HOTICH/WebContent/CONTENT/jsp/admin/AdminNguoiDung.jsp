@@ -112,7 +112,7 @@
 											<td><%=count%></td>
 											<td><%=result.getString(1)%></td>
 											<td><%=result.getString(2)%></td>
-											<td><%=result.getString(3)%></td>
+											<td><%=Consts.ConvertUtilToString(Consts.ConvertSQLtoUtilDate(result.getDate(3)))%></td>
 											<td><%=result.getString(4)%></td>
 											<td><%=result.getString(5)%></td>
 											<td><%=result.getString(6)%></td>

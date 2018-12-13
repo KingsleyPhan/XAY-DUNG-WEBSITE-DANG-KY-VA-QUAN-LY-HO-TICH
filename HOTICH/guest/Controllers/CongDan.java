@@ -34,7 +34,8 @@ public class CongDan extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		if(Consts.OpenWebsite)
+		{
 		DAO_COQUAN DCQ = new DAO_COQUAN(Consts.ServerUrl, Consts.UserName, Consts.Pass);
 		
 		CoQuanCongQuyen CQ = new CoQuanCongQuyen();
@@ -53,6 +54,11 @@ public class CongDan extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("CONTENT/jsp/guest/CongDan.jsp");
 		dispatcher.forward(request, response);
+		}
+		else
+		{
+			response.sendRedirect("NotFound");
+		}
 	}
 
 	/**

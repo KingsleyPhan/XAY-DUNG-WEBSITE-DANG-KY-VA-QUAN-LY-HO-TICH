@@ -50,17 +50,20 @@
             </div>
             <div class="row" style="height:240px">
                
-                    <p class="title-tracuu"> TRA CỨU HỒ SƠ ĐĂNG KÝ HỘ TỊCH TRỰC TUYẾN</p>
+                    <p class="title-tracuu">ĐĂNG KÝ HỘ TỊCH TRỰC TUYẾN</p>
                   
                    
                 <div class="Content-TraCuu" style="height:auto">
                     
-                    <p class="title-tracuu" style="color:#004f7e; font-size: 22px;"> KẾT QUẢ TRA CỨU</p>
+                    <p class="title-tracuu" style="color:#004f7e; font-size: 22px;">KẾT QUẢ ĐĂNG KÝ</p>
                   
-                            <p class="display-result" style="color: red;">Không tìm thấy kết quả!!</p><br>
-                      <form action="CongDan/TraCuu.php">
+                        
+                              
+                            <p class="display-result" style="color: red; float: left"><span  style="color:#004f7e; margin-right:10px">Mã hồ sơ:</span>  ${Code}</p><br>
+                             <p class="display-result" style="color:#004f7e;">Công dân lưu giữ mã hồ sơ để thuận tiện cho việc tra cứu hồ sơ</p><br>
+                      <form action="DangNhap.php">
                     <div class="button-Tracuu">
-                        <button type="submit" class="btn btn-primary" style="background-color: #004f7e" onclick="return SearchCoQuan()">Quay lại
+                        <button type="submit" class="btn btn-primary" style="background-color: #004f7e" onclick="return SearchCoQuan()">Quay lại</button>
                     </div>
                     </form>
 

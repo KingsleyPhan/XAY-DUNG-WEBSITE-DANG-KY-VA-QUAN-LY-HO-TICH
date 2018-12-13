@@ -2,6 +2,7 @@ package DAO;
 
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Entities.KhaiSinh.DangKyKhaiSinh;
@@ -138,5 +139,29 @@ public class DAO_DK_KHAISINH extends ConnectDAO
 	 }
 
 	
+	 public String GetMAHOS() throws SQLException
+	 {
+		 String state="";
+		
+		   String sql = "  SELECT HOSO_DANGKY_MA FROM HOSO_DANGKY WHERE HOSO_DANGKY_ID =(Select IDENT_CURRENT('HOSO_DANGKY'))";
+	    			
+     
+		    Connection();
+		    
+		 
+		    PreparedStatement statement = DBConnection.prepareStatement(sql);
+		  
+		 
+		     
+		    ResultSet resultSet = statement.executeQuery();
+		    
+		    while(resultSet.next())
+		      {
+		    	  state = resultSet.getString(1);
+		      	
+		      }
+		    
+		    return state;
+	 }
 
 }
