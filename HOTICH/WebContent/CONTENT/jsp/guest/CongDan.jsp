@@ -90,6 +90,7 @@
             </form>
         </div>
         <div class="col-sm-3">
+         <form action = "PhanHoiCongDan">
              <button class="link-chucnang" type="submit" >
                 <div class="chucnang">
                     <div class="titles">
@@ -100,6 +101,7 @@
 
                 </div>
             </button>
+             </form>
         </div>
     </div>
    

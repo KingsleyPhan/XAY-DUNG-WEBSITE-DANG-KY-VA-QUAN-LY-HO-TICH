@@ -767,4 +767,14 @@ function validateSubmitThemNhanVien() {
 	return false;
 }
 
+
+function validatePhanHoi() {
+	var result = validateHoTen(NYC_EMAIL);
+	result = validateHoTen(NYC_SDT) && result;
+	result = validateNgayCap(NOIDUNG) && result;
+	if (result) {
+		return true;
+	}
+	return false;
+}
        
