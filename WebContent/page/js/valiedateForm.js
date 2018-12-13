@@ -432,3 +432,14 @@ function validateSubmitThemNhanVien() {
 	}
 	return false;
 }
+
+function validateSubmitPhanHoi() {
+	var result = validateHoTen(EmailCongDan);
+	result = validateHoTen(Email_content) && result;
+	if (result) {
+		return true;
+	}
+	return false;
+}
+
+
