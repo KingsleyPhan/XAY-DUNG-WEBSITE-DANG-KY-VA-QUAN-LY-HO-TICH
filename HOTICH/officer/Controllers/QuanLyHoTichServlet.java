@@ -134,12 +134,12 @@ public class QuanLyHoTichServlet extends HttpServlet {
 		try {
 			if (loaiGiay == -1)
 			{
-				listHoTich= hoTichDAO.getAllHoTich(1);
+				listHoTich= hoTichDAO.getAllHoTich(Consts.COQUAN_ID);
 			}
 			else
 			{
 				//Chua xu ly
-				listHoTich= hoTichDAO.getAllHoTich(1);
+				listHoTich= hoTichDAO.getAllHoTich(Consts.COQUAN_ID);
 			}
 			
 			String dataPoints = gsonObj.toJson(listHoTich);

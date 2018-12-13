@@ -80,11 +80,11 @@ public class QuanLyDangKyServlet extends HttpServlet {
 		try {
 			if (loaiGiay == -1)
 			{
-				listHSDK = hoSoDangKyDAO.getAllHSDK(1);
+				listHSDK = hoSoDangKyDAO.getAllHSDK(Consts.COQUAN_ID);
 			}
 			else
 			{
-				listHSDK = hoSoDangKyDAO.getAllHSDK(1);
+				listHSDK = hoSoDangKyDAO.getAllHSDK(Consts.COQUAN_ID);
 			}
 			String dataPoints = gsonObj.toJson(listHSDK);
 			

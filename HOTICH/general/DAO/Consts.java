@@ -35,7 +35,9 @@ public class Consts {
 	
 	public static String pass = "xoeihcpioupannzz";
 	
-	public static String urlImage = "E:\\Workspace\\HOTICH\\XAY-DUNG-WEBSITE-DANG-KY-VA-QUAN-LY-HO-TICH\\HOTICH\\WebContent\\CONTENT\\image\\";
+//	public static String urlImage = "E:\\Workspace\\HOTICH\\XAY-DUNG-WEBSITE-DANG-KY-VA-QUAN-LY-HO-TICH\\HOTICH\\WebContent\\CONTENT\\image\\";
+	
+	public static String urlImage = "D:/0.DATA/18_19/HK1/Lap_Trinh_Web/DoAnLTW/XAY-DUNG-WEBSITE-DANG-KY-VA-QUAN-LY-HO-TICH/HOTICH/WebContent/CONTENT/image/";
 	
 	public static void removeSession(HttpSession session) {
 		session.removeAttribute("message");
