@@ -67,7 +67,7 @@
 	            	</c:otherwise>
 	            </c:choose>
                 
-                <li>
+                <!-- <li>
                     <a href="typography.html">
                         <i class="ti-user"></i>
                         <p>NGƯỜI DÙNG</p>
@@ -90,7 +90,7 @@
                         <i class="ti-export"></i>
                         <p>Upgrade to PRO</p>
                     </a>
-                </li>
+                </li> -->
             </ul>
     	</div>
     </div>

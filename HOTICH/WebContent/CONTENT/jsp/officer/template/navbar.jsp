@@ -9,7 +9,7 @@
                 </div>
                 <div class="navbar">
                     <ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
+						<!-- <li class="dropdown">
 							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
 								<i class="ti-bell"></i>
                                 <p class="notification">5</p>
@@ -31,7 +31,7 @@
 								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
 								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
-						</li>
+						</li> -->
                     </ul>
 
                 </div>
