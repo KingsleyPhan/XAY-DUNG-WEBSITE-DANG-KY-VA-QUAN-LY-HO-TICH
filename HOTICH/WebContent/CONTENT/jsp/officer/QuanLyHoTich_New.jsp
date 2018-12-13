@@ -104,7 +104,7 @@
       	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Giấy hộ tịch</h5>
       </div>
       <div class="modal-body" style="text-align: center;">
       <img id="giayHoTich" alt="Lỗi" height="990px" width="700px">
@@ -130,14 +130,15 @@
 	<script type="text/javascript">
     	$(document).ready(function(){
 
-        	$.notify({
-            	icon: 'ti-gift',
-            	message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+        	$.notify(
+					{
+						icon : 'ti-bookmark-alt',
+						message : "Chào mừng đến với <b>HOTICH.NET</b> - Hệ thống quản lý hộ tịch."
 
-            },{
-                type: 'success',
-                timer: 4000
-            });
+					}, {
+						type : 'info',
+						timer : 4000
+					});
 
     	});
 	</script>

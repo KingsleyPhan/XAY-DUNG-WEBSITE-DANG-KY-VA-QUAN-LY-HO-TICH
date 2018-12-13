@@ -42,8 +42,8 @@ public class SendMail {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(user));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-			message.setSubject(sub);
-			message.setText(msg);
+			message.setSubject(sub, "UTF-8");
+			message.setText(msg, "UTF-8");
 
 			/* Transport class is used to deliver the message to the recipients */
 

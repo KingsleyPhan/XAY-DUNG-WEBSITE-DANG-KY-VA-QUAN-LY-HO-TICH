@@ -65,14 +65,15 @@
 	<script src="./CONTENT/js/officer/ThongKe.js"></script>
 	<script type="text/javascript">
     	$(document).ready(function(){
-        	$.notify({
-            	icon: 'ti-gift',
-            	message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+        	$.notify(
+					{
+						icon : 'ti-bookmark-alt',
+						message : "Chào mừng đến với <b>HOTICH.NET</b> - Hệ thống quản lý hộ tịch."
 
-            },{
-                type: 'success',
-                timer: 4000
-            });
+					}, {
+						type : 'info',
+						timer : 4000
+					});
 
     	});
 	</script>

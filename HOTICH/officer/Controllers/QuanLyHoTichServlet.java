@@ -78,11 +78,9 @@ public class QuanLyHoTichServlet extends HttpServlet {
 		BufferedImage image = (BufferedImage) context.getAttribute("image");
 		
 		if(fileName != "" && image!=null) {
-			context.setAttribute("fileName", "");
-			context.setAttribute("image", null);
 			
-			File outputfile = new File(fileName);
-			ImageIO.write(image, "png", outputfile);
+			File outputfile = new File(Consts.urlImage + fileName);
+			ImageIO.write(image, "png",outputfile);
 			
 			String mimeType = context.getMimeType(fileName);
 			response.setContentType(mimeType != null? mimeType:"application/octet-stream");

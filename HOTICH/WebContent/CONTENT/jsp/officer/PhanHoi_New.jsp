@@ -39,7 +39,7 @@
 										</c:otherwise>
 									</c:choose>
 								</c:if>	
-								<form action="${home }PhanHoi" method="POST" onSubmit="return confirm('Do you really want to submit the form?');">
+								<form action="${home }PhanHoi" method="POST" onSubmit="return confirm('Xác nhận phản hồi công dân?');">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -99,11 +99,11 @@
 							$
 									.notify(
 											{
-												icon : 'ti-gift',
-												message : "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+												icon : 'ti-bookmark-alt',
+												message : "Chào mừng đến với <b>HOTICH.NET</b> - Hệ thống quản lý hộ tịch."
 
 											}, {
-												type : 'success',
+												type : 'info',
 												timer : 4000
 											});
 
